@@ -1,0 +1,3 @@
+../app_core/tools/uart/stm32_uart_container.c:16:6:initUartsContainer	8	static
+../app_core/tools/uart/stm32_uart_container.c:22:25:getContainerUartInstance	24	static
+../app_core/tools/uart/stm32_uart_container.c:38:10:pushContainerUartInstance	16	static

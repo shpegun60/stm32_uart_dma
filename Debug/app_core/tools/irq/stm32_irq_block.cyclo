@@ -1,0 +1,2 @@
+../app_core/tools/irq/stm32_irq_block.c:53:6:IRQ_UNLOCK	2
+../app_core/tools/irq/stm32_irq_block.c:72:6:IRQ_LOCK	1

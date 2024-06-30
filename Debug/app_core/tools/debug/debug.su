@@ -1,0 +1,2 @@
+../app_core/tools/debug/debug.c:68:10:Debug_GetStackUsage	24	static
+../app_core/tools/debug/debug.c:87:6:Debug_ResetStackUsage	16	static,ignoring_inline_asm
