@@ -1,4 +1,4 @@
-# Borrowed from:
+# Borrowed from (ONLY UART MODULE):
 https://github.com/Broadcom/AFBR-S50-API <-- original AFBR-S50-API lib (this piece of code is taken from there)
 
 - Rewritten and made for a convenient library
