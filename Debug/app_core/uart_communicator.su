@@ -1,0 +1,8 @@
+../app_core/uart_communicator.c:17:13:uart_rx_callback	64	static
+../app_core/uart_communicator.c:23:13:uart_tx_callback	24	static
+../app_core/uart_communicator.c:28:13:uart_error_callback	24	static
+../app_core/uart_communicator.c:36:10:init_communicator	32	static
+../app_core/uart_communicator.c:63:6:proceed_communicator	40	static
+../app_core/uart_communicator.c:82:6:HAL_UART_TxCpltCallback	24	static
+../app_core/uart_communicator.c:90:6:HAL_UART_RxCpltCallback	24	static
+../app_core/uart_communicator.c:98:6:HAL_UART_ErrorCallback	24	static

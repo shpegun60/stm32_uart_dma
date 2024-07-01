@@ -1,11 +1,3 @@
 ../app_core/tools/timer/TimingManager.h:28:17:bool TimingManager::isExpired() const	16	static
 ../app_core/tools/timer/TimingManager.h:32:17:void TimingManager::start(uint32_t)	16	static
-../app_core/app_core.cpp:15:25:stm32_DMA_uart_t* const getUartInstance()	8	static
-../app_core/app_core.cpp:23:6:void uart_rx_callback(const uint8_t*, uint32_t, void*)	24	static
-../app_core/app_core.cpp:28:6:void uart_tx_callback(status_t, void*)	16	static
-../app_core/app_core.cpp:33:6:void uart_error_callback(status_t, void*)	16	static
-../app_core/app_core.cpp:39:6:void HAL_UART_TxCpltCallback(UART_HandleTypeDef*)	24	static
-../app_core/app_core.cpp:52:6:void HAL_UART_RxCpltCallback(UART_HandleTypeDef*)	24	static
-../app_core/app_core.cpp:66:6:void HAL_UART_ErrorCallback(UART_HandleTypeDef*)	24	static
-../app_core/app_core.cpp:81:6:void initUart()	16	static
-../app_core/app_core.cpp:92:6:void app_main()	32	static
+../app_core/app_core.cpp:16:6:void app_main()	928	static

@@ -1,0 +1,3 @@
+
+/* RawParser_dma */
+STATIC_FORCEINLINE void RawParser_dma_receiveByte(RawParser_dma_t* const self, const u8 byte);

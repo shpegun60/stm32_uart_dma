@@ -23,7 +23,8 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 /* USER CODE END Includes */
-#include "app_core.h"
+#include "tools/uart/stm32_uart.h"
+#include "tools/uart/stm32_uart_container.h"
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN TD */
 
@@ -240,8 +241,11 @@ void USART1_IRQHandler(void)
   HAL_UART_IRQHandler(&huart1);
   /* USER CODE BEGIN USART1_IRQn 1 */
 
-  stm32_DMA_uart_t* const uart_instance = getUartInstance();
-  USER_UART_IRQHandler(uart_instance);
+  stm32_DMA_uart_t* const uart_instance = getContainerUartInstance(&huart1);
+  if(uart_instance) {
+	  USER_UART_IRQHandler(uart_instance);
+  }
+
 
   /* USER CODE END USART1_IRQn 1 */
 }

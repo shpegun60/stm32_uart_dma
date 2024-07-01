@@ -12,11 +12,7 @@
 extern "C" {
 #endif
 
-#include "tools/uart/stm32_uart.h"
-
-
 void app_main(void);
-stm32_DMA_uart_t* const getUartInstance();
 
 #ifdef __cplusplus
 }

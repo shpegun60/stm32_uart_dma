@@ -16,6 +16,23 @@ RM := rm -rf
 -include app_core/tools/debug/printf/subdir.mk
 -include app_core/tools/debug/subdir.mk
 -include app_core/tools/adc/subdir.mk
+-include app_core/stm32_printf/subdir.mk
+-include app_core/chaos_sdk/ringbuf/subdir.mk
+-include app_core/chaos_sdk/raw_parser/raw_parser_it/subdir.mk
+-include app_core/chaos_sdk/raw_parser/raw_parser_general/subdir.mk
+-include app_core/chaos_sdk/raw_parser/raw_parser_dma/subdir.mk
+-include app_core/chaos_sdk/raw_parser/subdir.mk
+-include app_core/chaos_sdk/preprocessor/subdir.mk
+-include app_core/chaos_sdk/pool_container/subdir.mk
+-include app_core/chaos_sdk/my_ctype/runtime_cast/subdir.mk
+-include app_core/chaos_sdk/my_ctype/subdir.mk
+-include app_core/chaos_sdk/hash/subdir.mk
+-include app_core/chaos_sdk/crc/subdir.mk
+-include app_core/chaos_sdk/convert/subdir.mk
+-include app_core/chaos_sdk/callback_manager/subdir.mk
+-include app_core/chaos_sdk/callback_container/subdir.mk
+-include app_core/chaos_sdk/byte_order/subdir.mk
+-include app_core/chaos_sdk/assertsEngine/subdir.mk
 -include app_core/subdir.mk
 -include Drivers/STM32F1xx_HAL_Driver/Src/subdir.mk
 -include Core/Startup/subdir.mk
@@ -93,7 +110,7 @@ main-build: BluePill_generic_test.elf secondary-outputs
 
 # Tool invocations
 BluePill_generic_test.elf BluePill_generic_test.map: $(OBJS) $(USER_OBJS) C:\Users\admin\Documents\Work\STM32\TEST\BluePill_generic_test\STM32F103CBTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-g++ -o "BluePill_generic_test.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\admin\Documents\Work\STM32\TEST\BluePill_generic_test\STM32F103CBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BluePill_generic_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+	arm-none-eabi-g++ -o "BluePill_generic_test.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\admin\Documents\Work\STM32\TEST\BluePill_generic_test\STM32F103CBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BluePill_generic_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
