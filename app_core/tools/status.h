@@ -67,7 +67,7 @@ extern "C" {
  *           - positive values determine warnings or status information.
  *           .
  *****************************************************************************/
-typedef int32_t status_t;
+typedef int8_t status_t;
 
 /*! API status and error return codes. */
 enum Status

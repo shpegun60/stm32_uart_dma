@@ -48,14 +48,14 @@
 /* CREATE/DELETE FUNCTIONS *************************************************************************************************
  *
  */
-RawParser_dma_t* rawParser_dma_new(const u8 packStart)
+RawParser_dma_t* const rawParser_dma_new(const u8 packStart)
 {
 #ifdef D_RAW_P_TWO_BYTES_LEN_SUPPORT
-	M_Assert_BreakSaveCheck(packStart == RECEIVE_EXTENDED_LEN_CMD, M_EMPTY, return (RawParser_dma_t*)NULL, "rawParser_dma_new: start byte: %d must be not equal RECEIVE_EXTENDED_LEN_CMD: %d", packStart, RECEIVE_EXTENDED_LEN_CMD);
+	M_Assert_BreakSaveCheck(packStart == RECEIVE_EXTENDED_LEN_CMD, M_EMPTY, return (RawParser_dma_t*)NULL, "start byte: %d must be not equal RECEIVE_EXTENDED_LEN_CMD: %d", packStart, RECEIVE_EXTENDED_LEN_CMD);
 #endif /* D_RAW_P_TWO_BYTES_LEN_SUPPORT */
 
 	RawParser_dma_t* self = (RawParser_dma_t *)calloc(1, sizeof(RawParser_dma_t));
-	M_Assert_BreakSaveCheck(self == (RawParser_dma_t *)NULL, M_EMPTY, return self, "rawParser_dma_new: No memory for allocation ");
+	M_Assert_BreakSaveCheck(self == (RawParser_dma_t *)NULL, M_EMPTY, return self, "No memory for allocation ");
 
 	if(rawParser_dma_init(self, packStart) == D_RAW_P_ERROR) {
 		free(self);
@@ -64,13 +64,13 @@ RawParser_dma_t* rawParser_dma_new(const u8 packStart)
 	return self;
 }
 
-int rawParser_dma_init(RawParser_dma_t * const self, const u8 packStart)
+u8 rawParser_dma_init(RawParser_dma_t * const self, const u8 packStart)
 {
 #ifdef D_RAW_P_TWO_BYTES_LEN_SUPPORT
-	M_Assert_BreakSaveCheck(packStart == RECEIVE_EXTENDED_LEN_CMD, M_EMPTY, return D_RAW_P_ERROR, "rawParser_dma_init: start byte: %d must be not equal RECEIVE_EXTENDED_LEN_CMD: %d", packStart, RECEIVE_EXTENDED_LEN_CMD);
+	M_Assert_BreakSaveCheck(packStart == RECEIVE_EXTENDED_LEN_CMD, M_EMPTY, return D_RAW_P_ERROR, "start byte: %d must be not equal RECEIVE_EXTENDED_LEN_CMD: %d", packStart, RECEIVE_EXTENDED_LEN_CMD);
 #endif /* D_RAW_P_TWO_BYTES_LEN_SUPPORT */
 
-	M_Assert_BreakSaveCheck(self == (RawParser_dma_t *)NULL, M_EMPTY, return D_RAW_P_ERROR, "rawParser_dma_init: No input data valid ");
+	M_Assert_BreakSaveCheck(self == (RawParser_dma_t *)NULL, M_EMPTY, return D_RAW_P_ERROR, "No input data valid ");
 
 	self->m_startByte = packStart;
 	self->m_receivePackLen = 0;
@@ -124,8 +124,8 @@ int rawParser_dma_init(RawParser_dma_t * const self, const u8 packStart)
 #ifdef D_RAW_P_DISABLE_INTERNAL_TX_BUFFER
 void rawParser_dma_setUserBufferTX(RawParser_dma_t * const self, u8 * const txBuffer)
 {
-	M_Assert_Break((self == (RawParser_dma_t*)NULL), M_EMPTY, return, "rawParser_dma_setUserBuffer: No valid input object");
-	M_Assert_Break((txBuffer == NULL), M_EMPTY, return, "rawParser_dma_setUserBuffer: No valid input TX buffer");
+	M_Assert_Break((self == (RawParser_dma_t*)NULL), M_EMPTY, return, "No valid input object");
+	M_Assert_Break((txBuffer == NULL), M_EMPTY, return, "No valid input TX buffer");
 
 	self->TX.data = txBuffer;
 	self->TX.size = 0;
@@ -135,8 +135,8 @@ void rawParser_dma_setUserBufferTX(RawParser_dma_t * const self, u8 * const txBu
 #ifdef D_RAW_P_DISABLE_INTERNAL_RX_BUFFER
 void rawParser_dma_setUserBufferRX(RawParser_dma_t * const self, u8 * const rxBuffer)
 {
-	M_Assert_Break((self == (RawParser_dma_t*)NULL), M_EMPTY, return, "rawParser_dma_setUserBuffer: No valid input object");
-	M_Assert_Break((rxBuffer == NULL), M_EMPTY, return, "rawParser_dma_setUserBuffer: No valid input RX buffer");
+	M_Assert_Break((self == (RawParser_dma_t*)NULL), M_EMPTY, return, "No valid input object");
+	M_Assert_Break((rxBuffer == NULL), M_EMPTY, return, "No valid input RX buffer");
 
 	self->RX.data = rxBuffer;
 	self->RX.size = 0;
@@ -146,8 +146,8 @@ void rawParser_dma_setUserBufferRX(RawParser_dma_t * const self, u8 * const rxBu
 #if defined(D_RAW_P_DISABLE_INTERNAL_TX_BUFFER) && defined(D_RAW_P_DISABLE_INTERNAL_RX_BUFFER)
 void rawParser_dma_setUserBuffers(RawParser_dma_t * const self, u8 * const rxBuffer, u8 * const txBuffer)
 {
-	M_Assert_Break((self == (RawParser_dma_t*)NULL), M_EMPTY, return, "rawParser_dma_setUserBuffer: No valid input object");
-	M_Assert_Break((rxBuffer == NULL || txBuffer == NULL), M_EMPTY, return, "rawParser_dma_setUserBuffer: No valid input buffers");
+	M_Assert_Break((self == (RawParser_dma_t*)NULL), M_EMPTY, return, "No valid input object");
+	M_Assert_Break((rxBuffer == NULL || txBuffer == NULL), M_EMPTY, return, "No valid input buffers");
 
 	self->TX.data = txBuffer;
 	self->TX.size = 0;
@@ -157,9 +157,9 @@ void rawParser_dma_setUserBuffers(RawParser_dma_t * const self, u8 * const rxBuf
 }
 #endif /* defined(D_RAW_P_DISABLE_INTERNAL_TX_BUFFER) || defined(D_RAW_P_DISABLE_INTERNAL_RX_BUFFER) */
 
-int rawParser_dma_delete(RawParser_dma_t** data)
+u8 rawParser_dma_delete(RawParser_dma_t** data)
 {
-	M_Assert_BreakSaveCheck((data == NULL) || (*data == NULL), M_EMPTY, return D_RAW_P_ERROR, "rawParser_dma_delete: No allocated memory");
+	M_Assert_BreakSaveCheck((data == NULL) || (*data == NULL), M_EMPTY, return D_RAW_P_ERROR, "No allocated memory");
 	free(*data);
 	*data = NULL;
 
@@ -176,7 +176,7 @@ static void RawParser_dma_proceedByte(RawParser_dma_t* const self, const u8 ch, 
 	if (newFrame) {
 
 #ifdef D_RAW_P_CRC_ENA
-		//M_Assert_Warning(self->receiveState < RAW_P_DMA_RECEIVE_CRC_0 , M_EMPTY, M_EMPTY, "RawParser_dma_proceedByte: last packet error!!!");
+		//M_Assert_Warning(self->receiveState < RAW_P_DMA_RECEIVE_CRC_0 , M_EMPTY, M_EMPTY, "last packet error!!!");
 
 		self->m_receiveCalcCRC = D_RAW_P_CRC_INIT;
 		D_RAW_P_CRC_START(self->m_receiveCalcCRC);
@@ -206,7 +206,7 @@ static void RawParser_dma_proceedByte(RawParser_dma_t* const self, const u8 ch, 
 
 			M_Assert_WarningSaveCheck((rx_len > D_RAW_P_RX_BUF_SIZE || rx_len == 0), M_EMPTY, {
 					self->receiveState = RAW_P_DMA_RECEIVE_ERR;
-			}, "RawParser_dma_proceedByte: No valid receive length, rx_len = %d, max_len = %d", rx_len, D_RAW_P_RX_BUF_SIZE);
+			}, "No valid receive length, rx_len = %d, max_len = %d", rx_len, D_RAW_P_RX_BUF_SIZE);
 
 #ifdef D_RAW_P_TWO_BYTES_LEN_SUPPORT
 		}
@@ -238,12 +238,12 @@ static void RawParser_dma_proceedByte(RawParser_dma_t* const self, const u8 ch, 
 		self->receiveState = RAW_P_DMA_RECEIVE_DATA;
 		M_Assert_WarningSaveCheck((rx_len > D_RAW_P_RX_BUF_SIZE || rx_len == 0), M_EMPTY, {
 				self->receiveState = RAW_P_DMA_RECEIVE_ERR;
-		}, "RawParser_dma_proceedByte: No valid receive length, rx_len = %d, max_len = %d", rx_len, D_RAW_P_RX_BUF_SIZE);
+		}, "No valid receive length, rx_len = %d, max_len = %d", rx_len, D_RAW_P_RX_BUF_SIZE);
 
 #ifdef D_RAW_P_REED_SOLOMON_ECC_CORR_ENA
 		M_Assert_WarningSaveCheck((rx_len < (RSCODE_NPAR + 1U)), M_EMPTY, {
 				self->receiveState = RAW_P_DMA_RECEIVE_ERR;
-		}, "RawParser_dma_proceedByte: not compleate len with ECC RS-code, len need: %d, receive: %d", (RSCODE_NPAR + 1U), rx_len);
+		}, "not compleate len with ECC RS-code, len need: %d, receive: %d", (RSCODE_NPAR + 1U), rx_len);
 #endif /* D_RAW_P_REED_SOLOMON_ECC_CORR_ENA */
 
 		break;}
@@ -284,7 +284,7 @@ static void RawParser_dma_proceedByte(RawParser_dma_t* const self, const u8 ch, 
 			self->RX.size = self->m_receivePackLen;
 			self->receiveState = RAW_P_DMA_RECEIVE_OK;
 		} else {
-			M_Assert_Warning(M_ALWAYS, M_EMPTY, M_EMPTY, "RawParser_dma_proceedByte: Receive CRC8 error, rx_crc: %d, calc_crc: %d", ch, self->m_receiveCalcCRC);
+			M_Assert_Warning(M_ALWAYS, M_EMPTY, M_EMPTY, "Receive CRC8 error, rx_crc: %d, calc_crc: %d", ch, self->m_receiveCalcCRC);
 			self->receiveState = RAW_P_DMA_RECEIVE_ERR;
 		}
 
@@ -311,7 +311,7 @@ static void RawParser_dma_proceedByte(RawParser_dma_t* const self, const u8 ch, 
 			self->RX.size = self->m_receivePackLen;
 			self->receiveState = RAW_P_DMA_RECEIVE_OK;
 		} else {
-			M_Assert_Warning(M_ALWAYS, M_EMPTY, M_EMPTY, "RawParser_dma_proceedByte: Receive CRC16 error, rx_crc: %d, calc_crc: %d", RX_crc, self->m_receiveCalcCRC);
+			M_Assert_Warning(M_ALWAYS, M_EMPTY, M_EMPTY, "Receive CRC16 error, rx_crc: %d, calc_crc: %d", RX_crc, self->m_receiveCalcCRC);
 			self->receiveState = RAW_P_DMA_RECEIVE_ERR;
 		}
 
@@ -344,7 +344,7 @@ static void RawParser_dma_proceedByte(RawParser_dma_t* const self, const u8 ch, 
 			self->RX.size = self->m_receivePackLen;
 			self->receiveState = RAW_P_DMA_RECEIVE_OK;
 		} else {
-			M_Assert_Warning(M_ALWAYS, M_EMPTY, M_EMPTY, "RawParser_dma_proceedByte: Receive CRC32 error, rx data: %d, crc calc:%d", RX_crc, self->m_receiveCalcCRC);
+			M_Assert_Warning(M_ALWAYS, M_EMPTY, M_EMPTY, "Receive CRC32 error, rx data: %d, crc calc:%d", RX_crc, self->m_receiveCalcCRC);
 			self->receiveState = RAW_P_DMA_RECEIVE_ERR;
 		}
 #       elif defined(D_RAW_P_USE_CRC64)
@@ -379,7 +379,7 @@ static void RawParser_dma_proceedByte(RawParser_dma_t* const self, const u8 ch, 
 			self->RX.size = self->m_receivePackLen;
 			self->receiveState = RAW_P_DMA_RECEIVE_OK;
 		} else {
-			M_Assert_Warning(M_ALWAYS, M_EMPTY, M_EMPTY, "RawParser_dma_proceedByte: Receive CRC64 error, rx data: %d, crc calc:%d", RX_crc, self->m_receiveCalcCRC);
+			M_Assert_Warning(M_ALWAYS, M_EMPTY, M_EMPTY, "Receive CRC64 error, rx data: %d, crc calc:%d", RX_crc, self->m_receiveCalcCRC);
 			self->receiveState = RAW_P_DMA_RECEIVE_ERR;
 		}
 		break;}
@@ -389,11 +389,11 @@ static void RawParser_dma_proceedByte(RawParser_dma_t* const self, const u8 ch, 
 
 
 	case RAW_P_DMA_RECEIVE_ERR:
-		M_Assert_Warning(M_ALWAYS, M_EMPTY, M_EMPTY, "RawParser_dma_proceedByte: Receive error, byte: %d, rx_len: %d, max_rxlen: %d", ch, self->m_receivePackLen, D_RAW_P_RX_BUF_SIZE);
+		M_Assert_Warning(M_ALWAYS, M_EMPTY, M_EMPTY, "Receive error, byte: %d, rx_len: %d, max_rxlen: %d", ch, self->m_receivePackLen, D_RAW_P_RX_BUF_SIZE);
 		break;
 
 	case RAW_P_DMA_RECEIVE_OK:
-		M_Assert_Warning(M_ALWAYS, M_EMPTY, M_EMPTY, "RawParser_dma_proceedByte: LAST Received OK, byte: %d is not received because no SB", ch);
+		M_Assert_Warning(M_ALWAYS, M_EMPTY, M_EMPTY, "LAST Received OK, byte: %d is not received because no SB", ch);
 		break;
 
 	default:
@@ -405,18 +405,18 @@ static void RawParser_dma_proceedByte(RawParser_dma_t* const self, const u8 ch, 
 
 RawParser_Frame_t* RawParser_dma_proceed(RawParser_dma_t* const self)
 {
-	M_Assert_Break((self == (RawParser_dma_t*)NULL), M_EMPTY, return (RawParser_Frame_t*)NULL, "RawParser_dma_proceed: No valid input");
+	M_Assert_Break((self == (RawParser_dma_t*)NULL), M_EMPTY, return (RawParser_Frame_t*)NULL, "No valid input");
 
 #ifdef D_RAW_P_DISABLE_INTERNAL_RX_BUFFER
-	M_Assert_Break((self->RX.data == NULL), M_EMPTY, return (RawParser_Frame_t*)NULL, "RawParser_dma_proceed: No valid RX buffer, call function before: -->  rawParser_dma_setUserBufferXX, XX = RX for rx buffer, XX = TX for tx buffer, XX = s for tx & rx buffers");
+	M_Assert_Break((self->RX.data == NULL), M_EMPTY, return (RawParser_Frame_t*)NULL, "No valid RX buffer, call function before: -->  rawParser_dma_setUserBufferXX, XX = RX for rx buffer, XX = TX for tx buffer, XX = s for tx & rx buffers");
 #endif /* D_RAW_P_DISABLE_INTERNAL_RX_BUFFER */
 
 #ifdef D_RAW_P_DISABLE_INTERNAL_TX_BUFFER
-	M_Assert_Break((self->TX.data == NULL), M_EMPTY, return (RawParser_Frame_t*)NULL, "RawParser_dma_proceed: No valid TX buffer, call function before: -->  rawParser_dma_setUserBufferXX, XX = RX for rx buffer, XX = TX for tx buffer, XX = s for tx & rx buffers");
+	M_Assert_Break((self->TX.data == NULL), M_EMPTY, return (RawParser_Frame_t*)NULL, "No valid TX buffer, call function before: -->  rawParser_dma_setUserBufferXX, XX = RX for rx buffer, XX = TX for tx buffer, XX = s for tx & rx buffers");
 #endif /* D_RAW_P_DISABLE_INTERNAL_TX_BUFFER */
 
 	const   reg   receivePos_saved    = self->m_receivePos        & (D_RAW_P_RX_BUF_SIZE - 1U);
-	reg   receiveReadPos      = self->m_receiveReadPos    & (D_RAW_P_RX_BUF_SIZE - 1U);
+	reg   receiveReadPos      = self->m_receiveReadPos;//    & (D_RAW_P_RX_BUF_SIZE - 1U);
 	self->RX.size = 0;
 
 	//    if(receivePos_saved == receiveReadPos) { // may be needed
@@ -456,14 +456,14 @@ RawParser_Frame_t* RawParser_dma_proceed(RawParser_dma_t* const self)
 // elementary byte adding functions ----------------------------------------------------------------------------
 static inline int RawParser_dma_addTxByte(RawParser_dma_t* const self, const u8 byte)
 {
-	M_Assert_Break((self == (RawParser_dma_t*)NULL), M_EMPTY, return D_RAW_P_ERROR, "RawParser_dma_addTxByte: No valid input");
+	M_Assert_Break((self == (RawParser_dma_t*)NULL), M_EMPTY, return D_RAW_P_ERROR, "No valid input");
 
 #ifdef D_RAW_P_DISABLE_INTERNAL_RX_BUFFER
-	M_Assert_Break((self->RX.data == NULL), M_EMPTY, return D_RAW_P_ERROR, "RawParser_dma_addTxByte: No valid RX buffer, call function before: -->  rawParser_dma_setUserBufferXX, XX = RX for rx buffer, XX = TX for tx buffer, XX = s for tx & rx buffers");
+	M_Assert_Break((self->RX.data == NULL), M_EMPTY, return D_RAW_P_ERROR, "No valid RX buffer, call function before: -->  rawParser_dma_setUserBufferXX, XX = RX for rx buffer, XX = TX for tx buffer, XX = s for tx & rx buffers");
 #endif /* D_RAW_P_DISABLE_INTERNAL_RX_BUFFER */
 
 #ifdef D_RAW_P_DISABLE_INTERNAL_TX_BUFFER
-	M_Assert_Break((self->TX.data == NULL), M_EMPTY, return D_RAW_P_ERROR, "RawParser_dma_addTxByte: No valid TX buffer, call function before: -->  rawParser_dma_setUserBufferXX, XX = RX for rx buffer, XX = TX for tx buffer, XX = s for tx & rx buffers");
+	M_Assert_Break((self->TX.data == NULL), M_EMPTY, return D_RAW_P_ERROR, "No valid TX buffer, call function before: -->  rawParser_dma_setUserBufferXX, XX = RX for rx buffer, XX = TX for tx buffer, XX = s for tx & rx buffers");
 #endif /* D_RAW_P_DISABLE_INTERNAL_TX_BUFFER */
 
 	// move to cash
@@ -471,12 +471,12 @@ static inline int RawParser_dma_addTxByte(RawParser_dma_t* const self, const u8 
 	reg         TX_size   	= self->TX.size;
 	const u8 startByte_reg 	= self->m_startByte;
 
-	M_Assert_BreakSaveCheck(TX_size == (D_RAW_P_CHECK_LEN - 1), M_EMPTY, return D_RAW_P_ERROR, "RawParser_dma_addTxByte: LEN packet: %d,  more than more than protocol maximum len: %d", TX_size + 1, D_RAW_P_CHECK_LEN - 1);
+	M_Assert_BreakSaveCheck(TX_size == (D_RAW_P_CHECK_LEN - 1), M_EMPTY, return D_RAW_P_ERROR, "LEN packet: %d,  more than more than protocol maximum len: %d", TX_size + 1, D_RAW_P_CHECK_LEN - 1);
 
 	TX_data[TX_size++] = byte;
 
 	if(byte == startByte_reg) {
-		M_Assert_BreakSaveCheck((TX_size == (D_RAW_P_CHECK_LEN - 1)), M_EMPTY, return D_RAW_P_ERROR, "RawParser_dma_addTxByte: LEN packet: %d,  more than more than protocol maximum len: %d", TX_size + 1, D_RAW_P_CHECK_LEN - 1);
+		M_Assert_BreakSaveCheck((TX_size == (D_RAW_P_CHECK_LEN - 1)), M_EMPTY, return D_RAW_P_ERROR, "LEN packet: %d,  more than more than protocol maximum len: %d", TX_size + 1, D_RAW_P_CHECK_LEN - 1);
 		TX_data[TX_size++] = byte;
 	}
 
@@ -487,10 +487,10 @@ static inline int RawParser_dma_addTxByte(RawParser_dma_t* const self, const u8 
 // slow shield functions (slow & more copy)-----------------------------------------------------------------------------------------
 RawParser_Frame_t* RawParser_dma_shieldFrame(RawParser_dma_t* const self, const u8* data, reg len)
 {
-	M_Assert_Break((self == (RawParser_dma_t*)NULL), M_EMPTY, return (RawParser_Frame_t*)NULL, "RawParser_dma_shieldFrame: No valid input");
+	M_Assert_Break((self == (RawParser_dma_t*)NULL), M_EMPTY, return (RawParser_Frame_t*)NULL, "No valid input");
 	M_Assert_Break((data == (u8*)NULL) || len == 0, M_EMPTY, {
 			goto error;
-	}, "RawParser_dma_shieldFrame: No valid input");
+	}, "No valid input");
 
 	if(RawParser_dma_startTransmittPacket(self, len) != D_RAW_P_OK) {
 		goto error;
@@ -527,23 +527,23 @@ RawParser_Frame_t* RawParser_dma_shieldFrame(RawParser_dma_t* const self, const 
 }
 
 // fast shield functions (no copy)-----------------------------------------------------------------------------------------
-int RawParser_dma_startTransmittPacket(RawParser_dma_t* const self, reg predictedLen)
+u8 RawParser_dma_startTransmittPacket(RawParser_dma_t* const self, reg predictedLen)
 {
-	M_Assert_Break(self == (RawParser_dma_t*)NULL, M_EMPTY, return D_RAW_P_ERROR, "RawParser_dma_startTransmittPacket: No valid input");
+	M_Assert_Break(self == (RawParser_dma_t*)NULL, M_EMPTY, return D_RAW_P_ERROR, "No valid input");
 
 #ifdef D_RAW_P_DISABLE_INTERNAL_RX_BUFFER
-	M_Assert_Break(self->RX.data == NULL, M_EMPTY, return D_RAW_P_ERROR, "RawParser_dma_startTransmittPacket: No valid RX buffer, call function before: -->  rawParser_dma_setUserBufferXX, XX = RX for rx buffer, XX = TX for tx buffer, XX = s for tx & rx buffers");
+	M_Assert_Break(self->RX.data == NULL, M_EMPTY, return D_RAW_P_ERROR, "No valid RX buffer, call function before: -->  rawParser_dma_setUserBufferXX, XX = RX for rx buffer, XX = TX for tx buffer, XX = s for tx & rx buffers");
 #endif /* D_RAW_P_DISABLE_INTERNAL_RX_BUFFER */
 
 #ifdef D_RAW_P_DISABLE_INTERNAL_TX_BUFFER
-	M_Assert_Break(self->TX.data == NULL, M_EMPTY, return D_RAW_P_ERROR, "RawParser_dma_startTransmittPacket: No valid TX buffer, call function before: -->  rawParser_dma_setUserBufferXX, XX = RX for rx buffer, XX = TX for tx buffer, XX = s for tx & rx buffers");
+	M_Assert_Break(self->TX.data == NULL, M_EMPTY, return D_RAW_P_ERROR, "No valid TX buffer, call function before: -->  rawParser_dma_setUserBufferXX, XX = RX for rx buffer, XX = TX for tx buffer, XX = s for tx & rx buffers");
 #endif /* D_RAW_P_DISABLE_INTERNAL_TX_BUFFER */
 
-	M_Assert_WarningSaveCheck(predictedLen == 0, M_EMPTY, return D_RAW_P_ERROR, "RawParser_dma_startTransmittPacket: No valid input length");
+	M_Assert_WarningSaveCheck(predictedLen == 0, M_EMPTY, return D_RAW_P_ERROR, "No valid input length");
 
 	// control undefined behavior
-	M_Assert_BreakSaveCheck( predictedLen > (D_RAW_P_CHECK_LEN - 5), M_EMPTY, return D_RAW_P_ERROR, "RawParser_dma_startTransmittPacket: No valid input length: %d, maxTxLen: %d", predictedLen, D_RAW_P_CHECK_LEN);
-	M_Assert_Warning(predictedLen > (D_RAW_P_CHECK_LEN >> 1), M_EMPTY, M_EMPTY, "RawParser_dma_startTransmittPacket: UNDEFINED BEHAVIOR!!! recomended packet length must be less than half - maximun protocol size !!!, Txlen: %d, recomendedLen: %d", predictedLen, (D_RAW_P_CHECK_LEN >> 1));
+	M_Assert_BreakSaveCheck( predictedLen > (D_RAW_P_CHECK_LEN - 5), M_EMPTY, return D_RAW_P_ERROR, "No valid input length: %d, maxTxLen: %d", predictedLen, D_RAW_P_CHECK_LEN);
+	M_Assert_Warning(predictedLen > (D_RAW_P_CHECK_LEN >> 1), M_EMPTY, M_EMPTY, "UNDEFINED BEHAVIOR!!! recomended packet length must be less than half - maximun protocol size !!!, Txlen: %d, recomendedLen: %d", predictedLen, (D_RAW_P_CHECK_LEN >> 1));
 
 
 #ifdef D_RAW_P_CRC_ENA
@@ -608,9 +608,9 @@ int RawParser_dma_startTransmittPacket(RawParser_dma_t* const self, reg predicte
 }
 
 
-RawParser_Frame_t* RawParser_dma_finishTransmittPacket(RawParser_dma_t* const self)
+RawParser_Frame_t* const RawParser_dma_finishTransmittPacket(RawParser_dma_t* const self)
 {
-	M_Assert_Break((self == (RawParser_dma_t*)NULL), M_EMPTY, return (RawParser_Frame_t*)NULL, "RawParser_dma_startTransmittPacket: No valid input");
+	M_Assert_Break((self == (RawParser_dma_t*)NULL), M_EMPTY, return (RawParser_Frame_t*)NULL, "No valid input");
 
 #define WRITE_CHECK_BYTE(byte) 										\
 		if(RawParser_dma_addTxByte(self, byte) != D_RAW_P_OK) {		\
@@ -683,16 +683,16 @@ RawParser_Frame_t* RawParser_dma_finishTransmittPacket(RawParser_dma_t* const se
 
 
 // function for use universal macro ---------------------------------------------------------------------------------------------------------
-int RawParser_dma_universalWrite(RawParser_dma_t* const self, reg totalLenInByte, const reg typelenInByte, const u8 *data)
+u8 RawParser_dma_universalWrite(RawParser_dma_t* const self, reg totalLenInByte, const reg typelenInByte, const u8 *data)
 {
-	M_Assert_Break((self == (RawParser_dma_t*)NULL || data == NULL), M_EMPTY, return D_RAW_P_ERROR, "RawParser_dma_universalWrite: No valid input");
+	M_Assert_Break((self == (RawParser_dma_t*)NULL || data == NULL), M_EMPTY, return D_RAW_P_ERROR, "No valid input");
 
 #ifdef D_RAW_P_DISABLE_INTERNAL_RX_BUFFER
-	M_Assert_Break((self->RX.data == NULL), M_EMPTY, return D_RAW_P_ERROR, "RawParser_dma_universalWrite: No valid RX buffer, call function before: -->  rawParser_dma_setUserBufferXX, XX = RX for rx buffer, XX = TX for tx buffer, XX = s for tx & rx buffers");
+	M_Assert_Break((self->RX.data == NULL), M_EMPTY, return D_RAW_P_ERROR, "No valid RX buffer, call function before: -->  rawParser_dma_setUserBufferXX, XX = RX for rx buffer, XX = TX for tx buffer, XX = s for tx & rx buffers");
 #endif /* D_RAW_P_DISABLE_INTERNAL_RX_BUFFER */
 
 #ifdef D_RAW_P_DISABLE_INTERNAL_TX_BUFFER
-	M_Assert_Break((self->TX.data == NULL), M_EMPTY, return D_RAW_P_ERROR, "RawParser_dma_universalWrite: No valid TX buffer, call function before: -->  rawParser_dma_setUserBufferXX, XX = RX for rx buffer, XX = TX for tx buffer, XX = s for tx & rx buffers");
+	M_Assert_Break((self->TX.data == NULL), M_EMPTY, return D_RAW_P_ERROR, "No valid TX buffer, call function before: -->  rawParser_dma_setUserBufferXX, XX = RX for rx buffer, XX = TX for tx buffer, XX = s for tx & rx buffers");
 #endif /* D_RAW_P_DISABLE_INTERNAL_TX_BUFFER */
 
 	reg r_remaining_len = self->length_write_control;
@@ -757,23 +757,23 @@ int RawParser_dma_universalWrite(RawParser_dma_t* const self, reg totalLenInByte
 	return D_RAW_P_OK;
 }
 
-int RawParser_dma_universalRead(RawParser_dma_t* const self, reg totalLenInByte, const reg typelenInByte, u8 *data)
+u8 RawParser_dma_universalRead(RawParser_dma_t* const self, reg totalLenInByte, const reg typelenInByte, u8 *data)
 {
-	M_Assert_Break((self == (RawParser_dma_t*)NULL || data == NULL), M_EMPTY, return D_RAW_P_ERROR, "RawParser_dma_universalRead: No valid input");
+	M_Assert_Break((self == (RawParser_dma_t*)NULL || data == NULL), M_EMPTY, return D_RAW_P_ERROR, "No valid input");
 
 #ifdef D_RAW_P_DISABLE_INTERNAL_RX_BUFFER
-	M_Assert_Break((self->RX.data == NULL), M_EMPTY, return D_RAW_P_ERROR, "RawParser_dma_universalRead: No valid RX buffer, call function before: -->  rawParser_dma_setUserBufferXX, XX = RX for rx buffer, XX = TX for tx buffer, XX = s for tx & rx buffers");
+	M_Assert_Break((self->RX.data == NULL), M_EMPTY, return D_RAW_P_ERROR, "No valid RX buffer, call function before: -->  rawParser_dma_setUserBufferXX, XX = RX for rx buffer, XX = TX for tx buffer, XX = s for tx & rx buffers");
 #endif /* D_RAW_P_DISABLE_INTERNAL_RX_BUFFER */
 
 #ifdef D_RAW_P_DISABLE_INTERNAL_TX_BUFFER
-	M_Assert_Break((self->TX.data == NULL), M_EMPTY, return D_RAW_P_ERROR, "RawParser_dma_universalRead: No valid TX buffer, call function before: -->  rawParser_dma_setUserBufferXX, XX = RX for rx buffer, XX = TX for tx buffer, XX = s for tx & rx buffers");
+	M_Assert_Break((self->TX.data == NULL), M_EMPTY, return D_RAW_P_ERROR, "No valid TX buffer, call function before: -->  rawParser_dma_setUserBufferXX, XX = RX for rx buffer, XX = TX for tx buffer, XX = s for tx & rx buffers");
 #endif /* D_RAW_P_DISABLE_INTERNAL_TX_BUFFER */
 
 	// move to cash
 	const u8* const RX_data = self->RX.data;
 	reg uniRXPosition = self->uniRXPosition;
 
-	M_Assert_BreakSaveCheck(((uniRXPosition + totalLenInByte) > self->RX.size), M_EMPTY, return D_RAW_P_ERROR, "RawParser_dma_universalRead: no length for reading");
+	M_Assert_BreakSaveCheck(((uniRXPosition + totalLenInByte) > self->RX.size), M_EMPTY, return D_RAW_P_ERROR, "no length for reading");
 
 #if defined(__LITTLE_ENDIAN__)
 

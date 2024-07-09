@@ -1,0 +1,10 @@
+C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/tools/timer/TimingManager.h:28:17:bool TimingManager::isExpired() const	16	static
+C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/tools/timer/TimingManager.h:32:17:void TimingManager::start(uint32_t)	16	static
+C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/tools/math/FPMovingAverageArray.h:22:18:uint32_t FP_MovingAverageArray::getOut(uint8_t) const	16	static
+C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/tools/adc/Stm32ADCdma.h:33:18:uint32_t Stm32ADC_dma::getAdc(int) const	16	static
+C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/TPS1HTC30/Keytps1htc30Group.h:66:14:void Key_tps1htc30Group::initAdc(const Stm32ADC_dma::Stm32ADC_init&)	16	static
+C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/TPS1HTC30/Keytps1htc30Group.h:67:29:Stm32ADC_dma* const Key_tps1htc30Group::getAdc()	16	static
+../app_core/RelayController.cpp:11:1:RelayController::RelayController()	16	static
+../app_core/RelayController.cpp:17:6:void RelayController::init_all()	24	static
+../app_core/RelayController.cpp:36:24:static RelayController* const RelayController::get_instance()	16	static
+../app_core/RelayController.cpp:42:6:void RelayController::proceed()	32	static

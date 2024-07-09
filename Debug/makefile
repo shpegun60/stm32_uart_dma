@@ -17,13 +17,10 @@ RM := rm -rf
 -include app_core/tools/debug/subdir.mk
 -include app_core/tools/adc/subdir.mk
 -include app_core/stm32_printf/subdir.mk
--include app_core/chaos_sdk/ringbuf/subdir.mk
--include app_core/chaos_sdk/raw_parser/raw_parser_it/subdir.mk
--include app_core/chaos_sdk/raw_parser/raw_parser_general/subdir.mk
+-include app_core/chaos_sdk/raw_parser/raw_parser_dynamic/subdir.mk
 -include app_core/chaos_sdk/raw_parser/raw_parser_dma/subdir.mk
 -include app_core/chaos_sdk/raw_parser/subdir.mk
 -include app_core/chaos_sdk/preprocessor/subdir.mk
--include app_core/chaos_sdk/pool_container/subdir.mk
 -include app_core/chaos_sdk/my_ctype/runtime_cast/subdir.mk
 -include app_core/chaos_sdk/my_ctype/subdir.mk
 -include app_core/chaos_sdk/hash/subdir.mk
@@ -32,7 +29,9 @@ RM := rm -rf
 -include app_core/chaos_sdk/callback_manager/subdir.mk
 -include app_core/chaos_sdk/callback_container/subdir.mk
 -include app_core/chaos_sdk/byte_order/subdir.mk
+-include app_core/chaos_sdk/buffers/subdir.mk
 -include app_core/chaos_sdk/assertsEngine/subdir.mk
+-include app_core/TPS1HTC30/subdir.mk
 -include app_core/subdir.mk
 -include Drivers/STM32F1xx_HAL_Driver/Src/subdir.mk
 -include Core/Startup/subdir.mk

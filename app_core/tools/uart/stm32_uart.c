@@ -350,6 +350,7 @@ void UART_ErrorCallback(stm32_DMA_uart_t* const self)
 	} else if (huart->ErrorCode & HAL_UART_ERROR_NE) {
 		status = ERROR_UART_RX_NOISE;
 	} else if (huart->ErrorCode & HAL_UART_ERROR_DMA) {
+		self->isTxBusy_ = false;
 		status = ERROR_UART_TX_DMA_ERR;
 	} else if (huart->gState == HAL_UART_STATE_BUSY) {
 		status = STATUS_BUSY;
@@ -360,8 +361,10 @@ void UART_ErrorCallback(stm32_DMA_uart_t* const self)
 	} else if (huart->gState == HAL_UART_STATE_BUSY_TX_RX) {
 		status = STATUS_BUSY;
 	} else if (huart->gState == HAL_UART_STATE_ERROR) {
+		self->isTxBusy_ = false;
 		status = ERROR_FAIL;
 	} else if (huart->gState == HAL_UART_STATE_TIMEOUT) {
+		self->isTxBusy_ = false;
 		status = ERROR_TIMEOUT;
 	}
 

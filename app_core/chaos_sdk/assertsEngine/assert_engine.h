@@ -27,7 +27,7 @@ extern "C" {
 # * *****************************************************************************************************************************************************************************
 # */
 #
-//#define NDEBUG                              	// uncommit this if program in release version
+#define NDEBUG                              	// uncommit this if program in release version
 // =====> if NDEBUG is uncommited bellow defines have no meaning!!!!! <=====================================
 //#define M_MESSAGE_ALWAYS_ENABLE         		1   // enabling runtime assert message filter and additon library information (see additional information macro)
 //#define M_ASSERT_MSG_TEXT_DISABLE       		1   // disabling sending assert message text and do not saving this in .text section
@@ -130,7 +130,7 @@ void __M_Warning(const char* const expr_str, const unsigned char expr,
             ASSERT_ERROR((Expr_txt), (1), (__FILE__), (__LINE__), (CHAOS_FUNC_NAME), (Msg), ##__VA_ARGS__);                             			\
             afterExpr; /* ignored because programm is break, but compiler not known it */                                               			\
         }                                                                                                                               			\
-    } while(0L)
+    } while(0U)
 
 #   define M_Assert_BreakSaveCheck(Expr, beforeExpr, afterExpr, Msg, ...)                                                               			\
     do {                                                                                                                                			\
@@ -139,7 +139,7 @@ void __M_Warning(const char* const expr_str, const unsigned char expr,
             ASSERT_ERROR((#Expr), (1), (__FILE__), (__LINE__), (CHAOS_FUNC_NAME), (Msg), ##__VA_ARGS__);                                			\
             afterExpr; /* ignored because programm is break, but compiler not known it */                                               			\
         }                                                                                                                               			\
-    } while(0L)
+    } while(0U)
 
 
 // else breaking asserts
@@ -154,7 +154,7 @@ void __M_Warning(const char* const expr_str, const unsigned char expr,
             ASSERT_ERROR("if " Expr_txt " not confirmed: passed to else", (0), (__FILE__), (__LINE__), (CHAOS_FUNC_NAME), (Msg), ##__VA_ARGS__);	\
             falseAfterExpr;                                                                                                             			\
         }                                                                                                                               			\
-    } while(0L)
+    } while(0U)
 
 #   define M_Assert_BreakElseSaveCheck(Expr, trueExpr, falseBeforeExpr, falseAfterExpr, Msg, ...)                                       			\
     do {                                                                                                                                			\
@@ -165,7 +165,7 @@ void __M_Warning(const char* const expr_str, const unsigned char expr,
             ASSERT_ERROR("if " #Expr " not confirmed: passed to else", (0), (__FILE__), (__LINE__), (CHAOS_FUNC_NAME), (Msg), ##__VA_ARGS__);		\
             falseAfterExpr;                                                                                                             			\
         }                                                                                                                               			\
-    } while(0L)
+    } while(0U)
 
 /*
  * ***********************************************************************************************************************************************
@@ -181,7 +181,7 @@ void __M_Warning(const char* const expr_str, const unsigned char expr,
             ASSERT_WARNING(Expr_txt, (1), (__FILE__), (__LINE__), (CHAOS_FUNC_NAME), (Msg), ##__VA_ARGS__);                                      	\
             afterExpr;                                                                                                                  			\
         }                                                                                                                               			\
-    } while(0L)
+    } while(0U)
 
 #   define M_Assert_WarningSaveCheck(Expr, beforeExpr, afterExpr, Msg, ...)                                                             			\
     do {                                                                                                                                			\
@@ -190,7 +190,7 @@ void __M_Warning(const char* const expr_str, const unsigned char expr,
             ASSERT_WARNING((#Expr), (1), (__FILE__), (__LINE__), (CHAOS_FUNC_NAME), (Msg), ##__VA_ARGS__);                                      	\
             afterExpr;                                                                                                                  			\
         }                                                                                                                               			\
-    } while(0L)
+    } while(0U)
 
 
 // else warning asserts
@@ -205,7 +205,7 @@ void __M_Warning(const char* const expr_str, const unsigned char expr,
             ASSERT_WARNING("if " #Expr " not confirmed: passed to else", (0), (__FILE__), (__LINE__), (CHAOS_FUNC_NAME), (Msg), ##__VA_ARGS__);		\
             falseAfterExpr;                                                                                                             			\
         }                                                                                                                               			\
-    } while(0L)
+    } while(0U)
 #
 #   define M_Assert_WarningElseSaveCheck(Expr, trueExpr, falseBeforeExpr, falseAfterExpr, Msg, ...)                                     			\
     do {                                                                                                                                			\
@@ -216,7 +216,7 @@ void __M_Warning(const char* const expr_str, const unsigned char expr,
             ASSERT_WARNING("if " #Expr " not confirmed: passed to else", (0), (__FILE__), (__LINE__), (CHAOS_FUNC_NAME), (Msg), ##__VA_ARGS__);		\
             falseAfterExpr;                                                                                                             			\
         }                                                                                                                               			\
-    } while(0L)
+    } while(0U)
 
 
 /*
@@ -230,7 +230,7 @@ void __M_Warning(const char* const expr_str, const unsigned char expr,
 				if(foo) {                                                                                                                   \
 					true_expression;                                                                                                        \
 				}                                                                                                                           \
-			} while(0L)
+			} while(0U)
 
 #else
 #   	define M_Assert_SafeFunctionCall(foo, true_expression)                                                                              				\
@@ -240,7 +240,7 @@ void __M_Warning(const char* const expr_str, const unsigned char expr,
 				} else {                                                                                                                        			\
 					ASSERT_WARNING((#foo), (0), (__FILE__), (__LINE__), (CHAOS_FUNC_NAME), ("NO exists function"));                                       	\
 				}                                                                                                                               			\
-			} while(0L)
+			} while(0U)
 #endif /* defined(M_ASSERT_OPTIONAL_CHECKS_DISABLE) */
 
 
@@ -269,20 +269,20 @@ void __M_Warning(const char* const expr_str, const unsigned char expr,
             beforeExpr;                                                                                                             \
             afterExpr;                                                                                                              \
         }                                                                                                                           \
-    } while(0L)
+    } while(0U)
 
 // else breaking asserts
 #   define M_Assert_BreakElse(Expr, trueExpr, falseBeforeExpr, falseAfterExpr, Msg, ...)                                            \
     do {                                                                                                                            \
         trueExpr;                                                                                                                   \
-    } while(0L)
+    } while(0U)
 
 #   define M_Assert_BreakElseSaveCheck(Expr, trueExpr, falseBeforeExpr, falseAfterExpr, Msg, ...)                                   \
     do {                                                                                                                            \
         if(Expr) {                                                                                                                  \
             trueExpr;                                                                                                               \
         }                                                                                                                           \
-    } while(0L)
+    } while(0U)
 
 /*
  * ***********************************************************************************************************************************************
@@ -298,20 +298,20 @@ void __M_Warning(const char* const expr_str, const unsigned char expr,
             beforeExpr;                                                                                                             \
             afterExpr;                                                                                                              \
         }                                                                                                                           \
-    } while(0L)
+    } while(0U)
 
 // else warning asserts
 #   define M_Assert_WarningElse(Expr, trueExpr, falseBeforeExpr, falseAfterExpr, Msg, ...)                                          \
     do {                                                                                                                            \
         trueExpr;                                                                                                                   \
-    } while(0L)
+    } while(0U)
 
 #   define M_Assert_WarningElseSaveCheck(Expr, trueExpr, falseBeforeExpr, falseAfterExpr, Msg, ...)                                 \
     do {                                                                                                                            \
         if(Expr) {                                                                                                                  \
             trueExpr;                                                                                                               \
         }                                                                                                                           \
-    } while(0L)
+    } while(0U)
 
 
 /*
@@ -325,7 +325,7 @@ void __M_Warning(const char* const expr_str, const unsigned char expr,
         if(foo) {                                                                                                                   \
             true_expression;                                                                                                        \
         }                                                                                                                           \
-    } while(0L)
+    } while(0U)
 
 
 
@@ -348,7 +348,7 @@ void __M_assert_test();
             printf(__VA_ARGS__);                                                                                                    \
             __printed = 1;                                                                                                          \
         }                                                                                                                           \
-    } while(0L)
+    } while(0U)
 
 
 //#define TO_TXT(a) #a

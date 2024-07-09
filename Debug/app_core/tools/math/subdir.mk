@@ -5,14 +5,23 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
+../app_core/tools/math/FPMovingAverage.cpp \
+../app_core/tools/math/FPMovingAverageArray.cpp \
+../app_core/tools/math/FPMovingAverageBase.cpp \
 ../app_core/tools/math/InRangeDetector.cpp \
 ../app_core/tools/math/PID.cpp 
 
 OBJS += \
+./app_core/tools/math/FPMovingAverage.o \
+./app_core/tools/math/FPMovingAverageArray.o \
+./app_core/tools/math/FPMovingAverageBase.o \
 ./app_core/tools/math/InRangeDetector.o \
 ./app_core/tools/math/PID.o 
 
 CPP_DEPS += \
+./app_core/tools/math/FPMovingAverage.d \
+./app_core/tools/math/FPMovingAverageArray.d \
+./app_core/tools/math/FPMovingAverageBase.d \
 ./app_core/tools/math/InRangeDetector.d \
 ./app_core/tools/math/PID.d 
 
@@ -24,7 +33,7 @@ app_core/tools/math/%.o app_core/tools/math/%.su app_core/tools/math/%.cyclo: ..
 clean: clean-app_core-2f-tools-2f-math
 
 clean-app_core-2f-tools-2f-math:
-	-$(RM) ./app_core/tools/math/InRangeDetector.cyclo ./app_core/tools/math/InRangeDetector.d ./app_core/tools/math/InRangeDetector.o ./app_core/tools/math/InRangeDetector.su ./app_core/tools/math/PID.cyclo ./app_core/tools/math/PID.d ./app_core/tools/math/PID.o ./app_core/tools/math/PID.su
+	-$(RM) ./app_core/tools/math/FPMovingAverage.cyclo ./app_core/tools/math/FPMovingAverage.d ./app_core/tools/math/FPMovingAverage.o ./app_core/tools/math/FPMovingAverage.su ./app_core/tools/math/FPMovingAverageArray.cyclo ./app_core/tools/math/FPMovingAverageArray.d ./app_core/tools/math/FPMovingAverageArray.o ./app_core/tools/math/FPMovingAverageArray.su ./app_core/tools/math/FPMovingAverageBase.cyclo ./app_core/tools/math/FPMovingAverageBase.d ./app_core/tools/math/FPMovingAverageBase.o ./app_core/tools/math/FPMovingAverageBase.su ./app_core/tools/math/InRangeDetector.cyclo ./app_core/tools/math/InRangeDetector.d ./app_core/tools/math/InRangeDetector.o ./app_core/tools/math/InRangeDetector.su ./app_core/tools/math/PID.cyclo ./app_core/tools/math/PID.d ./app_core/tools/math/PID.o ./app_core/tools/math/PID.su
 
 .PHONY: clean-app_core-2f-tools-2f-math
 

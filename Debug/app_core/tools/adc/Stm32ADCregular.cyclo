@@ -1,0 +1,4 @@
+../app_core/tools/adc/Stm32ADCregular.cpp:12:1:Stm32ADC_regular::~Stm32ADC_regular()	1
+../app_core/tools/adc/Stm32ADCregular.cpp:12:1:virtual Stm32ADC_regular::~Stm32ADC_regular()	1
+../app_core/tools/adc/Stm32ADCregular.cpp:16:6:void Stm32ADC_regular::init(const Stm32ADC_init&)	1
+../app_core/tools/adc/Stm32ADCregular.cpp:22:7:static float Stm32ADC_regular::getadcMax()	1

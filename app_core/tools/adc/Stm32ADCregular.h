@@ -43,7 +43,7 @@ public:
 
 
 private:
-	float getadcMax();
+	static float getadcMax();
 
 private:
 	ADC_HandleTypeDef* m_hadc = nullptr;

@@ -21,27 +21,28 @@ void Stm32ADC_regular::init(const Stm32ADC_init& settings)
 
 float Stm32ADC_regular::getadcMax()
 {
-	switch(m_hadc->Init.Resolution) {
-
-	case ADC_RESOLUTION_16B:
-		return 65536.0;
-
-	case ADC_RESOLUTION_14B:
-	case ADC_RESOLUTION_14B_OPT:
-		return 16384.0;
-
-	case ADC_RESOLUTION_12B:
-	case ADC_RESOLUTION_12B_OPT:
-		return 4096.0;
-
-	case ADC_RESOLUTION_10B:
-		return 1024.0;
-
-	case ADC_RESOLUTION_8B:
-		return 256.0;
-	}
-
-	return 0.0;
+	return 4096.0;
+//	switch(m_hadc->Init.Resolution) {
+//
+//	case ADC_RESOLUTION_16B:
+//		return 65536.0;
+//
+//	case ADC_RESOLUTION_14B:
+//	case ADC_RESOLUTION_14B_OPT:
+//		return 16384.0;
+//
+//	case ADC_RESOLUTION_12B:
+//	case ADC_RESOLUTION_12B_OPT:
+//		return 4096.0;
+//
+//	case ADC_RESOLUTION_10B:
+//		return 1024.0;
+//
+//	case ADC_RESOLUTION_8B:
+//		return 256.0;
+//	}
+//
+//	return 0.0;
 }
 
 #endif /* HAL_ADC_MODULE_ENABLED */

@@ -15,7 +15,7 @@ class InRangeDetector
 {
 public:
 	InRangeDetector() = default;
-	~InRangeDetector() {}
+	~InRangeDetector() = default;
 
 	enum class error: uint8_t {
 		None,

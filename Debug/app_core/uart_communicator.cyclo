@@ -1,8 +1,9 @@
-../app_core/uart_communicator.c:17:13:uart_rx_callback	3
-../app_core/uart_communicator.c:23:13:uart_tx_callback	1
-../app_core/uart_communicator.c:28:13:uart_error_callback	1
-../app_core/uart_communicator.c:36:10:init_communicator	6
-../app_core/uart_communicator.c:63:6:proceed_communicator	2
-../app_core/uart_communicator.c:82:6:HAL_UART_TxCpltCallback	2
-../app_core/uart_communicator.c:90:6:HAL_UART_RxCpltCallback	2
-../app_core/uart_communicator.c:98:6:HAL_UART_ErrorCallback	2
+../app_core/tools/uart/stm32_uart.h:78:20:bool UART_IsTxBusy(stm32_DMA_uart_t*)	1
+../app_core/uart_communicator.cpp:15:13:void uart_rx_callback(const uint8_t*, uint32_t, void*)	3
+../app_core/uart_communicator.cpp:21:13:void uart_tx_callback(status_t, void*)	1
+../app_core/uart_communicator.cpp:33:13:void pingWorker(u8*, reg, void*)	2
+../app_core/uart_communicator.cpp:70:10:status_t init_communicator(stm32_uart_communicator_t*, UART_HandleTypeDef*)	6
+../app_core/uart_communicator.cpp:102:6:void proceed_communicator(stm32_uart_communicator_t*, uint32_t)	6
+../app_core/uart_communicator.cpp:132:6:void HAL_UART_TxCpltCallback(UART_HandleTypeDef*)	2
+../app_core/uart_communicator.cpp:140:6:void HAL_UART_RxCpltCallback(UART_HandleTypeDef*)	2
+../app_core/uart_communicator.cpp:148:6:void HAL_UART_ErrorCallback(UART_HandleTypeDef*)	2

@@ -3,7 +3,7 @@
 
 #include <stddef.h> // size_t, ptrdiff_t, ...
 #include <stdint.h> // uint8_t, uint16_t, ...
-
+#include <stdbool.h>
 
 // all types. Commit this if types defines upper--------------------------
 

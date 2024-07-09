@@ -10,12 +10,12 @@
 /*********************************************************************************************************************
  *  PREPROCESSOR CONTEXT TYPE
  *
- *      PREPROCESSOR_CTX_TYPE(ctx)       // expands to --> void* const * const ctx
+ *      PREPROCESSOR_CTX_TYPE(ctx)       // expands to --> void* const ctx
  */
-#define PREPROCESSOR_CTX_TYPE_GET() void* const * const
+#define PREPROCESSOR_CTX_TYPE_GET() void* const
 #define PREPROCESSOR_CTX_TYPE(name) PREPROCESSOR_CTX_TYPE_GET() name
 
-#define PREPROCESSOR_CTX_MUTABLE_TYPE_GET() void**
+#define PREPROCESSOR_CTX_MUTABLE_TYPE_GET() void*
 #define PREPROCESSOR_CTX_MUTABLE_TYPE(name) PREPROCESSOR_CTX_MUTABLE_TYPE_GET() name
 
 
@@ -65,8 +65,9 @@
 
 
 
-#define PREPROCESSOR_MAP_CTX(name, sep, ...) \
-  PREPROCESSOR_IF(PREPROCESSOR_ARGS_NOT_EMPTY(__VA_ARGS__))(PREPROCESSOR_EVAL(PREPROCESSOR_MAP_CTX_INNER(name, sep, 0, __VA_ARGS__)))
+#define PREPROCESSOR_MAP_CTX(name, sep, ...) 																														\
+	void* const* const PREPROCESSOR_CONCAT(name, tmp_) = name;																										\
+  PREPROCESSOR_IF(PREPROCESSOR_ARGS_NOT_EMPTY(__VA_ARGS__))(PREPROCESSOR_EVAL(PREPROCESSOR_MAP_CTX_INNER(PREPROCESSOR_CONCAT(name, tmp_), sep, 0, __VA_ARGS__)))
 
 #define PREPROCESSOR_MAP_CTX_INNER(name, sep, counter, cur_val, ...)                                                \
   cur_val = name[counter];                                                                                          \
@@ -81,7 +82,7 @@
 
 #include <stdint.h>
 
-void foo(PREPROCESSOR_CTX_TYPE(ctx))
+void foo(PREPROCESSOR_CTX_TYPE(ctx)) // or void foo(void* const ctx)
 {
     PREPROCESSOR_CTX_GET(ctx,
                                    const uint8_t  * const val1,

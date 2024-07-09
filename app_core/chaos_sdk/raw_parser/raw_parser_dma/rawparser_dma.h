@@ -1,5 +1,9 @@
 #ifndef __RAW_PARSER_DMA_FUSION_H__
 #define __RAW_PARSER_DMA_FUSION_H__ 1
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 
 #include "raw_parser/rawparser_port.h"
 
@@ -49,9 +53,9 @@ typedef struct {
 /* CREATE/DELETE FUNCTIONS *************************************************************************************************
  *
  */
-RawParser_dma_t* rawParser_dma_new(const u8 packStart);
-int rawParser_dma_init(RawParser_dma_t * const self, const u8 packStart);
-int rawParser_dma_delete(RawParser_dma_t** data);
+RawParser_dma_t* const rawParser_dma_new(const u8 packStart);
+u8 rawParser_dma_init(RawParser_dma_t * const self, const u8 packStart);
+u8 rawParser_dma_delete(RawParser_dma_t** data);
 
 // set user buffers
 #ifdef D_RAW_P_DISABLE_INTERNAL_TX_BUFFER
@@ -115,13 +119,15 @@ RawParser_Frame_t* RawParser_dma_proceed(RawParser_dma_t* const self);
 // slow shield functions (slow & more copy)-----------------------------------------------------------------------------------------
 RawParser_Frame_t* RawParser_dma_shieldFrame(RawParser_dma_t* const self, const u8* data, reg len); // shield data array before transmitting
 // fast shield functions (no copy)-----------------------------------------------------------------------------------------
-int RawParser_dma_startTransmittPacket(RawParser_dma_t* const self, reg predictedLen);
-RawParser_Frame_t* RawParser_dma_finishTransmittPacket(RawParser_dma_t* const self);
+u8 RawParser_dma_startTransmittPacket(RawParser_dma_t* const self, reg predictedLen);
+RawParser_Frame_t* const RawParser_dma_finishTransmittPacket(RawParser_dma_t* const self);
 
 
 // function for use universal macro ---------------------------------------------------------------------------------------------------------
-int RawParser_dma_universalWrite(RawParser_dma_t* const self, reg totalLenInByte, const reg typelenInByte, const u8 *data);
-int RawParser_dma_universalRead(RawParser_dma_t* const self, reg totalLenInByte, const reg typelenInByte, u8 *data);
+u8 RawParser_dma_universalWrite(RawParser_dma_t* const self, reg totalLenInByte, const reg typelenInByte, const u8 *data);
+u8 RawParser_dma_universalRead(RawParser_dma_t* const self, reg totalLenInByte, const reg typelenInByte, u8 *data);
 
-
+#ifdef __cplusplus
+}
+#endif
 #endif /* __RAW_PARSER_DMA_FUSION_H__ */

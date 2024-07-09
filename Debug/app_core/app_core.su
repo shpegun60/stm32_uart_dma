@@ -1,3 +1,1 @@
-../app_core/tools/timer/TimingManager.h:28:17:bool TimingManager::isExpired() const	16	static
-../app_core/tools/timer/TimingManager.h:32:17:void TimingManager::start(uint32_t)	16	static
-../app_core/app_core.cpp:16:6:void app_main()	928	static
+../app_core/app_core.cpp:13:6:void app_main()	16	static

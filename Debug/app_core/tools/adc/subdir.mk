@@ -5,12 +5,15 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
+../app_core/tools/adc/Stm32ADCdma.cpp \
 ../app_core/tools/adc/Stm32ADCregular.cpp 
 
 OBJS += \
+./app_core/tools/adc/Stm32ADCdma.o \
 ./app_core/tools/adc/Stm32ADCregular.o 
 
 CPP_DEPS += \
+./app_core/tools/adc/Stm32ADCdma.d \
 ./app_core/tools/adc/Stm32ADCregular.d 
 
 
@@ -21,7 +24,7 @@ app_core/tools/adc/%.o app_core/tools/adc/%.su app_core/tools/adc/%.cyclo: ../ap
 clean: clean-app_core-2f-tools-2f-adc
 
 clean-app_core-2f-tools-2f-adc:
-	-$(RM) ./app_core/tools/adc/Stm32ADCregular.cyclo ./app_core/tools/adc/Stm32ADCregular.d ./app_core/tools/adc/Stm32ADCregular.o ./app_core/tools/adc/Stm32ADCregular.su
+	-$(RM) ./app_core/tools/adc/Stm32ADCdma.cyclo ./app_core/tools/adc/Stm32ADCdma.d ./app_core/tools/adc/Stm32ADCdma.o ./app_core/tools/adc/Stm32ADCdma.su ./app_core/tools/adc/Stm32ADCregular.cyclo ./app_core/tools/adc/Stm32ADCregular.d ./app_core/tools/adc/Stm32ADCregular.o ./app_core/tools/adc/Stm32ADCregular.su
 
 .PHONY: clean-app_core-2f-tools-2f-adc
 
