@@ -40,6 +40,7 @@ app_core/ProtocolSender.o: ../app_core/ProtocolSender.cpp \
  C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/chaos_sdk/crc/crc8.h \
  C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/chaos_sdk/crc/my_crc_port.h \
  C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/chaos_sdk/crc/crc_fabric.h \
+ C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/chaos_sdk/crc/crc_base.h \
  C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/chaos_sdk/callback_manager/callback_manager.h \
  ../app_core/TPS1HTC30/Keytps1htc30Group.h \
  C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/stm32_meta.h \
@@ -95,6 +96,7 @@ C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/chaos_sd
 C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/chaos_sdk/crc/crc8.h:
 C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/chaos_sdk/crc/my_crc_port.h:
 C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/chaos_sdk/crc/crc_fabric.h:
+C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/chaos_sdk/crc/crc_base.h:
 C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/chaos_sdk/callback_manager/callback_manager.h:
 ../app_core/TPS1HTC30/Keytps1htc30Group.h:
 C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/stm32_meta.h:

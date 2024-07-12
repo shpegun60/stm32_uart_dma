@@ -22,14 +22,25 @@
  */
 
 // Determine whether the buffer is empty
-#define FIFO_IS_EMPTY(chield) ((chield)->base.tail == (chield)->base.head)
-#define FIFO_NOT_EMPTY(chield) ((chield)->base.tail != (chield)->base.head)
-// Determine whether the buffer is full
-#define FIFO_IS_FULL(chield) ((((chield)->base.head ^ (chield)->base.tail) & (chield)->base.xor_msk) == (chield)->base.cap)
-#define FIFO_NOT_FULL(chield) ((((chield)->base.head ^ (chield)->base.tail) & (chield)->base.xor_msk) != (chield)->base.cap)
-// The length of the buffer data
-#define FIFO_LEN(chield) ((chield)->base.head - (chield)->base.tail)
+#define FIFO_IS_EMPTY(chield) _FIFO_IS_EMPTY_IMPL((chield)->base.tail, (chield)->base.head)
+#define FIFO_NOT_EMPTY(chield) _FIFO_NOT_EMPTY_IMPL((chield)->base.tail, (chield)->base.head)
 
+#define _FIFO_IS_EMPTY_IMPL(tail, head) (tail == head)
+#define _FIFO_NOT_EMPTY_IMPL(tail, head) (tail != head)
+
+
+// Determine whether the buffer is full
+#define FIFO_IS_FULL(chield) _FIFO_IS_FULL_IMPL((chield)->base.tail, (chield)->base.head, (chield)->base.cap, (chield)->base.xor_msk)
+#define FIFO_NOT_FULL(chield) _FIFO_NOT_FULL_IMPL((chield)->base.tail, (chield)->base.head, (chield)->base.cap, (chield)->base.xor_msk)
+
+#define _FIFO_IS_FULL_IMPL(tail, head, cap, xor_msk) ( (((head) ^ (tail)) & (xor_msk)) == (cap) )
+#define _FIFO_NOT_FULL_IMPL(tail, head, cap, xor_msk) ( (((head) ^ (tail)) & (xor_msk)) != (cap) )
+
+// The length of the buffer data
+#define FIFO_LEN(chield) _FIFO_LEN_IMPL((chield)->base.tail, (chield)->base.head)
+#define _FIFO_LEN_IMPL(tail, head) ((head) - (tail))
+
+#define FIFO_CAPACITY(chield) ((chield)->base.cap)
 
 typedef struct fifo_base_ {
 	reg cap; 		/* buffer capacity power of 2 */
@@ -52,6 +63,7 @@ STATIC_FORCEINLINE void fifo_base_init(fifo_base_t * const fifo, const reg cap)
 	fifo->head = 0;
 }
 
+#define FIFO_CLEAN(chield) fifo_base_clear(&((chield)->base))
 STATIC_FORCEINLINE void fifo_base_clear(fifo_base_t * const fifo)
 {
 	fifo->tail = 0;

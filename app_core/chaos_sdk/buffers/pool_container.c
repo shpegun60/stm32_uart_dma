@@ -6,9 +6,6 @@
 #include "assertsEngine/assert_engine.h"
 #define _INT_SWITCH(...) __VA_ARGS__
 
-// Determine whether x is a power of 2
-#define is_power_of_2(x) ((x) != 0 && (((x) & ((x) - 1)) == 0))
-
 pool_container_t* const poolContainer_new(const u16 n_buffers, const u16 max_size)
 {
 	M_Assert_BreakSaveCheck((n_buffers == 0 || max_size == 0), M_EMPTY,
@@ -171,7 +168,6 @@ void poolContainer_nextReadPos(pool_container_t * const self)
 	self->base.tail 		= (tail_reg);
 }
 
-#undef is_power_of_2
 #undef _INT_SWITCH
 
 

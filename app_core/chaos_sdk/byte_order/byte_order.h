@@ -2,6 +2,7 @@
 #define __BYTE_ORDER_H__ 1
 
 #include "endianness.h"
+#include <string.h>
 #include "preprocessor/preprocessor_concatenation.h"
 
 #ifndef BYTE_ORDER_TEST_DISABLE
@@ -48,44 +49,44 @@ int endiansTest();
 STATIC_FORCEINLINE u16 LittleEndianU16(const u16 value)
 {
 #if defined(__LITTLE_ENDIAN__)
-    return value;
+	return value;
 #elif defined(__BIG_ENDIAN__)
-    return bswap16(value);
+	return bswap16(value);
 #else
-    #error unsupported endianness
+#error unsupported endianness
 #endif /* ORDER SELECTION */
 }
 
 STATIC_FORCEINLINE i16 LittleEndianI16(i16 value)
 {
 #if defined(__LITTLE_ENDIAN__)
-    return value;
+	return value;
 #elif defined(__BIG_ENDIAN__)
 #
 #   ifdef __cplusplus
-    u16 asUint;
-    std::memcpy(&asUint, reinterpret_cast<const void *>(&value), sizeof(u16));
-    asUint = bswap16(asUint);
-    std::memcpy(&value, reinterpret_cast<void *>(&asUint), sizeof(i16));
-    return value;
+	u16 asUint;
+	std::memcpy(&asUint, reinterpret_cast<const void *>(&value), sizeof(u16));
+	asUint = bswap16(asUint);
+	std::memcpy(&value, reinterpret_cast<void *>(&asUint), sizeof(i16));
+	return value;
 #   else
-    union { u16 asUint; i16 asInt; } conversion_union;
-    conversion_union.asInt = value;
-    conversion_union.asUint = bswap16(conversion_union.asUint);
-    return conversion_union.asInt;
+	union { u16 asUint; i16 asInt; } conversion_union;
+	conversion_union.asInt = value;
+	conversion_union.asUint = bswap16(conversion_union.asUint);
+	return conversion_union.asInt;
 #   endif /* __cplusplus */
 #
 #else
-    #error unsupported endianness
+#error unsupported endianness
 #endif /* ORDER SELECTION */
 }
 
 STATIC_FORCEINLINE u16 BigEndianU16(const u16 value)
 {
 #if defined(__LITTLE_ENDIAN__)
-    return bswap16(value);
+	return bswap16(value);
 #elif defined(__BIG_ENDIAN__)
-    return value;
+	return value;
 #else
 #    error unsupported endianness
 #endif /* ORDER SELECTION */
@@ -95,19 +96,19 @@ STATIC_FORCEINLINE i16 BigEndianI16(i16 value)
 {
 #if defined(__LITTLE_ENDIAN__)
 #   ifdef __cplusplus
-    u16 asUint;
-    std::memcpy(&asUint, reinterpret_cast<const void *>(&value), sizeof(u16));
-    asUint = bswap16(asUint);
-    std::memcpy(&value, reinterpret_cast<void *>(&asUint), sizeof(i16));
-    return value;
+	u16 asUint;
+	std::memcpy(&asUint, reinterpret_cast<const void *>(&value), sizeof(u16));
+	asUint = bswap16(asUint);
+	std::memcpy(&value, reinterpret_cast<void *>(&asUint), sizeof(i16));
+	return value;
 #   else
-    union { u16 asUint; i16 asInt; } conversion_union;
-    conversion_union.asInt = value;
-    conversion_union.asUint = bswap16(conversion_union.asUint);
-    return conversion_union.asInt;
+	union { u16 asUint; i16 asInt; } conversion_union;
+	conversion_union.asInt = value;
+	conversion_union.asUint = bswap16(conversion_union.asUint);
+	return conversion_union.asInt;
 #   endif /* __cplusplus */
 #elif defined(__BIG_ENDIAN__)
-    return value;
+	return value;
 #else
 #    error unsupported endianness
 #endif /* ORDER SELECTION */
@@ -122,9 +123,9 @@ STATIC_FORCEINLINE i16 BigEndianI16(i16 value)
 STATIC_FORCEINLINE u32 LittleEndianU32(const u32 value)
 {
 #if defined(__LITTLE_ENDIAN__)
-    return value;
+	return value;
 #elif defined(__BIG_ENDIAN__)
-    return bswap32(value);
+	return bswap32(value);
 #else
 #    error unsupported endianness
 #endif /* ORDER SELECTION */
@@ -133,33 +134,33 @@ STATIC_FORCEINLINE u32 LittleEndianU32(const u32 value)
 STATIC_FORCEINLINE i32 LittleEndianI32(i32 value)
 {
 #if defined(__LITTLE_ENDIAN__)
-    return value;
+	return value;
 #elif defined(__BIG_ENDIAN__)
 #
 #   ifdef __cplusplus
-    u32 asUint;
-    std::memcpy(&asUint, reinterpret_cast<const void *>(&value), sizeof(u32));
-    asUint = bswap32(asUint);
-    std::memcpy(&value, reinterpret_cast<void *>(&asUint), sizeof(i32));
-    return value;
+	u32 asUint;
+	std::memcpy(&asUint, reinterpret_cast<const void *>(&value), sizeof(u32));
+	asUint = bswap32(asUint);
+	std::memcpy(&value, reinterpret_cast<void *>(&asUint), sizeof(i32));
+	return value;
 #   else
-    union { u32 asUint; i32 asInt; } conversion_union;
-    conversion_union.asInt = value;
-    conversion_union.asUint = bswap32(conversion_union.asUint);
-    return conversion_union.asInt;
+	union { u32 asUint; i32 asInt; } conversion_union;
+	conversion_union.asInt = value;
+	conversion_union.asUint = bswap32(conversion_union.asUint);
+	return conversion_union.asInt;
 #   endif /* __cplusplus */
 #
 #else
-    #error unsupported endianness
+#error unsupported endianness
 #endif /* ORDER SELECTION */
 }
 
 STATIC_FORCEINLINE u32 BigEndianU32(const u32 value)
 {
 #if defined(__LITTLE_ENDIAN__)
-    return bswap32(value);
+	return bswap32(value);
 #elif defined(__BIG_ENDIAN__)
-    return value;
+	return value;
 #else
 #    error unsupported endianness
 #endif /* ORDER SELECTION */
@@ -169,19 +170,19 @@ STATIC_FORCEINLINE i32 BigEndianI32(i32 value)
 {
 #if defined(__LITTLE_ENDIAN__)
 #   ifdef __cplusplus
-    u32 asUint;
-    std::memcpy(&asUint, reinterpret_cast<const void *>(&value), sizeof(u32));
-    asUint = bswap32(asUint);
-    std::memcpy(&value, reinterpret_cast<void *>(&asUint), sizeof(i32));
-    return value;
+	u32 asUint;
+	std::memcpy(&asUint, reinterpret_cast<const void *>(&value), sizeof(u32));
+	asUint = bswap32(asUint);
+	std::memcpy(&value, reinterpret_cast<void *>(&asUint), sizeof(i32));
+	return value;
 #   else
-    union { u32 asUint; i32 asInt; } conversion_union;
-    conversion_union.asInt = value;
-    conversion_union.asUint = bswap32(conversion_union.asUint);
-    return conversion_union.asInt;
+	union { u32 asUint; i32 asInt; } conversion_union;
+	conversion_union.asInt = value;
+	conversion_union.asUint = bswap32(conversion_union.asUint);
+	return conversion_union.asInt;
 #   endif /* __cplusplus */
 #elif defined(__BIG_ENDIAN__)
-    return value;
+	return value;
 #else
 #    error unsupported endianness
 #endif /* ORDER SELECTION */
@@ -197,9 +198,9 @@ STATIC_FORCEINLINE i32 BigEndianI32(i32 value)
 STATIC_FORCEINLINE u64 LittleEndianU64(const u64 value)
 {
 #if defined(__LITTLE_ENDIAN__)
-    return value;
+	return value;
 #elif defined(__BIG_ENDIAN__)
-    return bswap64(value);
+	return bswap64(value);
 #else
 #    error unsupported endianness
 #endif /* ORDER SELECTION */
@@ -208,20 +209,20 @@ STATIC_FORCEINLINE u64 LittleEndianU64(const u64 value)
 STATIC_FORCEINLINE i64 LittleEndianI64(i64 value)
 {
 #if defined(__LITTLE_ENDIAN__)
-    return value;
+	return value;
 #elif defined(__BIG_ENDIAN__)
 #
 #   ifdef __cplusplus
-    u64 asUint;
-    std::memcpy(&asUint, reinterpret_cast<const void *>(&value), sizeof(u64));
-    asUint = bswap64(asUint);
-    std::memcpy(&value, reinterpret_cast<void *>(&asUint), sizeof(i64));
-    return value;
+	u64 asUint;
+	std::memcpy(&asUint, reinterpret_cast<const void *>(&value), sizeof(u64));
+	asUint = bswap64(asUint);
+	std::memcpy(&value, reinterpret_cast<void *>(&asUint), sizeof(i64));
+	return value;
 #   else
-    union { u64 asUint; i64 asInt; } conversion_union;
-    conversion_union.asInt = value;
-    conversion_union.asUint = bswap64(conversion_union.asUint);
-    return conversion_union.asInt;
+	union { u64 asUint; i64 asInt; } conversion_union;
+	conversion_union.asInt = value;
+	conversion_union.asUint = bswap64(conversion_union.asUint);
+	return conversion_union.asInt;
 #   endif /* __cplusplus */
 #
 #else
@@ -232,9 +233,9 @@ STATIC_FORCEINLINE i64 LittleEndianI64(i64 value)
 STATIC_FORCEINLINE u64 BigEndianU64(const u64 value)
 {
 #if defined(__LITTLE_ENDIAN__)
-    return bswap64(value);
+	return bswap64(value);
 #elif defined(__BIG_ENDIAN__)
-    return value;
+	return value;
 #else
 #    error unsupported endianness
 #endif /* ORDER SELECTION */
@@ -244,19 +245,19 @@ STATIC_FORCEINLINE i64 BigEndianI64(i64 value)
 {
 #if defined(__LITTLE_ENDIAN__)
 #   ifdef __cplusplus
-    u64 asUint;
-    std::memcpy(&asUint, reinterpret_cast<const void *>(&value), sizeof(u64));
-    asUint = bswap64(asUint);
-    std::memcpy(&value, reinterpret_cast<void *>(&asUint), sizeof(i64));
-    return value;
+	u64 asUint;
+	std::memcpy(&asUint, reinterpret_cast<const void *>(&value), sizeof(u64));
+	asUint = bswap64(asUint);
+	std::memcpy(&value, reinterpret_cast<void *>(&asUint), sizeof(i64));
+	return value;
 #   else
-    union { u64 asUint; i64 asInt; } conversion_union;
-    conversion_union.asInt = value;
-    conversion_union.asUint = bswap64(conversion_union.asUint);
-    return conversion_union.asInt;
+	union { u64 asUint; i64 asInt; } conversion_union;
+	conversion_union.asInt = value;
+	conversion_union.asUint = bswap64(conversion_union.asUint);
+	return conversion_union.asInt;
 #   endif /* __cplusplus */
 #elif defined(__BIG_ENDIAN__)
-    return value;
+	return value;
 #else
 #    error unsupported endianness
 #endif /* ORDER SELECTION */
@@ -271,9 +272,9 @@ STATIC_FORCEINLINE i64 BigEndianI64(i64 value)
 STATIC_FORCEINLINE f32 LittleEndianF32(const f32 value)
 {
 #if defined(__LITTLE_ENDIAN__)
-    return value;
+	return value;
 #elif defined(__BIG_ENDIAN__)
-    return bswapf(value);
+	return bswapf(value);
 #else
 #    error unsupported endianness
 #endif /* ORDER SELECTION */
@@ -282,9 +283,9 @@ STATIC_FORCEINLINE f32 LittleEndianF32(const f32 value)
 STATIC_FORCEINLINE f32 BigEndianF32(const f32 value)
 {
 #if defined(__LITTLE_ENDIAN__)
-    return bswapf(value);
+	return bswapf(value);
 #elif defined(__BIG_ENDIAN__)
-    return value;
+	return value;
 #else
 #    error unsupported endianness
 #endif /* ORDER SELECTION */
@@ -299,9 +300,9 @@ STATIC_FORCEINLINE f32 BigEndianF32(const f32 value)
 STATIC_FORCEINLINE f64 LittleEndianF64(const f64 value)
 {
 #if defined(__LITTLE_ENDIAN__)
-    return value;
+	return value;
 #elif defined(__BIG_ENDIAN__)
-    return bswapd(value);
+	return bswapd(value);
 #else
 #    error unsupported endianness
 #endif /* ORDER SELECTION */
@@ -310,13 +311,83 @@ STATIC_FORCEINLINE f64 LittleEndianF64(const f64 value)
 STATIC_FORCEINLINE f64 BigEndianF64(const f64 value)
 {
 #if defined(__LITTLE_ENDIAN__)
-    return bswapd(value);
+	return bswapd(value);
 #elif defined(__BIG_ENDIAN__)
-    return value;
+	return value;
 #else
 #    error unsupported endianness
 #endif /* ORDER SELECTION */
 }
+
+
+/*
+ * ********************************************************
+ * generic reverse functions
+ * ********************************************************
+ */
+#if defined(__LITTLE_ENDIAN__)
+#define LittleEndianGeneric(value, size)
+
+STATIC_FORCEINLINE void BigEndianGeneric(void* const value, const reg size)
+{
+	switch(size) {
+
+	case sizeof(u16): {
+		u16 val;
+		memcpy(&val, value, sizeof(u16));
+		val = bswap16(val);
+		memcpy(value, &val, sizeof(u16));
+		return;}
+
+	case sizeof(u32): {
+		u32 val;
+		memcpy(&val, value, sizeof(u32));
+		val = bswap32(val);
+		memcpy(value, &val, sizeof(u32));
+		return;}
+
+	case sizeof(u64): {
+		u64 val;
+		memcpy(&val, value, sizeof(u64));
+		val =  bswap64(val);
+		memcpy(value, &val, sizeof(u64));
+		return;}
+	}
+}
+#elif defined(__BIG_ENDIAN__)
+#define BigEndianGeneric(value, size)
+
+STATIC_FORCEINLINE void LittleEndianGeneric(void* const value, const reg size)
+{
+	switch(size) {
+
+	case sizeof(u16): {
+		u16 val;
+		memcpy(&val, value, sizeof(u16));
+		val = bswap16(val);
+		memcpy(value, &val, sizeof(u16));
+		return;}
+
+	case sizeof(u32): {
+		u32 val;
+		memcpy(&val, value, sizeof(u32));
+		val = bswap32(val);
+		memcpy(value, &val, sizeof(u32));
+		return;}
+
+	case sizeof(u64): {
+		u64 val;
+		memcpy(&val, value, sizeof(u64));
+		val =  bswap64(val);
+		memcpy(value, &val, sizeof(u64));
+		return;}
+	}
+}
+#else
+#    error unsupported endianness
+#endif /* ORDER SELECTION */
+
+
 
 
 #endif /* __BYTE_ORDER_H__ */

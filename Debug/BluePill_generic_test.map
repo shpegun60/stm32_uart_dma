@@ -2778,6 +2778,14 @@ Discarded input sections
  .group         0x00000000        0xc ./app_core/ProtocolSender.o
  .group         0x00000000        0xc ./app_core/ProtocolSender.o
  .group         0x00000000        0xc ./app_core/ProtocolSender.o
+ .group         0x00000000        0xc ./app_core/ProtocolSender.o
+ .group         0x00000000        0xc ./app_core/ProtocolSender.o
+ .group         0x00000000        0xc ./app_core/ProtocolSender.o
+ .group         0x00000000        0xc ./app_core/ProtocolSender.o
+ .group         0x00000000        0xc ./app_core/ProtocolSender.o
+ .group         0x00000000        0xc ./app_core/ProtocolSender.o
+ .group         0x00000000        0xc ./app_core/ProtocolSender.o
+ .group         0x00000000        0xc ./app_core/ProtocolSender.o
  .text          0x00000000        0x0 ./app_core/ProtocolSender.o
  .data          0x00000000        0x0 ./app_core/ProtocolSender.o
  .bss           0x00000000        0x0 ./app_core/ProtocolSender.o
@@ -2833,11 +2841,22 @@ Discarded input sections
  .debug_macro   0x00000000      0x177 ./app_core/ProtocolSender.o
  .debug_macro   0x00000000       0x1c ./app_core/ProtocolSender.o
  .debug_macro   0x00000000       0x52 ./app_core/ProtocolSender.o
+ .debug_macro   0x00000000       0x16 ./app_core/ProtocolSender.o
+ .debug_macro   0x00000000       0x16 ./app_core/ProtocolSender.o
+ .debug_macro   0x00000000       0x29 ./app_core/ProtocolSender.o
  .debug_macro   0x00000000       0x1c ./app_core/ProtocolSender.o
  .debug_macro   0x00000000       0x10 ./app_core/ProtocolSender.o
  .debug_macro   0x00000000       0x16 ./app_core/ProtocolSender.o
  .group         0x00000000        0x8 ./app_core/RelayController.o
  .group         0x00000000        0x8 ./app_core/RelayController.o
+ .group         0x00000000        0xc ./app_core/RelayController.o
+ .group         0x00000000        0xc ./app_core/RelayController.o
+ .group         0x00000000        0xc ./app_core/RelayController.o
+ .group         0x00000000        0xc ./app_core/RelayController.o
+ .group         0x00000000        0xc ./app_core/RelayController.o
+ .group         0x00000000        0xc ./app_core/RelayController.o
+ .group         0x00000000        0xc ./app_core/RelayController.o
+ .group         0x00000000        0xc ./app_core/RelayController.o
  .group         0x00000000        0xc ./app_core/RelayController.o
  .group         0x00000000        0xc ./app_core/RelayController.o
  .group         0x00000000        0xc ./app_core/RelayController.o
@@ -3016,7 +3035,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x34 ./app_core/RelayController.o
  .debug_macro   0x00000000       0x16 ./app_core/RelayController.o
  .debug_macro   0x00000000       0x2e ./app_core/RelayController.o
- .debug_macro   0x00000000       0x28 ./app_core/RelayController.o
+ .debug_macro   0x00000000       0x52 ./app_core/RelayController.o
  .debug_macro   0x00000000       0x16 ./app_core/RelayController.o
  .debug_macro   0x00000000       0x43 ./app_core/RelayController.o
  .debug_macro   0x00000000       0x34 ./app_core/RelayController.o
@@ -3036,11 +3055,27 @@ Discarded input sections
  .debug_macro   0x00000000      0x16c ./app_core/RelayController.o
  .debug_macro   0x00000000       0x8f ./app_core/RelayController.o
  .debug_macro   0x00000000       0x46 ./app_core/RelayController.o
+ .debug_macro   0x00000000       0x10 ./app_core/RelayController.o
+ .debug_macro   0x00000000       0x16 ./app_core/RelayController.o
+ .debug_macro   0x00000000       0x16 ./app_core/RelayController.o
+ .debug_macro   0x00000000       0x29 ./app_core/RelayController.o
+ .debug_macro   0x00000000       0x1c ./app_core/RelayController.o
+ .debug_macro   0x00000000       0xde ./app_core/RelayController.o
+ .debug_macro   0x00000000       0x10 ./app_core/RelayController.o
+ .debug_macro   0x00000000       0x16 ./app_core/RelayController.o
  .debug_macro   0x00000000       0x4c ./app_core/RelayController.o
  .debug_macro   0x00000000       0x40 ./app_core/RelayController.o
  .debug_macro   0x00000000       0x22 ./app_core/RelayController.o
  .debug_macro   0x00000000       0x10 ./app_core/RelayController.o
  .debug_macro   0x00000000       0x2e ./app_core/RelayController.o
+ .group         0x00000000        0xc ./app_core/app_core.o
+ .group         0x00000000        0xc ./app_core/app_core.o
+ .group         0x00000000        0xc ./app_core/app_core.o
+ .group         0x00000000        0xc ./app_core/app_core.o
+ .group         0x00000000        0xc ./app_core/app_core.o
+ .group         0x00000000        0xc ./app_core/app_core.o
+ .group         0x00000000        0xc ./app_core/app_core.o
+ .group         0x00000000        0xc ./app_core/app_core.o
  .group         0x00000000        0xc ./app_core/app_core.o
  .group         0x00000000        0xc ./app_core/app_core.o
  .group         0x00000000        0xc ./app_core/app_core.o
@@ -3217,7 +3252,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x34 ./app_core/app_core.o
  .debug_macro   0x00000000       0x16 ./app_core/app_core.o
  .debug_macro   0x00000000       0x2e ./app_core/app_core.o
- .debug_macro   0x00000000       0x28 ./app_core/app_core.o
+ .debug_macro   0x00000000       0x52 ./app_core/app_core.o
  .debug_macro   0x00000000       0x16 ./app_core/app_core.o
  .debug_macro   0x00000000       0x43 ./app_core/app_core.o
  .debug_macro   0x00000000       0x34 ./app_core/app_core.o
@@ -3237,6 +3272,14 @@ Discarded input sections
  .debug_macro   0x00000000      0x16c ./app_core/app_core.o
  .debug_macro   0x00000000       0x8f ./app_core/app_core.o
  .debug_macro   0x00000000       0x46 ./app_core/app_core.o
+ .debug_macro   0x00000000       0x10 ./app_core/app_core.o
+ .debug_macro   0x00000000       0x16 ./app_core/app_core.o
+ .debug_macro   0x00000000       0x16 ./app_core/app_core.o
+ .debug_macro   0x00000000       0x29 ./app_core/app_core.o
+ .debug_macro   0x00000000       0x1c ./app_core/app_core.o
+ .debug_macro   0x00000000       0xde ./app_core/app_core.o
+ .debug_macro   0x00000000       0x10 ./app_core/app_core.o
+ .debug_macro   0x00000000       0x16 ./app_core/app_core.o
  .debug_macro   0x00000000       0x4c ./app_core/app_core.o
  .debug_macro   0x00000000       0x40 ./app_core/app_core.o
  .debug_macro   0x00000000       0x22 ./app_core/app_core.o
@@ -3724,6 +3767,100 @@ Discarded input sections
  .debug_frame   0x00000000       0x34 ./app_core/chaos_sdk/assertsEngine/assert_safe_invoke.o
  .ARM.attributes
                 0x00000000       0x2d ./app_core/chaos_sdk/assertsEngine/assert_safe_invoke.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/crc_from.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/crc_from.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/crc_from.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/crc_from.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/crc_from.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/crc_from.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/crc_from.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/crc_from.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/crc_from.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/crc_from.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/crc_from.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/crc_from.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/crc_from.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/crc_from.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/crc_from.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/crc_from.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/crc_from.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/crc_from.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/crc_from.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/crc_from.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/crc_from.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/crc_from.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/crc_from.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/crc_from.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/crc_from.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/crc_from.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/crc_from.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/crc_from.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/crc_from.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/crc_from.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/crc_from.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/crc_from.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/crc_from.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/crc_from.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/crc_from.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/crc_from.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/crc_from.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/crc_from.o
+ .text          0x00000000        0x0 ./app_core/chaos_sdk/buffers/crc_from.o
+ .data          0x00000000        0x0 ./app_core/chaos_sdk/buffers/crc_from.o
+ .bss           0x00000000        0x0 ./app_core/chaos_sdk/buffers/crc_from.o
+ .text.crc_from_ringbuf
+                0x00000000       0x92 ./app_core/chaos_sdk/buffers/crc_from.o
+ .debug_info    0x00000000      0x314 ./app_core/chaos_sdk/buffers/crc_from.o
+ .debug_abbrev  0x00000000      0x100 ./app_core/chaos_sdk/buffers/crc_from.o
+ .debug_aranges
+                0x00000000       0x20 ./app_core/chaos_sdk/buffers/crc_from.o
+ .debug_rnglists
+                0x00000000       0x14 ./app_core/chaos_sdk/buffers/crc_from.o
+ .debug_macro   0x00000000      0x202 ./app_core/chaos_sdk/buffers/crc_from.o
+ .debug_macro   0x00000000      0xaa8 ./app_core/chaos_sdk/buffers/crc_from.o
+ .debug_macro   0x00000000      0x189 ./app_core/chaos_sdk/buffers/crc_from.o
+ .debug_macro   0x00000000       0x22 ./app_core/chaos_sdk/buffers/crc_from.o
+ .debug_macro   0x00000000       0x8e ./app_core/chaos_sdk/buffers/crc_from.o
+ .debug_macro   0x00000000       0x51 ./app_core/chaos_sdk/buffers/crc_from.o
+ .debug_macro   0x00000000      0x103 ./app_core/chaos_sdk/buffers/crc_from.o
+ .debug_macro   0x00000000       0x6a ./app_core/chaos_sdk/buffers/crc_from.o
+ .debug_macro   0x00000000      0x1df ./app_core/chaos_sdk/buffers/crc_from.o
+ .debug_macro   0x00000000       0x22 ./app_core/chaos_sdk/buffers/crc_from.o
+ .debug_macro   0x00000000       0x61 ./app_core/chaos_sdk/buffers/crc_from.o
+ .debug_macro   0x00000000       0x24 ./app_core/chaos_sdk/buffers/crc_from.o
+ .debug_macro   0x00000000       0x43 ./app_core/chaos_sdk/buffers/crc_from.o
+ .debug_macro   0x00000000       0x34 ./app_core/chaos_sdk/buffers/crc_from.o
+ .debug_macro   0x00000000       0x1c ./app_core/chaos_sdk/buffers/crc_from.o
+ .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/buffers/crc_from.o
+ .debug_macro   0x00000000       0x35 ./app_core/chaos_sdk/buffers/crc_from.o
+ .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/buffers/crc_from.o
+ .debug_macro   0x00000000       0x43 ./app_core/chaos_sdk/buffers/crc_from.o
+ .debug_macro   0x00000000       0x34 ./app_core/chaos_sdk/buffers/crc_from.o
+ .debug_macro   0x00000000       0x10 ./app_core/chaos_sdk/buffers/crc_from.o
+ .debug_macro   0x00000000       0x58 ./app_core/chaos_sdk/buffers/crc_from.o
+ .debug_macro   0x00000000       0x8e ./app_core/chaos_sdk/buffers/crc_from.o
+ .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/buffers/crc_from.o
+ .debug_macro   0x00000000      0x177 ./app_core/chaos_sdk/buffers/crc_from.o
+ .debug_macro   0x00000000      0x369 ./app_core/chaos_sdk/buffers/crc_from.o
+ .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/buffers/crc_from.o
+ .debug_macro   0x00000000       0x29 ./app_core/chaos_sdk/buffers/crc_from.o
+ .debug_macro   0x00000000       0x2e ./app_core/chaos_sdk/buffers/crc_from.o
+ .debug_macro   0x00000000       0x10 ./app_core/chaos_sdk/buffers/crc_from.o
+ .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/buffers/crc_from.o
+ .debug_macro   0x00000000       0x58 ./app_core/chaos_sdk/buffers/crc_from.o
+ .debug_macro   0x00000000       0x10 ./app_core/chaos_sdk/buffers/crc_from.o
+ .debug_macro   0x00000000       0xb1 ./app_core/chaos_sdk/buffers/crc_from.o
+ .debug_macro   0x00000000       0x1c ./app_core/chaos_sdk/buffers/crc_from.o
+ .debug_macro   0x00000000       0x10 ./app_core/chaos_sdk/buffers/crc_from.o
+ .debug_macro   0x00000000       0x1c ./app_core/chaos_sdk/buffers/crc_from.o
+ .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/buffers/crc_from.o
+ .debug_macro   0x00000000      0x146 ./app_core/chaos_sdk/buffers/crc_from.o
+ .debug_line    0x00000000      0x7dd ./app_core/chaos_sdk/buffers/crc_from.o
+ .debug_str     0x00000000     0x876d ./app_core/chaos_sdk/buffers/crc_from.o
+ .comment       0x00000000       0x44 ./app_core/chaos_sdk/buffers/crc_from.o
+ .debug_frame   0x00000000       0x34 ./app_core/chaos_sdk/buffers/crc_from.o
+ .ARM.attributes
+                0x00000000       0x2d ./app_core/chaos_sdk/buffers/crc_from.o
  .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/pool_container.o
  .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/pool_container.o
  .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/pool_container.o
@@ -3786,7 +3923,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x34 ./app_core/chaos_sdk/buffers/pool_container.o
  .debug_macro   0x00000000       0x1c ./app_core/chaos_sdk/buffers/pool_container.o
  .debug_macro   0x00000000       0x2e ./app_core/chaos_sdk/buffers/pool_container.o
- .debug_macro   0x00000000       0x28 ./app_core/chaos_sdk/buffers/pool_container.o
+ .debug_macro   0x00000000       0x52 ./app_core/chaos_sdk/buffers/pool_container.o
  .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/buffers/pool_container.o
  .debug_macro   0x00000000       0x35 ./app_core/chaos_sdk/buffers/pool_container.o
  .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/buffers/pool_container.o
@@ -3795,6 +3932,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x10 ./app_core/chaos_sdk/buffers/pool_container.o
  .debug_macro   0x00000000       0x58 ./app_core/chaos_sdk/buffers/pool_container.o
  .debug_macro   0x00000000       0x8e ./app_core/chaos_sdk/buffers/pool_container.o
+ .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/buffers/pool_container.o
  .debug_macro   0x00000000      0x177 ./app_core/chaos_sdk/buffers/pool_container.o
  .debug_macro   0x00000000      0x369 ./app_core/chaos_sdk/buffers/pool_container.o
  .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/buffers/pool_container.o
@@ -3851,22 +3989,76 @@ Discarded input sections
  .text.ringbuf_new
                 0x00000000       0x5a ./app_core/chaos_sdk/buffers/ringbuf.o
  .text.ringbuf_init
-                0x00000000       0x90 ./app_core/chaos_sdk/buffers/ringbuf.o
+                0x00000000       0x96 ./app_core/chaos_sdk/buffers/ringbuf.o
+ .text.ringbuf_install_buf
+                0x00000000       0x38 ./app_core/chaos_sdk/buffers/ringbuf.o
  .text.ringbuf_get
-                0x00000000       0xa4 ./app_core/chaos_sdk/buffers/ringbuf.o
+                0x00000000       0xba ./app_core/chaos_sdk/buffers/ringbuf.o
  .text.ringbuf_getc
-                0x00000000       0x44 ./app_core/chaos_sdk/buffers/ringbuf.o
- .text.ringbuf_put
-                0x00000000       0xac ./app_core/chaos_sdk/buffers/ringbuf.o
- .text.ringbuf_putc
-                0x00000000       0x48 ./app_core/chaos_sdk/buffers/ringbuf.o
- .debug_info    0x00000000      0x599 ./app_core/chaos_sdk/buffers/ringbuf.o
- .debug_abbrev  0x00000000      0x1ca ./app_core/chaos_sdk/buffers/ringbuf.o
- .debug_aranges
-                0x00000000       0x48 ./app_core/chaos_sdk/buffers/ringbuf.o
- .debug_rnglists
+                0x00000000       0x60 ./app_core/chaos_sdk/buffers/ringbuf.o
+ .text.ringbuf_get_u16
+                0x00000000       0x2a ./app_core/chaos_sdk/buffers/ringbuf.o
+ .text.ringbuf_get_u32
+                0x00000000       0x2a ./app_core/chaos_sdk/buffers/ringbuf.o
+ .text.ringbuf_get_u64
                 0x00000000       0x34 ./app_core/chaos_sdk/buffers/ringbuf.o
- .debug_macro   0x00000000      0x218 ./app_core/chaos_sdk/buffers/ringbuf.o
+ .text.ringbuf_get_i16
+                0x00000000       0x2c ./app_core/chaos_sdk/buffers/ringbuf.o
+ .text.ringbuf_get_i32
+                0x00000000       0x2a ./app_core/chaos_sdk/buffers/ringbuf.o
+ .text.ringbuf_get_i64
+                0x00000000       0x34 ./app_core/chaos_sdk/buffers/ringbuf.o
+ .text.ringbuf_get_f32
+                0x00000000       0x2c ./app_core/chaos_sdk/buffers/ringbuf.o
+ .text.ringbuf_get_f64
+                0x00000000       0x34 ./app_core/chaos_sdk/buffers/ringbuf.o
+ .text.ringbuf_peek
+                0x00000000       0xac ./app_core/chaos_sdk/buffers/ringbuf.o
+ .text.ringbuf_peekc
+                0x00000000       0x54 ./app_core/chaos_sdk/buffers/ringbuf.o
+ .text.ringbuf_peek_u16
+                0x00000000       0x2a ./app_core/chaos_sdk/buffers/ringbuf.o
+ .text.ringbuf_peek_u32
+                0x00000000       0x2a ./app_core/chaos_sdk/buffers/ringbuf.o
+ .text.ringbuf_peek_u64
+                0x00000000       0x34 ./app_core/chaos_sdk/buffers/ringbuf.o
+ .text.ringbuf_peek_i16
+                0x00000000       0x2c ./app_core/chaos_sdk/buffers/ringbuf.o
+ .text.ringbuf_peek_i32
+                0x00000000       0x2a ./app_core/chaos_sdk/buffers/ringbuf.o
+ .text.ringbuf_peek_i64
+                0x00000000       0x34 ./app_core/chaos_sdk/buffers/ringbuf.o
+ .text.ringbuf_peek_f32
+                0x00000000       0x2c ./app_core/chaos_sdk/buffers/ringbuf.o
+ .text.ringbuf_peek_f64
+                0x00000000       0x34 ./app_core/chaos_sdk/buffers/ringbuf.o
+ .text.ringbuf_put
+                0x00000000       0xd0 ./app_core/chaos_sdk/buffers/ringbuf.o
+ .text.ringbuf_putc
+                0x00000000       0x78 ./app_core/chaos_sdk/buffers/ringbuf.o
+ .text.ringbuf_put_u16
+                0x00000000       0x2c ./app_core/chaos_sdk/buffers/ringbuf.o
+ .text.ringbuf_put_u32
+                0x00000000       0x2a ./app_core/chaos_sdk/buffers/ringbuf.o
+ .text.ringbuf_put_u64
+                0x00000000       0x2c ./app_core/chaos_sdk/buffers/ringbuf.o
+ .text.ringbuf_put_i16
+                0x00000000       0x2c ./app_core/chaos_sdk/buffers/ringbuf.o
+ .text.ringbuf_put_i32
+                0x00000000       0x2a ./app_core/chaos_sdk/buffers/ringbuf.o
+ .text.ringbuf_put_i64
+                0x00000000       0x2c ./app_core/chaos_sdk/buffers/ringbuf.o
+ .text.ringbuf_put_f32
+                0x00000000       0x2a ./app_core/chaos_sdk/buffers/ringbuf.o
+ .text.ringbuf_put_f64
+                0x00000000       0x2c ./app_core/chaos_sdk/buffers/ringbuf.o
+ .debug_info    0x00000000      0xd94 ./app_core/chaos_sdk/buffers/ringbuf.o
+ .debug_abbrev  0x00000000      0x23f ./app_core/chaos_sdk/buffers/ringbuf.o
+ .debug_aranges
+                0x00000000      0x120 ./app_core/chaos_sdk/buffers/ringbuf.o
+ .debug_rnglists
+                0x00000000       0xd7 ./app_core/chaos_sdk/buffers/ringbuf.o
+ .debug_macro   0x00000000      0x234 ./app_core/chaos_sdk/buffers/ringbuf.o
  .debug_macro   0x00000000      0xaa8 ./app_core/chaos_sdk/buffers/ringbuf.o
  .debug_macro   0x00000000       0x22 ./app_core/chaos_sdk/buffers/ringbuf.o
  .debug_macro   0x00000000       0x5b ./app_core/chaos_sdk/buffers/ringbuf.o
@@ -3897,7 +4089,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x22 ./app_core/chaos_sdk/buffers/ringbuf.o
  .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/buffers/ringbuf.o
  .debug_macro   0x00000000       0x2e ./app_core/chaos_sdk/buffers/ringbuf.o
- .debug_macro   0x00000000       0x28 ./app_core/chaos_sdk/buffers/ringbuf.o
+ .debug_macro   0x00000000       0x52 ./app_core/chaos_sdk/buffers/ringbuf.o
  .debug_macro   0x00000000       0x10 ./app_core/chaos_sdk/buffers/ringbuf.o
  .debug_macro   0x00000000       0xb1 ./app_core/chaos_sdk/buffers/ringbuf.o
  .debug_macro   0x00000000       0x1c ./app_core/chaos_sdk/buffers/ringbuf.o
@@ -3905,122 +4097,14 @@ Discarded input sections
  .debug_macro   0x00000000       0x1c ./app_core/chaos_sdk/buffers/ringbuf.o
  .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/buffers/ringbuf.o
  .debug_macro   0x00000000      0x146 ./app_core/chaos_sdk/buffers/ringbuf.o
- .debug_line    0x00000000      0x8c5 ./app_core/chaos_sdk/buffers/ringbuf.o
- .debug_str     0x00000000     0x849d ./app_core/chaos_sdk/buffers/ringbuf.o
+ .debug_line    0x00000000      0xca7 ./app_core/chaos_sdk/buffers/ringbuf.o
+ .debug_str     0x00000000     0x8ace ./app_core/chaos_sdk/buffers/ringbuf.o
  .comment       0x00000000       0x44 ./app_core/chaos_sdk/buffers/ringbuf.o
- .debug_frame   0x00000000       0xf0 ./app_core/chaos_sdk/buffers/ringbuf.o
+ .debug_frame   0x00000000      0x4c4 ./app_core/chaos_sdk/buffers/ringbuf.o
  .ARM.attributes
                 0x00000000       0x2d ./app_core/chaos_sdk/buffers/ringbuf.o
- .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/stream.o
- .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/stream.o
- .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/stream.o
- .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/stream.o
- .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/stream.o
- .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/stream.o
- .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/stream.o
- .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/stream.o
- .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/stream.o
- .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/stream.o
- .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/stream.o
- .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/stream.o
- .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/stream.o
- .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/stream.o
- .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/stream.o
- .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/stream.o
- .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/stream.o
- .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/stream.o
- .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/stream.o
- .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/stream.o
- .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/stream.o
- .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/stream.o
- .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/stream.o
- .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/stream.o
- .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/stream.o
- .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/stream.o
- .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/stream.o
- .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/stream.o
- .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/stream.o
- .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/stream.o
- .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/stream.o
- .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/stream.o
- .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/stream.o
- .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/stream.o
- .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/stream.o
- .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/stream.o
- .group         0x00000000        0xc ./app_core/chaos_sdk/buffers/stream.o
- .text          0x00000000        0x0 ./app_core/chaos_sdk/buffers/stream.o
- .data          0x00000000        0x0 ./app_core/chaos_sdk/buffers/stream.o
- .bss           0x00000000        0x0 ./app_core/chaos_sdk/buffers/stream.o
- .text.stream_new
-                0x00000000       0x48 ./app_core/chaos_sdk/buffers/stream.o
- .text.stream_init
-                0x00000000       0x5c ./app_core/chaos_sdk/buffers/stream.o
- .text.stream_write_u16
-                0x00000000       0x48 ./app_core/chaos_sdk/buffers/stream.o
- .text.stream_write_u32
-                0x00000000       0x54 ./app_core/chaos_sdk/buffers/stream.o
- .text.stream_write_u64
-                0x00000000       0x5a ./app_core/chaos_sdk/buffers/stream.o
- .text.stream_write_array
-                0x00000000       0x66 ./app_core/chaos_sdk/buffers/stream.o
- .text.stream_read_u16
-                0x00000000       0x5a ./app_core/chaos_sdk/buffers/stream.o
- .text.stream_read_u32
-                0x00000000       0x58 ./app_core/chaos_sdk/buffers/stream.o
- .text.stream_read_u64
-                0x00000000       0x6c ./app_core/chaos_sdk/buffers/stream.o
- .text.stream_read_array
-                0x00000000       0x66 ./app_core/chaos_sdk/buffers/stream.o
- .debug_info    0x00000000      0x53b ./app_core/chaos_sdk/buffers/stream.o
- .debug_abbrev  0x00000000      0x1a6 ./app_core/chaos_sdk/buffers/stream.o
- .debug_aranges
-                0x00000000       0x68 ./app_core/chaos_sdk/buffers/stream.o
- .debug_rnglists
-                0x00000000       0x49 ./app_core/chaos_sdk/buffers/stream.o
- .debug_macro   0x00000000      0x208 ./app_core/chaos_sdk/buffers/stream.o
- .debug_macro   0x00000000      0xaa8 ./app_core/chaos_sdk/buffers/stream.o
- .debug_macro   0x00000000      0x189 ./app_core/chaos_sdk/buffers/stream.o
- .debug_macro   0x00000000       0x22 ./app_core/chaos_sdk/buffers/stream.o
- .debug_macro   0x00000000       0x8e ./app_core/chaos_sdk/buffers/stream.o
- .debug_macro   0x00000000       0x51 ./app_core/chaos_sdk/buffers/stream.o
- .debug_macro   0x00000000      0x103 ./app_core/chaos_sdk/buffers/stream.o
- .debug_macro   0x00000000       0x6a ./app_core/chaos_sdk/buffers/stream.o
- .debug_macro   0x00000000      0x1df ./app_core/chaos_sdk/buffers/stream.o
- .debug_macro   0x00000000       0x22 ./app_core/chaos_sdk/buffers/stream.o
- .debug_macro   0x00000000       0x61 ./app_core/chaos_sdk/buffers/stream.o
- .debug_macro   0x00000000       0x24 ./app_core/chaos_sdk/buffers/stream.o
- .debug_macro   0x00000000       0x43 ./app_core/chaos_sdk/buffers/stream.o
- .debug_macro   0x00000000       0x34 ./app_core/chaos_sdk/buffers/stream.o
- .debug_macro   0x00000000       0x1c ./app_core/chaos_sdk/buffers/stream.o
- .debug_macro   0x00000000       0x2e ./app_core/chaos_sdk/buffers/stream.o
- .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/buffers/stream.o
- .debug_macro   0x00000000       0x43 ./app_core/chaos_sdk/buffers/stream.o
- .debug_macro   0x00000000       0x34 ./app_core/chaos_sdk/buffers/stream.o
- .debug_macro   0x00000000       0x10 ./app_core/chaos_sdk/buffers/stream.o
- .debug_macro   0x00000000       0x58 ./app_core/chaos_sdk/buffers/stream.o
- .debug_macro   0x00000000       0x8e ./app_core/chaos_sdk/buffers/stream.o
- .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/buffers/stream.o
- .debug_macro   0x00000000      0x177 ./app_core/chaos_sdk/buffers/stream.o
- .debug_macro   0x00000000      0x369 ./app_core/chaos_sdk/buffers/stream.o
- .debug_macro   0x00000000       0x10 ./app_core/chaos_sdk/buffers/stream.o
- .debug_macro   0x00000000       0x35 ./app_core/chaos_sdk/buffers/stream.o
- .debug_macro   0x00000000       0x20 ./app_core/chaos_sdk/buffers/stream.o
- .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/buffers/stream.o
- .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/buffers/stream.o
- .debug_macro   0x00000000       0x29 ./app_core/chaos_sdk/buffers/stream.o
- .debug_macro   0x00000000       0x10 ./app_core/chaos_sdk/buffers/stream.o
- .debug_macro   0x00000000       0xb1 ./app_core/chaos_sdk/buffers/stream.o
- .debug_macro   0x00000000       0x1c ./app_core/chaos_sdk/buffers/stream.o
- .debug_macro   0x00000000       0x10 ./app_core/chaos_sdk/buffers/stream.o
- .debug_macro   0x00000000       0x1c ./app_core/chaos_sdk/buffers/stream.o
- .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/buffers/stream.o
- .debug_macro   0x00000000      0x146 ./app_core/chaos_sdk/buffers/stream.o
- .debug_line    0x00000000      0x994 ./app_core/chaos_sdk/buffers/stream.o
- .debug_str     0x00000000     0x82a7 ./app_core/chaos_sdk/buffers/stream.o
- .comment       0x00000000       0x44 ./app_core/chaos_sdk/buffers/stream.o
- .debug_frame   0x00000000      0x17c ./app_core/chaos_sdk/buffers/stream.o
- .ARM.attributes
-                0x00000000       0x2d ./app_core/chaos_sdk/buffers/stream.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/byte_order/byte_order.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/byte_order/byte_order.o
  .group         0x00000000        0xc ./app_core/chaos_sdk/byte_order/byte_order.o
  .group         0x00000000        0xc ./app_core/chaos_sdk/byte_order/byte_order.o
  .group         0x00000000        0xc ./app_core/chaos_sdk/byte_order/byte_order.o
@@ -4072,7 +4156,7 @@ Discarded input sections
                 0x00000000       0x28 ./app_core/chaos_sdk/byte_order/byte_order.o
  .debug_rnglists
                 0x00000000       0x1a ./app_core/chaos_sdk/byte_order/byte_order.o
- .debug_macro   0x00000000      0x1c3 ./app_core/chaos_sdk/byte_order/byte_order.o
+ .debug_macro   0x00000000      0x1e9 ./app_core/chaos_sdk/byte_order/byte_order.o
  .debug_macro   0x00000000      0xaa8 ./app_core/chaos_sdk/byte_order/byte_order.o
  .debug_macro   0x00000000      0x189 ./app_core/chaos_sdk/byte_order/byte_order.o
  .debug_macro   0x00000000       0x22 ./app_core/chaos_sdk/byte_order/byte_order.o
@@ -4095,23 +4179,25 @@ Discarded input sections
  .debug_macro   0x00000000       0x1c ./app_core/chaos_sdk/byte_order/byte_order.o
  .debug_macro   0x00000000       0x52 ./app_core/chaos_sdk/byte_order/byte_order.o
  .debug_macro   0x00000000       0x62 ./app_core/chaos_sdk/byte_order/byte_order.o
- .debug_macro   0x00000000       0xc4 ./app_core/chaos_sdk/byte_order/byte_order.o
- .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/byte_order/byte_order.o
- .debug_macro   0x00000000       0x1c ./app_core/chaos_sdk/byte_order/byte_order.o
- .debug_macro   0x00000000       0x35 ./app_core/chaos_sdk/byte_order/byte_order.o
- .debug_macro   0x00000000       0x10 ./app_core/chaos_sdk/byte_order/byte_order.o
  .debug_macro   0x00000000       0x10 ./app_core/chaos_sdk/byte_order/byte_order.o
  .debug_macro   0x00000000       0x58 ./app_core/chaos_sdk/byte_order/byte_order.o
  .debug_macro   0x00000000       0x8e ./app_core/chaos_sdk/byte_order/byte_order.o
  .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/byte_order/byte_order.o
  .debug_macro   0x00000000      0x177 ./app_core/chaos_sdk/byte_order/byte_order.o
- .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/byte_order/byte_order.o
+ .debug_macro   0x00000000       0x10 ./app_core/chaos_sdk/byte_order/byte_order.o
+ .debug_macro   0x00000000       0x35 ./app_core/chaos_sdk/byte_order/byte_order.o
+ .debug_macro   0x00000000       0x20 ./app_core/chaos_sdk/byte_order/byte_order.o
+ .debug_macro   0x00000000       0xc4 ./app_core/chaos_sdk/byte_order/byte_order.o
+ .debug_macro   0x00000000       0x1d ./app_core/chaos_sdk/byte_order/byte_order.o
+ .debug_macro   0x00000000       0x1c ./app_core/chaos_sdk/byte_order/byte_order.o
+ .debug_macro   0x00000000       0x10 ./app_core/chaos_sdk/byte_order/byte_order.o
+ .debug_macro   0x00000000       0x1c ./app_core/chaos_sdk/byte_order/byte_order.o
  .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/byte_order/byte_order.o
  .debug_macro   0x00000000      0x146 ./app_core/chaos_sdk/byte_order/byte_order.o
  .debug_macro   0x00000000       0x10 ./app_core/chaos_sdk/byte_order/byte_order.o
  .debug_macro   0x00000000      0x460 ./app_core/chaos_sdk/byte_order/byte_order.o
- .debug_line    0x00000000      0xb89 ./app_core/chaos_sdk/byte_order/byte_order.o
- .debug_str     0x00000000     0xa071 ./app_core/chaos_sdk/byte_order/byte_order.o
+ .debug_line    0x00000000      0xbae ./app_core/chaos_sdk/byte_order/byte_order.o
+ .debug_str     0x00000000     0xa0fb ./app_core/chaos_sdk/byte_order/byte_order.o
  .comment       0x00000000       0x44 ./app_core/chaos_sdk/byte_order/byte_order.o
  .debug_frame   0x00000000       0x68 ./app_core/chaos_sdk/byte_order/byte_order.o
  .ARM.attributes
@@ -5351,7 +5437,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x35 ./app_core/chaos_sdk/convert/convert.o
  .debug_macro   0x00000000       0x20 ./app_core/chaos_sdk/convert/convert.o
  .debug_macro   0x00000000       0x95 ./app_core/chaos_sdk/convert/convert.o
- .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/convert/convert.o
+ .debug_macro   0x00000000       0x1d ./app_core/chaos_sdk/convert/convert.o
  .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/convert/convert.o
  .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/convert/convert.o
  .debug_macro   0x00000000       0x29 ./app_core/chaos_sdk/convert/convert.o
@@ -5361,7 +5447,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/convert/convert.o
  .debug_macro   0x00000000      0x146 ./app_core/chaos_sdk/convert/convert.o
  .debug_line    0x00000000     0xa412 ./app_core/chaos_sdk/convert/convert.o
- .debug_str     0x00000000    0x1db9b ./app_core/chaos_sdk/convert/convert.o
+ .debug_str     0x00000000    0x1dbbc ./app_core/chaos_sdk/convert/convert.o
  .comment       0x00000000       0x44 ./app_core/chaos_sdk/convert/convert.o
  .debug_frame   0x00000000     0x3ab0 ./app_core/chaos_sdk/convert/convert.o
  .ARM.attributes
@@ -5556,6 +5642,11 @@ Discarded input sections
  .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc16.o
  .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc16.o
  .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc16.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc16.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc16.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc16.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc16.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc16.o
  .text          0x00000000        0x0 ./app_core/chaos_sdk/crc/crc16.o
  .data          0x00000000        0x0 ./app_core/chaos_sdk/crc/crc16.o
  .bss           0x00000000        0x0 ./app_core/chaos_sdk/crc/crc16.o
@@ -5588,7 +5679,7 @@ Discarded input sections
                 0x00000000       0x68 ./app_core/chaos_sdk/crc/crc16.o
  .debug_rnglists
                 0x00000000       0x4a ./app_core/chaos_sdk/crc/crc16.o
- .debug_macro   0x00000000      0x240 ./app_core/chaos_sdk/crc/crc16.o
+ .debug_macro   0x00000000      0x282 ./app_core/chaos_sdk/crc/crc16.o
  .debug_macro   0x00000000      0xaa8 ./app_core/chaos_sdk/crc/crc16.o
  .debug_macro   0x00000000      0x189 ./app_core/chaos_sdk/crc/crc16.o
  .debug_macro   0x00000000       0x22 ./app_core/chaos_sdk/crc/crc16.o
@@ -5603,24 +5694,29 @@ Discarded input sections
  .debug_macro   0x00000000       0x43 ./app_core/chaos_sdk/crc/crc16.o
  .debug_macro   0x00000000       0x34 ./app_core/chaos_sdk/crc/crc16.o
  .debug_macro   0x00000000       0x1c ./app_core/chaos_sdk/crc/crc16.o
- .debug_macro   0x00000000       0x4c ./app_core/chaos_sdk/crc/crc16.o
- .debug_macro   0x00000000       0x40 ./app_core/chaos_sdk/crc/crc16.o
- .debug_macro   0x00000000       0x2e ./app_core/chaos_sdk/crc/crc16.o
- .debug_macro   0x00000000      0x369 ./app_core/chaos_sdk/crc/crc16.o
+ .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/crc/crc16.o
+ .debug_macro   0x00000000       0x35 ./app_core/chaos_sdk/crc/crc16.o
  .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/crc/crc16.o
  .debug_macro   0x00000000       0x43 ./app_core/chaos_sdk/crc/crc16.o
  .debug_macro   0x00000000       0x34 ./app_core/chaos_sdk/crc/crc16.o
- .debug_macro   0x00000000       0x1c ./app_core/chaos_sdk/crc/crc16.o
- .debug_macro   0x00000000       0x52 ./app_core/chaos_sdk/crc/crc16.o
- .debug_macro   0x00000000       0x62 ./app_core/chaos_sdk/crc/crc16.o
- .debug_macro   0x00000000      0x16c ./app_core/chaos_sdk/crc/crc16.o
  .debug_macro   0x00000000       0x10 ./app_core/chaos_sdk/crc/crc16.o
  .debug_macro   0x00000000       0x58 ./app_core/chaos_sdk/crc/crc16.o
  .debug_macro   0x00000000       0x8e ./app_core/chaos_sdk/crc/crc16.o
  .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/crc/crc16.o
  .debug_macro   0x00000000      0x177 ./app_core/chaos_sdk/crc/crc16.o
+ .debug_macro   0x00000000      0x369 ./app_core/chaos_sdk/crc/crc16.o
+ .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/crc/crc16.o
+ .debug_macro   0x00000000       0x29 ./app_core/chaos_sdk/crc/crc16.o
+ .debug_macro   0x00000000       0x2e ./app_core/chaos_sdk/crc/crc16.o
  .debug_macro   0x00000000       0x10 ./app_core/chaos_sdk/crc/crc16.o
- .debug_macro   0x00000000       0x35 ./app_core/chaos_sdk/crc/crc16.o
+ .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/crc/crc16.o
+ .debug_macro   0x00000000       0x4c ./app_core/chaos_sdk/crc/crc16.o
+ .debug_macro   0x00000000       0x40 ./app_core/chaos_sdk/crc/crc16.o
+ .debug_macro   0x00000000       0x1c ./app_core/chaos_sdk/crc/crc16.o
+ .debug_macro   0x00000000       0x52 ./app_core/chaos_sdk/crc/crc16.o
+ .debug_macro   0x00000000       0x62 ./app_core/chaos_sdk/crc/crc16.o
+ .debug_macro   0x00000000      0x16c ./app_core/chaos_sdk/crc/crc16.o
+ .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/crc/crc16.o
  .debug_macro   0x00000000       0x20 ./app_core/chaos_sdk/crc/crc16.o
  .debug_macro   0x00000000       0x95 ./app_core/chaos_sdk/crc/crc16.o
  .debug_macro   0x00000000      0x11e ./app_core/chaos_sdk/crc/crc16.o
@@ -5629,12 +5725,17 @@ Discarded input sections
  .debug_macro   0x00000000       0x1c ./app_core/chaos_sdk/crc/crc16.o
  .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/crc/crc16.o
  .debug_macro   0x00000000      0x146 ./app_core/chaos_sdk/crc/crc16.o
- .debug_line    0x00000000      0x9c9 ./app_core/chaos_sdk/crc/crc16.o
- .debug_str     0x00000000     0x95e7 ./app_core/chaos_sdk/crc/crc16.o
+ .debug_line    0x00000000      0x9fb ./app_core/chaos_sdk/crc/crc16.o
+ .debug_str     0x00000000     0x983e ./app_core/chaos_sdk/crc/crc16.o
  .comment       0x00000000       0x44 ./app_core/chaos_sdk/crc/crc16.o
  .debug_frame   0x00000000      0x19c ./app_core/chaos_sdk/crc/crc16.o
  .ARM.attributes
                 0x00000000       0x2d ./app_core/chaos_sdk/crc/crc16.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc32.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc32.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc32.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc32.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc32.o
  .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc32.o
  .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc32.o
  .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc32.o
@@ -5707,7 +5808,7 @@ Discarded input sections
                 0x00000000       0x68 ./app_core/chaos_sdk/crc/crc32.o
  .debug_rnglists
                 0x00000000       0x4a ./app_core/chaos_sdk/crc/crc32.o
- .debug_macro   0x00000000      0x240 ./app_core/chaos_sdk/crc/crc32.o
+ .debug_macro   0x00000000      0x282 ./app_core/chaos_sdk/crc/crc32.o
  .debug_macro   0x00000000      0xaa8 ./app_core/chaos_sdk/crc/crc32.o
  .debug_macro   0x00000000      0x189 ./app_core/chaos_sdk/crc/crc32.o
  .debug_macro   0x00000000       0x22 ./app_core/chaos_sdk/crc/crc32.o
@@ -5722,24 +5823,29 @@ Discarded input sections
  .debug_macro   0x00000000       0x43 ./app_core/chaos_sdk/crc/crc32.o
  .debug_macro   0x00000000       0x34 ./app_core/chaos_sdk/crc/crc32.o
  .debug_macro   0x00000000       0x1c ./app_core/chaos_sdk/crc/crc32.o
- .debug_macro   0x00000000       0x4c ./app_core/chaos_sdk/crc/crc32.o
- .debug_macro   0x00000000       0x40 ./app_core/chaos_sdk/crc/crc32.o
- .debug_macro   0x00000000       0x2e ./app_core/chaos_sdk/crc/crc32.o
- .debug_macro   0x00000000      0x369 ./app_core/chaos_sdk/crc/crc32.o
+ .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/crc/crc32.o
+ .debug_macro   0x00000000       0x35 ./app_core/chaos_sdk/crc/crc32.o
  .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/crc/crc32.o
  .debug_macro   0x00000000       0x43 ./app_core/chaos_sdk/crc/crc32.o
  .debug_macro   0x00000000       0x34 ./app_core/chaos_sdk/crc/crc32.o
- .debug_macro   0x00000000       0x1c ./app_core/chaos_sdk/crc/crc32.o
- .debug_macro   0x00000000       0x52 ./app_core/chaos_sdk/crc/crc32.o
- .debug_macro   0x00000000       0x62 ./app_core/chaos_sdk/crc/crc32.o
- .debug_macro   0x00000000      0x16c ./app_core/chaos_sdk/crc/crc32.o
  .debug_macro   0x00000000       0x10 ./app_core/chaos_sdk/crc/crc32.o
  .debug_macro   0x00000000       0x58 ./app_core/chaos_sdk/crc/crc32.o
  .debug_macro   0x00000000       0x8e ./app_core/chaos_sdk/crc/crc32.o
  .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/crc/crc32.o
  .debug_macro   0x00000000      0x177 ./app_core/chaos_sdk/crc/crc32.o
+ .debug_macro   0x00000000      0x369 ./app_core/chaos_sdk/crc/crc32.o
+ .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/crc/crc32.o
+ .debug_macro   0x00000000       0x29 ./app_core/chaos_sdk/crc/crc32.o
+ .debug_macro   0x00000000       0x2e ./app_core/chaos_sdk/crc/crc32.o
  .debug_macro   0x00000000       0x10 ./app_core/chaos_sdk/crc/crc32.o
- .debug_macro   0x00000000       0x35 ./app_core/chaos_sdk/crc/crc32.o
+ .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/crc/crc32.o
+ .debug_macro   0x00000000       0x4c ./app_core/chaos_sdk/crc/crc32.o
+ .debug_macro   0x00000000       0x40 ./app_core/chaos_sdk/crc/crc32.o
+ .debug_macro   0x00000000       0x1c ./app_core/chaos_sdk/crc/crc32.o
+ .debug_macro   0x00000000       0x52 ./app_core/chaos_sdk/crc/crc32.o
+ .debug_macro   0x00000000       0x62 ./app_core/chaos_sdk/crc/crc32.o
+ .debug_macro   0x00000000      0x16c ./app_core/chaos_sdk/crc/crc32.o
+ .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/crc/crc32.o
  .debug_macro   0x00000000       0x20 ./app_core/chaos_sdk/crc/crc32.o
  .debug_macro   0x00000000       0x95 ./app_core/chaos_sdk/crc/crc32.o
  .debug_macro   0x00000000      0x11e ./app_core/chaos_sdk/crc/crc32.o
@@ -5748,12 +5854,17 @@ Discarded input sections
  .debug_macro   0x00000000       0x1c ./app_core/chaos_sdk/crc/crc32.o
  .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/crc/crc32.o
  .debug_macro   0x00000000      0x146 ./app_core/chaos_sdk/crc/crc32.o
- .debug_line    0x00000000      0x9d4 ./app_core/chaos_sdk/crc/crc32.o
- .debug_str     0x00000000     0x9589 ./app_core/chaos_sdk/crc/crc32.o
+ .debug_line    0x00000000      0xa06 ./app_core/chaos_sdk/crc/crc32.o
+ .debug_str     0x00000000     0x97e0 ./app_core/chaos_sdk/crc/crc32.o
  .comment       0x00000000       0x44 ./app_core/chaos_sdk/crc/crc32.o
  .debug_frame   0x00000000      0x1a0 ./app_core/chaos_sdk/crc/crc32.o
  .ARM.attributes
                 0x00000000       0x2d ./app_core/chaos_sdk/crc/crc32.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc64.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc64.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc64.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc64.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc64.o
  .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc64.o
  .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc64.o
  .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc64.o
@@ -5828,7 +5939,7 @@ Discarded input sections
                 0x00000000       0x68 ./app_core/chaos_sdk/crc/crc64.o
  .debug_rnglists
                 0x00000000       0x4e ./app_core/chaos_sdk/crc/crc64.o
- .debug_macro   0x00000000      0x258 ./app_core/chaos_sdk/crc/crc64.o
+ .debug_macro   0x00000000      0x29a ./app_core/chaos_sdk/crc/crc64.o
  .debug_macro   0x00000000      0xaa8 ./app_core/chaos_sdk/crc/crc64.o
  .debug_macro   0x00000000      0x189 ./app_core/chaos_sdk/crc/crc64.o
  .debug_macro   0x00000000       0x22 ./app_core/chaos_sdk/crc/crc64.o
@@ -5843,24 +5954,29 @@ Discarded input sections
  .debug_macro   0x00000000       0x43 ./app_core/chaos_sdk/crc/crc64.o
  .debug_macro   0x00000000       0x34 ./app_core/chaos_sdk/crc/crc64.o
  .debug_macro   0x00000000       0x1c ./app_core/chaos_sdk/crc/crc64.o
- .debug_macro   0x00000000       0x4c ./app_core/chaos_sdk/crc/crc64.o
- .debug_macro   0x00000000       0x40 ./app_core/chaos_sdk/crc/crc64.o
- .debug_macro   0x00000000       0x2e ./app_core/chaos_sdk/crc/crc64.o
- .debug_macro   0x00000000      0x369 ./app_core/chaos_sdk/crc/crc64.o
+ .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/crc/crc64.o
+ .debug_macro   0x00000000       0x35 ./app_core/chaos_sdk/crc/crc64.o
  .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/crc/crc64.o
  .debug_macro   0x00000000       0x43 ./app_core/chaos_sdk/crc/crc64.o
  .debug_macro   0x00000000       0x34 ./app_core/chaos_sdk/crc/crc64.o
- .debug_macro   0x00000000       0x1c ./app_core/chaos_sdk/crc/crc64.o
- .debug_macro   0x00000000       0x52 ./app_core/chaos_sdk/crc/crc64.o
- .debug_macro   0x00000000       0x62 ./app_core/chaos_sdk/crc/crc64.o
- .debug_macro   0x00000000      0x16c ./app_core/chaos_sdk/crc/crc64.o
  .debug_macro   0x00000000       0x10 ./app_core/chaos_sdk/crc/crc64.o
  .debug_macro   0x00000000       0x58 ./app_core/chaos_sdk/crc/crc64.o
  .debug_macro   0x00000000       0x8e ./app_core/chaos_sdk/crc/crc64.o
  .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/crc/crc64.o
  .debug_macro   0x00000000      0x177 ./app_core/chaos_sdk/crc/crc64.o
+ .debug_macro   0x00000000      0x369 ./app_core/chaos_sdk/crc/crc64.o
+ .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/crc/crc64.o
+ .debug_macro   0x00000000       0x29 ./app_core/chaos_sdk/crc/crc64.o
+ .debug_macro   0x00000000       0x2e ./app_core/chaos_sdk/crc/crc64.o
  .debug_macro   0x00000000       0x10 ./app_core/chaos_sdk/crc/crc64.o
- .debug_macro   0x00000000       0x35 ./app_core/chaos_sdk/crc/crc64.o
+ .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/crc/crc64.o
+ .debug_macro   0x00000000       0x4c ./app_core/chaos_sdk/crc/crc64.o
+ .debug_macro   0x00000000       0x40 ./app_core/chaos_sdk/crc/crc64.o
+ .debug_macro   0x00000000       0x1c ./app_core/chaos_sdk/crc/crc64.o
+ .debug_macro   0x00000000       0x52 ./app_core/chaos_sdk/crc/crc64.o
+ .debug_macro   0x00000000       0x62 ./app_core/chaos_sdk/crc/crc64.o
+ .debug_macro   0x00000000      0x16c ./app_core/chaos_sdk/crc/crc64.o
+ .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/crc/crc64.o
  .debug_macro   0x00000000       0x20 ./app_core/chaos_sdk/crc/crc64.o
  .debug_macro   0x00000000       0x95 ./app_core/chaos_sdk/crc/crc64.o
  .debug_macro   0x00000000      0x11e ./app_core/chaos_sdk/crc/crc64.o
@@ -5871,12 +5987,17 @@ Discarded input sections
  .debug_macro   0x00000000      0x146 ./app_core/chaos_sdk/crc/crc64.o
  .debug_macro   0x00000000       0x10 ./app_core/chaos_sdk/crc/crc64.o
  .debug_macro   0x00000000      0x460 ./app_core/chaos_sdk/crc/crc64.o
- .debug_line    0x00000000      0x9d5 ./app_core/chaos_sdk/crc/crc64.o
- .debug_str     0x00000000     0xa626 ./app_core/chaos_sdk/crc/crc64.o
+ .debug_line    0x00000000      0xa07 ./app_core/chaos_sdk/crc/crc64.o
+ .debug_str     0x00000000     0xa86d ./app_core/chaos_sdk/crc/crc64.o
  .comment       0x00000000       0x44 ./app_core/chaos_sdk/crc/crc64.o
  .debug_frame   0x00000000      0x20c ./app_core/chaos_sdk/crc/crc64.o
  .ARM.attributes
                 0x00000000       0x2d ./app_core/chaos_sdk/crc/crc64.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc8.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc8.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc8.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc8.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc8.o
  .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc8.o
  .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc8.o
  .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc8.o
@@ -5955,24 +6076,29 @@ Discarded input sections
  .debug_macro   0x00000000       0x43 ./app_core/chaos_sdk/crc/crc8.o
  .debug_macro   0x00000000       0x34 ./app_core/chaos_sdk/crc/crc8.o
  .debug_macro   0x00000000       0x1c ./app_core/chaos_sdk/crc/crc8.o
- .debug_macro   0x00000000       0x4c ./app_core/chaos_sdk/crc/crc8.o
- .debug_macro   0x00000000       0x40 ./app_core/chaos_sdk/crc/crc8.o
- .debug_macro   0x00000000       0x2e ./app_core/chaos_sdk/crc/crc8.o
- .debug_macro   0x00000000      0x369 ./app_core/chaos_sdk/crc/crc8.o
+ .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/crc/crc8.o
+ .debug_macro   0x00000000       0x35 ./app_core/chaos_sdk/crc/crc8.o
  .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/crc/crc8.o
  .debug_macro   0x00000000       0x43 ./app_core/chaos_sdk/crc/crc8.o
  .debug_macro   0x00000000       0x34 ./app_core/chaos_sdk/crc/crc8.o
- .debug_macro   0x00000000       0x1c ./app_core/chaos_sdk/crc/crc8.o
- .debug_macro   0x00000000       0x52 ./app_core/chaos_sdk/crc/crc8.o
- .debug_macro   0x00000000       0x62 ./app_core/chaos_sdk/crc/crc8.o
- .debug_macro   0x00000000      0x16c ./app_core/chaos_sdk/crc/crc8.o
  .debug_macro   0x00000000       0x10 ./app_core/chaos_sdk/crc/crc8.o
  .debug_macro   0x00000000       0x58 ./app_core/chaos_sdk/crc/crc8.o
  .debug_macro   0x00000000       0x8e ./app_core/chaos_sdk/crc/crc8.o
  .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/crc/crc8.o
  .debug_macro   0x00000000      0x177 ./app_core/chaos_sdk/crc/crc8.o
+ .debug_macro   0x00000000      0x369 ./app_core/chaos_sdk/crc/crc8.o
+ .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/crc/crc8.o
+ .debug_macro   0x00000000       0x29 ./app_core/chaos_sdk/crc/crc8.o
+ .debug_macro   0x00000000       0x2e ./app_core/chaos_sdk/crc/crc8.o
  .debug_macro   0x00000000       0x10 ./app_core/chaos_sdk/crc/crc8.o
- .debug_macro   0x00000000       0x35 ./app_core/chaos_sdk/crc/crc8.o
+ .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/crc/crc8.o
+ .debug_macro   0x00000000       0x4c ./app_core/chaos_sdk/crc/crc8.o
+ .debug_macro   0x00000000       0x40 ./app_core/chaos_sdk/crc/crc8.o
+ .debug_macro   0x00000000       0x1c ./app_core/chaos_sdk/crc/crc8.o
+ .debug_macro   0x00000000       0x52 ./app_core/chaos_sdk/crc/crc8.o
+ .debug_macro   0x00000000       0x62 ./app_core/chaos_sdk/crc/crc8.o
+ .debug_macro   0x00000000      0x16c ./app_core/chaos_sdk/crc/crc8.o
+ .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/crc/crc8.o
  .debug_macro   0x00000000       0x20 ./app_core/chaos_sdk/crc/crc8.o
  .debug_macro   0x00000000       0x95 ./app_core/chaos_sdk/crc/crc8.o
  .debug_macro   0x00000000      0x11e ./app_core/chaos_sdk/crc/crc8.o
@@ -5981,6 +6107,93 @@ Discarded input sections
  .debug_macro   0x00000000       0x1c ./app_core/chaos_sdk/crc/crc8.o
  .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/crc/crc8.o
  .debug_macro   0x00000000      0x146 ./app_core/chaos_sdk/crc/crc8.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc_base.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc_base.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc_base.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc_base.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc_base.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc_base.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc_base.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc_base.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc_base.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc_base.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc_base.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc_base.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc_base.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc_base.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc_base.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc_base.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc_base.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc_base.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc_base.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc_base.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc_base.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc_base.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc_base.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc_base.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc_base.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc_base.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc_base.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc_base.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc_base.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc_base.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc_base.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc_base.o
+ .text          0x00000000        0x0 ./app_core/chaos_sdk/crc/crc_base.o
+ .data          0x00000000        0x0 ./app_core/chaos_sdk/crc/crc_base.o
+ .bss           0x00000000        0x0 ./app_core/chaos_sdk/crc/crc_base.o
+ .text.crc_base_duplicate
+                0x00000000       0x40 ./app_core/chaos_sdk/crc/crc_base.o
+ .text.crc_compleate
+                0x00000000       0xbe ./app_core/chaos_sdk/crc/crc_base.o
+ .debug_info    0x00000000      0x2a1 ./app_core/chaos_sdk/crc/crc_base.o
+ .debug_abbrev  0x00000000      0x138 ./app_core/chaos_sdk/crc/crc_base.o
+ .debug_aranges
+                0x00000000       0x28 ./app_core/chaos_sdk/crc/crc_base.o
+ .debug_rnglists
+                0x00000000       0x1a ./app_core/chaos_sdk/crc/crc_base.o
+ .debug_macro   0x00000000      0x196 ./app_core/chaos_sdk/crc/crc_base.o
+ .debug_macro   0x00000000      0xaa8 ./app_core/chaos_sdk/crc/crc_base.o
+ .debug_macro   0x00000000       0x24 ./app_core/chaos_sdk/crc/crc_base.o
+ .debug_macro   0x00000000       0x22 ./app_core/chaos_sdk/crc/crc_base.o
+ .debug_macro   0x00000000       0x5b ./app_core/chaos_sdk/crc/crc_base.o
+ .debug_macro   0x00000000       0x94 ./app_core/chaos_sdk/crc/crc_base.o
+ .debug_macro   0x00000000       0x43 ./app_core/chaos_sdk/crc/crc_base.o
+ .debug_macro   0x00000000       0x34 ./app_core/chaos_sdk/crc/crc_base.o
+ .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/crc/crc_base.o
+ .debug_macro   0x00000000      0x11c ./app_core/chaos_sdk/crc/crc_base.o
+ .debug_macro   0x00000000       0x94 ./app_core/chaos_sdk/crc/crc_base.o
+ .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/crc/crc_base.o
+ .debug_macro   0x00000000       0x43 ./app_core/chaos_sdk/crc/crc_base.o
+ .debug_macro   0x00000000       0x57 ./app_core/chaos_sdk/crc/crc_base.o
+ .debug_macro   0x00000000       0x34 ./app_core/chaos_sdk/crc/crc_base.o
+ .debug_macro   0x00000000       0x10 ./app_core/chaos_sdk/crc/crc_base.o
+ .debug_macro   0x00000000       0x58 ./app_core/chaos_sdk/crc/crc_base.o
+ .debug_macro   0x00000000       0x8e ./app_core/chaos_sdk/crc/crc_base.o
+ .debug_macro   0x00000000       0x1c ./app_core/chaos_sdk/crc/crc_base.o
+ .debug_macro   0x00000000      0x177 ./app_core/chaos_sdk/crc/crc_base.o
+ .debug_macro   0x00000000      0x369 ./app_core/chaos_sdk/crc/crc_base.o
+ .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/crc/crc_base.o
+ .debug_macro   0x00000000       0x29 ./app_core/chaos_sdk/crc/crc_base.o
+ .debug_macro   0x00000000      0x103 ./app_core/chaos_sdk/crc/crc_base.o
+ .debug_macro   0x00000000       0x6a ./app_core/chaos_sdk/crc/crc_base.o
+ .debug_macro   0x00000000      0x1df ./app_core/chaos_sdk/crc/crc_base.o
+ .debug_macro   0x00000000       0x22 ./app_core/chaos_sdk/crc/crc_base.o
+ .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/crc/crc_base.o
+ .debug_macro   0x00000000       0x2e ./app_core/chaos_sdk/crc/crc_base.o
+ .debug_macro   0x00000000       0x10 ./app_core/chaos_sdk/crc/crc_base.o
+ .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/crc/crc_base.o
+ .debug_macro   0x00000000       0x35 ./app_core/chaos_sdk/crc/crc_base.o
+ .debug_macro   0x00000000       0x20 ./app_core/chaos_sdk/crc/crc_base.o
+ .debug_line    0x00000000      0x6fb ./app_core/chaos_sdk/crc/crc_base.o
+ .debug_str     0x00000000     0x7503 ./app_core/chaos_sdk/crc/crc_base.o
+ .comment       0x00000000       0x44 ./app_core/chaos_sdk/crc/crc_base.o
+ .debug_frame   0x00000000       0x60 ./app_core/chaos_sdk/crc/crc_base.o
+ .ARM.attributes
+                0x00000000       0x2d ./app_core/chaos_sdk/crc/crc_base.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc_fabric.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc_fabric.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc_fabric.o
  .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc_fabric.o
  .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc_fabric.o
  .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc_fabric.o
@@ -6016,22 +6229,22 @@ Discarded input sections
  .text          0x00000000        0x0 ./app_core/chaos_sdk/crc/crc_fabric.o
  .data          0x00000000        0x0 ./app_core/chaos_sdk/crc/crc_fabric.o
  .bss           0x00000000        0x0 ./app_core/chaos_sdk/crc/crc_fabric.o
- .text.newCRC8  0x00000000       0x54 ./app_core/chaos_sdk/crc/crc_fabric.o
+ .text.newCRC8  0x00000000       0x5c ./app_core/chaos_sdk/crc/crc_fabric.o
  .text.newCRC16
-                0x00000000       0x54 ./app_core/chaos_sdk/crc/crc_fabric.o
+                0x00000000       0x5c ./app_core/chaos_sdk/crc/crc_fabric.o
  .text.newCRC32
-                0x00000000       0x54 ./app_core/chaos_sdk/crc/crc_fabric.o
+                0x00000000       0x5c ./app_core/chaos_sdk/crc/crc_fabric.o
  .text.newCRC64
-                0x00000000       0x54 ./app_core/chaos_sdk/crc/crc_fabric.o
+                0x00000000       0x5c ./app_core/chaos_sdk/crc/crc_fabric.o
  .text.createCRC
                 0x00000000       0x54 ./app_core/chaos_sdk/crc/crc_fabric.o
- .debug_info    0x00000000      0x3c4 ./app_core/chaos_sdk/crc/crc_fabric.o
- .debug_abbrev  0x00000000      0x165 ./app_core/chaos_sdk/crc/crc_fabric.o
+ .debug_info    0x00000000      0x487 ./app_core/chaos_sdk/crc/crc_fabric.o
+ .debug_abbrev  0x00000000      0x193 ./app_core/chaos_sdk/crc/crc_fabric.o
  .debug_aranges
                 0x00000000       0x40 ./app_core/chaos_sdk/crc/crc_fabric.o
  .debug_rnglists
                 0x00000000       0x2b ./app_core/chaos_sdk/crc/crc_fabric.o
- .debug_macro   0x00000000      0x18b ./app_core/chaos_sdk/crc/crc_fabric.o
+ .debug_macro   0x00000000      0x1a8 ./app_core/chaos_sdk/crc/crc_fabric.o
  .debug_macro   0x00000000      0xaa8 ./app_core/chaos_sdk/crc/crc_fabric.o
  .debug_macro   0x00000000      0x189 ./app_core/chaos_sdk/crc/crc_fabric.o
  .debug_macro   0x00000000       0x22 ./app_core/chaos_sdk/crc/crc_fabric.o
@@ -6046,7 +6259,6 @@ Discarded input sections
  .debug_macro   0x00000000       0x43 ./app_core/chaos_sdk/crc/crc_fabric.o
  .debug_macro   0x00000000       0x34 ./app_core/chaos_sdk/crc/crc_fabric.o
  .debug_macro   0x00000000       0x1c ./app_core/chaos_sdk/crc/crc_fabric.o
- .debug_macro   0x00000000       0x52 ./app_core/chaos_sdk/crc/crc_fabric.o
  .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/crc/crc_fabric.o
  .debug_macro   0x00000000       0x35 ./app_core/chaos_sdk/crc/crc_fabric.o
  .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/crc/crc_fabric.o
@@ -6060,16 +6272,23 @@ Discarded input sections
  .debug_macro   0x00000000      0x369 ./app_core/chaos_sdk/crc/crc_fabric.o
  .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/crc/crc_fabric.o
  .debug_macro   0x00000000       0x29 ./app_core/chaos_sdk/crc/crc_fabric.o
+ .debug_macro   0x00000000       0x2e ./app_core/chaos_sdk/crc/crc_fabric.o
+ .debug_macro   0x00000000       0x10 ./app_core/chaos_sdk/crc/crc_fabric.o
+ .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/crc/crc_fabric.o
+ .debug_macro   0x00000000       0x52 ./app_core/chaos_sdk/crc/crc_fabric.o
  .debug_macro   0x00000000       0x46 ./app_core/chaos_sdk/crc/crc_fabric.o
  .debug_macro   0x00000000       0x46 ./app_core/chaos_sdk/crc/crc_fabric.o
  .debug_macro   0x00000000       0x46 ./app_core/chaos_sdk/crc/crc_fabric.o
  .debug_macro   0x00000000       0x46 ./app_core/chaos_sdk/crc/crc_fabric.o
- .debug_line    0x00000000      0x718 ./app_core/chaos_sdk/crc/crc_fabric.o
- .debug_str     0x00000000     0x7c1a ./app_core/chaos_sdk/crc/crc_fabric.o
+ .debug_line    0x00000000      0x7c2 ./app_core/chaos_sdk/crc/crc_fabric.o
+ .debug_str     0x00000000     0x7e6b ./app_core/chaos_sdk/crc/crc_fabric.o
  .comment       0x00000000       0x44 ./app_core/chaos_sdk/crc/crc_fabric.o
  .debug_frame   0x00000000       0xc4 ./app_core/chaos_sdk/crc/crc_fabric.o
  .ARM.attributes
                 0x00000000       0x2d ./app_core/chaos_sdk/crc/crc_fabric.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc_test.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc_test.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc_test.o
  .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc_test.o
  .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc_test.o
  .group         0x00000000        0xc ./app_core/chaos_sdk/crc/crc_test.o
@@ -6121,7 +6340,7 @@ Discarded input sections
                 0x00000000       0x20 ./app_core/chaos_sdk/crc/crc_test.o
  .debug_rnglists
                 0x00000000       0x14 ./app_core/chaos_sdk/crc/crc_test.o
- .debug_macro   0x00000000      0x1f0 ./app_core/chaos_sdk/crc/crc_test.o
+ .debug_macro   0x00000000      0x20d ./app_core/chaos_sdk/crc/crc_test.o
  .debug_macro   0x00000000      0xaa8 ./app_core/chaos_sdk/crc/crc_test.o
  .debug_macro   0x00000000      0x189 ./app_core/chaos_sdk/crc/crc_test.o
  .debug_macro   0x00000000       0x22 ./app_core/chaos_sdk/crc/crc_test.o
@@ -6136,11 +6355,8 @@ Discarded input sections
  .debug_macro   0x00000000       0x43 ./app_core/chaos_sdk/crc/crc_test.o
  .debug_macro   0x00000000       0x34 ./app_core/chaos_sdk/crc/crc_test.o
  .debug_macro   0x00000000       0x1c ./app_core/chaos_sdk/crc/crc_test.o
- .debug_macro   0x00000000       0x4c ./app_core/chaos_sdk/crc/crc_test.o
- .debug_macro   0x00000000       0x10 ./app_core/chaos_sdk/crc/crc_test.o
- .debug_macro   0x00000000       0x35 ./app_core/chaos_sdk/crc/crc_test.o
- .debug_macro   0x00000000      0x460 ./app_core/chaos_sdk/crc/crc_test.o
  .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/crc/crc_test.o
+ .debug_macro   0x00000000       0x35 ./app_core/chaos_sdk/crc/crc_test.o
  .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/crc/crc_test.o
  .debug_macro   0x00000000       0x43 ./app_core/chaos_sdk/crc/crc_test.o
  .debug_macro   0x00000000       0x34 ./app_core/chaos_sdk/crc/crc_test.o
@@ -6152,6 +6368,12 @@ Discarded input sections
  .debug_macro   0x00000000      0x369 ./app_core/chaos_sdk/crc/crc_test.o
  .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/crc/crc_test.o
  .debug_macro   0x00000000       0x29 ./app_core/chaos_sdk/crc/crc_test.o
+ .debug_macro   0x00000000       0x2e ./app_core/chaos_sdk/crc/crc_test.o
+ .debug_macro   0x00000000       0x10 ./app_core/chaos_sdk/crc/crc_test.o
+ .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/crc/crc_test.o
+ .debug_macro   0x00000000       0x4c ./app_core/chaos_sdk/crc/crc_test.o
+ .debug_macro   0x00000000       0x10 ./app_core/chaos_sdk/crc/crc_test.o
+ .debug_macro   0x00000000      0x460 ./app_core/chaos_sdk/crc/crc_test.o
  .debug_macro   0x00000000       0x1c ./app_core/chaos_sdk/crc/crc_test.o
  .debug_macro   0x00000000       0x10 ./app_core/chaos_sdk/crc/crc_test.o
  .debug_macro   0x00000000       0x1c ./app_core/chaos_sdk/crc/crc_test.o
@@ -6161,8 +6383,8 @@ Discarded input sections
  .debug_macro   0x00000000       0x46 ./app_core/chaos_sdk/crc/crc_test.o
  .debug_macro   0x00000000       0x46 ./app_core/chaos_sdk/crc/crc_test.o
  .debug_macro   0x00000000       0x46 ./app_core/chaos_sdk/crc/crc_test.o
- .debug_line    0x00000000      0x97d ./app_core/chaos_sdk/crc/crc_test.o
- .debug_str     0x00000000     0x954f ./app_core/chaos_sdk/crc/crc_test.o
+ .debug_line    0x00000000      0x9e9 ./app_core/chaos_sdk/crc/crc_test.o
+ .debug_str     0x00000000     0x9779 ./app_core/chaos_sdk/crc/crc_test.o
  .comment       0x00000000       0x44 ./app_core/chaos_sdk/crc/crc_test.o
  .debug_frame   0x00000000       0x3c ./app_core/chaos_sdk/crc/crc_test.o
  .ARM.attributes
@@ -6879,6 +7101,8 @@ Discarded input sections
  .group         0x00000000        0xc ./app_core/chaos_sdk/raw_parser/raw_parser_dma/raw_parser_dma_test.o
  .group         0x00000000        0xc ./app_core/chaos_sdk/raw_parser/raw_parser_dma/raw_parser_dma_test.o
  .group         0x00000000        0xc ./app_core/chaos_sdk/raw_parser/raw_parser_dma/raw_parser_dma_test.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/raw_parser/raw_parser_dma/raw_parser_dma_test.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/raw_parser/raw_parser_dma/raw_parser_dma_test.o
  .text          0x00000000        0x0 ./app_core/chaos_sdk/raw_parser/raw_parser_dma/raw_parser_dma_test.o
  .data          0x00000000        0x0 ./app_core/chaos_sdk/raw_parser/raw_parser_dma/raw_parser_dma_test.o
  .bss           0x00000000        0x0 ./app_core/chaos_sdk/raw_parser/raw_parser_dma/raw_parser_dma_test.o
@@ -6901,7 +7125,7 @@ Discarded input sections
                 0x00000000       0x40 ./app_core/chaos_sdk/raw_parser/raw_parser_dma/raw_parser_dma_test.o
  .debug_rnglists
                 0x00000000       0x30 ./app_core/chaos_sdk/raw_parser/raw_parser_dma/raw_parser_dma_test.o
- .debug_macro   0x00000000      0x4aa ./app_core/chaos_sdk/raw_parser/raw_parser_dma/raw_parser_dma_test.o
+ .debug_macro   0x00000000      0x4be ./app_core/chaos_sdk/raw_parser/raw_parser_dma/raw_parser_dma_test.o
  .debug_macro   0x00000000      0xaa8 ./app_core/chaos_sdk/raw_parser/raw_parser_dma/raw_parser_dma_test.o
  .debug_macro   0x00000000       0x2e ./app_core/chaos_sdk/raw_parser/raw_parser_dma/raw_parser_dma_test.o
  .debug_macro   0x00000000      0x189 ./app_core/chaos_sdk/raw_parser/raw_parser_dma/raw_parser_dma_test.o
@@ -6935,6 +7159,11 @@ Discarded input sections
  .debug_macro   0x00000000       0x20 ./app_core/chaos_sdk/raw_parser/raw_parser_dma/raw_parser_dma_test.o
  .debug_macro   0x00000000       0x95 ./app_core/chaos_sdk/raw_parser/raw_parser_dma/raw_parser_dma_test.o
  .debug_macro   0x00000000       0x46 ./app_core/chaos_sdk/raw_parser/raw_parser_dma/raw_parser_dma_test.o
+ .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/raw_parser/raw_parser_dma/raw_parser_dma_test.o
+ .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/raw_parser/raw_parser_dma/raw_parser_dma_test.o
+ .debug_macro   0x00000000       0x29 ./app_core/chaos_sdk/raw_parser/raw_parser_dma/raw_parser_dma_test.o
+ .debug_macro   0x00000000       0x10 ./app_core/chaos_sdk/raw_parser/raw_parser_dma/raw_parser_dma_test.o
+ .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/raw_parser/raw_parser_dma/raw_parser_dma_test.o
  .debug_macro   0x00000000       0x4c ./app_core/chaos_sdk/raw_parser/raw_parser_dma/raw_parser_dma_test.o
  .debug_macro   0x00000000       0x40 ./app_core/chaos_sdk/raw_parser/raw_parser_dma/raw_parser_dma_test.o
  .debug_macro   0x00000000       0x22 ./app_core/chaos_sdk/raw_parser/raw_parser_dma/raw_parser_dma_test.o
@@ -6969,17 +7198,16 @@ Discarded input sections
  .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/raw_parser/raw_parser_dma/raw_parser_dma_test.o
  .debug_macro   0x00000000      0x146 ./app_core/chaos_sdk/raw_parser/raw_parser_dma/raw_parser_dma_test.o
  .debug_macro   0x00000000       0x76 ./app_core/chaos_sdk/raw_parser/raw_parser_dma/raw_parser_dma_test.o
- .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/raw_parser/raw_parser_dma/raw_parser_dma_test.o
+ .debug_macro   0x00000000       0x1d ./app_core/chaos_sdk/raw_parser/raw_parser_dma/raw_parser_dma_test.o
  .debug_macro   0x00000000       0x10 ./app_core/chaos_sdk/raw_parser/raw_parser_dma/raw_parser_dma_test.o
- .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/raw_parser/raw_parser_dma/raw_parser_dma_test.o
- .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/raw_parser/raw_parser_dma/raw_parser_dma_test.o
- .debug_macro   0x00000000       0x29 ./app_core/chaos_sdk/raw_parser/raw_parser_dma/raw_parser_dma_test.o
- .debug_line    0x00000000     0x12aa ./app_core/chaos_sdk/raw_parser/raw_parser_dma/raw_parser_dma_test.o
- .debug_str     0x00000000    0x2d16f ./app_core/chaos_sdk/raw_parser/raw_parser_dma/raw_parser_dma_test.o
+ .debug_line    0x00000000     0x12b8 ./app_core/chaos_sdk/raw_parser/raw_parser_dma/raw_parser_dma_test.o
+ .debug_str     0x00000000    0x2d305 ./app_core/chaos_sdk/raw_parser/raw_parser_dma/raw_parser_dma_test.o
  .comment       0x00000000       0x44 ./app_core/chaos_sdk/raw_parser/raw_parser_dma/raw_parser_dma_test.o
  .debug_frame   0x00000000       0xd4 ./app_core/chaos_sdk/raw_parser/raw_parser_dma/raw_parser_dma_test.o
  .ARM.attributes
                 0x00000000       0x2d ./app_core/chaos_sdk/raw_parser/raw_parser_dma/raw_parser_dma_test.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/raw_parser/raw_parser_dma/rawparser_dma.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/raw_parser/raw_parser_dma/rawparser_dma.o
  .group         0x00000000        0xc ./app_core/chaos_sdk/raw_parser/raw_parser_dma/rawparser_dma.o
  .group         0x00000000        0xc ./app_core/chaos_sdk/raw_parser/raw_parser_dma/rawparser_dma.o
  .group         0x00000000        0xc ./app_core/chaos_sdk/raw_parser/raw_parser_dma/rawparser_dma.o
@@ -7068,6 +7296,11 @@ Discarded input sections
  .debug_macro   0x00000000       0x20 ./app_core/chaos_sdk/raw_parser/raw_parser_dma/rawparser_dma.o
  .debug_macro   0x00000000       0x95 ./app_core/chaos_sdk/raw_parser/raw_parser_dma/rawparser_dma.o
  .debug_macro   0x00000000       0x46 ./app_core/chaos_sdk/raw_parser/raw_parser_dma/rawparser_dma.o
+ .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/raw_parser/raw_parser_dma/rawparser_dma.o
+ .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/raw_parser/raw_parser_dma/rawparser_dma.o
+ .debug_macro   0x00000000       0x29 ./app_core/chaos_sdk/raw_parser/raw_parser_dma/rawparser_dma.o
+ .debug_macro   0x00000000       0x10 ./app_core/chaos_sdk/raw_parser/raw_parser_dma/rawparser_dma.o
+ .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/raw_parser/raw_parser_dma/rawparser_dma.o
  .debug_macro   0x00000000       0x4c ./app_core/chaos_sdk/raw_parser/raw_parser_dma/rawparser_dma.o
  .debug_macro   0x00000000       0x40 ./app_core/chaos_sdk/raw_parser/raw_parser_dma/rawparser_dma.o
  .debug_macro   0x00000000       0x22 ./app_core/chaos_sdk/raw_parser/raw_parser_dma/rawparser_dma.o
@@ -7078,9 +7311,10 @@ Discarded input sections
  .debug_macro   0x00000000       0x1c ./app_core/chaos_sdk/raw_parser/raw_parser_dma/rawparser_dma.o
  .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/raw_parser/raw_parser_dma/rawparser_dma.o
  .debug_macro   0x00000000      0x146 ./app_core/chaos_sdk/raw_parser/raw_parser_dma/rawparser_dma.o
- .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/raw_parser/raw_parser_dma/rawparser_dma.o
- .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/raw_parser/raw_parser_dma/rawparser_dma.o
- .debug_macro   0x00000000       0x29 ./app_core/chaos_sdk/raw_parser/raw_parser_dma/rawparser_dma.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
  .group         0x00000000        0xc ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
  .group         0x00000000        0xc ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
  .group         0x00000000        0xc ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
@@ -7131,15 +7365,21 @@ Discarded input sections
  .text          0x00000000        0x0 ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
  .data          0x00000000        0x0 ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
  .bss           0x00000000        0x0 ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
- .text.rawParser_dynamic_init
-                0x00000000       0x3e ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
- .debug_info    0x00000000      0x421 ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
- .debug_abbrev  0x00000000      0x119 ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
+ .text.rawParser_dynamic_new
+                0x00000000       0x48 ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
+ .text.rawParser_dynamic_init_default
+                0x00000000       0xa4 ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
+ .text._proceedByte
+                0x00000000      0x290 ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
+ .text.rawParser_dynamic_proceed
+                0x00000000       0xb4 ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
+ .debug_info    0x00000000      0x818 ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
+ .debug_abbrev  0x00000000      0x22b ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
  .debug_aranges
-                0x00000000       0x20 ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
+                0x00000000       0x38 ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
  .debug_rnglists
-                0x00000000       0x13 ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
- .debug_macro   0x00000000      0x291 ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
+                0x00000000       0x37 ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
+ .debug_macro   0x00000000      0x30c ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
  .debug_macro   0x00000000      0xaa8 ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
  .debug_macro   0x00000000       0x2e ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
  .debug_macro   0x00000000      0x189 ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
@@ -7173,10 +7413,17 @@ Discarded input sections
  .debug_macro   0x00000000       0x20 ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
  .debug_macro   0x00000000       0x95 ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
  .debug_macro   0x00000000       0x46 ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
+ .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
+ .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
+ .debug_macro   0x00000000       0x29 ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
+ .debug_macro   0x00000000       0x10 ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
+ .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
  .debug_macro   0x00000000       0x4c ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
  .debug_macro   0x00000000       0x40 ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
  .debug_macro   0x00000000       0x22 ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
- .debug_macro   0x00000000       0x2e ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
+ .debug_macro   0x00000000       0x58 ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
+ .debug_macro   0x00000000       0xc4 ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
+ .debug_macro   0x00000000       0x1d ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
  .debug_macro   0x00000000       0x10 ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
  .debug_macro   0x00000000       0xb1 ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
  .debug_macro   0x00000000       0x1c ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
@@ -7184,15 +7431,17 @@ Discarded input sections
  .debug_macro   0x00000000       0x1c ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
  .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
  .debug_macro   0x00000000      0x146 ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
- .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
- .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
- .debug_macro   0x00000000       0x29 ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
- .debug_line    0x00000000      0x9ab ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
- .debug_str     0x00000000     0x9879 ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
+ .debug_line    0x00000000      0xc80 ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
+ .debug_str     0x00000000     0xacd8 ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
  .comment       0x00000000       0x44 ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
- .debug_frame   0x00000000       0x34 ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
+ .debug_frame   0x00000000       0xa8 ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
  .ARM.attributes
                 0x00000000       0x2d ./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/raw_parser/rawparser_macro.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/raw_parser/rawparser_macro.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/raw_parser/rawparser_macro.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/raw_parser/rawparser_macro.o
+ .group         0x00000000        0xc ./app_core/chaos_sdk/raw_parser/rawparser_macro.o
  .group         0x00000000        0xc ./app_core/chaos_sdk/raw_parser/rawparser_macro.o
  .group         0x00000000        0xc ./app_core/chaos_sdk/raw_parser/rawparser_macro.o
  .group         0x00000000        0xc ./app_core/chaos_sdk/raw_parser/rawparser_macro.o
@@ -7277,7 +7526,7 @@ Discarded input sections
                 0x00000000       0x30 ./app_core/chaos_sdk/raw_parser/rawparser_macro.o
  .debug_rnglists
                 0x00000000       0x20 ./app_core/chaos_sdk/raw_parser/rawparser_macro.o
- .debug_macro   0x00000000      0x336 ./app_core/chaos_sdk/raw_parser/rawparser_macro.o
+ .debug_macro   0x00000000      0x37e ./app_core/chaos_sdk/raw_parser/rawparser_macro.o
  .debug_macro   0x00000000      0xaa8 ./app_core/chaos_sdk/raw_parser/rawparser_macro.o
  .debug_macro   0x00000000       0x2e ./app_core/chaos_sdk/raw_parser/rawparser_macro.o
  .debug_macro   0x00000000      0x189 ./app_core/chaos_sdk/raw_parser/rawparser_macro.o
@@ -7311,6 +7560,11 @@ Discarded input sections
  .debug_macro   0x00000000       0x20 ./app_core/chaos_sdk/raw_parser/rawparser_macro.o
  .debug_macro   0x00000000       0x95 ./app_core/chaos_sdk/raw_parser/rawparser_macro.o
  .debug_macro   0x00000000       0x46 ./app_core/chaos_sdk/raw_parser/rawparser_macro.o
+ .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/raw_parser/rawparser_macro.o
+ .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/raw_parser/rawparser_macro.o
+ .debug_macro   0x00000000       0x29 ./app_core/chaos_sdk/raw_parser/rawparser_macro.o
+ .debug_macro   0x00000000       0x10 ./app_core/chaos_sdk/raw_parser/rawparser_macro.o
+ .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/raw_parser/rawparser_macro.o
  .debug_macro   0x00000000       0x4c ./app_core/chaos_sdk/raw_parser/rawparser_macro.o
  .debug_macro   0x00000000       0x40 ./app_core/chaos_sdk/raw_parser/rawparser_macro.o
  .debug_macro   0x00000000       0x22 ./app_core/chaos_sdk/raw_parser/rawparser_macro.o
@@ -7345,8 +7599,8 @@ Discarded input sections
  .debug_macro   0x00000000       0x16 ./app_core/chaos_sdk/raw_parser/rawparser_macro.o
  .debug_macro   0x00000000      0x146 ./app_core/chaos_sdk/raw_parser/rawparser_macro.o
  .debug_macro   0x00000000       0x76 ./app_core/chaos_sdk/raw_parser/rawparser_macro.o
- .debug_line    0x00000000      0xbb0 ./app_core/chaos_sdk/raw_parser/rawparser_macro.o
- .debug_str     0x00000000    0x2ca3f ./app_core/chaos_sdk/raw_parser/rawparser_macro.o
+ .debug_line    0x00000000      0xbe2 ./app_core/chaos_sdk/raw_parser/rawparser_macro.o
+ .debug_str     0x00000000    0x2cc96 ./app_core/chaos_sdk/raw_parser/rawparser_macro.o
  .comment       0x00000000       0x44 ./app_core/chaos_sdk/raw_parser/rawparser_macro.o
  .debug_frame   0x00000000       0x88 ./app_core/chaos_sdk/raw_parser/rawparser_macro.o
  .ARM.attributes
@@ -8572,6 +8826,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x103 ./app_core/tools/timer/TimingManager.o
  .debug_macro   0x00000000       0x6a ./app_core/tools/timer/TimingManager.o
  .debug_macro   0x00000000      0x1df ./app_core/tools/timer/TimingManager.o
+ .debug_macro   0x00000000       0x10 ./app_core/tools/timer/TimingManager.o
  .debug_macro   0x00000000       0x24 ./app_core/tools/timer/TimingManager.o
  .debug_macro   0x00000000       0x61 ./app_core/tools/timer/TimingManager.o
  .debug_macro   0x00000000       0x43 ./app_core/tools/timer/TimingManager.o
@@ -8588,6 +8843,8 @@ Discarded input sections
  .debug_macro   0x00000000      0x38c ./app_core/tools/timer/TimingManager.o
  .debug_macro   0x00000000       0x16 ./app_core/tools/timer/TimingManager.o
  .debug_macro   0x00000000       0x29 ./app_core/tools/timer/TimingManager.o
+ .debug_macro   0x00000000       0x1c ./app_core/tools/timer/TimingManager.o
+ .debug_macro   0x00000000       0xde ./app_core/tools/timer/TimingManager.o
  .debug_macro   0x00000000      0x221 ./app_core/tools/timer/TimingManager.o
  .debug_macro   0x00000000       0x2e ./app_core/tools/timer/TimingManager.o
  .debug_macro   0x00000000       0x22 ./app_core/tools/timer/TimingManager.o
@@ -9672,9 +9929,9 @@ LOAD ./app_core/TPS1HTC30/Key_tps1htc30.o
 LOAD ./app_core/TPS1HTC30/Keytps1htc30Group.o
 LOAD ./app_core/chaos_sdk/assertsEngine/assert_engine.o
 LOAD ./app_core/chaos_sdk/assertsEngine/assert_safe_invoke.o
+LOAD ./app_core/chaos_sdk/buffers/crc_from.o
 LOAD ./app_core/chaos_sdk/buffers/pool_container.o
 LOAD ./app_core/chaos_sdk/buffers/ringbuf.o
-LOAD ./app_core/chaos_sdk/buffers/stream.o
 LOAD ./app_core/chaos_sdk/byte_order/byte_order.o
 LOAD ./app_core/chaos_sdk/callback_container/callback_container.o
 LOAD ./app_core/chaos_sdk/callback_manager/callback_manager.o
@@ -9684,6 +9941,7 @@ LOAD ./app_core/chaos_sdk/crc/crc16.o
 LOAD ./app_core/chaos_sdk/crc/crc32.o
 LOAD ./app_core/chaos_sdk/crc/crc64.o
 LOAD ./app_core/chaos_sdk/crc/crc8.o
+LOAD ./app_core/chaos_sdk/crc/crc_base.o
 LOAD ./app_core/chaos_sdk/crc/crc_fabric.o
 LOAD ./app_core/chaos_sdk/crc/crc_test.o
 LOAD ./app_core/chaos_sdk/hash/sha-256.o
@@ -11496,7 +11754,7 @@ LOAD C:/ST/STM32CubeIDE_1.15.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
 LOAD C:/ST/STM32CubeIDE_1.15.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libm.a
 LOAD C:/ST/STM32CubeIDE_1.15.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7-m/nofp\libgcc.a
 
-.debug_info     0x00000000    0x1e2df
+.debug_info     0x00000000    0x1f65f
  .debug_info    0x00000000      0x818 ./Core/Src/adc.o
  .debug_info    0x00000818      0x2cf ./Core/Src/dma.o
  .debug_info    0x00000ae7      0x2d3 ./Core/Src/gpio.o
@@ -11516,26 +11774,26 @@ LOAD C:/ST/STM32CubeIDE_1.15.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_info    0x0000591e      0x7d5 ./Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
  .debug_info    0x000060f3      0x3c0 ./Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.o
  .debug_info    0x000064b3     0x2fa8 ./Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.o
- .debug_info    0x0000945b     0x3799 ./app_core/ProtocolSender.o
- .debug_info    0x0000cbf4     0x1f20 ./app_core/RelayController.o
- .debug_info    0x0000eb14     0x1cf9 ./app_core/app_core.o
- .debug_info    0x0001080d     0x1399 ./app_core/TPS1HTC30/Key_tps1htc30.o
- .debug_info    0x00011ba6     0x24a6 ./app_core/TPS1HTC30/Keytps1htc30Group.o
- .debug_info    0x0001404c      0x52e ./app_core/chaos_sdk/buffers/pool_container.o
- .debug_info    0x0001457a      0x324 ./app_core/chaos_sdk/callback_manager/callback_manager.o
- .debug_info    0x0001489e      0xb6a ./app_core/chaos_sdk/crc/crc8.o
- .debug_info    0x00015408      0x6b7 ./app_core/chaos_sdk/raw_parser/raw_parser_dma/rawparser_dma.o
- .debug_info    0x00015abf      0x5d5 ./app_core/stm32_printf/stm32_printf.o
- .debug_info    0x00016094      0xcca ./app_core/tools/adc/Stm32ADCdma.o
- .debug_info    0x00016d5e      0x13e ./app_core/tools/irq/stm32_irq_block.o
- .debug_info    0x00016e9c      0x4dc ./app_core/tools/math/FPMovingAverage.o
- .debug_info    0x00017378      0x7c8 ./app_core/tools/math/FPMovingAverageArray.o
- .debug_info    0x00017b40      0x4a4 ./app_core/tools/math/FPMovingAverageBase.o
- .debug_info    0x00017fe4     0x4da3 ./app_core/tools/timer/TimingManager.o
- .debug_info    0x0001cd87      0xda8 ./app_core/tools/uart/stm32_uart.o
- .debug_info    0x0001db2f      0x7b0 ./app_core/tools/uart/stm32_uart_container.o
+ .debug_info    0x0000945b     0x3e14 ./app_core/ProtocolSender.o
+ .debug_info    0x0000d26f     0x25a3 ./app_core/RelayController.o
+ .debug_info    0x0000f812     0x237b ./app_core/app_core.o
+ .debug_info    0x00011b8d     0x1399 ./app_core/TPS1HTC30/Key_tps1htc30.o
+ .debug_info    0x00012f26     0x24a6 ./app_core/TPS1HTC30/Keytps1htc30Group.o
+ .debug_info    0x000153cc      0x52e ./app_core/chaos_sdk/buffers/pool_container.o
+ .debug_info    0x000158fa      0x324 ./app_core/chaos_sdk/callback_manager/callback_manager.o
+ .debug_info    0x00015c1e      0xb6a ./app_core/chaos_sdk/crc/crc8.o
+ .debug_info    0x00016788      0x6b7 ./app_core/chaos_sdk/raw_parser/raw_parser_dma/rawparser_dma.o
+ .debug_info    0x00016e3f      0x5d5 ./app_core/stm32_printf/stm32_printf.o
+ .debug_info    0x00017414      0xcca ./app_core/tools/adc/Stm32ADCdma.o
+ .debug_info    0x000180de      0x13e ./app_core/tools/irq/stm32_irq_block.o
+ .debug_info    0x0001821c      0x4dc ./app_core/tools/math/FPMovingAverage.o
+ .debug_info    0x000186f8      0x7c8 ./app_core/tools/math/FPMovingAverageArray.o
+ .debug_info    0x00018ec0      0x4a4 ./app_core/tools/math/FPMovingAverageBase.o
+ .debug_info    0x00019364     0x4da3 ./app_core/tools/timer/TimingManager.o
+ .debug_info    0x0001e107      0xda8 ./app_core/tools/uart/stm32_uart.o
+ .debug_info    0x0001eeaf      0x7b0 ./app_core/tools/uart/stm32_uart_container.o
 
-.debug_abbrev   0x00000000     0x6097
+.debug_abbrev   0x00000000     0x61fe
  .debug_abbrev  0x00000000      0x1f2 ./Core/Src/adc.o
  .debug_abbrev  0x000001f2       0xfc ./Core/Src/dma.o
  .debug_abbrev  0x000002ee      0x13f ./Core/Src/gpio.o
@@ -11555,24 +11813,24 @@ LOAD C:/ST/STM32CubeIDE_1.15.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_abbrev  0x00001973      0x2b3 ./Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
  .debug_abbrev  0x00001c26      0x188 ./Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.o
  .debug_abbrev  0x00001dae      0x2f8 ./Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.o
- .debug_abbrev  0x000020a6      0x9b7 ./app_core/ProtocolSender.o
- .debug_abbrev  0x00002a5d      0x5b9 ./app_core/RelayController.o
- .debug_abbrev  0x00003016      0x468 ./app_core/app_core.o
- .debug_abbrev  0x0000347e      0x3e2 ./app_core/TPS1HTC30/Key_tps1htc30.o
- .debug_abbrev  0x00003860      0x7ea ./app_core/TPS1HTC30/Keytps1htc30Group.o
- .debug_abbrev  0x0000404a      0x212 ./app_core/chaos_sdk/buffers/pool_container.o
- .debug_abbrev  0x0000425c      0x172 ./app_core/chaos_sdk/callback_manager/callback_manager.o
- .debug_abbrev  0x000043ce      0x25c ./app_core/chaos_sdk/crc/crc8.o
- .debug_abbrev  0x0000462a      0x26b ./app_core/chaos_sdk/raw_parser/raw_parser_dma/rawparser_dma.o
- .debug_abbrev  0x00004895      0x170 ./app_core/stm32_printf/stm32_printf.o
- .debug_abbrev  0x00004a05      0x338 ./app_core/tools/adc/Stm32ADCdma.o
- .debug_abbrev  0x00004d3d       0xee ./app_core/tools/irq/stm32_irq_block.o
- .debug_abbrev  0x00004e2b      0x149 ./app_core/tools/math/FPMovingAverage.o
- .debug_abbrev  0x00004f74      0x269 ./app_core/tools/math/FPMovingAverageArray.o
- .debug_abbrev  0x000051dd      0x14a ./app_core/tools/math/FPMovingAverageBase.o
- .debug_abbrev  0x00005327      0x8a9 ./app_core/tools/timer/TimingManager.o
- .debug_abbrev  0x00005bd0      0x314 ./app_core/tools/uart/stm32_uart.o
- .debug_abbrev  0x00005ee4      0x1b3 ./app_core/tools/uart/stm32_uart_container.o
+ .debug_abbrev  0x000020a6      0xa10 ./app_core/ProtocolSender.o
+ .debug_abbrev  0x00002ab6      0x636 ./app_core/RelayController.o
+ .debug_abbrev  0x000030ec      0x4f9 ./app_core/app_core.o
+ .debug_abbrev  0x000035e5      0x3e2 ./app_core/TPS1HTC30/Key_tps1htc30.o
+ .debug_abbrev  0x000039c7      0x7ea ./app_core/TPS1HTC30/Keytps1htc30Group.o
+ .debug_abbrev  0x000041b1      0x212 ./app_core/chaos_sdk/buffers/pool_container.o
+ .debug_abbrev  0x000043c3      0x172 ./app_core/chaos_sdk/callback_manager/callback_manager.o
+ .debug_abbrev  0x00004535      0x25c ./app_core/chaos_sdk/crc/crc8.o
+ .debug_abbrev  0x00004791      0x26b ./app_core/chaos_sdk/raw_parser/raw_parser_dma/rawparser_dma.o
+ .debug_abbrev  0x000049fc      0x170 ./app_core/stm32_printf/stm32_printf.o
+ .debug_abbrev  0x00004b6c      0x338 ./app_core/tools/adc/Stm32ADCdma.o
+ .debug_abbrev  0x00004ea4       0xee ./app_core/tools/irq/stm32_irq_block.o
+ .debug_abbrev  0x00004f92      0x149 ./app_core/tools/math/FPMovingAverage.o
+ .debug_abbrev  0x000050db      0x269 ./app_core/tools/math/FPMovingAverageArray.o
+ .debug_abbrev  0x00005344      0x14a ./app_core/tools/math/FPMovingAverageBase.o
+ .debug_abbrev  0x0000548e      0x8a9 ./app_core/tools/timer/TimingManager.o
+ .debug_abbrev  0x00005d37      0x314 ./app_core/tools/uart/stm32_uart.o
+ .debug_abbrev  0x0000604b      0x1b3 ./app_core/tools/uart/stm32_uart_container.o
 
 .debug_aranges  0x00000000     0x1378
  .debug_aranges
@@ -11727,7 +11985,7 @@ LOAD C:/ST/STM32CubeIDE_1.15.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_rnglists
                 0x00000ebb       0x1f ./app_core/tools/uart/stm32_uart_container.o
 
-.debug_macro    0x00000000    0x1f84d
+.debug_macro    0x00000000    0x1fa32
  .debug_macro   0x00000000      0x1bb ./Core/Src/adc.o
  .debug_macro   0x000001bb      0xaa8 ./Core/Src/adc.o
  .debug_macro   0x00000c63      0x221 ./Core/Src/adc.o
@@ -11830,95 +12088,96 @@ LOAD C:/ST/STM32CubeIDE_1.15.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_macro   0x00018515      0x1b4 ./Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
  .debug_macro   0x000186c9      0x1a2 ./Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.o
  .debug_macro   0x0001886b      0x1a3 ./Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.o
- .debug_macro   0x00018a0e      0x665 ./app_core/ProtocolSender.o
- .debug_macro   0x00019073      0xb80 ./app_core/ProtocolSender.o
- .debug_macro   0x00019bf3       0x1c ./app_core/ProtocolSender.o
- .debug_macro   0x00019c0f      0xd23 ./app_core/ProtocolSender.o
- .debug_macro   0x0001a932      0x190 ./app_core/ProtocolSender.o
- .debug_macro   0x0001aac2       0x16 ./app_core/ProtocolSender.o
- .debug_macro   0x0001aad8       0x61 ./app_core/ProtocolSender.o
- .debug_macro   0x0001ab39       0x34 ./app_core/ProtocolSender.o
- .debug_macro   0x0001ab6d       0x16 ./app_core/ProtocolSender.o
- .debug_macro   0x0001ab83       0x2e ./app_core/ProtocolSender.o
- .debug_macro   0x0001abb1       0x28 ./app_core/ProtocolSender.o
- .debug_macro   0x0001abd9      0x1d6 ./app_core/ProtocolSender.o
- .debug_macro   0x0001adaf       0x10 ./app_core/ProtocolSender.o
- .debug_macro   0x0001adbf      0x417 ./app_core/ProtocolSender.o
- .debug_macro   0x0001b1d6       0x43 ./app_core/ProtocolSender.o
- .debug_macro   0x0001b219       0x10 ./app_core/ProtocolSender.o
- .debug_macro   0x0001b229      0x38c ./app_core/ProtocolSender.o
- .debug_macro   0x0001b5b5       0x10 ./app_core/ProtocolSender.o
- .debug_macro   0x0001b5c5       0x35 ./app_core/ProtocolSender.o
- .debug_macro   0x0001b5fa       0x20 ./app_core/ProtocolSender.o
- .debug_macro   0x0001b61a       0x8e ./app_core/ProtocolSender.o
- .debug_macro   0x0001b6a8       0x62 ./app_core/ProtocolSender.o
- .debug_macro   0x0001b70a      0x16c ./app_core/ProtocolSender.o
- .debug_macro   0x0001b876       0x8f ./app_core/ProtocolSender.o
- .debug_macro   0x0001b905       0x46 ./app_core/ProtocolSender.o
- .debug_macro   0x0001b94b       0x4c ./app_core/ProtocolSender.o
- .debug_macro   0x0001b997       0x40 ./app_core/ProtocolSender.o
- .debug_macro   0x0001b9d7       0x22 ./app_core/ProtocolSender.o
- .debug_macro   0x0001b9f9       0x41 ./app_core/ProtocolSender.o
- .debug_macro   0x0001ba3a       0x19 ./app_core/ProtocolSender.o
- .debug_macro   0x0001ba53       0x18 ./app_core/ProtocolSender.o
- .debug_macro   0x0001ba6b       0x19 ./app_core/ProtocolSender.o
- .debug_macro   0x0001ba84       0x11 ./app_core/ProtocolSender.o
- .debug_macro   0x0001ba95       0x22 ./app_core/ProtocolSender.o
- .debug_macro   0x0001bab7       0x10 ./app_core/ProtocolSender.o
- .debug_macro   0x0001bac7       0x1c ./app_core/ProtocolSender.o
- .debug_macro   0x0001bae3       0x2e ./app_core/ProtocolSender.o
- .debug_macro   0x0001bb11       0x18 ./app_core/ProtocolSender.o
- .debug_macro   0x0001bb29       0x4f ./app_core/ProtocolSender.o
- .debug_macro   0x0001bb78       0x28 ./app_core/ProtocolSender.o
- .debug_macro   0x0001bba0       0x2e ./app_core/ProtocolSender.o
- .debug_macro   0x0001bbce       0x19 ./app_core/ProtocolSender.o
- .debug_macro   0x0001bbe7       0x88 ./app_core/ProtocolSender.o
- .debug_macro   0x0001bc6f       0x19 ./app_core/ProtocolSender.o
- .debug_macro   0x0001bc88       0x32 ./app_core/ProtocolSender.o
- .debug_macro   0x0001bcba       0x11 ./app_core/ProtocolSender.o
- .debug_macro   0x0001bccb       0x10 ./app_core/ProtocolSender.o
- .debug_macro   0x0001bcdb       0x11 ./app_core/ProtocolSender.o
- .debug_macro   0x0001bcec       0x27 ./app_core/ProtocolSender.o
- .debug_macro   0x0001bd13       0x26 ./app_core/ProtocolSender.o
- .debug_macro   0x0001bd39       0x10 ./app_core/ProtocolSender.o
- .debug_macro   0x0001bd49       0xb1 ./app_core/ProtocolSender.o
- .debug_macro   0x0001bdfa       0x1c ./app_core/ProtocolSender.o
- .debug_macro   0x0001be16      0x138 ./app_core/ProtocolSender.o
- .debug_macro   0x0001bf4e      0x5ff ./app_core/RelayController.o
- .debug_macro   0x0001c54d       0x1f ./app_core/RelayController.o
- .debug_macro   0x0001c56c       0x2c ./app_core/RelayController.o
- .debug_macro   0x0001c598       0x11 ./app_core/RelayController.o
- .debug_macro   0x0001c5a9       0x1c ./app_core/RelayController.o
- .debug_macro   0x0001c5c5      0x60a ./app_core/app_core.o
- .debug_macro   0x0001cbcf      0x320 ./app_core/TPS1HTC30/Key_tps1htc30.o
- .debug_macro   0x0001ceef      0x194 ./app_core/TPS1HTC30/Key_tps1htc30.o
- .debug_macro   0x0001d083       0x10 ./app_core/TPS1HTC30/Key_tps1htc30.o
- .debug_macro   0x0001d093       0x10 ./app_core/TPS1HTC30/Key_tps1htc30.o
- .debug_macro   0x0001d0a3      0x3c7 ./app_core/TPS1HTC30/Key_tps1htc30.o
- .debug_macro   0x0001d46a      0x305 ./app_core/TPS1HTC30/Keytps1htc30Group.o
- .debug_macro   0x0001d76f      0x21e ./app_core/chaos_sdk/buffers/pool_container.o
- .debug_macro   0x0001d98d       0x16 ./app_core/chaos_sdk/buffers/pool_container.o
- .debug_macro   0x0001d9a3       0x16 ./app_core/chaos_sdk/buffers/pool_container.o
- .debug_macro   0x0001d9b9      0x20a ./app_core/chaos_sdk/callback_manager/callback_manager.o
- .debug_macro   0x0001dbc3      0x240 ./app_core/chaos_sdk/crc/crc8.o
- .debug_macro   0x0001de03      0x2c9 ./app_core/chaos_sdk/raw_parser/raw_parser_dma/rawparser_dma.o
- .debug_macro   0x0001e0cc      0x1c1 ./app_core/stm32_printf/stm32_printf.o
- .debug_macro   0x0001e28d      0x201 ./app_core/tools/adc/Stm32ADCdma.o
- .debug_macro   0x0001e48e      0x1f4 ./app_core/tools/irq/stm32_irq_block.o
- .debug_macro   0x0001e682      0x1c3 ./app_core/tools/math/FPMovingAverage.o
- .debug_macro   0x0001e845       0xa9 ./app_core/tools/math/FPMovingAverageArray.o
- .debug_macro   0x0001e8ee      0x1b9 ./app_core/tools/math/FPMovingAverageBase.o
- .debug_macro   0x0001eaa7      0x4c4 ./app_core/tools/timer/TimingManager.o
- .debug_macro   0x0001ef6b       0x10 ./app_core/tools/timer/TimingManager.o
- .debug_macro   0x0001ef7b      0x11c ./app_core/tools/timer/TimingManager.o
- .debug_macro   0x0001f097       0x9b ./app_core/tools/timer/TimingManager.o
- .debug_macro   0x0001f132       0x1c ./app_core/tools/timer/TimingManager.o
- .debug_macro   0x0001f14e       0xde ./app_core/tools/timer/TimingManager.o
- .debug_macro   0x0001f22c       0x56 ./app_core/tools/timer/TimingManager.o
- .debug_macro   0x0001f282      0x31c ./app_core/tools/uart/stm32_uart.o
- .debug_macro   0x0001f59e      0x2af ./app_core/tools/uart/stm32_uart_container.o
+ .debug_macro   0x00018a0e      0x6db ./app_core/ProtocolSender.o
+ .debug_macro   0x000190e9      0xb80 ./app_core/ProtocolSender.o
+ .debug_macro   0x00019c69       0x1c ./app_core/ProtocolSender.o
+ .debug_macro   0x00019c85      0xd23 ./app_core/ProtocolSender.o
+ .debug_macro   0x0001a9a8      0x190 ./app_core/ProtocolSender.o
+ .debug_macro   0x0001ab38       0x16 ./app_core/ProtocolSender.o
+ .debug_macro   0x0001ab4e       0x61 ./app_core/ProtocolSender.o
+ .debug_macro   0x0001abaf       0x34 ./app_core/ProtocolSender.o
+ .debug_macro   0x0001abe3       0x16 ./app_core/ProtocolSender.o
+ .debug_macro   0x0001abf9       0x2e ./app_core/ProtocolSender.o
+ .debug_macro   0x0001ac27       0x52 ./app_core/ProtocolSender.o
+ .debug_macro   0x0001ac79      0x1d6 ./app_core/ProtocolSender.o
+ .debug_macro   0x0001ae4f       0x10 ./app_core/ProtocolSender.o
+ .debug_macro   0x0001ae5f      0x417 ./app_core/ProtocolSender.o
+ .debug_macro   0x0001b276       0x43 ./app_core/ProtocolSender.o
+ .debug_macro   0x0001b2b9       0x10 ./app_core/ProtocolSender.o
+ .debug_macro   0x0001b2c9      0x38c ./app_core/ProtocolSender.o
+ .debug_macro   0x0001b655       0x10 ./app_core/ProtocolSender.o
+ .debug_macro   0x0001b665       0x35 ./app_core/ProtocolSender.o
+ .debug_macro   0x0001b69a       0x20 ./app_core/ProtocolSender.o
+ .debug_macro   0x0001b6ba       0x8e ./app_core/ProtocolSender.o
+ .debug_macro   0x0001b748       0x62 ./app_core/ProtocolSender.o
+ .debug_macro   0x0001b7aa      0x16c ./app_core/ProtocolSender.o
+ .debug_macro   0x0001b916       0x8f ./app_core/ProtocolSender.o
+ .debug_macro   0x0001b9a5       0x46 ./app_core/ProtocolSender.o
+ .debug_macro   0x0001b9eb       0x10 ./app_core/ProtocolSender.o
+ .debug_macro   0x0001b9fb       0x1c ./app_core/ProtocolSender.o
+ .debug_macro   0x0001ba17       0xde ./app_core/ProtocolSender.o
+ .debug_macro   0x0001baf5       0x10 ./app_core/ProtocolSender.o
+ .debug_macro   0x0001bb05       0x16 ./app_core/ProtocolSender.o
+ .debug_macro   0x0001bb1b       0x4c ./app_core/ProtocolSender.o
+ .debug_macro   0x0001bb67       0x40 ./app_core/ProtocolSender.o
+ .debug_macro   0x0001bba7       0x22 ./app_core/ProtocolSender.o
+ .debug_macro   0x0001bbc9       0x41 ./app_core/ProtocolSender.o
+ .debug_macro   0x0001bc0a       0x19 ./app_core/ProtocolSender.o
+ .debug_macro   0x0001bc23       0x18 ./app_core/ProtocolSender.o
+ .debug_macro   0x0001bc3b       0x19 ./app_core/ProtocolSender.o
+ .debug_macro   0x0001bc54       0x11 ./app_core/ProtocolSender.o
+ .debug_macro   0x0001bc65       0x22 ./app_core/ProtocolSender.o
+ .debug_macro   0x0001bc87       0x10 ./app_core/ProtocolSender.o
+ .debug_macro   0x0001bc97       0x1c ./app_core/ProtocolSender.o
+ .debug_macro   0x0001bcb3       0x2e ./app_core/ProtocolSender.o
+ .debug_macro   0x0001bce1       0x18 ./app_core/ProtocolSender.o
+ .debug_macro   0x0001bcf9       0x4f ./app_core/ProtocolSender.o
+ .debug_macro   0x0001bd48       0x28 ./app_core/ProtocolSender.o
+ .debug_macro   0x0001bd70       0x2e ./app_core/ProtocolSender.o
+ .debug_macro   0x0001bd9e       0x19 ./app_core/ProtocolSender.o
+ .debug_macro   0x0001bdb7       0x88 ./app_core/ProtocolSender.o
+ .debug_macro   0x0001be3f       0x19 ./app_core/ProtocolSender.o
+ .debug_macro   0x0001be58       0x32 ./app_core/ProtocolSender.o
+ .debug_macro   0x0001be8a       0x11 ./app_core/ProtocolSender.o
+ .debug_macro   0x0001be9b       0x10 ./app_core/ProtocolSender.o
+ .debug_macro   0x0001beab       0x11 ./app_core/ProtocolSender.o
+ .debug_macro   0x0001bebc       0x27 ./app_core/ProtocolSender.o
+ .debug_macro   0x0001bee3       0x26 ./app_core/ProtocolSender.o
+ .debug_macro   0x0001bf09       0x10 ./app_core/ProtocolSender.o
+ .debug_macro   0x0001bf19       0xb1 ./app_core/ProtocolSender.o
+ .debug_macro   0x0001bfca       0x1c ./app_core/ProtocolSender.o
+ .debug_macro   0x0001bfe6      0x138 ./app_core/ProtocolSender.o
+ .debug_macro   0x0001c11e      0x675 ./app_core/RelayController.o
+ .debug_macro   0x0001c793       0x1f ./app_core/RelayController.o
+ .debug_macro   0x0001c7b2       0x2c ./app_core/RelayController.o
+ .debug_macro   0x0001c7de       0x11 ./app_core/RelayController.o
+ .debug_macro   0x0001c7ef       0x1c ./app_core/RelayController.o
+ .debug_macro   0x0001c80b      0x680 ./app_core/app_core.o
+ .debug_macro   0x0001ce8b      0x320 ./app_core/TPS1HTC30/Key_tps1htc30.o
+ .debug_macro   0x0001d1ab      0x194 ./app_core/TPS1HTC30/Key_tps1htc30.o
+ .debug_macro   0x0001d33f       0x10 ./app_core/TPS1HTC30/Key_tps1htc30.o
+ .debug_macro   0x0001d34f       0x10 ./app_core/TPS1HTC30/Key_tps1htc30.o
+ .debug_macro   0x0001d35f      0x3c7 ./app_core/TPS1HTC30/Key_tps1htc30.o
+ .debug_macro   0x0001d726      0x305 ./app_core/TPS1HTC30/Keytps1htc30Group.o
+ .debug_macro   0x0001da2b      0x211 ./app_core/chaos_sdk/buffers/pool_container.o
+ .debug_macro   0x0001dc3c       0x16 ./app_core/chaos_sdk/buffers/pool_container.o
+ .debug_macro   0x0001dc52      0x20a ./app_core/chaos_sdk/callback_manager/callback_manager.o
+ .debug_macro   0x0001de5c      0x282 ./app_core/chaos_sdk/crc/crc8.o
+ .debug_macro   0x0001e0de      0x2dd ./app_core/chaos_sdk/raw_parser/raw_parser_dma/rawparser_dma.o
+ .debug_macro   0x0001e3bb      0x1c1 ./app_core/stm32_printf/stm32_printf.o
+ .debug_macro   0x0001e57c      0x201 ./app_core/tools/adc/Stm32ADCdma.o
+ .debug_macro   0x0001e77d      0x1f4 ./app_core/tools/irq/stm32_irq_block.o
+ .debug_macro   0x0001e971      0x1c3 ./app_core/tools/math/FPMovingAverage.o
+ .debug_macro   0x0001eb34       0xa9 ./app_core/tools/math/FPMovingAverageArray.o
+ .debug_macro   0x0001ebdd      0x1b9 ./app_core/tools/math/FPMovingAverageBase.o
+ .debug_macro   0x0001ed96      0x4c4 ./app_core/tools/timer/TimingManager.o
+ .debug_macro   0x0001f25a      0x11c ./app_core/tools/timer/TimingManager.o
+ .debug_macro   0x0001f376       0x9b ./app_core/tools/timer/TimingManager.o
+ .debug_macro   0x0001f411       0x56 ./app_core/tools/timer/TimingManager.o
+ .debug_macro   0x0001f467      0x31c ./app_core/tools/uart/stm32_uart.o
+ .debug_macro   0x0001f783      0x2af ./app_core/tools/uart/stm32_uart_container.o
 
-.debug_line     0x00000000    0x1dff0
+.debug_line     0x00000000    0x1e12e
  .debug_line    0x00000000      0x82d ./Core/Src/adc.o
  .debug_line    0x0000082d      0x704 ./Core/Src/dma.o
  .debug_line    0x00000f31      0x736 ./Core/Src/gpio.o
@@ -11938,26 +12197,26 @@ LOAD C:/ST/STM32CubeIDE_1.15.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_line    0x00008a5c      0xdb9 ./Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
  .debug_line    0x00009815      0x8fa ./Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.o
  .debug_line    0x0000a10f     0x28f9 ./Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.o
- .debug_line    0x0000ca08     0x213d ./app_core/ProtocolSender.o
- .debug_line    0x0000eb45     0x1b13 ./app_core/RelayController.o
- .debug_line    0x00010658     0x1a27 ./app_core/app_core.o
- .debug_line    0x0001207f     0x11fd ./app_core/TPS1HTC30/Key_tps1htc30.o
- .debug_line    0x0001327c     0x1638 ./app_core/TPS1HTC30/Keytps1htc30Group.o
- .debug_line    0x000148b4      0x9d5 ./app_core/chaos_sdk/buffers/pool_container.o
- .debug_line    0x00015289      0x7f2 ./app_core/chaos_sdk/callback_manager/callback_manager.o
- .debug_line    0x00015a7b      0xa75 ./app_core/chaos_sdk/crc/crc8.o
- .debug_line    0x000164f0      0xcd1 ./app_core/chaos_sdk/raw_parser/raw_parser_dma/rawparser_dma.o
- .debug_line    0x000171c1      0x720 ./app_core/stm32_printf/stm32_printf.o
- .debug_line    0x000178e1      0xab6 ./app_core/tools/adc/Stm32ADCdma.o
- .debug_line    0x00018397      0x85f ./app_core/tools/irq/stm32_irq_block.o
- .debug_line    0x00018bf6      0xad1 ./app_core/tools/math/FPMovingAverage.o
- .debug_line    0x000196c7      0x744 ./app_core/tools/math/FPMovingAverageArray.o
- .debug_line    0x00019e0b      0xad2 ./app_core/tools/math/FPMovingAverageBase.o
- .debug_line    0x0001a8dd     0x202f ./app_core/tools/timer/TimingManager.o
- .debug_line    0x0001c90c      0xd91 ./app_core/tools/uart/stm32_uart.o
- .debug_line    0x0001d69d      0x953 ./app_core/tools/uart/stm32_uart_container.o
+ .debug_line    0x0000ca08     0x2193 ./app_core/ProtocolSender.o
+ .debug_line    0x0000eb9b     0x1b69 ./app_core/RelayController.o
+ .debug_line    0x00010704     0x1a7d ./app_core/app_core.o
+ .debug_line    0x00012181     0x11fd ./app_core/TPS1HTC30/Key_tps1htc30.o
+ .debug_line    0x0001337e     0x1638 ./app_core/TPS1HTC30/Keytps1htc30Group.o
+ .debug_line    0x000149b6      0x9d1 ./app_core/chaos_sdk/buffers/pool_container.o
+ .debug_line    0x00015387      0x7f2 ./app_core/chaos_sdk/callback_manager/callback_manager.o
+ .debug_line    0x00015b79      0xaa7 ./app_core/chaos_sdk/crc/crc8.o
+ .debug_line    0x00016620      0xcdf ./app_core/chaos_sdk/raw_parser/raw_parser_dma/rawparser_dma.o
+ .debug_line    0x000172ff      0x720 ./app_core/stm32_printf/stm32_printf.o
+ .debug_line    0x00017a1f      0xab6 ./app_core/tools/adc/Stm32ADCdma.o
+ .debug_line    0x000184d5      0x85f ./app_core/tools/irq/stm32_irq_block.o
+ .debug_line    0x00018d34      0xad1 ./app_core/tools/math/FPMovingAverage.o
+ .debug_line    0x00019805      0x744 ./app_core/tools/math/FPMovingAverageArray.o
+ .debug_line    0x00019f49      0xad2 ./app_core/tools/math/FPMovingAverageBase.o
+ .debug_line    0x0001aa1b     0x202f ./app_core/tools/timer/TimingManager.o
+ .debug_line    0x0001ca4a      0xd91 ./app_core/tools/uart/stm32_uart.o
+ .debug_line    0x0001d7db      0x953 ./app_core/tools/uart/stm32_uart_container.o
 
-.debug_str      0x00000000    0x991e0
+.debug_str      0x00000000    0x99576
  .debug_str     0x00000000    0x81437 ./Core/Src/adc.o
                               0x8189b (size before relaxing)
  .debug_str     0x00081437      0x2bf ./Core/Src/dma.o
@@ -11996,41 +12255,41 @@ LOAD C:/ST/STM32CubeIDE_1.15.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
                               0x814ba (size before relaxing)
  .debug_str     0x000888d4      0x602 ./Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.o
                               0x81ddb (size before relaxing)
- .debug_str     0x00088ed6     0x823c ./app_core/ProtocolSender.o
-                              0x8d669 (size before relaxing)
- .debug_str     0x00091112      0x1a0 ./app_core/RelayController.o
-                              0x8b3d1 (size before relaxing)
- .debug_str     0x000912b2       0x20 ./app_core/app_core.o
-                              0x8b315 (size before relaxing)
- .debug_str     0x000912d2     0x1012 ./app_core/TPS1HTC30/Key_tps1htc30.o
+ .debug_str     0x00088ed6     0x8753 ./app_core/ProtocolSender.o
+                              0x8dc92 (size before relaxing)
+ .debug_str     0x00091629      0x1a0 ./app_core/RelayController.o
+                              0x8b9fa (size before relaxing)
+ .debug_str     0x000917c9       0x20 ./app_core/app_core.o
+                              0x8b93e (size before relaxing)
+ .debug_str     0x000917e9      0xfb8 ./app_core/TPS1HTC30/Key_tps1htc30.o
                               0x88073 (size before relaxing)
- .debug_str     0x000922e4      0x33b ./app_core/TPS1HTC30/Keytps1htc30Group.o
+ .debug_str     0x000927a1      0x33b ./app_core/TPS1HTC30/Keytps1htc30Group.o
                               0x85ad0 (size before relaxing)
- .debug_str     0x0009261f      0x10a ./app_core/chaos_sdk/buffers/pool_container.o
-                               0x84e7 (size before relaxing)
- .debug_str     0x00092729       0xb0 ./app_core/chaos_sdk/callback_manager/callback_manager.o
+ .debug_str     0x00092adc       0xf0 ./app_core/chaos_sdk/buffers/pool_container.o
+                               0x86b7 (size before relaxing)
+ .debug_str     0x00092bcc       0xa9 ./app_core/chaos_sdk/callback_manager/callback_manager.o
                                0x8180 (size before relaxing)
- .debug_str     0x000927d9      0xa4e ./app_core/chaos_sdk/crc/crc8.o
-                               0x956b (size before relaxing)
- .debug_str     0x00093227      0x2d7 ./app_core/chaos_sdk/raw_parser/raw_parser_dma/rawparser_dma.o
-                               0x997f (size before relaxing)
- .debug_str     0x000934fe       0x4e ./app_core/stm32_printf/stm32_printf.o
+ .debug_str     0x00092c75      0xa4e ./app_core/chaos_sdk/crc/crc8.o
+                               0x97c2 (size before relaxing)
+ .debug_str     0x000936c3      0x2d7 ./app_core/chaos_sdk/raw_parser/raw_parser_dma/rawparser_dma.o
+                               0x9af4 (size before relaxing)
+ .debug_str     0x0009399a       0x4e ./app_core/stm32_printf/stm32_printf.o
                               0x8185d (size before relaxing)
- .debug_str     0x0009354c      0x13f ./app_core/tools/adc/Stm32ADCdma.o
+ .debug_str     0x000939e8      0x13f ./app_core/tools/adc/Stm32ADCdma.o
                               0x83d62 (size before relaxing)
- .debug_str     0x0009368b       0x65 ./app_core/tools/irq/stm32_irq_block.o
+ .debug_str     0x00093b27       0x65 ./app_core/tools/irq/stm32_irq_block.o
                               0x817de (size before relaxing)
- .debug_str     0x000936f0       0x88 ./app_core/tools/math/FPMovingAverage.o
+ .debug_str     0x00093b8c       0x88 ./app_core/tools/math/FPMovingAverage.o
                                0xa1cc (size before relaxing)
- .debug_str     0x00093778       0x91 ./app_core/tools/math/FPMovingAverageArray.o
+ .debug_str     0x00093c14       0x91 ./app_core/tools/math/FPMovingAverageArray.o
                                0x615d (size before relaxing)
- .debug_str     0x00093809       0x3a ./app_core/tools/math/FPMovingAverageBase.o
+ .debug_str     0x00093ca5       0x3a ./app_core/tools/math/FPMovingAverageBase.o
                                0xa164 (size before relaxing)
- .debug_str     0x00093843     0x55a2 ./app_core/tools/timer/TimingManager.o
+ .debug_str     0x00093cdf     0x549c ./app_core/tools/timer/TimingManager.o
                               0x8dcf3 (size before relaxing)
- .debug_str     0x00098de5      0x3a7 ./app_core/tools/uart/stm32_uart.o
+ .debug_str     0x0009917b      0x3a7 ./app_core/tools/uart/stm32_uart.o
                               0x8523e (size before relaxing)
- .debug_str     0x0009918c       0x54 ./app_core/tools/uart/stm32_uart_container.o
+ .debug_str     0x00099522       0x54 ./app_core/tools/uart/stm32_uart_container.o
                               0x84c3c (size before relaxing)
 
 .comment        0x00000000       0x43
