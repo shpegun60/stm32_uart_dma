@@ -11,6 +11,7 @@
 #include "tools/uart/stm32_uart.h"
 #include "buffers/pool_container.h"
 #include "raw_parser/raw_parser_dma/rawparser_dma.h"
+#include "raw_parser/raw_parser_dynamic/rawparser_dynamic.h"
 
 #include "callback_manager/callback_manager.h"
 
@@ -45,6 +46,10 @@ private:
 	// main class to synchronize data
 	Key_tps1htc30Group* m_keyGroup = nullptr;
 	TimingManager proto_timer;
+
+
+	/////////////////////////
+	RawParser_dynamic_t rawP_new;
 };
 
 #endif /* PROTOCOLSENDER_H_ */

@@ -60,6 +60,16 @@ static void _proceedByte(RawParser_dynamic_t* const self, const u8 ch, const boo
 {
 #define NEXT_STATE(state) self->RX.receiveState = state
 
+	// FSM data fusion -----------------------------
+#define RECEIVE_LEN_0					0x00U
+#define RECEIVE_LEN_LOW                	0x01U
+#define RECEIVE_LEN_HIGH               	0x02U
+#define RECEIVE_DATA                   	0x03U
+#define RECEIVE_CRC                   	0x04U
+//--------------------------------------------
+#define RECEIVE_ERR              		0x0CU
+#define RECEIVE_OK                   	0x0DU
+
 	if (newFrame) {
 		M_Assert_SafeFunctionCall(self->RX.crc, {
 				CRC_INIT(self->RX.crc);
@@ -67,18 +77,8 @@ static void _proceedByte(RawParser_dynamic_t* const self, const u8 ch, const boo
 		});
 
 		FIFO_CLEAN(&self->RX.frame_stream);
-		NEXT_STATE(0);
+		NEXT_STATE(RECEIVE_LEN_0);
 	}
-
-	// FSM data fusion -----------------------------
-#define RECEIVE_LEN_0                     0x00U
-#define RECEIVE_LEN_LOW                0x01U
-#define RECEIVE_LEN_HIGH               0x02U
-#define RECEIVE_DATA                   	0x03U
-#define RECEIVE_CRC                   	0x04U
-
-#define RECEIVE_ERR                       0x0CU
-#define RECEIVE_OK                        0x0DU
 
 	switch(self->RX.receiveState) {
 
@@ -155,6 +155,7 @@ static void _proceedByte(RawParser_dynamic_t* const self, const u8 ch, const boo
 		u8 crc_counter = self->RX.crc_received->crc_size;
 		*(crc_pointer + crc_counter) = ch;
 		++crc_counter;
+		self->RX.crc_received->crc_size = crc_counter;
 
 		if(crc_counter == self->RX.crc->base.crc_size) {
 			LittleEndianGeneric(crc_pointer, crc_counter);
@@ -183,6 +184,18 @@ static void _proceedByte(RawParser_dynamic_t* const self, const u8 ch, const boo
 		M_Assert_WarningSaveCheck(M_ALWAYS, M_EMPTY, M_EMPTY, "RECEIVE OK");
 		break;}
 	}
+
+
+#undef RECEIVE_LEN_0
+#undef RECEIVE_LEN_LOW
+#undef RECEIVE_LEN_HIGH
+#undef RECEIVE_DATA
+#undef RECEIVE_CRC
+//--------------------------------------------
+#undef RECEIVE_ERR
+#undef RECEIVE_OK
+
+#undef NEXT_STATE
 }
 
 void rawParser_dynamic_proceed(RawParser_dynamic_t* const self)

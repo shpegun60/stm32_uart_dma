@@ -44,6 +44,9 @@ app_core/RelayController.o: ../app_core/RelayController.cpp \
  C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/chaos_sdk/crc/my_crc_port.h \
  C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/chaos_sdk/crc/crc_fabric.h \
  C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/chaos_sdk/crc/crc_base.h \
+ C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.h \
+ C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/chaos_sdk/buffers/ringbuf.h \
+ C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/chaos_sdk/crc/crc_fabric.h \
  C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/chaos_sdk/callback_manager/callback_manager.h \
  C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/TPS1HTC30/Keytps1htc30Group.h \
  C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/stm32_meta.h \
@@ -97,6 +100,9 @@ C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/chaos_sd
 C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/chaos_sdk/crc/my_crc_port.h:
 C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/chaos_sdk/crc/crc_fabric.h:
 C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/chaos_sdk/crc/crc_base.h:
+C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.h:
+C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/chaos_sdk/buffers/ringbuf.h:
+C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/chaos_sdk/crc/crc_fabric.h:
 C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/chaos_sdk/callback_manager/callback_manager.h:
 C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/TPS1HTC30/Keytps1htc30Group.h:
 C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/stm32_meta.h:

@@ -33,6 +33,13 @@ bool crc_compleate(crc_base_t* const self1, crc_base_t* const self2)
 
 	switch(size) {
 
+	case sizeof(u8): {
+		u8 val1, val2;
+		memcpy(&val1, ptr1, sizeof(u8));
+		memcpy(&val2, ptr2, sizeof(u8));
+
+		return val1 == val2;}
+
 	case sizeof(u16): {
 		u16 val1, val2;
 		memcpy(&val1, ptr1, sizeof(u16));

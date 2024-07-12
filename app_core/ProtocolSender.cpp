@@ -11,8 +11,12 @@
 
 static void uart_rx_callback(uint8_t const * data, uint32_t const size, void* const captured)
 {
-	RawParser_dma_t* const raw_p = (RawParser_dma_t*)captured;
-	RawParser_dma_receiveArray(raw_p, data, size);
+//	RawParser_dma_t* const raw_p = (RawParser_dma_t*)captured;
+//	RawParser_dma_receiveArray(raw_p, data, size);
+
+	RawParser_dynamic_t* const raw_p = (RawParser_dynamic_t*)captured;
+
+	rawParser_dynamic_receiveArray(raw_p, data, size);
 }
 
 static void uart_tx_callback(const status_t status, void* const captured)
@@ -105,13 +109,18 @@ status_t ProtocolSender::init(UART_HandleTypeDef *const huart)
 			M_EMPTY, return ERROR_FAIL,
 					"uart init fail");
 
-	UART_SetRxCallback(&stm32_uart, uart_rx_callback, &raw_p);
-	UART_SetTxcallback(&stm32_uart, uart_tx_callback, &pack_pool);
-	//	UART_SetErrorCallback(&self->stm32_uart, uart_error_callback, self);
+
 
 	M_Assert_BreakSaveCheck(rawParser_dma_init(&raw_p, 0x1a) != D_RAW_P_OK,
 			M_EMPTY, return ERROR_FAIL,
 					"kbus init fail");
+	rawParser_dynamic_init_default(&rawP_new, 0x1a, 256, 256, 0, CRC8);
+
+	UART_SetRxCallback(&stm32_uart, uart_rx_callback, &rawP_new/*&raw_p*/);
+	UART_SetTxcallback(&stm32_uart, uart_tx_callback, &pack_pool);
+	//	UART_SetErrorCallback(&self->stm32_uart, uart_error_callback, self);
+
+
 
 	pool_elem* const buffer = (pool_elem*) poolContainer_getWriteBuffer(&pack_pool);
 	rawParser_dma_setUserBufferTX(&raw_p, buffer->data);
@@ -129,73 +138,75 @@ status_t ProtocolSender::init(UART_HandleTypeDef *const huart)
 
 void ProtocolSender::proceed(const uint32_t current_time)
 {
-	// proceed TX
-	{
-		if(!UART_IsTxBusy(&stm32_uart) && FIFO_NOT_EMPTY(&pack_pool)) {
-			pool_elem* const buffer = (pool_elem*) poolContainer_readBuffer(&pack_pool);
-			UART_SendBuffer(&stm32_uart, buffer->data, buffer->size);
-		}
-	}
 
-	// proceed RX
-	{
-		RawParser_Frame_t* const frame = RawParser_dma_proceed(&raw_p);
-		u8* const data = frame->data;
-		reg size = frame->size;
-
-		if(size == 0 || frame == NULL) {
-			goto periodicSend;//return;
-		}
-
-		const u8 cmd = data[0];
-
-		CallbackManager_proceed(&callb, cmd, (data + 1), (size - 1));
-	}
-
-	// send all state
-	periodicSend:
-	{
-
-		if(proto_timer.isExpired()) {
-
-			while(FIFO_NOT_FULL(&pack_pool)) {
-				ProtocolSender::pool_elem* const buffer = (ProtocolSender::pool_elem*) poolContainer_getWriteBuffer(&pack_pool);
-				rawParser_dma_setUserBufferTX(&raw_p, buffer->data);
-
-
-				u8 groups = m_keyGroup->getGroups();
-				u8 key_0 = m_keyGroup->getKeys(0);
-				u8 key_1 = m_keyGroup->getKeys(1);
-				reg len = 3 + (key_0 + key_1) * 8;
-
-				RawParser_dma_startTransmittPacket(&raw_p, len);
-				RawParser_dma_universalWrite(&raw_p, sizeof(u8), sizeof(u8), &groups);
-				RawParser_dma_universalWrite(&raw_p, sizeof(u8), sizeof(u8), &key_0);
-				RawParser_dma_universalWrite(&raw_p, sizeof(u8), sizeof(u8), &key_1);
-
-
-				m_keyGroup->iterateAll([this](Key_tps1htc30Group::KeyGroup* key, uint8_t group_id, uint8_t key_id) -> bool {
-					u8 err = (u8)key->err[key_id];
-					u8 en = (u8)key->out_state[key_id];
-
-					RawParser_dma_universalWrite(&raw_p, sizeof(u8), sizeof(u8), &group_id);
-					RawParser_dma_universalWrite(&raw_p, sizeof(u8), sizeof(u8), &key_id);
-					RawParser_dma_universalWrite(&raw_p, sizeof(u8), sizeof(u8), &en);
-					RawParser_dma_universalWrite(&raw_p, sizeof(u8), sizeof(u8), &err);
-					RawParser_dma_universalWrite(&raw_p, sizeof(float), sizeof(float), (u8*)&key->current);
-					return false;
-				});
-
-				RawParser_Frame_t*const frame = RawParser_dma_finishTransmittPacket(&raw_p);
-				buffer->size = frame->size;
-				poolContainer_nextWritePos(&pack_pool);
-			}
-
-
-			proto_timer.start(50);
-		}
-
-	}
+	rawParser_dynamic_proceed(&rawP_new);
+//	// proceed TX
+//	{
+//		if(!UART_IsTxBusy(&stm32_uart) && FIFO_NOT_EMPTY(&pack_pool)) {
+//			pool_elem* const buffer = (pool_elem*) poolContainer_readBuffer(&pack_pool);
+//			UART_SendBuffer(&stm32_uart, buffer->data, buffer->size);
+//		}
+//	}
+//
+//	// proceed RX
+//	{
+//		RawParser_Frame_t* const frame = RawParser_dma_proceed(&raw_p);
+//		u8* const data = frame->data;
+//		reg size = frame->size;
+//
+//		if(size == 0 || frame == NULL) {
+//			goto periodicSend;//return;
+//		}
+//
+//		const u8 cmd = data[0];
+//
+//		CallbackManager_proceed(&callb, cmd, (data + 1), (size - 1));
+//	}
+//
+//	// send all state
+//	periodicSend:
+//	{
+//
+//		if(proto_timer.isExpired()) {
+//
+//			while(FIFO_NOT_FULL(&pack_pool)) {
+//				ProtocolSender::pool_elem* const buffer = (ProtocolSender::pool_elem*) poolContainer_getWriteBuffer(&pack_pool);
+//				rawParser_dma_setUserBufferTX(&raw_p, buffer->data);
+//
+//
+//				u8 groups = m_keyGroup->getGroups();
+//				u8 key_0 = m_keyGroup->getKeys(0);
+//				u8 key_1 = m_keyGroup->getKeys(1);
+//				reg len = 3 + (key_0 + key_1) * 8;
+//
+//				RawParser_dma_startTransmittPacket(&raw_p, len);
+//				RawParser_dma_universalWrite(&raw_p, sizeof(u8), sizeof(u8), &groups);
+//				RawParser_dma_universalWrite(&raw_p, sizeof(u8), sizeof(u8), &key_0);
+//				RawParser_dma_universalWrite(&raw_p, sizeof(u8), sizeof(u8), &key_1);
+//
+//
+//				m_keyGroup->iterateAll([this](Key_tps1htc30Group::KeyGroup* key, uint8_t group_id, uint8_t key_id) -> bool {
+//					u8 err = (u8)key->err[key_id];
+//					u8 en = (u8)key->out_state[key_id];
+//
+//					RawParser_dma_universalWrite(&raw_p, sizeof(u8), sizeof(u8), &group_id);
+//					RawParser_dma_universalWrite(&raw_p, sizeof(u8), sizeof(u8), &key_id);
+//					RawParser_dma_universalWrite(&raw_p, sizeof(u8), sizeof(u8), &en);
+//					RawParser_dma_universalWrite(&raw_p, sizeof(u8), sizeof(u8), &err);
+//					RawParser_dma_universalWrite(&raw_p, sizeof(float), sizeof(float), (u8*)&key->current);
+//					return false;
+//				});
+//
+//				RawParser_Frame_t*const frame = RawParser_dma_finishTransmittPacket(&raw_p);
+//				buffer->size = frame->size;
+//				poolContainer_nextWritePos(&pack_pool);
+//			}
+//
+//
+//			proto_timer.start(50);
+//		}
+//
+//	}
 
 }
 

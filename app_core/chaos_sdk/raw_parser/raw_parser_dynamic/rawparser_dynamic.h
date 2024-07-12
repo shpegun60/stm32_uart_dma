@@ -29,6 +29,7 @@ typedef struct {
 		crc_obj_t* crc;
 		crc_base_t* crc_received;
 
+		// callback
 		RawPdynamicCallback rx_callback;
 		void* rx_ctx;
 	} RX;
