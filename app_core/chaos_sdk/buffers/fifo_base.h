@@ -12,27 +12,6 @@
 #include "my_ctype/my_ctypes_def.h"
 #include "inline.h"
 
-// Determine whether the buffer is full
-#define FIFO_IS_EMPTY(chield)\
-		(chield)->base.rdEmpty
-#define FIFO_IS_FULL(chield)\
-		(chield)->base.wrFull
-
-typedef struct fifo_base_ {
-	reg msk;
-	reg tail;
-	reg head;
-	bool wrFull;
-	bool rdEmpty;
-} fifo_base_t;
-
-// The length of the buffer data
-STATIC_FORCEINLINE reg ringbuf_use_len(const fifo_base_t * const fifo)
-{
-	return (fifo->head - fifo->tail);
-}
-
-
 /*
  *  Borrowed from Synchronous FIFO systemVerilog code (AW --> is fifo size, power of 2):
  *
@@ -41,28 +20,43 @@ STATIC_FORCEINLINE reg ringbuf_use_len(const fifo_base_t * const fifo)
  *  assign fifo_empty  = ptr_match & (wr_addr[AW]==rd_addr[AW]);
  *
  */
-#define FIFO_PROCEED_PUT(chield, tail_reg, head_reg, msk_reg)									\
-		do {																					\
-			/* proceed signalls */																\
-			(chield)->base.head 	= (head_reg);												\
-			(chield)->base.wrFull  	= ((head_reg) & (msk_reg)) == ((tail_reg) & (msk_reg));		\
-			(chield)->base.rdEmpty 	= false;													\
-		} while(0U)
+
+// Determine whether the buffer is empty
+#define FIFO_IS_EMPTY(chield) ((chield)->base.tail == (chield)->base.head)
+#define FIFO_NOT_EMPTY(chield) ((chield)->base.tail != (chield)->base.head)
+// Determine whether the buffer is full
+#define FIFO_IS_FULL(chield) ((((chield)->base.head ^ (chield)->base.tail) & (chield)->base.xor_msk) == (chield)->base.cap)
+#define FIFO_NOT_FULL(chield) ((((chield)->base.head ^ (chield)->base.tail) & (chield)->base.xor_msk) != (chield)->base.cap)
+// The length of the buffer data
+#define FIFO_LEN(chield) ((chield)->base.head - (chield)->base.tail)
 
 
-#define FIFO_PROCEED_GET(chield, tail_reg, head_reg, msk_reg)								\
-		do {																				\
-			(chield)->base.tail 		= (tail_reg);										\
-																							\
-			/* proceed signalls */															\
-			if ((tail_reg) == (head_reg)) {													\
-				(chield)->base.wrFull 	= false;											\
-				(chield)->base.rdEmpty 	= true;												\
-			} else {																		\
-				(chield)->base.wrFull  	= ((head_reg & msk_reg) == (tail_reg & msk_reg));	\
-				(chield)->base.rdEmpty 	= false;											\
-			}																				\
-		} while(0U)
+typedef struct fifo_base_ {
+	reg cap; 		/* buffer capacity power of 2 */
+	reg msk; 		/* (cap - 1) */
+	reg xor_msk; 	/* xor mask  (cap + msk)*/
+	reg tail;		/* tail pos */
+	reg head;		/* head pos */
+} fifo_base_t;
+
+// Determine whether x is a power of 2
+#define is_power_of_2(x) ((x) != 0 && (((x) & ((x) - 1)) == 0))
+STATIC_FORCEINLINE void fifo_base_init(fifo_base_t * const fifo, const reg cap)
+{
+	const reg msk = (cap - 1U);
+
+	fifo->cap = cap;
+	fifo->msk = msk;
+	fifo->xor_msk = cap | msk;
+	fifo->tail = 0;
+	fifo->head = 0;
+}
+
+STATIC_FORCEINLINE void fifo_base_clear(fifo_base_t * const fifo)
+{
+	fifo->tail = 0;
+	fifo->head = 0;
+}
 
 
 #endif /* CHAOS_SDK_FIFO_BASE_H_ */

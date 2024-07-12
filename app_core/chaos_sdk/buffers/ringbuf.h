@@ -32,18 +32,21 @@ typedef struct ring_buffer {
     fifo_base_t base;
 
     void* buffer;   //buffer
-    reg size;     	 //size
 } ringbuf_t;
 
 
 // Initialize buffer
-reg ringbuf_init(ringbuf_t* const ring_buf, void *buffer, const reg size);
+ringbuf_t* const ringbuf_new(void* const buffer, const reg size);
+bool ringbuf_init(ringbuf_t* const ring_buf, void *buffer, const reg size);
 // Get data from buffer
 reg ringbuf_get(ringbuf_t* const ring_buf, void* const buffer, const reg size);
+// Get byte from buffer
+u8 ringbuf_getc(ringbuf_t* const ring_buf);
+
 // Store data into buffer
 reg ringbuf_put(ringbuf_t* const ring_buf, const void *buffer, const reg size);
 // Store byte data in buffer
-reg ringbuf_putc(ringbuf_t* const ring_buf, const u8 c);
+bool ringbuf_putc(ringbuf_t* const ring_buf, const u8 c);
 
 
 /*

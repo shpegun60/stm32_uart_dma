@@ -38,10 +38,8 @@
 #endif /* D_RAW_P_TWO_BYTES_LEN_SUPPORT */
 
 
-#ifdef D_RAW_P_TWO_BYTES_LEN_SUPPORT
-#	define RECEIVE_EXTENDED_LEN_CMD (u8)(0xFFU)
-#	define D_RAW_P_LEN_SEPARATOR 0xFBU
-#endif /* D_RAW_P_TWO_BYTES_LEN_SUPPORT */
+#define RECEIVE_EXTENDED_LEN_CMD (u8)(0xFFU)
+#define D_RAW_P_LEN_SEPARATOR 0xFBU
 
 
 
@@ -50,17 +48,6 @@
 #else
 #   define D_RAW_P_CHECK_LEN D_RAW_P_TX_BUF_SIZE
 #endif /* D_RAW_P_MAX_PROTOCOL_LEN < D_RAW_P_TX_BUF_SIZE */
-
-/*
-***************************************************************************************************
-   frame data structure definition
-***************************************************************************************************
-*/
-
-typedef struct {
-    u8* data;
-    reg size;
-} RawParser_Frame_t;
 
 /*
 ***************************************************************************************************

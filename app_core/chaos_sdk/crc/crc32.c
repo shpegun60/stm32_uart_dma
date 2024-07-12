@@ -1,12 +1,19 @@
 #include "crc32.h"
 
 #ifdef _MY_CRC32_ENA
-
+#include "my_ctype/my_ctype_cast.h"
 /*
 *************************************************************************************************
   Name  : CRC-32b
 *************************************************************************************************
 */
+
+// base init implementation ----------------------------
+//typedef void (*crc_init_func)(void* const crc);
+void crc32b_init_base(void* const crc)
+{
+	*UINT32_TYPE_DC(crc) = CRC32INIT;
+}
 
 #ifdef _MY_CRC32_TABLE_CALC_ENA
 
@@ -46,28 +53,64 @@ static const u32 crc32b_table[256] =
     0xB3667A2EUL, 0xC4614AB8UL, 0x5D681B02UL, 0x2A6F2B94UL, 0xB40BBE37UL, 0xC30C8EA1UL, 0x5A05DF1BUL, 0x2D02EF8DUL,
 };
 
+#define CRC32_FAST_BYTE_PROCEED(crc, data)															\
+		((crc) >> 8UL) ^ crc32b_table[((crc) ^ (data)) & 0xFFUL]
+
+#define CRC32_FAST_ARRAY_PROCEED(crc, data, len)													\
+		while ((len)--) {																			\
+			(crc) = CRC32_FAST_BYTE_PROCEED(crc, *(data)++);										\
+		}
+
 // fast implementation (CRC MSB -> LSB)------------------------------------------------------------------------------------------------------------------------------
 u32 fast_crc32b_array(const u8 * data, reg len)
 {
     u32 crc = CRC32INIT;
-
-    while (len--) {
-        crc = (crc >> 8UL) ^ crc32b_table[(crc ^ *data++) & 0xFFUL];
-    }
-
-    return ~crc;
+    CRC32_FAST_ARRAY_PROCEED(crc, data, len);
+    return crc;
 }
 
 
 u32 fast_crc32b_byte(const u32 crc, const u8 data) // must ~crc if last byte
 {
-    return (crc >> 8UL) ^ crc32b_table[(crc ^ data) & 0xFFUL];
+	return CRC32_FAST_BYTE_PROCEED(crc, data);
 }
 
+// base implementation ----------------------------
+//typedef void (*crc_array_func)(void* const crc, const u8* const data, const reg len);
+void fast_crc32b_array_base(void* const crc, const u8* data, reg len)
+{
+	u32 crc32 = *UINT32_TYPE_DC(crc);
+	CRC32_FAST_ARRAY_PROCEED(crc32, data, len);
+	*UINT32_TYPE_DC(crc) = crc32;
+}
+
+//typedef void (*crc_byte_func)(void* const crc, const u8 data);
+void fast_crc32b_byte_base(void* const crc, const u8 data)
+{
+	u32 crc32 = *UINT32_TYPE_DC(crc);
+	crc32 = CRC32_FAST_BYTE_PROCEED(crc32, data);
+	*UINT32_TYPE_DC(crc) = crc32;
+}
+
+#undef CRC32_FAST_BYTE_PROCEED
+#undef CRC32_FAST_ARRAY_PROCEED
 #endif /* _MY_CRC32_TABLE_CALC_ENA */
 
 
 #ifdef _MY_CRC32_GENERIC_CALC_ENA
+
+#define CRC32_SLOW_BYTE_PROCEED(crc, data)															\
+	    (crc) = (crc) ^ (data);																		\
+	    																							\
+	    for(u8 bit = 0; bit < 8; ++bit) {															\
+	        (crc) = ((crc) & 0x01UL) ? (((crc) >> 1UL) ^ CRC32POLY) : ((crc) >> 1UL);				\
+	    }
+
+#define CRC32_SLOW_ARRAY_PROCEED(crc, data, len)													\
+		while ((len)--) {																			\
+			CRC32_SLOW_BYTE_PROCEED(crc, *(data)++)													\
+		}
+
 
 //------------------------------------------------------------------------------------------------------------------------------
 // slow implementation CRC LSB -> MSB variant read this--> http://www.sunshine2k.de/articles/coding/crc/understanding_crc.html
@@ -75,29 +118,38 @@ u32 fast_crc32b_byte(const u32 crc, const u8 data) // must ~crc if last byte
 u32 slow_crc32b_array(const u8 * data, reg len)
 {
     u32 crc = CRC32INIT;
-
-    while(len--) {
-        crc = crc ^ (*data++);
-
-        for(unsigned bit = 0; bit < 8; ++bit) {
-            crc = (crc & 0x01UL) ? ((crc >> 1UL) ^ CRC32POLY) : (crc >> 1UL);
-        }
-    }
-    return ~crc;
+    CRC32_SLOW_ARRAY_PROCEED(crc, data, len);
+    return crc;
 }
 
 
 u32 slow_crc32b_byte(u32 crc, const u8 data) // must ~crc if last byte
 {
-    crc = crc ^ data;
-
-    for(unsigned bit = 0; bit < 8; ++bit) {
-        crc = (crc & 0x01UL) ? ((crc >> 1UL) ^ CRC32POLY) : (crc >> 1UL);
-    }
-
+	CRC32_SLOW_BYTE_PROCEED(crc, data);
     return crc;
 }
 
+// base implementation ----------------------------
+//typedef void (*crc_array_func)(void* const crc, const u8* const data, const reg len);
+void slow_crc32b_array_base(void* const crc, const u8* data, reg len)
+{
+	u32 crc32 = *UINT32_TYPE_DC(crc);
+	CRC32_SLOW_ARRAY_PROCEED(crc32, data, len);
+	*UINT32_TYPE_DC(crc) = crc32;
+}
+
+//typedef void (*crc_byte_func)(void* const crc, const u8 data);
+void slow_crc32b_byte_base(void* const crc, const u8 data)
+{
+	u32 crc32 = *UINT32_TYPE_DC(crc);
+	CRC32_SLOW_BYTE_PROCEED(crc32, data);
+	*UINT32_TYPE_DC(crc) = crc32;
+}
+
+
+
+#undef CRC32_SLOW_BYTE_PROCEED
+#undef CRC32_SLOW_ARRAY_PROCEED
 #endif /*_MY_CRC32_GENERIC_CALC_ENA */
 
 
@@ -115,6 +167,7 @@ int crc32_test(u8 *data, reg len, u32 *res)
 #ifdef _MY_CRC32_TABLE_CALC_ENA
 
     crc32[0] = fast_crc32b_array(data, len);
+    CRC32FINAL(crc32[0]);
     printf("crc32 --> fast_crc32b_array: 0x%x", (unsigned int)crc32[0]);
 
     CRC32START(crc32[1]);
@@ -130,6 +183,7 @@ int crc32_test(u8 *data, reg len, u32 *res)
 #ifdef _MY_CRC32_GENERIC_CALC_ENA
 
     crc32[2] = slow_crc32b_array(data, len);
+    CRC32FINAL(crc32[2]);
     printf("\ncrc32 --> slow_crc32b_array: 0x%x", (unsigned int)crc32[2]);
 
     CRC32START(crc32[3]);

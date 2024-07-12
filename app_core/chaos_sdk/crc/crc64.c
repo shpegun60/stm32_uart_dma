@@ -1,12 +1,20 @@
 #include "crc64.h"
 
 #ifdef _MY_CRC64_ENA
-
+#include "my_ctype/my_ctype_cast.h"
 /*
 *************************************************************************************************
   Name  : CRC-64-JONES
 *************************************************************************************************
 */
+
+// base init implementation ----------------------------
+//typedef void (*crc_init_func)(void* const crc);
+void crc64jones_init_base(void* const crc)
+{
+	*UINT64_TYPE_DC(crc) = CRC64INIT;
+}
+
 
 #ifdef _MY_CRC64_TABLE_CALC_ENA
 
@@ -45,51 +53,100 @@ static const u64 crc64jones_tab[256] = {
     0x66E7A46C27F3AA2CULL, 0x1C3FD4A417C62355ULL, 0x935745FC4798B8DEULL, 0xE98F353477AD31A7ULL, 0xA6DF411FBFB21CA3ULL, 0xDC0731D78F8795DAULL, 0x536FA08FDFD90E51ULL, 0x29B7D047EFEC8728ULL,
 };
 
+#define CRC64_FAST_BYTE_PROCEED(crc, data)															\
+		crc64jones_tab[(u8)(crc) ^ (data)] ^ ((crc) >> 8ULL)
+
+#define CRC64_FAST_ARRAY_PROCEED(crc, data, len)													\
+		while ((len)--) {																			\
+			u8 byte = *(data)++;																	\
+			crc = CRC64_FAST_BYTE_PROCEED(crc, byte);												\
+		}
+
+
 u64 fast_crc64jones_array(const u8 * data, reg len)
 {
     u64 crc = CRC64INIT;
-    while(len--) {
-        u8 byte = *data++;
-        crc = crc64jones_tab[(u8)crc ^ byte] ^ (crc >> 8ULL);
-    }
+    CRC64_FAST_ARRAY_PROCEED(crc, data, len);
     return crc;
 }
 
 u64 fast_crc64jones_byte(const u64 crc, const u8 data)
 {
-    return crc64jones_tab[(u8)crc ^ data] ^ (crc >> 8ULL);
+	return CRC64_FAST_BYTE_PROCEED(crc, data);
 }
 
+// base implementation ----------------------------
+//typedef void (*crc_array_func)(void* const crc, const u8* const data, const reg len);
+void fast_crc64jones_array_base(void* const crc, const u8* data, reg len)
+{
+	u64 crc64 = *UINT64_TYPE_DC(crc);
+	CRC64_FAST_ARRAY_PROCEED(crc64, data, len);
+	*UINT64_TYPE_DC(crc) = crc64;
+}
+
+//typedef void (*crc_byte_func)(void* const crc, const u8 data);
+void fast_crc64jones_byte_base(void* const crc, const u8 data)
+{
+	u64 crc64 = *UINT64_TYPE_DC(crc);
+	crc64 = CRC64_FAST_BYTE_PROCEED(crc64, data);
+	*UINT64_TYPE_DC(crc) = crc64;
+}
+
+
+#undef CRC64_FAST_BYTE_PROCEED
+#undef CRC64_FAST_ARRAY_PROCEED
 #endif /* _MY_CRC64_TABLE_CALC_ENA */
 
 
 #ifdef _MY_CRC64_GENERIC_CALC_ENA
 
+#define CRC64_SLOW_BYTE_PROCEED(crc, data)															\
+	    (crc) = (crc) ^ (data);																		\
+	    																							\
+	    for(u8 bit = 0; bit < 8; ++bit) {															\
+	        (crc) = ((crc) & 0x01ULL) ? ((crc) >> 1ULL) ^ CRC64POLY : ((crc) >> 1ULL);				\
+	    }
+
+
+#define CRC64_SLOW_ARRAY_PROCEED(crc, data, len)													\
+		while ((len)--) {																			\
+			CRC64_SLOW_BYTE_PROCEED(crc, *(data)++)													\
+		}
+
+
+
 u64 slow_crc64jones_array(const u8 * data, reg len)
 {
     u64 crc = CRC64INIT;
-
-    while(len--) {
-
-        crc = crc ^ (*data++);
-
-        for(unsigned bit = 0; bit < 8; ++bit) {
-            crc = (crc & 0x01ULL) ? (crc >> 1ULL) ^ CRC64POLY : (crc >> 1ULL);
-        }
-    }
+    CRC64_SLOW_ARRAY_PROCEED(crc, data, len);
     return crc;
 }
 
 u64 slow_crc64jones_byte(u64 crc, const u8 data)
 {
-    crc = crc ^ data;
-
-    for(unsigned bit = 0; bit < 8; ++bit) {
-        crc = (crc & 0x01ULL) ? (crc >> 1ULL) ^ CRC64POLY : (crc >> 1ULL);
-    }
-
+	CRC64_SLOW_BYTE_PROCEED(crc, data);
     return crc;
 }
+
+// base implementation ----------------------------
+//typedef void (*crc_array_func)(void* const crc, const u8* const data, const reg len);
+void slow_crc64jones_array_base(void* const crc, const u8* data, reg len)
+{
+	u64 crc64 = *UINT64_TYPE_DC(crc);
+	CRC64_SLOW_ARRAY_PROCEED(crc64, data, len);
+	*UINT64_TYPE_DC(crc) = crc64;
+}
+
+//typedef void (*crc_byte_func)(void* const crc, const u8 data);
+void slow_crc64jones_byte_base(void* const crc, const u8 data)
+{
+	u64 crc64 = *UINT64_TYPE_DC(crc);
+	CRC64_SLOW_BYTE_PROCEED(crc64, data);
+	*UINT64_TYPE_DC(crc) = crc64;
+}
+
+#undef CRC64_SLOW_BYTE_PROCEED
+#undef CRC64_SLOW_ARRAY_PROCEED
 #endif /* _MY_CRC64_GENERIC_CALC_ENA */
 
 

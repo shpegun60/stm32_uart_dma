@@ -66,11 +66,17 @@ Lookup Table:
 #define CRC32CHECK ((u32)0xCBF43926UL)
 #define CRC32FINAL(crc) (crc) = (~crc)
 
+void crc32b_init_base(void* const crc);
+
 #ifdef _MY_CRC32_TABLE_CALC_ENA
 
 // fast implementation (CRC MSB)------------------------------------------------------------------------------------------------------------------------------
 u32 fast_crc32b_array(const u8 * data, reg len);
 u32 fast_crc32b_byte(const u32 crc, const u8 data);
+
+// base implementation ----------------------------
+void fast_crc32b_array_base(void* const crc, const u8* data, reg len);
+void fast_crc32b_byte_base(void* const crc, const u8 data);
 
 #endif /* _MY_CRC32_TABLE_CALC_ENA */
 
@@ -83,17 +89,30 @@ u32 fast_crc32b_byte(const u32 crc, const u8 data);
 u32 slow_crc32b_array(const u8 * data, reg len);         //must ~crc if last byte
 u32 slow_crc32b_byte(u32 crc, const u8 data);               //must ~crc if last byte
 
+
+// base implementation ----------------------------
+void slow_crc32b_array_base(void* const crc, const u8* data, reg len);
+void slow_crc32b_byte_base(void* const crc, const u8 data);
+
 #endif /*_MY_CRC32_GENERIC_CALC_ENA */
 
 
 
 // fastest implementation of crc32-------------------------------------------------------------------------------------
+#	define _MY_CRC32_INIT_BASE crc32b_init_base
+#
 #ifdef _MY_CRC16_TABLE_CALC_ENA
 #	define _MY_CRC32_ARRAY(data, len)  		fast_crc32b_array((data), (len))
 #	define _MY_CRC32_BYTE(last_crc, data)  	fast_crc32b_byte((last_crc), (data))
+#
+#	define _MY_CRC32_ARRAY_BASE fast_crc32b_array_base
+#	define _MY_CRC32_BYTE_BASE fast_crc32b_byte_base
 #else
 #	define _MY_CRC32_ARRAY(data, len)  		slow_crc32b_array((data), (len))
 #	define _MY_CRC32_BYTE(last_crc, data)  	slow_crc32b_byte((last_crc), (data))
+#
+#	define _MY_CRC32_ARRAY_BASE slow_crc32b_array_base
+#	define _MY_CRC32_BYTE_BASE slow_crc32b_byte_base
 #endif /* _MY_CRC16_TABLE_CALC_ENA */
 
 

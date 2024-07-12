@@ -5,51 +5,48 @@ extern "C" {
 #endif /* __cplusplus */
 
 #include "raw_parser/rawparser_port.h"
+#include "buffers/ringbuf.h"
+#include "crc/crc_fabric.h"
+
+typedef struct {
+    u8* data;
+    u16 size;
+    u16 cap;
+    u16 rdPos;
+    u16 wrPos;
+} RawParser_stream_t;
 
 /**
-  * @brief RawParser_dma_DescriptorTypeDef structure definition
-  */
+ * @brief RawParser_dynamic_DescriptorTypeDef structure definition
+ */
 typedef struct {
-    // packet form -----------------------------------------
-    u8           m_startByte;          // Specifies the value of start-byte.
-    reg          m_receivePackLen;
-    u8           m_receiveBuffer[D_RAW_P_RX_BUF_SIZE];        // received raw byte array
+	u8	m_startByte;          // Specifies the value of start-byte.
 
-#ifndef D_RAW_P_DISABLE_INTERNAL_RX_BUFFER
-    u8           m_receiveFrameBuffer[D_RAW_P_RX_BUF_SIZE];   // frame buffer to proceed into user logic`s
-#endif /* D_RAW_P_DISABLE_INTERNAL_RX_BUFFER */
+	// packet form -----------------------------------------
+	struct {
+		u8	triggerSB;          // trigger for read start byte
+		reg	tmpReceiveLen;		// receive length temp register
+		u8 receiveState;		// receive state
 
-#ifndef D_RAW_P_DISABLE_INTERNAL_TX_BUFFER
-    u8           m_sendBuffer[D_RAW_P_TX_BUF_SIZE];    // array for save tx buffer
-#endif /* D_RAW_P_DISABLE_INTERNAL_TX_BUFFER */
+		ringbuf_t ring;
+		RawParser_stream_t stream;
+		crc_base_t* crc;
+	} RX;
 
-    // if crc enable -> crc data variable
-#ifdef D_RAW_P_CRC_ENA
-    rawP_crc_t   m_receiveCalcCRC;            // rx crc calc data
-    rawP_crc_t   m_transmittCalcCRC;          // tx crc calc data
+	struct {
+		RawParser_stream_t stream;
+		reg length_write_control;
+		crc_base_t* crc;
+	} TX;
 
-#   if defined(D_RAW_P_USE_CRC16) || defined(D_RAW_P_USE_CRC32) || defined(D_RAW_P_USE_CRC64)
-    rawP_crc_t   m_receiveCRCBuf;            // buffer for rx crc
-#   endif /* defined(D_RAW_P_USE_CRC16) || defined(D_RAW_P_USE_CRC32) */
+} RawParser_dynamic_t;
 
-#endif /* D_RAW_P_CRC_ENA */
-    // ----------------------------------------------------
-
-    u8              m_triggerSB;            // trigger for read start byte
-    reg             m_receivePos;           // receive raw position
-    reg             m_receiveReadPos;       // receive read position
-    reg             m_receiveHandlePos;     // receive handler position
-
-    u8 receiveState;
-
-    RawParser_Frame_t TX;
-    RawParser_Frame_t RX;
-    reg uniRXPosition; // value for universal read position function
-    reg length_write_control;
-
-} RawParser_dma_t;
-
-
+/* CREATE/DELETE FUNCTIONS *************************************************************************************************
+ *
+ */
+RawParser_dynamic_t* const rawParser_dynamic_new(const u8 packStart, const crc_type crc_type);
+bool rawParser_dynamic_init(RawParser_dynamic_t * const self, const u8 packStart, const crc_type crc_type);
+bool rawParser_dynamic_delete(RawParser_dynamic_t** data);
 
 
 

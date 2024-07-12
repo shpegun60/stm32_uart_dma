@@ -25,47 +25,71 @@ SOFTWARE.
 */
 
 #include <string.h>
+#include <stdlib.h>
 #include "ringbuf.h"
 
 // include assert engine
 #include "assertsEngine/assert_engine.h"
 #define _INT_SWITCH(...) __VA_ARGS__
 
-// Determine whether x is a power of 2
-#define is_power_of_2(x) ((x) != 0 && (((x) & ((x) - 1)) == 0))
-
 // Initialize buffer
-reg ringbuf_init(ringbuf_t* const ring_buf, void *buffer, const reg size)
+ringbuf_t* const ringbuf_new(void* const buffer, const reg size)
 {
-	M_Assert_BreakSaveCheck(!is_power_of_2(size) || (buffer == NULL), M_EMPTY, return CTYPE_FALSE,
-			"not valid parameters size: %d", size);
+	M_Assert_BreakSaveCheck(!is_power_of_2(size), M_EMPTY, return false,
+				"not valid parameters size: %d", size);
+
+	ringbuf_t* const self = calloc(1, sizeof(ringbuf_t));
+
+	M_Assert_BreakSaveCheck(self == NULL, M_EMPTY, return false,
+				"no memory for allocation");
+
+	if(ringbuf_init(self, buffer, size)) {
+		free(self);
+		return NULL;
+	}
+
+	return buffer;
+}
+
+bool ringbuf_init(ringbuf_t* const ring_buf, void *buffer, const reg size)
+{
+	M_Assert_BreakSaveCheck(!is_power_of_2(size), M_EMPTY, return true,
+			"not valid parameter size: %d", size);
 
     memset(ring_buf, 0, sizeof(ringbuf_t));
 
-    ring_buf->buffer = buffer;
-    ring_buf->size = size;
-    ring_buf->base.msk = (size - 1U);
-    ring_buf->base.rdEmpty = true;
-    return CTYPE_TRUE;
+    if(buffer) {
+    	ring_buf->buffer = buffer;
+    } else {
+    	void* const tmp = malloc(size);
+
+    	M_Assert_BreakSaveCheck(tmp == NULL, M_EMPTY, return true,
+    			"no memory for allocation");
+
+    	ring_buf->buffer = tmp;
+    }
+
+    fifo_base_init(&ring_buf->base, size);
+    return false;
 }
+
 
 // Get data from buffer
 reg ringbuf_get(ringbuf_t* const ring_buf, void* const buffer, const reg size)
 {
 	_INT_SWITCH(M_Assert_Break((buffer == NULL || ring_buf->buffer == NULL), M_EMPTY, return 0, "ring buffer NULL"));
-	M_Assert_BreakSaveCheck(ring_buf->base.rdEmpty || size == 0, M_EMPTY, return 0, "ring buffer is empty");
 
 	// move to registers------------------------------------------
 	u8* const ring_ptr 			= ring_buf->buffer;
 
-	reg tail_reg 				= ring_buf->base.tail;
-	reg head_reg 				= ring_buf->base.head;
+		  reg tail_reg 			= ring_buf->base.tail;
+	const reg head_reg 			= ring_buf->base.head;
 	const reg msk_reg			= ring_buf->base.msk;
 
 	const reg n_elem 			= (head_reg - tail_reg); 				// get n elements
 	const reg size_constr 		= (size < n_elem) ? size : n_elem;		// constrain input size
 	const reg tail_pos 			= tail_reg & msk_reg;					// get tail position
-	const reg remaining_to_end 	= ring_buf->size - tail_pos;			// get remaining from tail to end
+	const reg remaining_to_end 	= ring_buf->base.cap - tail_pos;			// get remaining from tail to end
 
 	// do logic --------------------------------------------------
 	if(size_constr > remaining_to_end) {
@@ -83,15 +107,37 @@ reg ringbuf_get(ringbuf_t* const ring_buf, void* const buffer, const reg size)
     tail_reg += size_constr;
 
     // proceed signalls
-    FIFO_PROCEED_GET(ring_buf, tail_reg, head_reg, msk_reg);
+    ring_buf->base.tail 		= (tail_reg);
     return size_constr;
+}
+
+u8 ringbuf_getc(ringbuf_t* const ring_buf)
+{
+	_INT_SWITCH(M_Assert_Break(ring_buf->buffer == NULL, M_EMPTY, return 0, "ring buffer NULL"));
+
+	// move to registers------------------------------------------
+	const u8* const ring_ptr 	= ring_buf->buffer;
+
+		  reg tail_reg 			= ring_buf->base.tail;
+	const reg msk_reg			= ring_buf->base.msk;
+	const reg tail_pos 			= tail_reg & msk_reg;					// get tail position
+
+
+	// do logic --------------------------------------------------
+	const u8 value = *(ring_ptr + tail_pos);
+
+	// write data to memory ------------------------------------
+    ++tail_reg;
+
+    // proceed signalls
+    ring_buf->base.tail 		= (tail_reg);
+    return value;
 }
 
 // Store data into buffer
 reg ringbuf_put(ringbuf_t* const ring_buf, const void *buffer, const reg size)
 {
 	_INT_SWITCH(M_Assert_Break((buffer == NULL || ring_buf->buffer == NULL), M_EMPTY, return 0, "ring buffer NULL"));
-	M_Assert_BreakSaveCheck(ring_buf->base.wrFull || size == 0, M_EMPTY, return 0, "ring buffer is full");
     
 	// move to registers------------------------------------------------------
 	u8* const ring_ptr 			= ring_buf->buffer;
@@ -99,7 +145,7 @@ reg ringbuf_put(ringbuf_t* const ring_buf, const void *buffer, const reg size)
 	const reg tail_reg 			= ring_buf->base.tail;
 	reg head_reg 				= ring_buf->base.head;
 	const reg msk_reg			= ring_buf->base.msk;
-	const reg size_reg			= ring_buf->size;
+	const reg size_reg			= ring_buf->base.cap;
 
 	const reg head_pos 			= head_reg & msk_reg;
 
@@ -124,15 +170,14 @@ reg ringbuf_put(ringbuf_t* const ring_buf, const void *buffer, const reg size)
 	head_reg += size_constr;
 
 	// proceed signalls
-	FIFO_PROCEED_PUT(ring_buf, tail_reg, head_reg, msk_reg);
+	ring_buf->base.head 	= (head_reg);
 	return size;
 }
 
 // Store byte data in buffer
-reg ringbuf_putc(ringbuf_t* const ring_buf, const u8 c)
+bool ringbuf_putc(ringbuf_t* const ring_buf, const u8 c)
 {
-	_INT_SWITCH(M_Assert_Break(ring_buf->buffer == NULL, M_EMPTY, return 0, "ring buffer NULL"));
-	M_Assert_BreakSaveCheck(ring_buf->base.wrFull, M_EMPTY, return 0, "ring buffer is full");
+	_INT_SWITCH(M_Assert_Break(ring_buf->buffer == NULL, M_EMPTY, return false, "ring buffer NULL"));
 
 	// move to registers------------------------------------
 	u8* const ring_ptr 			= ring_buf->buffer;
@@ -146,9 +191,9 @@ reg ringbuf_putc(ringbuf_t* const ring_buf, const u8 c)
     ++head_reg;
 
     // proceed signalls
-    FIFO_PROCEED_PUT(ring_buf, ring_buf->base.tail, head_reg, msk_reg);
+    ring_buf->base.head 	= (head_reg);
     
-    return 1;
+    return true;
 }
 
 

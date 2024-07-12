@@ -50,11 +50,18 @@ Lookup Table:
 #define CRC16CHECK ((u16)0xD0DBU)
 #define CRC16FINAL(crc) /* ignored expression */
 
+
+void crc16_t10_dif_init_base(void* const crc);
+
 #ifdef _MY_CRC16_TABLE_CALC_ENA
 
 // fast implementation (CRC MSB -> LSB)------------------------------------------------------------------------------------------------------------------------------
 u16 fast_crc16_t10_dif_array(u8 * data, unsigned int len);
 u16 fast_crc16_t10_dif_byte(const u16 crc, const u8 data);
+
+// base implementation ----------------------------
+void fast_crc16_t10_dif_array_base(void* const crc, const u8* data, reg len);
+void fast_crc16_t10_dif_byte_base(void* const crc, const u8 data);
 
 #endif /* _MY_CRC16_TABLE_CALC_ENA */
 
@@ -64,15 +71,26 @@ u16 fast_crc16_t10_dif_byte(const u16 crc, const u8 data);
 u16 slow_crc16_t10_dif_array(u8 * data, unsigned int len);
 u16 slow_crc16_t10_dif_byte(u16 crc, const u8 data);
 
+// base implementation ----------------------------
+void slow_crc16_t10_dif_array_base(void* const crc, const u8* data, reg len);
+void slow_crc16_t10_dif_byte_base(void* const crc, const u8 data);
 
 
 // fastest implementation of crc16-------------------------------------------------------------------------------------
+#	define _MY_CRC16_INIT_BASE crc16_t10_dif_init_base
+#
 #ifdef _MY_CRC16_TABLE_CALC_ENA
 #	define _MY_CRC16_ARRAY(data, len)  		fast_crc16_t10_dif_array((data), (len))
 #	define _MY_CRC16_BYTE(last_crc, data)  	fast_crc16_t10_dif_byte((last_crc), (data))
+#
+#	define _MY_CRC16_ARRAY_BASE fast_crc16_t10_dif_array_base
+#	define _MY_CRC16_BYTE_BASE fast_crc16_t10_dif_byte_base
 #else
 #	define _MY_CRC16_ARRAY(data, len)  		slow_crc16_t10_dif_array((data), (len))
 #	define _MY_CRC16_BYTE(last_crc, data)  	slow_crc16_t10_dif_byte((last_crc), (data))
+#
+#	define _MY_CRC16_ARRAY_BASE slow_crc16_t10_dif_array_base
+#	define _MY_CRC16_BYTE_BASE slow_crc16_t10_dif_byte_base
 #endif /* _MY_CRC16_TABLE_CALC_ENA */
 
 

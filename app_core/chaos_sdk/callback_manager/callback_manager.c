@@ -61,7 +61,7 @@ bool CallbackManager_proceed(const CallbackManager_t* const self, const u8 id, u
 
     // do logic
     M_Assert_SafeFunctionCall((id < n) && (worker != NULL), {
-                                  worker(data, size, ctx);
+                                  worker(data, size, id, ctx);
                                   return false;
                               });
     return true;

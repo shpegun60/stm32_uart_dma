@@ -9,7 +9,7 @@
 #define RELAYCONTROLLER_H_
 
 #include "tools/timer/TimingManager.h"
-#include "uart_communicator.h"
+#include "ProtocolSender.h"
 #include "TPS1HTC30/Keytps1htc30Group.h"
 
 class RelayController
@@ -26,7 +26,7 @@ public:
 
 private:
 	TimingManager led_timer;
-	stm32_uart_communicator_t m_comm;
+	ProtocolSender m_comm;
 	Key_tps1htc30Group* m_relayGroup = nullptr;
 
 	uint16_t currents[10];

@@ -2,12 +2,21 @@
 
 
 #ifdef _MY_CRC16_ENA
+#include "my_ctype/my_ctype_cast.h"
 
 /*
 *************************************************************************************************
   Name  : CRC-16-T10-DIF
 *************************************************************************************************
 */
+
+// base init implementation ----------------------------
+//typedef void (*crc_init_func)(void* const crc);
+void crc16_t10_dif_init_base(void* const crc)
+{
+	*UINT16_TYPE_DC(crc) = CRC16INIT;
+}
+
 
 #ifdef _MY_CRC16_TABLE_CALC_ENA
 
@@ -31,55 +40,101 @@ static const u16 crc16_t10dif_table[256] =
     0x1F65U, 0x94D2U, 0x83BCU, 0x080BU, 0xAD60U, 0x26D7U, 0x31B9U, 0xBA0EU, 0xF0D8U, 0x7B6FU, 0x6C01U, 0xE7B6U, 0x42DDU, 0xC96AU, 0xDE04U, 0x55B3U,
 };
 
+
+#define CRC16_FAST_BYTE_PROCEED(crc, data)															\
+		((crc) << 8U) ^ crc16_t10dif_table[(((crc) >> 8U) ^ (data)) & 0x00FFU]
+
+#define CRC16_FAST_ARRAY_PROCEED(crc, data, len)													\
+		while ((len)--) {																			\
+			(crc) = CRC16_FAST_BYTE_PROCEED(crc, *(data)++);										\
+		}
+
 // fast implementation (CRC MSB -> LSB)------------------------------------------------------------------------------------------------------------------------------
 u16 fast_crc16_t10_dif_array(u8 * data, unsigned int len)
 {
     u16 crc = CRC16INIT;
-
-    while (len--) {
-        crc = (crc << 8U) ^ crc16_t10dif_table[((crc >> 8U) ^ *data++) & 0x00FFU];
-    }
-
+    CRC16_FAST_ARRAY_PROCEED(crc, data, len);
     return crc;
 }
 
 u16 fast_crc16_t10_dif_byte(const u16 crc, const u8 data)
 {
-    return (crc << 8U) ^ crc16_t10dif_table[((crc >> 8U) ^ data) & 0x00FFU];
+	return CRC16_FAST_BYTE_PROCEED(crc, data);
 }
+
+// base implementation ----------------------------
+//typedef void (*crc_array_func)(void* const crc, const u8* const data, const reg len);
+void fast_crc16_t10_dif_array_base(void* const crc, const u8* data, reg len)
+{
+	u16 crc16 = *UINT16_TYPE_DC(crc);
+	CRC16_FAST_ARRAY_PROCEED(crc16, data, len);
+	*UINT16_TYPE_DC(crc) = crc16;
+}
+
+//typedef void (*crc_byte_func)(void* const crc, const u8 data);
+void fast_crc16_t10_dif_byte_base(void* const crc, const u8 data)
+{
+	u16 crc16 = *UINT16_TYPE_DC(crc);
+	crc16 = CRC16_FAST_BYTE_PROCEED(crc16, data);
+	*UINT16_TYPE_DC(crc) = crc16;
+}
+
+
+#undef CRC16_FAST_BYTE_PROCEED
+#undef CRC16_FAST_ARRAY_PROCEED
 
 #endif /* _MY_CRC16_TABLE_CALC_ENA */
 
 
 #ifdef _MY_CRC16_GENERIC_CALC_ENA
 
+#define CRC16_SLOW_BYTE_PROCEED(crc, data)															\
+	    (crc) ^= (data) << 8U;																		\
+	    																							\
+	    for (u8 bit = 0; bit < 8; ++bit) {															\
+	        (crc) = ((crc) & 0x8000U) ? (((crc) << 1U) ^ CRC16POLY) : ((crc) << 1U);				\
+	    }
+
+
+#define CRC16_SLOW_ARRAY_PROCEED(crc, data, len)													\
+		while ((len)--) {																			\
+			CRC16_SLOW_BYTE_PROCEED(crc, *(data)++)													\
+		}
+
 // slow implementation (CRC MSB -> LSB)------------------------------------------------------------------------------------------------------------------------------
 u16 slow_crc16_t10_dif_array(u8 * data, unsigned int len)
 {
     u16 crc = CRC16INIT;
-
-    while (len--) {
-        crc ^= *data++ << 8U;
-
-        for (unsigned bit = 0; bit < 8; ++bit) {
-            crc = (crc & 0x8000U) ? ((crc << 1U) ^ CRC16POLY) : (crc << 1U);
-        }
-    }
-
+    CRC16_SLOW_ARRAY_PROCEED(crc, data, len);
     return crc;
 }
 
 u16 slow_crc16_t10_dif_byte(u16 crc, const u8 data)
 {
-    crc ^= data << 8U;
-
-    for (unsigned bit = 0; bit < 8; ++bit) {
-        crc = (crc & 0x8000U) ? ((crc << 1U) ^ CRC16POLY) : (crc << 1U);
-    }
-
+	CRC16_SLOW_BYTE_PROCEED(crc, data);
     return crc;
 }
 
+// base implementation ----------------------------
+//typedef void (*crc_array_func)(void* const crc, const u8* const data, const reg len);
+void slow_crc16_t10_dif_array_base(void* const crc, const u8* data, reg len)
+{
+	u16 crc16 = *UINT16_TYPE_DC(crc);
+	CRC16_SLOW_ARRAY_PROCEED(crc16, data, len);
+	*UINT16_TYPE_DC(crc) = crc16;
+}
+
+//typedef void (*crc_byte_func)(void* const crc, const u8 data);
+void slow_crc16_t10_dif_byte_base(void* const crc, const u8 data)
+{
+	u16 crc16 = *UINT16_TYPE_DC(crc);
+	CRC16_SLOW_BYTE_PROCEED(crc16, data);
+	*UINT16_TYPE_DC(crc) = crc16;
+}
+
+
+#undef CRC16_SLOW_BYTE_PROCEED
+#undef CRC16_SLOW_ARRAY_PROCEED
 #endif /* _MY_CRC16_GENERIC_CALC_ENA */
 
 

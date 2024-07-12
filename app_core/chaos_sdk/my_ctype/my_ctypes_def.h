@@ -26,10 +26,7 @@ typedef double          f64;
 typedef long double     f128; // platform depend type
 
 // bool type -------------------------
-typedef unsigned char   b;
-
-#define CTYPE_FALSE (b)(0 != 0)
-#define CTYPE_TRUE  (b)(0 == 0)
+typedef bool   b;
 
 // bus types defining (platform depend) ----------------------------------------------
 typedef size_t      reg;    // platform depend type

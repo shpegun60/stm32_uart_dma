@@ -13,6 +13,8 @@
 #include "tools/math/InRangeDetector.h"
 #include "tools/adc/Stm32ADCdma.h"
 
+#include <functional>
+
 class Key_tps1htc30Group
 {
 private:
@@ -61,6 +63,11 @@ public:
 	float getCurrent(const uint8_t group_id, const uint8_t key_id);
 	uint8_t getError(const uint8_t group_id, const uint8_t key_id);
 
+	// --------------------
+	inline uint8_t getGroups() {return Groups;}
+	inline uint8_t getKeys(const uint8_t group_id) {return m_initPinCnt[group_id];}
+
+
 	//initialization functions
 	static Key_tps1htc30Group* const getInstance();
 	inline void initAdc(const Stm32ADC_dma::Stm32ADC_init& settings) { m_adc.init(settings); }
@@ -72,6 +79,8 @@ public:
 
 	struct KeyGroup;
 	bool findFaultPin(const uint16_t GPIO_Pin, KeyGroup** const group, uint8_t* const key_id);
+	// iterate on all keys
+	void iterateAll(std::function<bool(KeyGroup*, uint8_t, uint8_t)> foo);
 
 private:
 	inline float calculateCurrent(float voltage) {

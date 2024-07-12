@@ -68,11 +68,17 @@ int crc64_test(u8 *data, reg len, u64 *res);
 #define CRC64CHECK ((u64)0xe9c6d914c4b8d9caULL)
 #define CRC64FINAL(crc) /* ignored expression */
 
+void crc64jones_init_base(void* const crc);
+
 #ifdef _MY_CRC64_TABLE_CALC_ENA
 
 // fast implementation ------------------------------------------------------------------------------------------------------------------------------
 u64 fast_crc64jones_array(const u8 * data, reg len);
 u64 fast_crc64jones_byte(const u64 crc, const u8 data);
+
+// base implementation ----------------------------
+void fast_crc64jones_array_base(void* const crc, const u8* data, reg len);
+void fast_crc64jones_byte_base(void* const crc, const u8 data);
 
 #endif /* _MY_CRC64_TABLE_CALC_ENA */
 
@@ -82,17 +88,30 @@ u64 fast_crc64jones_byte(const u64 crc, const u8 data);
 u64 slow_crc64jones_array(const u8 * data, reg len);
 u64 slow_crc64jones_byte(u64 crc, const u8 data);
 
+// base implementation ----------------------------
+void slow_crc64jones_array_base(void* const crc, const u8* data, reg len);
+void slow_crc64jones_byte_base(void* const crc, const u8 data);
+
+
 #endif /* _MY_CRC64_GENERIC_CALC_ENA */
 
 
 
 // fastest implementation of crc64-------------------------------------------------------------------------------------
+#	define _MY_CRC64_INIT_BASE crc64jones_init_base
+#
 #ifdef _MY_CRC16_TABLE_CALC_ENA
 #	define _MY_CRC64_ARRAY(data, len)  		fast_crc64jones_array((data), (len))
 #	define _MY_CRC64_BYTE(last_crc, data)  	fast_crc64jones_byte((last_crc), (data))
+#
+#	define _MY_CRC64_ARRAY_BASE fast_crc64jones_array_base
+#	define _MY_CRC64_BYTE_BASE fast_crc64jones_byte_base
 #else
 #	define _MY_CRC64_ARRAY(data, len)  		slow_crc64jones_array((data), (len))
 #	define _MY_CRC64_BYTE(last_crc, data)  	slow_crc64jones_byte((last_crc), (data))
+#
+#	define _MY_CRC64_ARRAY_BASE slow_crc64jones_array_base
+#	define _MY_CRC64_BYTE_BASE slow_crc64jones_byte_base
 #endif /* _MY_CRC16_TABLE_CALC_ENA */
 
 

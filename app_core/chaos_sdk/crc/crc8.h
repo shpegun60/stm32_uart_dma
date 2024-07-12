@@ -49,11 +49,17 @@ Lookup Table:
 #define CRC8CHECK ((u8)0xF7U)
 #define CRC8FINAL(crc) /* ignored expression */
 
+void crc8_maxim_init_base(void* const crc);
+
 #ifdef _MY_CRC8_TABLE_CALC_ENA
 
 // fast implementation (CRC MSB -> LSB)------------------------------------------------------------------------------------------------------------------------------
 u8 fast_crc8_maxim_array(u8 * data, unsigned int len);
 u8 fast_crc8_maxim_byte(const u8 crc, const u8 data);
+
+// base implementation ----------------------------
+void fast_crc8_maxim_array_base(void* const crc, const u8* data, reg len);
+void fast_crc8_maxim_byte_base(void* const crc, const u8 data);
 
 #endif /* _MY_CRC8_TABLE_CALC_ENA */
 
@@ -64,19 +70,30 @@ u8 fast_crc8_maxim_byte(const u8 crc, const u8 data);
 u8 slow_crc8_maxim_array(u8 * data, unsigned int len);
 u8 slow_crc8_maxim_byte(u8 crc, const u8 data);
 
+// base implementation ----------------------------
+void slow_crc8_maxim_array_base(void* const crc, const u8* data, reg len);
+void slow_crc8_maxim_byte_base(void* const crc, const u8 data);
+
 #endif /* _MY_CRC8_GENERIC_CALC_ENA */
 
 
 // fastest implementation of crc8-------------------------------------------------------------------------------------
-
+#	define _MY_CRC8_INIT_BASE crc8_maxim_init_base
+#
 #ifdef _MY_CRC8_TABLE_CALC_ENA
 #	define _MY_CRC8_ARRAY(data, len)  		fast_crc8_maxim_array((data), (len))
 #	define _MY_CRC8_BYTE(last_crc, data)  	fast_crc8_maxim_byte((last_crc), (data))
+#
+#	define _MY_CRC8_ARRAY_BASE fast_crc8_maxim_array_base
+#	define _MY_CRC8_BYTE_BASE fast_crc8_maxim_byte_base
 #else
 #	define _MY_CRC8_ARRAY(data, len)  		slow_crc8_maxim_array((data), (len))
 #	define _MY_CRC8_BYTE(last_crc, data)  	slow_crc8_maxim_byte((last_crc), (data))
+#
+#	define _MY_CRC8_ARRAY_BASE slow_crc8_maxim_array_base
+#	define _MY_CRC8_BYTE_BASE slow_crc8_maxim_byte_base
 #endif /* _MY_CRC8_TABLE_CALC_ENA */
-
+#
 #endif /* _MY_CRC8_ENA*/
 
 //---------------------------------------------------------------------

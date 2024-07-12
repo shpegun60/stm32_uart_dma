@@ -7,6 +7,19 @@ extern "C" {
 
 #include "raw_parser/rawparser_port.h"
 
+
+/*
+***************************************************************************************************
+   frame data structure definition
+***************************************************************************************************
+*/
+
+typedef struct {
+    u8* data;
+    reg size;
+} RawParser_Frame_t;
+
+
 /**
   * @brief RawParser_dma_DescriptorTypeDef structure definition
   */

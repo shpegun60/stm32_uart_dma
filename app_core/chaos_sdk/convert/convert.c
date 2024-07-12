@@ -77,13 +77,13 @@ void TEMPLATE(convertReadCheck_LSB, uni) (reg n, u8* data, reg* pos, void* value
     reg posInternal = (*pos);
 
     if((posInternal + n) > buffSize) {
-        (*ok) = CTYPE_FALSE;
+        (*ok) = false;
         return;
     }
 
     MY_CTYPE_USER_DATA_MEMCPY(n, (data + posInternal), value);
     posInternal += n;
-    (*ok) = CTYPE_TRUE;
+    (*ok) = true;
     (*pos) = posInternal;
 }
 void TEMPLATE(convertWriteCheck_LSB, uni) (reg n, u8* data, reg* pos, void* value, reg buffSize, b* ok)
@@ -91,13 +91,13 @@ void TEMPLATE(convertWriteCheck_LSB, uni) (reg n, u8* data, reg* pos, void* valu
     reg posInternal = (*pos);
 
     if((posInternal + n) > buffSize) {
-        (*ok) = CTYPE_FALSE;
+        (*ok) = false;
         return;
     }
 
     MY_CTYPE_USER_DATA_MEMCPY(n, value,(data + posInternal));
     posInternal += n;
-    (*ok) = CTYPE_TRUE;
+    (*ok) = true;
     (*pos) = posInternal;
 }
 
@@ -116,22 +116,22 @@ void TEMPLATE(convertRead_cpos_LSB, uni)(reg n, u8* data, reg pos, void* value)
 void TEMPLATE(convertReadCheck_cpos_LSB, uni) (reg n, u8* data, reg pos, void* value, reg buffSize, b* ok)
 {
     if((pos + n) > buffSize) {
-        (*ok) = CTYPE_FALSE;
+        (*ok) = false;
         return;
     }
 
     MY_CTYPE_USER_DATA_MEMCPY(n, (data + pos), value);
-    (*ok) = CTYPE_TRUE;
+    (*ok) = true;
 }
 void TEMPLATE(convertWriteCheck_cpos_LSB, uni) (reg n, u8* data, reg pos, void* value, reg buffSize, b* ok)
 {
     if((pos + n) > buffSize) {
-        (*ok) = CTYPE_FALSE;
+        (*ok) = false;
         return;
     }
 
     MY_CTYPE_USER_DATA_MEMCPY(n, value, (data + pos));
-    (*ok) = CTYPE_TRUE;
+    (*ok) = true;
 }
 
 /*
@@ -164,13 +164,13 @@ void TEMPLATE(convertReadCheck_MSB, uni) (reg n, u8* data, reg* pos, void* value
     reg posInternal = (*pos);
 
     if((posInternal + n) > buffSize) {
-        (*ok) = CTYPE_FALSE;
+        (*ok) = false;
         return;
     }
 
     MY_CTYPE_USER_DATA_REVCPY(n, (data + posInternal), value);
     posInternal += n;
-    (*ok) = CTYPE_TRUE;
+    (*ok) = true;
     (*pos) = posInternal;
 }
 void TEMPLATE(convertWriteCheck_MSB, uni) (reg n, u8* data, reg* pos, void* value, reg buffSize, b* ok)
@@ -178,13 +178,13 @@ void TEMPLATE(convertWriteCheck_MSB, uni) (reg n, u8* data, reg* pos, void* valu
     reg posInternal = (*pos);
 
     if((posInternal + n) > buffSize) {
-        (*ok) = CTYPE_FALSE;
+        (*ok) = false;
         return;
     }
 
     MY_CTYPE_USER_DATA_REVCPY(n, value, (data + posInternal));
     posInternal += n;
-    (*ok) = CTYPE_TRUE;
+    (*ok) = true;
     (*pos) = posInternal;
 }
 
@@ -203,22 +203,22 @@ void TEMPLATE(convertWrite_cpos_MSB, uni)(reg n, u8* data, reg pos, void* value)
 void TEMPLATE(convertReadCheck_cpos_MSB, uni) (reg n, u8* data, reg pos, void* value, reg buffSize, b* ok)
 {
     if((pos + n) > buffSize) {
-        (*ok) = CTYPE_FALSE;
+        (*ok) = false;
         return;
     }
 
     MY_CTYPE_USER_DATA_REVCPY(n, (data + pos), value);
-    (*ok) = CTYPE_TRUE;
+    (*ok) = true;
 }
 void TEMPLATE(convertWriteCheck_cpos_MSB, uni) (reg n, u8* data, reg pos, void* value, reg buffSize, b* ok)
 {
     if((pos + n) > buffSize) {
-        (*ok) = CTYPE_FALSE;
+        (*ok) = false;
         return;
     }
 
     MY_CTYPE_USER_DATA_REVCPY(n, value, (data + pos));
-    (*ok) = CTYPE_TRUE;
+    (*ok) = true;
 }
 
 
@@ -301,55 +301,55 @@ int TEMPLATE(convertTest_WRITE_READ_BUFFER_CHK, uni) (void (*read_ptr)(reg n, u8
     reg buffsize = sizeof(u64) * 2 + 2;
     u8 buff[sizeof(u64) * 2 + 2];
     reg pos = 0;
-    b ok = CTYPE_FALSE;
+    b ok = false;
     u64 value_check;
 
     int notValidcnt = 0;
 
     // write function check
-    ok = CTYPE_TRUE;
+    ok = true;
     for(reg i = 0; i < sizeof(u64); ++i) {
         write_ptr(sizeof(u64), buff, &pos, (u8*)&value, i, &ok);
-        if(ok == CTYPE_TRUE || pos != 0) {
+        if(ok == true || pos != 0) {
             ++notValidcnt;
         }
-        ok = CTYPE_TRUE;
+        ok = true;
     }
-    ok = CTYPE_FALSE;
+    ok = false;
     pos = 0;
 
     write_ptr(sizeof(u64), buff, &pos, (u8*)&value, buffsize, &ok);
-    if(pos != sizeof(u64) || ok != CTYPE_TRUE) {
+    if(pos != sizeof(u64) || ok != true) {
         ++notValidcnt;
     }
-    ok = CTYPE_FALSE;
+    ok = false;
 
     write_ptr(sizeof(u64), buff, &pos, (u8*)&value, buffsize, &ok);
-    if(pos != sizeof(u64) * 2 || ok != CTYPE_TRUE) {
+    if(pos != sizeof(u64) * 2 || ok != true) {
         ++notValidcnt;
     }
-    ok = CTYPE_FALSE;
+    ok = false;
     pos = 0;
 
     // read functions check
-    ok = CTYPE_TRUE;
+    ok = true;
     for(reg i = 0; i < sizeof(u64); ++i) {
         read_ptr(sizeof(u64), buff, &pos, (u8*)&value_check, i, &ok);
-        if(ok == CTYPE_TRUE || pos != 0) {
+        if(ok == true || pos != 0) {
             ++notValidcnt;
         }
-        ok = CTYPE_TRUE;
+        ok = true;
     }
-    ok = CTYPE_FALSE;
+    ok = false;
 
     read_ptr(sizeof(u64), buff, &pos, (u8*)&value_check, buffsize, &ok);
-    if(value_check != value || (ok == CTYPE_FALSE) || pos != sizeof(u64)) {
+    if(value_check != value || (ok == false) || pos != sizeof(u64)) {
         ++notValidcnt;
     }
-    ok = CTYPE_FALSE;
+    ok = false;
 
     read_ptr(sizeof(u64), buff, &pos, (u8*)&value_check, buffsize, &ok);
-    if(value_check != value || (ok == CTYPE_FALSE) || pos != sizeof(u64)*2) {
+    if(value_check != value || (ok == false) || pos != sizeof(u64)*2) {
         ++notValidcnt;
     }
 
@@ -361,57 +361,57 @@ int TEMPLATE(convertTest_WRITE_READ_CPOS_BUFFER_CHK, uni) (void (*read_ptr)(reg 
     reg buffsize = sizeof(u64) * 2 + 2;
     u8 buff[sizeof(u64) * 2 + 2];
     reg pos = 0;
-    b ok = CTYPE_FALSE;
+    b ok = false;
     u64 value_check;
 
     int notValidcnt = 0;
 
     // write function check
-    ok = CTYPE_TRUE;
+    ok = true;
     for(reg i = 0; i < sizeof(u64); ++i) {
         write_ptr(sizeof(u64), buff, pos, (u8*)&value, i, &ok);
-        if(ok == CTYPE_TRUE) {
+        if(ok == true) {
             ++notValidcnt;
         }
-        ok = CTYPE_TRUE;
+        ok = true;
     }
-    ok = CTYPE_FALSE;
+    ok = false;
 
     write_ptr(sizeof(u64), buff, pos, (u8*)&value, buffsize, &ok);
-    if(ok != CTYPE_TRUE) {
+    if(ok != true) {
         ++notValidcnt;
     }
-    ok = CTYPE_FALSE;
+    ok = false;
     pos += sizeof(u64);
 
     write_ptr(sizeof(u64), buff, pos, (u8*)&value, buffsize, &ok);
-    if(ok != CTYPE_TRUE) {
+    if(ok != true) {
         ++notValidcnt;
     }
-    ok = CTYPE_FALSE;
+    ok = false;
     pos = 0;
 
     // read functions check
-    ok = CTYPE_TRUE;
+    ok = true;
     for(reg i = 0; i < sizeof(u64); ++i) {
         read_ptr(sizeof(u64), buff, pos, (u8*)&value_check, i, &ok);
-        if(ok == CTYPE_TRUE) {
+        if(ok == true) {
             ++notValidcnt;
         }
-        ok = CTYPE_TRUE;
+        ok = true;
     }
-    ok = CTYPE_FALSE;
+    ok = false;
     pos = 0;
 
     read_ptr(sizeof(u64), buff, pos, (u8*)&value_check, buffsize, &ok);
-    if(value_check != value || (ok == CTYPE_FALSE)) {
+    if(value_check != value || (ok == false)) {
         ++notValidcnt;
     }
-    ok = CTYPE_FALSE;
+    ok = false;
     pos += sizeof(u64);
 
     read_ptr(sizeof(u64), buff, pos, (u8*)&value_check, buffsize, &ok);
-    if(value_check != value || (ok == CTYPE_FALSE)) {
+    if(value_check != value || (ok == false)) {
         ++notValidcnt;
     }
 

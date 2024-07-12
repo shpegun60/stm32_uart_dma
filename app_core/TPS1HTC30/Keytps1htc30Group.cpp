@@ -14,6 +14,23 @@ Key_tps1htc30Group* const Key_tps1htc30Group::getInstance()
 	return inst;
 }
 
+void Key_tps1htc30Group::iterateAll(std::function<bool(KeyGroup*, uint8_t, uint8_t)> foo)
+{
+	if(!foo) {
+		return;
+	}
+	for(uint8_t group_id = 0; group_id != Groups; ++group_id) {
+			const uint8_t cnt = m_initPinCnt[group_id];
+
+			for(uint8_t key_id = 0; key_id != cnt; ++key_id) {
+
+				if(foo(&m_keys[group_id], group_id, key_id)) {
+					return;
+				}
+			}
+		}
+}
+
 bool Key_tps1htc30Group::findFaultPin(const uint16_t GPIO_Pin,
 		KeyGroup **const group, uint8_t *const key_id)
 {
@@ -154,16 +171,17 @@ void Key_tps1htc30Group::proceed(const uint32_t current_time)
 
 		for(uint8_t key_id = 0; key_id != cnt; ++key_id) {
 
+			const uint8_t ch =  m_keys[group_id].adc_ch[key_id];
+			const uint32_t val = m_adc.getAdc(ch);
+			const float curr = m_keys[group_id].current[key_id] = val;//calculateCurrent(val);
 			error err = m_keys[group_id].err[key_id];
+
+
 			if(err == error::PowerOff || err == error::OpenLoad || err == error::OK) {
 				continue;
 			}
 
 
-			const uint8_t ch =  m_keys[group_id].adc_ch[key_id];
-			const uint32_t val = m_adc.getAdc(ch);
-
-			const float curr = m_keys[group_id].current[key_id] = calculateCurrent(val);
 			const InRangeDetector_f::error rangeErr = m_keys[group_id].m_range[key_id].proceed(current_time, curr);
 
 			if(!m_keys[group_id].i_fault[key_id].get_input()) {

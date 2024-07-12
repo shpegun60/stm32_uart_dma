@@ -1,9 +1,13 @@
 #ifndef __INC_CALLBACK_MANAGER_H__
 #define __INC_CALLBACK_MANAGER_H__
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 
 #include "my_ctype/my_ctypes_def.h"
 
-typedef void (*CallbackWorker)(u8* const data, const reg size, void* const ctx);
+typedef void (*CallbackWorker)(u8* const data, const reg size, const u8 id, void* const ctx);
 
 typedef struct {
     CallbackWorker* workers;
@@ -21,5 +25,7 @@ bool CallbackManager_delete(CallbackManager_t ** self);
 bool CallbackManager_proceed(const CallbackManager_t* const self, const u8 id,
                             u8* const data, const reg size);
 
-
+#ifdef __cplusplus
+}
+#endif
 #endif /* __INC_CALLBACK_MANAGER_H__ */

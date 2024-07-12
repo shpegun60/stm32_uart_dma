@@ -1,9 +1,0 @@
-../app_core/tools/uart/stm32_uart.h:78:20:bool UART_IsTxBusy(stm32_DMA_uart_t*)	16	static
-../app_core/uart_communicator.cpp:15:13:void uart_rx_callback(const uint8_t*, uint32_t, void*)	64	static
-../app_core/uart_communicator.cpp:21:13:void uart_tx_callback(status_t, void*)	24	static
-../app_core/uart_communicator.cpp:33:13:void pingWorker(u8*, reg, void*)	56	static
-../app_core/uart_communicator.cpp:70:10:status_t init_communicator(stm32_uart_communicator_t*, UART_HandleTypeDef*)	24	static
-../app_core/uart_communicator.cpp:102:6:void proceed_communicator(stm32_uart_communicator_t*, uint32_t)	40	static
-../app_core/uart_communicator.cpp:132:6:void HAL_UART_TxCpltCallback(UART_HandleTypeDef*)	24	static
-../app_core/uart_communicator.cpp:140:6:void HAL_UART_RxCpltCallback(UART_HandleTypeDef*)	24	static
-../app_core/uart_communicator.cpp:148:6:void HAL_UART_ErrorCallback(UART_HandleTypeDef*)	24	static
