@@ -1,7 +1,4 @@
-../app_core/tools/math/FPMovingAverageBase.h:22:14:void FP_MovingAverageBase::baseProceed(uint32_t, uint32_t&, uint32_t&)	32	static
-../app_core/tools/math/FPMovingAverageBase.h:17:10:FP_MovingAverageBase::~FP_MovingAverageBase()	16	static
-../app_core/tools/math/FPMovingAverageBase.h:17:10:virtual FP_MovingAverageBase::~FP_MovingAverageBase()	16	static
-../app_core/tools/math/FPMovingAverageArray.cpp:10:1:FP_MovingAverageArray::~FP_MovingAverageArray()	16	static
-../app_core/tools/math/FPMovingAverageArray.cpp:10:1:virtual FP_MovingAverageArray::~FP_MovingAverageArray()	16	static
+../app_core/tools/math/FPMovingAverageArray.cpp:10:1:FP_MovingAverageArray::~FP_MovingAverageArray()	8	static
+../app_core/tools/math/FPMovingAverageArray.cpp:10:1:virtual FP_MovingAverageArray::~FP_MovingAverageArray()	8	static
 ../app_core/tools/math/FPMovingAverageArray.cpp:17:6:void FP_MovingAverageArray::allocArrays(uint8_t)	16	static
-../app_core/tools/math/FPMovingAverageArray.cpp:24:6:void FP_MovingAverageArray::proceed(uint16_t*)	32	static
+../app_core/tools/math/FPMovingAverageArray.cpp:24:6:void FP_MovingAverageArray::proceed(uint16_t*)	12	static

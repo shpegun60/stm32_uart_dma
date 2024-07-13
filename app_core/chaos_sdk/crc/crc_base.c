@@ -6,6 +6,13 @@
  */
 #include "crc_base.h"
 #include <string.h>
+#include <stdlib.h>
+
+void crc_base_init(crc_base_t* const self, const reg size)
+{
+	self->crc = malloc(size);
+	self->crc_size = size;
+}
 
 crc_base_t* const crc_base_duplicate(crc_base_t* const from)
 {
@@ -23,46 +30,16 @@ crc_base_t* const crc_base_duplicate(crc_base_t* const from)
 
 bool crc_compleate(crc_base_t* const self1, crc_base_t* const self2)
 {
-	const reg size = self1->crc_size;
-	if(size != self2->crc_size) {
+	const reg size1 = self1->crc_size;
+	const reg size2 = self2->crc_size;
+	const void* const ptr1 = self1->crc;
+	const void* const ptr2 = self2->crc;
+
+	if(size1 != size2) {
 		return false;
 	}
 
-	const void* ptr1 = self1->crc;
-	const void* ptr2 = self2->crc;
-
-	switch(size) {
-
-	case sizeof(u8): {
-		u8 val1, val2;
-		memcpy(&val1, ptr1, sizeof(u8));
-		memcpy(&val2, ptr2, sizeof(u8));
-
-		return val1 == val2;}
-
-	case sizeof(u16): {
-		u16 val1, val2;
-		memcpy(&val1, ptr1, sizeof(u16));
-		memcpy(&val2, ptr2, sizeof(u16));
-
-		return val1 == val2;}
-
-	case sizeof(u32): {
-		u32 val1, val2;
-		memcpy(&val1, ptr1, sizeof(u32));
-		memcpy(&val2, ptr2, sizeof(u32));
-
-		return val1 == val2;}
-
-	case sizeof(u64): {
-		u64 val1, val2;
-		memcpy(&val1, ptr1, sizeof(u64));
-		memcpy(&val2, ptr2, sizeof(u64));
-
-		return val1 == val2;}
-	}
-
-	return false;
+	return memcmp(ptr1, ptr2, size1) == 0;
 }
 
 

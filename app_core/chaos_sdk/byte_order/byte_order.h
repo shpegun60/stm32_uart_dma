@@ -328,7 +328,7 @@ STATIC_FORCEINLINE f64 BigEndianF64(const f64 value)
 #if defined(__LITTLE_ENDIAN__)
 #define LittleEndianGeneric(value, size)
 
-STATIC_FORCEINLINE void BigEndianGeneric(void* const value, const reg size)
+STATIC_FORCEINLINE void BigEndianGeneric(void* const __restrict value, const reg size)
 {
 	switch(size) {
 
@@ -357,7 +357,7 @@ STATIC_FORCEINLINE void BigEndianGeneric(void* const value, const reg size)
 #elif defined(__BIG_ENDIAN__)
 #define BigEndianGeneric(value, size)
 
-STATIC_FORCEINLINE void LittleEndianGeneric(void* const value, const reg size)
+STATIC_FORCEINLINE void LittleEndianGeneric(void* const __restrict value, const reg size)
 {
 	switch(size) {
 

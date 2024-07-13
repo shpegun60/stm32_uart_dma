@@ -1,2 +1,1 @@
-../app_core/tools/math/FPMovingAverageBase.h:22:14:void FP_MovingAverageBase::baseProceed(uint32_t, uint32_t&, uint32_t&)	32	static
-../app_core/tools/math/FPMovingAverage.cpp:11:10:uint32_t FP_MovingAverage::proceed(uint32_t)	16	static
+../app_core/tools/math/FPMovingAverage.cpp:11:10:uint32_t FP_MovingAverage::proceed(uint32_t)	0	static

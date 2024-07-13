@@ -1,2 +1,2 @@
-../app_core/tools/debug/debug.c:68:10:Debug_GetStackUsage	3
-../app_core/tools/debug/debug.c:87:6:Debug_ResetStackUsage	2
+../app_core/tools/debug/debug.c:87:6:Debug_ResetStackUsage	3
+../app_core/tools/debug/debug.c:68:10:Debug_GetStackUsage	4

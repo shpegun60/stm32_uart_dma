@@ -10,7 +10,6 @@
 
 #include "tools/uart/stm32_uart.h"
 #include "buffers/pool_container.h"
-#include "raw_parser/raw_parser_dma/rawparser_dma.h"
 #include "raw_parser/raw_parser_dynamic/rawparser_dynamic.h"
 
 #include "callback_manager/callback_manager.h"
@@ -35,11 +34,12 @@ public:
 
 	// getters
 	inline pool_container_t* const getPool() { return &pack_pool; }
-	inline RawParser_dma_t* const getParser() { return &raw_p; }
+	inline RawParser_dynamic_t* const getParserNew() { return &rawP_new; }
+	inline stm32_DMA_uart_t* const getUart() { return &stm32_uart; }
 	inline Key_tps1htc30Group* const getKeyClass() { return m_keyGroup; }
 private:
 	pool_container_t pack_pool;
-	RawParser_dma_t raw_p;
+	RawParser_dynamic_t rawP_new;
 	stm32_DMA_uart_t stm32_uart;
 	CallbackManager_t callb;
 
@@ -47,9 +47,6 @@ private:
 	Key_tps1htc30Group* m_keyGroup = nullptr;
 	TimingManager proto_timer;
 
-
-	/////////////////////////
-	RawParser_dynamic_t rawP_new;
 };
 
 #endif /* PROTOCOLSENDER_H_ */

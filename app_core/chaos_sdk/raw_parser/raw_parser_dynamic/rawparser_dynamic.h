@@ -4,69 +4,51 @@
 extern "C" {
 #endif /* __cplusplus */
 
-#include "raw_parser/rawparser_port.h"
-#include "buffers/ringbuf.h"
-#include "crc/crc_fabric.h"
-
-/**
- * @brief RawParser_dynamic_DescriptorTypeDef structure definition
- */
-
-typedef void (*RawPdynamicCallback)(ringbuf_t* const rxStream, void* const ctx);
+#include "rawp_dynamic_stream.h"
 
 typedef struct {
-	u8	startByte;          // Specifies the value of start-byte.
+	u8 packStart;
+	//rx -------------
+	u16 rxBufferSize;
+	u16 rxFrameSize;
+	void* rxFrameBuff;
+	//tx--------------
+	u16 txFrameSize;
+	void* txFrameBuff;
+	crc_type crc_type;
+} RawP_dynamic_init_t;
 
-	// packet form -----------------------------------------
-	struct {
-		bool	triggerSB;      // trigger for read start byte
-		reg	tmpReceiveLen;		// receive length temp register
-		u8 receiveState;		// receive state
-
-		ringbuf_t input_ring;
-		ringbuf_t frame_stream;
-		// crc---------------
-		crc_obj_t* crc;
-		crc_base_t* crc_received;
-
-		// callback
-		RawPdynamicCallback rx_callback;
-		void* rx_ctx;
-	} RX;
-
-	struct {
-		ringbuf_t frame_stream;
-		reg length_write_control;
-		crc_obj_t* crc;
-	} TX;
-
-} RawParser_dynamic_t;
 
 /* CREATE/DELETE FUNCTIONS *************************************************************************************************
  *
  */
-RawParser_dynamic_t* const rawParser_dynamic_new(const u8 packStart,
-		u16 rxBufferSize, u16 rxFrameSize, u16 txFrameSize, const crc_type crc_type);
+RawParser_dynamic_t* const rawP_dynamic_new();
+bool rawP_dynamic_init(RawParser_dynamic_t* const self, const RawP_dynamic_init_t* const settings);
 
-bool rawParser_dynamic_init_default(RawParser_dynamic_t * const self,const u8 packStart,
-		u16 rxBufferSize, u16 rxFrameSize, u16 txFrameSize, const crc_type crc_type);
-
-/* PROCEED FUNCTIONS *************************************************************************************************
+/* PROCEED Receive FUNCTIONS *************************************************************************************************
  *
  */
 
 // receive functions-----------------------------------------------------------------------------------------
-STATIC_FORCEINLINE void rawParser_dynamic_receiveByte(RawParser_dynamic_t* const self, const u8 byte)
+STATIC_FORCEINLINE void rawP_dynamic_receiveByte(RawParser_dynamic_t* const self, const u8 byte)
 {
 	ringbuf_putc(&self->RX.input_ring, byte);
 }
 
-STATIC_FORCEINLINE void rawParser_dynamic_receiveArray(RawParser_dynamic_t* const self, const u8* const arr, const reg size)
+STATIC_FORCEINLINE void rawP_dynamic_receiveArray(RawParser_dynamic_t* const self, const u8* const arr, const reg size)
 {
 	ringbuf_put(&self->RX.input_ring, arr, size);
 }
 
-void rawParser_dynamic_proceed(RawParser_dynamic_t* const self);
+void rawP_dynamic_subscribe(RawParser_dynamic_t* const self, const RawPdynamicCallback rx_callback, void* const rx_ctx);
+void rawP_dynamic_proceed(RawParser_dynamic_t* const self);
+
+/* PROCEED Transmit FUNCTIONS *************************************************************************************************
+ *
+ */
+// fast shield functions (no copy)-----------------------------------------------------------------------------------------
+bool rawP_dynamic_startTransmittPacket(RawParser_dynamic_t* const self, reg len);
+ringbuf_t* const rawP_dynamic_finishTransmittPacket(RawParser_dynamic_t* const self);
 
 
 #ifdef __cplusplus

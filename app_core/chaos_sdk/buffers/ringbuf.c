@@ -15,15 +15,15 @@ Copyright (c) 2024 Shpegun60
 // Initialize buffer
 ringbuf_t* const ringbuf_new(void* const buffer, const reg size)
 {
-	M_Assert_BreakSaveCheck(!is_power_of_2(size), M_EMPTY, return false,
+	M_Assert_BreakSaveCheck(!is_power_of_2(size), M_EMPTY, return NULL,
 			"not valid parameters size: %d", size);
 
 	ringbuf_t* const self = calloc(1, sizeof(ringbuf_t));
 
-	M_Assert_BreakSaveCheck(self == NULL, M_EMPTY, return false,
+	M_Assert_BreakSaveCheck(self == NULL, M_EMPTY, return NULL,
 			"no memory for allocation");
 
-	if(ringbuf_init(self, buffer, size)) {
+	if(!ringbuf_init(self, buffer, size)) {
 		free(self);
 		return NULL;
 	}
@@ -33,7 +33,7 @@ ringbuf_t* const ringbuf_new(void* const buffer, const reg size)
 
 bool ringbuf_init(ringbuf_t* const ring_buf, void* const buffer, const reg size)
 {
-	M_Assert_BreakSaveCheck(!is_power_of_2(size) || ring_buf == NULL, M_EMPTY, return true,
+	M_Assert_BreakSaveCheck(!is_power_of_2(size) || ring_buf == NULL, M_EMPTY, return false,
 			"not valid parameter size: %d", size);
 
 	memset(ring_buf, 0, sizeof(ringbuf_t));
@@ -43,24 +43,24 @@ bool ringbuf_init(ringbuf_t* const ring_buf, void* const buffer, const reg size)
 	} else {
 		void* const tmp = malloc(size);
 
-		M_Assert_BreakSaveCheck(tmp == NULL, M_EMPTY, return true,
+		M_Assert_BreakSaveCheck(tmp == NULL, M_EMPTY, return false,
 				"no memory for allocation");
 
 		ring_buf->buffer = tmp;
 	}
 
 	fifo_base_init(&ring_buf->base, size);
-	return false;
+	return true;
 }
 
 bool ringbuf_install_buf(ringbuf_t* const ring_buf, void* const buffer)
 {
-	M_Assert_BreakSaveCheck(buffer == NULL, M_EMPTY, return true,
+	M_Assert_BreakSaveCheck(buffer == NULL, M_EMPTY, return false,
 			"not valid parameter");
 
 	ring_buf->buffer = buffer;
 	FIFO_CLEAN(ring_buf);
-	return false;
+	return true;
 }
 
 
@@ -132,13 +132,13 @@ u8 ringbuf_getc(ringbuf_t* const ring_buf)
 	return value;
 }
 
-#define RINGBUF_GET(TYPE) \
-    TYPE ringbuf_get_##TYPE(ringbuf_t* const ring_buf) { \
-        TYPE value; \
-        if(ringbuf_get(ring_buf, &value, sizeof(TYPE)) != sizeof(TYPE)) {\
-        	return (TYPE)0;\
-		}\
-        return value; \
+#define RINGBUF_GET(TYPE) 													\
+    TYPE ringbuf_get_##TYPE(ringbuf_t* const ring_buf) { 					\
+        TYPE value; 														\
+        if(ringbuf_get(ring_buf, &value, sizeof(TYPE)) != sizeof(TYPE)) {	\
+        	return (TYPE)0;													\
+		}																	\
+        return value; 														\
     }
 
 RINGBUF_GET(u16)
@@ -209,13 +209,13 @@ u8 ringbuf_peekc(ringbuf_t* const ring_buf)
 	return value;
 }
 
-#define RINGBUF_PEEK(TYPE) \
-    TYPE ringbuf_peek_##TYPE(ringbuf_t* const ring_buf) { \
-        TYPE value; \
-        if(ringbuf_peek(ring_buf, &value, sizeof(TYPE)) != sizeof(TYPE)) {\
-        	return (TYPE)0;\
-		}\
-        return value; \
+#define RINGBUF_PEEK(TYPE) 													\
+    TYPE ringbuf_peek_##TYPE(ringbuf_t* const ring_buf) { 					\
+        TYPE value; 														\
+        if(ringbuf_peek(ring_buf, &value, sizeof(TYPE)) != sizeof(TYPE)) {	\
+        	return (TYPE)0;													\
+		}																	\
+        return value; 														\
     }
 
 RINGBUF_PEEK(u16)
@@ -268,7 +268,7 @@ reg ringbuf_put(ringbuf_t* const ring_buf, const void *buffer, const reg size)
 
 	// proceed signalls
 	ring_buf->base.head 	= (head_reg);
-	return size;
+	return size_constr;
 }
 
 // Store byte data in buffer
@@ -288,7 +288,7 @@ bool ringbuf_putc(ringbuf_t* const ring_buf, const u8 c)
 
 	const reg head_pos 			= head_reg & msk_reg;
 
-	M_Assert_BreakSaveCheck(_FIFO_IS_FULL_IMPL(tail_reg, head_reg, cap_reg, xor_msk_reg), M_EMPTY, return 0, "ring buffer is full");
+	M_Assert_BreakSaveCheck(_FIFO_IS_FULL_IMPL(tail_reg, head_reg, cap_reg, xor_msk_reg), M_EMPTY, return false, "ring buffer is full");
 
 	*(ring_ptr + head_pos) = c;
 

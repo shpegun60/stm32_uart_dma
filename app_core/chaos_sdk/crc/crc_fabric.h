@@ -8,7 +8,6 @@
 #ifndef CHAOS_SDK_CRC_CRC_FABRIC_H_
 #define CHAOS_SDK_CRC_CRC_FABRIC_H_
 
-#include "my_ctype/my_ctypes_def.h"
 #include "crc_base.h"
 
 #define CRC_INIT(handle) (handle)->crc_init((handle)->base.crc)

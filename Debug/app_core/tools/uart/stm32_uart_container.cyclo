@@ -1,3 +1,3 @@
 ../app_core/tools/uart/stm32_uart_container.c:19:6:initUartsContainer	1
-../app_core/tools/uart/stm32_uart_container.c:28:25:getContainerUartInstance	2
+../app_core/tools/uart/stm32_uart_container.c:28:25:getContainerUartInstance	1
 ../app_core/tools/uart/stm32_uart_container.c:53:10:pushContainerUartInstance	2

@@ -55,6 +55,7 @@
 "./app_core/chaos_sdk/preprocessor/preprocessor_test.o"
 "./app_core/chaos_sdk/raw_parser/raw_parser_dma/raw_parser_dma_test.o"
 "./app_core/chaos_sdk/raw_parser/raw_parser_dma/rawparser_dma.o"
+"./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawp_dynamic_stream.o"
 "./app_core/chaos_sdk/raw_parser/raw_parser_dynamic/rawparser_dynamic.o"
 "./app_core/chaos_sdk/raw_parser/rawparser_macro.o"
 "./app_core/stm32_printf/stm32_printf.o"

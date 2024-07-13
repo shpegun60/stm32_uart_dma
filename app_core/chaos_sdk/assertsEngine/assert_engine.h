@@ -225,18 +225,17 @@ void __M_Warning(const char* const expr_str, const unsigned char expr,
  * ***********************************************************************************************************************************************
  */
 #	if defined(M_ASSERT_OPTIONAL_CHECKS_DISABLE)
-#   	define M_Assert_SafeFunctionCall(foo, true_expression)                                                                          	\
+#   	define M_Assert_SafeFunctionCall(foo, ...)                                                                          				\
 			do {                                                                                                                            \
 				if(foo) {                                                                                                                   \
-					true_expression;                                                                                                        \
+					__VA_ARGS__;                                                                                                       		\
 				}                                                                                                                           \
 			} while(0U)
-
 #else
-#   	define M_Assert_SafeFunctionCall(foo, true_expression)                                                                              				\
+#   	define M_Assert_SafeFunctionCall(foo, ...)                                                                              							\
 			do {                                                                                                                                			\
 				if(foo) {                                                                                                                       			\
-					true_expression;                                                                                                            			\
+					__VA_ARGS__;                                                                                                            				\
 				} else {                                                                                                                        			\
 					ASSERT_WARNING((#foo), (0), (__FILE__), (__LINE__), (CHAOS_FUNC_NAME), ("NO exists function"));                                       	\
 				}                                                                                                                               			\
@@ -320,10 +319,10 @@ void __M_Warning(const char* const expr_str, const unsigned char expr,
  * ***********************************************************************************************************************************************
  */
 
-#   define M_Assert_SafeFunctionCall(foo, true_expression)                                                                          \
+#   define M_Assert_SafeFunctionCall(foo, ...)                                                                          			\
     do {                                                                                                                            \
         if(foo) {                                                                                                                   \
-            true_expression;                                                                                                        \
+        	__VA_ARGS__;                                                                                                       		\
         }                                                                                                                           \
     } while(0U)
 

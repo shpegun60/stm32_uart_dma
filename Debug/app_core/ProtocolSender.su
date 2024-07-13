@@ -1,12 +1,8 @@
-../app_core/ProtocolSender.h:37:33:pool_container_t* const ProtocolSender::getPool()	16	static
-../app_core/ProtocolSender.h:38:32:RawParser_dma_t* const ProtocolSender::getParser()	16	static
-../app_core/ProtocolSender.h:39:35:Key_tps1htc30Group* const ProtocolSender::getKeyClass()	16	static
-../app_core/ProtocolSender.cpp:12:13:void uart_rx_callback(const uint8_t*, uint32_t, void*)	40	static
-../app_core/ProtocolSender.cpp:22:13:void uart_tx_callback(status_t, void*)	24	static
-../app_core/ProtocolSender.cpp:34:13:void pingWorker(u8*, reg, u8, void*)	56	static
-../app_core/ProtocolSender.cpp:71:13:void setKey(u8*, reg, u8, void*)	56	static
-../app_core/ProtocolSender.cpp:102:10:status_t ProtocolSender::init(UART_HandleTypeDef*)	32	static
-../app_core/ProtocolSender.cpp:139:6:void ProtocolSender::proceed(uint32_t)	16	static
-../app_core/ProtocolSender.cpp:216:6:void HAL_UART_TxCpltCallback(UART_HandleTypeDef*)	24	static
-../app_core/ProtocolSender.cpp:224:6:void HAL_UART_RxCpltCallback(UART_HandleTypeDef*)	24	static
-../app_core/ProtocolSender.cpp:232:6:void HAL_UART_ErrorCallback(UART_HandleTypeDef*)	24	static
+../app_core/ProtocolSender.cpp:18:13:void uart_tx_callback(status_t, void*)	8	static
+../app_core/ProtocolSender.cpp:12:13:void uart_rx_callback(const uint8_t*, uint32_t, void*)	8	static
+../app_core/ProtocolSender.cpp:31:13:void rx_callback(ringbuf_t*, void*)	32	static
+../app_core/ProtocolSender.cpp:58:10:status_t ProtocolSender::init(UART_HandleTypeDef*)	48	static
+../app_core/ProtocolSender.cpp:93:6:void ProtocolSender::proceed(uint32_t)	8	static
+../app_core/ProtocolSender.cpp:182:6:void HAL_UART_TxCpltCallback(UART_HandleTypeDef*)	8	static
+../app_core/ProtocolSender.cpp:190:6:void HAL_UART_RxCpltCallback(UART_HandleTypeDef*)	8	static
+../app_core/ProtocolSender.cpp:198:6:void HAL_UART_ErrorCallback(UART_HandleTypeDef*)	8	static

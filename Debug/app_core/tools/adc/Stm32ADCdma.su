@@ -1,7 +1,5 @@
-../app_core/tools/adc/Stm32ADCdma.h:27:14:void Stm32ADC_dma::calculateFinished()	16	static
-../app_core/tools/adc/Stm32ADCdma.h:37:36:static Stm32ADC_dma* const Stm32ADC_dma::getObject(ADC_HandleTypeDef*)	16	static
-../app_core/tools/adc/Stm32ADCdma.cpp:15:1:Stm32ADC_dma::~Stm32ADC_dma()	16	static
-../app_core/tools/adc/Stm32ADCdma.cpp:21:6:bool Stm32ADC_dma::start()	16	static
+../app_core/tools/adc/Stm32ADCdma.cpp:21:6:bool Stm32ADC_dma::start()	8	static
 ../app_core/tools/adc/Stm32ADCdma.cpp:31:6:void Stm32ADC_dma::init(const Stm32ADC_init&)	16	static
 ../app_core/tools/adc/Stm32ADCdma.cpp:43:6:bool Stm32ADC_dma::proceed(uint32_t)	16	static
-../app_core/tools/adc/Stm32ADCdma.cpp:61:6:void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef*)	24	static
+../app_core/tools/adc/Stm32ADCdma.cpp:61:6:void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef*)	0	static
+../app_core/tools/adc/Stm32ADCdma.cpp:15:1:Stm32ADC_dma::~Stm32ADC_dma()	8	static

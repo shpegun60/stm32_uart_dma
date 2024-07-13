@@ -27,7 +27,7 @@ app_core/tools/uart/stm32_uart_container.o: \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h \
- C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/tools/status.h
+ C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/chaos_sdk/status.h
 ../app_core/tools/uart/stm32_uart_container.h:
 ../app_core/tools/uart/stm32_uart_config.h:
 ../Core/Inc/main.h:
@@ -56,4 +56,4 @@ app_core/tools/uart/stm32_uart_container.o: \
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:
-C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/tools/status.h:
+C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/chaos_sdk/status.h:

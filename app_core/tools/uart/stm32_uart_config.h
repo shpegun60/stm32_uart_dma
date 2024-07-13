@@ -9,7 +9,7 @@
 #define TOOLS_UART_STM32_UART_CONFIG_H_
 
 #include "main.h"
-#include "tools/status.h"
+#include "status.h"
 #include <stdbool.h>
 #include <stdint.h>
 #include <stddef.h>
