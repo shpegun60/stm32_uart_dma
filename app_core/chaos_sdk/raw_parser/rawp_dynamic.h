@@ -1,5 +1,6 @@
 #ifndef __RAW_PARSER_DYNAMIC_FUSION_H__
 #define __RAW_PARSER_DYNAMIC_FUSION_H__ 1
+
 #ifdef __cplusplus
 extern "C" {
 #endif /* __cplusplus */
@@ -15,15 +16,15 @@ typedef struct {
 	//tx--------------
 	u16 txFrameSize;
 	void* txFrameBuff;
-	crc_type crc_type;
-} RawP_dynamic_init_t;
+	crc_type crc_strategy;
+} RawP_dynamic_strategy_t;
 
 
 /* CREATE/DELETE FUNCTIONS *************************************************************************************************
  *
  */
 RawParser_dynamic_t* const rawP_dynamic_new();
-bool rawP_dynamic_init(RawParser_dynamic_t* const self, const RawP_dynamic_init_t* const settings);
+bool rawP_dynamic_init(RawParser_dynamic_t* const self, const RawP_dynamic_strategy_t* const settings);
 
 /* PROCEED Receive FUNCTIONS *************************************************************************************************
  *
@@ -49,6 +50,11 @@ void rawP_dynamic_proceed(RawParser_dynamic_t* const self);
 // fast shield functions (no copy)-----------------------------------------------------------------------------------------
 bool rawP_dynamic_startTransmittPacket(RawParser_dynamic_t* const self, reg len);
 ringbuf_t* const rawP_dynamic_finishTransmittPacket(RawParser_dynamic_t* const self);
+
+STATIC_FORCEINLINE bool rawP_dynamic_install_txbuf(RawParser_dynamic_t* const self, void* const buffer)
+{
+	return ringbuf_install_buf(&self->TX.frame_stream, buffer);
+}
 
 
 #ifdef __cplusplus

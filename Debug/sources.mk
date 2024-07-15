@@ -54,8 +54,6 @@ app_core/chaos_sdk/hash \
 app_core/chaos_sdk/my_ctype \
 app_core/chaos_sdk/my_ctype/runtime_cast \
 app_core/chaos_sdk/preprocessor \
-app_core/chaos_sdk/raw_parser/raw_parser_dma \
-app_core/chaos_sdk/raw_parser/raw_parser_dynamic \
 app_core/chaos_sdk/raw_parser \
 app_core/stm32_printf \
 app_core/tools/adc \

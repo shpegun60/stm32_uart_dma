@@ -17,8 +17,6 @@ RM := rm -rf
 -include app_core/tools/debug/subdir.mk
 -include app_core/tools/adc/subdir.mk
 -include app_core/stm32_printf/subdir.mk
--include app_core/chaos_sdk/raw_parser/raw_parser_dynamic/subdir.mk
--include app_core/chaos_sdk/raw_parser/raw_parser_dma/subdir.mk
 -include app_core/chaos_sdk/raw_parser/subdir.mk
 -include app_core/chaos_sdk/preprocessor/subdir.mk
 -include app_core/chaos_sdk/my_ctype/runtime_cast/subdir.mk

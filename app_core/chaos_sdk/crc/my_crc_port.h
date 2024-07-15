@@ -1,7 +1,7 @@
 #ifndef __MY_CRC_PORT_H__
 #define __MY_CRC_PORT_H__ 1
 
-#include "crc_fabric.h"
+#include "crc_factory.h"
 
 #ifndef _MY_CRC_TEST_DISABLE
 //#   define _MY_CRC_TEST_DISABLE

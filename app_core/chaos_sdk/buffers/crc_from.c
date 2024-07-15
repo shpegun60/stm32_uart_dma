@@ -11,7 +11,7 @@
 #include "assertsEngine/assert_engine.h"
 #define _INT_SWITCH(...) __VA_ARGS__
 
-void crc_from_ringbuf(crc_obj_t* const crc_base, const ringbuf_t* const ring_buf)
+void crc_from_ringbuf(crc_strategy_t* const crc_base, const ringbuf_t* const ring_buf)
 {
 	_INT_SWITCH(M_Assert_Break(ring_buf == NULL || crc_base == NULL, M_EMPTY, return,
 			"not valid parameters"));

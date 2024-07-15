@@ -10,7 +10,7 @@
 
 #include "tools/uart/stm32_uart.h"
 #include "buffers/pool_container.h"
-#include "raw_parser/raw_parser_dynamic/rawparser_dynamic.h"
+#include "raw_parser/rawp_dynamic.h"
 
 #include "callback_manager/callback_manager.h"
 
@@ -37,6 +37,7 @@ public:
 	inline RawParser_dynamic_t* const getParserNew() { return &rawP_new; }
 	inline stm32_DMA_uart_t* const getUart() { return &stm32_uart; }
 	inline Key_tps1htc30Group* const getKeyClass() { return m_keyGroup; }
+	inline CallbackManager_t* const getCmdWorker() { return &callb; }
 private:
 	pool_container_t pack_pool;
 	RawParser_dynamic_t rawP_new;

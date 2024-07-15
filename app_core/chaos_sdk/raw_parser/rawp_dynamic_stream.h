@@ -7,6 +7,10 @@
 
 #ifndef CHAOS_SDK_RAWP_DYNAMIC_STREAM_H_
 #define CHAOS_SDK_RAWP_DYNAMIC_STREAM_H_
+#ifdef __cplusplus
+extern "C" {
+#endif /* __cplusplus */
+
 
 #include "rawp_dynamic_class.h"
 
@@ -34,4 +38,7 @@ void rawp_stream_add_i64(RawParser_dynamic_t* const self, const i64 c);
 void rawp_stream_add_f32(RawParser_dynamic_t* const self, const f32 c);
 void rawp_stream_add_f64(RawParser_dynamic_t* const self, const f64 c);
 
+#ifdef __cplusplus
+}
+#endif /* __cplusplus */
 #endif /* CHAOS_SDK_RAWP_DYNAMIC_STREAM_H_ */

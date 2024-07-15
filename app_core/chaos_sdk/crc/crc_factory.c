@@ -5,7 +5,7 @@
  *      Author: admin
  */
 
-#include "crc_fabric.h"
+#include "crc_factory.h"
 #include "my_crc_port.h"
 #include <stdlib.h>
 
@@ -14,9 +14,9 @@
 #ifdef _MY_CRC8_ENA
 #include "crc8.h"
 
-static crc_obj_t* const newCRC8(void)
+static crc_strategy_t* const newCRC8(void)
 {
-	crc_obj_t* const crc = malloc(sizeof(crc_obj_t));
+	crc_strategy_t* const crc = malloc(sizeof(crc_strategy_t));
 	CRC_BASE_INIT(crc, sizeof(u8));
     crc->crc_init = _MY_CRC8_INIT_BASE;
     crc->crc_array = _MY_CRC8_ARRAY_BASE;
@@ -31,9 +31,9 @@ static crc_obj_t* const newCRC8(void)
 #ifdef _MY_CRC16_ENA
 #include "crc16.h"
 
-static crc_obj_t* const newCRC16(void)
+static crc_strategy_t* const newCRC16(void)
 {
-	crc_obj_t* const crc = malloc(sizeof(crc_obj_t));
+	crc_strategy_t* const crc = malloc(sizeof(crc_strategy_t));
 	CRC_BASE_INIT(crc, sizeof(u16));
     crc->crc_init = _MY_CRC16_INIT_BASE;
     crc->crc_array = _MY_CRC16_ARRAY_BASE;
@@ -47,9 +47,9 @@ static crc_obj_t* const newCRC16(void)
 #ifdef _MY_CRC32_ENA
 #include "crc32.h"
 
-static crc_obj_t* const newCRC32(void)
+static crc_strategy_t* const newCRC32(void)
 {
-	crc_obj_t* const crc = malloc(sizeof(crc_obj_t));
+	crc_strategy_t* const crc = malloc(sizeof(crc_strategy_t));
 	CRC_BASE_INIT(crc, sizeof(u32));
     crc->crc_init = _MY_CRC32_INIT_BASE;
     crc->crc_array = _MY_CRC32_ARRAY_BASE;
@@ -65,9 +65,9 @@ static crc_obj_t* const newCRC32(void)
 #include "crc64.h"
 
 
-static crc_obj_t* const newCRC64(void)
+static crc_strategy_t* const newCRC64(void)
 {
-	crc_obj_t* const crc = malloc(sizeof(crc_obj_t));
+	crc_strategy_t* const crc = malloc(sizeof(crc_strategy_t));
 	CRC_BASE_INIT(crc, sizeof(u64));
     crc->crc_init = _MY_CRC64_INIT_BASE;
     crc->crc_array = _MY_CRC64_ARRAY_BASE;
@@ -82,7 +82,7 @@ static crc_obj_t* const newCRC64(void)
 
 
 
-crc_obj_t* const createCRC(const crc_type type)
+crc_strategy_t* const createCRC(const crc_type type)
 {
 	switch(type) {
 

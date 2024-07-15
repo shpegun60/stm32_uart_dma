@@ -15,7 +15,6 @@ extern "C" {
 
 #if defined(UART_CONTAINER_ENA) && defined(HAL_DMA_MODULE_ENABLED) && (defined(HAL_UART_MODULE_ENABLED) || defined(HAL_USART_MODULE_ENABLED))
 
-void initUartsContainer(void);
 stm32_DMA_uart_t* const getContainerUartInstance(UART_HandleTypeDef* const huart);
 status_t pushContainerUartInstance(stm32_DMA_uart_t* const inst);
 

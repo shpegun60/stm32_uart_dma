@@ -50,7 +50,7 @@ bool CallbackManager_subscribe(CallbackManager_t * const self, const u8 id, cons
 
 
 //**********************************************************************************************************************************************************************
-bool CallbackManager_proceed(const CallbackManager_t* const self, const u8 id, u8* const data, const reg size)
+bool CallbackManager_proceed(const CallbackManager_t* const self, const u8 id, void* const data)
 {
     M_Assert_Break(self == NULL, M_EMPTY, return true, M_LIB_DATA_DEF "no valid input data", ENA, LIB);
 
@@ -61,7 +61,7 @@ bool CallbackManager_proceed(const CallbackManager_t* const self, const u8 id, u
 
     // do logic
     M_Assert_SafeFunctionCall((id < n) && (worker != NULL), {
-                                  worker(data, size, id, ctx);
+                                  worker(data, id, ctx);
                                   return false;
                               });
     return true;

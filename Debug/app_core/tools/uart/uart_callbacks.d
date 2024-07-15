@@ -1,6 +1,5 @@
-app_core/tools/uart/stm32_uart.o: ../app_core/tools/uart/stm32_uart.c \
- ../app_core/tools/uart/stm32_uart.h \
- ../app_core/tools/uart/stm32_uart_config.h ../Core/Inc/main.h \
+app_core/tools/uart/uart_callbacks.o: \
+ ../app_core/tools/uart/uart_callbacks.c ../Core/Inc/main.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h \
  ../Core/Inc/stm32f1xx_hal_conf.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h \
@@ -26,12 +25,10 @@ app_core/tools/uart/stm32_uart.o: ../app_core/tools/uart/stm32_uart.c \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h \
+ C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/tools/uart/stm32_uart.h \
+ C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/tools/uart/stm32_uart_config.h \
  C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/chaos_sdk/status.h \
- ../app_core/tools/uart/stm32_uart_container.h \
- C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/tools/debug/printf/printf.h \
- C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/tools/irq/stm32_irq_block.h
-../app_core/tools/uart/stm32_uart.h:
-../app_core/tools/uart/stm32_uart_config.h:
+ C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/tools/uart/stm32_uart_container.h
 ../Core/Inc/main.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:
 ../Core/Inc/stm32f1xx_hal_conf.h:
@@ -58,7 +55,7 @@ app_core/tools/uart/stm32_uart.o: ../app_core/tools/uart/stm32_uart.c \
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:
+C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/tools/uart/stm32_uart.h:
+C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/tools/uart/stm32_uart_config.h:
 C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/chaos_sdk/status.h:
-../app_core/tools/uart/stm32_uart_container.h:
-C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/tools/debug/printf/printf.h:
-C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/tools/irq/stm32_irq_block.h:
+C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/tools/uart/stm32_uart_container.h:

@@ -54,6 +54,10 @@ extern "C" {
 
 #if defined(HAL_DMA_MODULE_ENABLED) && (defined(HAL_UART_MODULE_ENABLED) || defined(HAL_USART_MODULE_ENABLED))
 
+#ifdef UART_CONTAINER_ENA
+#	include "stm32_uart_container.h"
+#endif /* UART_CONTAINER_ENA */
+
 /*!***************************************************************************
  * @brief   Initialize the Universal Asynchronous Receiver/Transmitter
  *          (UART or LPSCI) bus and DMA module

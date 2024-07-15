@@ -1,5 +1,4 @@
-#include "raw_parser/rawparser_port.h"
-#include "rawparser_dynamic.h"
+#include "rawp_dynamic.h"
 #include "buffers/crc_from.h"
 
 #include "byte_order/byte_order.h"
@@ -10,6 +9,9 @@
 // include assert engine
 #include "assertsEngine/assert_engine.h"
 #define _INT_SWITCH(...) __VA_ARGS__
+
+#define RECEIVE_EXTENDED_LEN_CMD 	0xFFU
+#define D_RAW_P_LEN_SEPARATOR 		0xFB
 
 
 /* HELP FUNCTIONS *************************************************************************************************
@@ -57,7 +59,7 @@ RawParser_dynamic_t* const rawP_dynamic_new()
 	return self;
 }
 
-bool rawP_dynamic_init(RawParser_dynamic_t* const self, const RawP_dynamic_init_t* const settings)
+bool rawP_dynamic_init(RawParser_dynamic_t* const self, const RawP_dynamic_strategy_t* const settings)
 {
 	M_Assert_BreakSaveCheck(self == NULL || settings == NULL, M_EMPTY, return NULL, "No valid parameters");
 
@@ -66,10 +68,10 @@ bool rawP_dynamic_init(RawParser_dynamic_t* const self, const RawP_dynamic_init_
 	}
 
 	// RX init -----------------------------
-	_rx_new(self, settings->rxBufferSize, settings->rxFrameSize, settings->rxFrameBuff, settings->crc_type);
+	_rx_new(self, settings->rxBufferSize, settings->rxFrameSize, settings->rxFrameBuff, settings->crc_strategy);
 
 	// TX init -----------------------------
-	_tx_new(self, settings->txFrameSize, settings->txFrameBuff, settings->crc_type);
+	_tx_new(self, settings->txFrameSize, settings->txFrameBuff, settings->crc_strategy);
 
 	return true;
 }
@@ -92,7 +94,7 @@ static void _proceedByte(RawParser_dynamic_t* const self, const u8 ch, const boo
 
 	u8 _state = self->RX.receiveState;
 	ringbuf_t* const rx_frame_ring = &self->RX.frame_stream;
-	crc_obj_t* const rx_crc_check = self->RX.crc;
+	crc_strategy_t* const rx_crc_check = self->RX.crc;
 
 	if (newFrame) {
 		M_Assert_SafeFunctionCall(rx_crc_check, {
@@ -272,7 +274,7 @@ bool rawP_dynamic_startTransmittPacket(RawParser_dynamic_t* const self, reg len)
 
 	// move to cash ---------------------------------------------
 	const u8 SB = self->startByte;
-	crc_obj_t* const tx_crc = self->TX.crc;
+	crc_strategy_t* const tx_crc = self->TX.crc;
 	ringbuf_t* const tx_ring = &self->TX.frame_stream;
 	const reg max_size = FIFO_CAPACITY(tx_ring) - 5U;
 
@@ -319,7 +321,7 @@ ringbuf_t* const rawP_dynamic_finishTransmittPacket(RawParser_dynamic_t* const s
 {
 	_INT_SWITCH(M_Assert_Break((self == NULL), M_EMPTY, return NULL, "No valid input"));
 
-	crc_obj_t* const tx_crc = self->TX.crc;
+	crc_strategy_t* const tx_crc = self->TX.crc;
 	ringbuf_t* const tx_ring = &self->TX.frame_stream;
 	reg ramained_len = self->TX.length_write_control;
 
@@ -352,4 +354,7 @@ ringbuf_t* const rawP_dynamic_finishTransmittPacket(RawParser_dynamic_t* const s
 }
 
 
+
+#undef RECEIVE_EXTENDED_LEN_CMD
+#undef D_RAW_P_LEN_SEPARATOR
 #undef _INT_SWITCH

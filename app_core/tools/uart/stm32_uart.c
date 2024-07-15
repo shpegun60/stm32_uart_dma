@@ -41,10 +41,6 @@
 #include "tools/debug/printf/printf.h"
 #include "tools/irq/stm32_irq_block.h"
 
-#ifdef UART_CONTAINER_ENA
-#	include "stm32_uart_container.h"
-#endif /* UART_CONTAINER_ENA */
-
 #include <assert.h>
 #include <string.h>
 #include <stdarg.h>

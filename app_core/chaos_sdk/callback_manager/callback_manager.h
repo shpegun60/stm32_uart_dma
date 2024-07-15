@@ -7,7 +7,7 @@ extern "C" {
 
 #include "my_ctype/my_ctypes_def.h"
 
-typedef void (*CallbackWorker)(u8* const data, const reg size, const u8 id, void* const ctx);
+typedef void (*CallbackWorker)(void* const data, const u8 id, void* const ctx);
 
 typedef struct {
     CallbackWorker* workers;
@@ -22,8 +22,7 @@ bool CallbackManager_delete(CallbackManager_t ** self);
 
 //**********************************************************************************************************************************************************************
 // callback manager call function with warning!!!
-bool CallbackManager_proceed(const CallbackManager_t* const self, const u8 id,
-                            u8* const data, const reg size);
+bool CallbackManager_proceed(const CallbackManager_t* const self, const u8 id, void* const data);
 
 #ifdef __cplusplus
 }

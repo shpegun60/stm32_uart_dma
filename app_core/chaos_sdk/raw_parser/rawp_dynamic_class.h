@@ -9,7 +9,7 @@
 #define CHAOS_SDK_RAWP_DYNAMIC_CLASS_H_
 
 #include "buffers/ringbuf.h"
-#include "crc/crc_fabric.h"
+#include "crc/crc_factory.h"
 
 /**
  * @brief RawParser_dynamic_DescriptorTypeDef structure definition
@@ -29,7 +29,7 @@ typedef struct {
 		ringbuf_t input_ring;
 		ringbuf_t frame_stream;
 		// crc---------------
-		crc_obj_t* crc;
+		crc_strategy_t* crc;
 		crc_base_t* crc_received;
 
 		// callback
@@ -40,7 +40,7 @@ typedef struct {
 	struct {
 		ringbuf_t frame_stream;
 		reg length_write_control;
-		crc_obj_t* crc;
+		crc_strategy_t* crc;
 	} TX;
 
 } RawParser_dynamic_t;

@@ -14,7 +14,7 @@
 void rawp_stream_add_u8(RawParser_dynamic_t* const self, u8 c)
 {
 	ringbuf_t* const tx_ring = &self->TX.frame_stream;
-	crc_obj_t* const tx_crc = self->TX.crc;
+	crc_strategy_t* const tx_crc = self->TX.crc;
 
 	const reg remaining_len = self->TX.length_write_control;
 	M_Assert_BreakSaveCheck(remaining_len == 0, M_EMPTY, return, "Overflow!!!!!!");
@@ -33,7 +33,7 @@ void rawp_stream_add_u8(RawParser_dynamic_t* const self, u8 c)
 																											\
 		const u8 SB = self->startByte;																		\
 		ringbuf_t* const tx_ring = &self->TX.frame_stream;													\
-		crc_obj_t* const tx_crc = self->TX.crc;																\
+		crc_strategy_t* const tx_crc = self->TX.crc;																\
 																											\
 		union {TYPE from; u8 to[sizeof(TYPE)];} u;															\
 		u.from = c;																							\

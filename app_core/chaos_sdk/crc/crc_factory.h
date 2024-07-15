@@ -5,8 +5,8 @@
  *      Author: admin
  */
 
-#ifndef CHAOS_SDK_CRC_CRC_FABRIC_H_
-#define CHAOS_SDK_CRC_CRC_FABRIC_H_
+#ifndef CHAOS_SDK_CRC_CRC_FACTORY_H_
+#define CHAOS_SDK_CRC_CRC_FACTORY_H_
 
 #include "crc_base.h"
 
@@ -32,11 +32,11 @@ typedef struct {
 	crc_init_func crc_init;
 	crc_array_func crc_array;
 	crc_byte_func crc_byte;
-} crc_obj_t;
+} crc_strategy_t;
 
 
 
-crc_obj_t* const createCRC(const crc_type type);
+crc_strategy_t* const createCRC(const crc_type type);
 
 
-#endif /* CHAOS_SDK_CRC_CRC_FABRIC_H_ */
+#endif /* CHAOS_SDK_CRC_CRC_FACTORY_H_ */
