@@ -38,8 +38,7 @@
 
 #if defined(HAL_DMA_MODULE_ENABLED) && (defined(HAL_UART_MODULE_ENABLED) || defined(HAL_USART_MODULE_ENABLED))
 
-#include "tools/debug/printf/printf.h"
-#include "tools/irq/stm32_irq_block.h"
+#include "irq/irq_block.h"
 
 #include <assert.h>
 #include <string.h>

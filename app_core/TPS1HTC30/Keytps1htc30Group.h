@@ -10,8 +10,8 @@
 
 
 #include "stm32_meta.h"
-#include "tools/math/InRangeDetector.h"
-#include "tools/adc/Stm32ADCdma.h"
+#include "in_range/InRangeDetector.h"
+#include "adc/Stm32ADCdma.h"
 
 #include <functional>
 

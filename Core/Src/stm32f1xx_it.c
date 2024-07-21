@@ -22,8 +22,8 @@
 #include "stm32f1xx_it.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "tools/uart/stm32_uart.h"
-#include "tools/uart/stm32_uart_container.h"
+#include "uart/stm32_uart.h"
+#include "uart/stm32_uart_container.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/

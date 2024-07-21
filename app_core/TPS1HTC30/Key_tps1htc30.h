@@ -9,8 +9,8 @@
 #define TPS1HTC30_KEY_TPS1HTC30_H_
 
 #include "stm32_meta.h"
-#include "tools/adc/Stm32ADCregular.h"
-#include "tools/math/InRangeDetector.h"
+#include "adc/Stm32ADCregular.h"
+#include "in_range/InRangeDetector.h"
 
 class Key_tps1htc30
 {

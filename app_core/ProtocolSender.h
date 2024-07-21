@@ -8,14 +8,14 @@
 #ifndef PROTOCOLSENDER_H_
 #define PROTOCOLSENDER_H_
 
-#include "tools/uart/stm32_uart.h"
+#include "uart/stm32_uart.h"
 #include "buffers/pool_container.h"
 #include "raw_parser/rawp_dynamic.h"
 
 #include "callback_manager/callback_manager.h"
 
 #include "TPS1HTC30/Keytps1htc30Group.h"
-#include "tools/timer/TimingManager.h"
+#include "timer/TimingManager.h"
 
 
 class ProtocolSender

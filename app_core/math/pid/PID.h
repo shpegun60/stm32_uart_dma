@@ -17,7 +17,7 @@ class PID
 {
 public:
 	PID() = default;
-	virtual ~PID();
+	virtual ~PID() = default;
 
 	/// @param  kp
 	///         Proportional gain

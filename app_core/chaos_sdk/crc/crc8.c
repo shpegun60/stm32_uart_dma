@@ -11,9 +11,9 @@
 
 // base init implementation ----------------------------
 //typedef void (*crc_init_func)(void* const crc);
-void crc8_maxim_init_base(void* const crc)
+void crc8_maxim_init_base(u8* const crc)
 {
-	*UINT8_TYPE_DC(crc) = CRC8INIT;
+	*crc = CRC8INIT;
 }
 
 #ifdef _MY_CRC8_TABLE_CALC_ENA
@@ -62,19 +62,19 @@ u8 fast_crc8_maxim_byte(const u8 crc, const u8 data)
 
 // base implementation ----------------------------
 //typedef void (*crc_array_func)(void* const crc, const u8* const data, const reg len);
-void fast_crc8_maxim_array_base(void* const crc, const u8* data, reg len)
+void fast_crc8_maxim_array_base(u8* const crc, const u8* data, reg len)
 {
-	u8 crc8 = *UINT8_TYPE_DC(crc);
+	u8 crc8 = *crc;
 	CRC8_FAST_ARRAY_PROCEED(crc8, data, len);
-	*UINT8_TYPE_DC(crc) = crc8;
+	*crc = crc8;
 }
 
 //typedef void (*crc_byte_func)(void* const crc, const u8 data);
-void fast_crc8_maxim_byte_base(void* const crc, const u8 data)
+void fast_crc8_maxim_byte_base(u8* const crc, const u8 data)
 {
-	u8 crc8 = *UINT8_TYPE_DC(crc);
+	u8 crc8 = *crc;
 	crc8 = CRC8_FAST_BYTE_PROCEED(crc8, data);
-	*UINT8_TYPE_DC(crc) = crc8;
+	*crc = crc8;
 }
 
 #undef CRC8_FAST_BYTE_PROCEED
@@ -112,19 +112,19 @@ u8 slow_crc8_maxim_byte(u8 crc, const u8 data)
 // base implementation ----------------------------
 
 //typedef void (*crc_array_func)(void* const crc, const u8* const data, const reg len);
-void slow_crc8_maxim_array_base(void* const crc, const u8* data, reg len)
+void slow_crc8_maxim_array_base(u8* const crc, const u8* data, reg len)
 {
-	u8 crc8 = *UINT8_TYPE_DC(crc);
+	u8 crc8 = *crc;
 	CRC8_SLOW_ARRAY_PROCEED(crc8, data, len);
-	*UINT8_TYPE_DC(crc) = crc8;
+	*crc = crc8;
 }
 
 //typedef void (*crc_byte_func)(void* const crc, const u8 data);
-void slow_crc8_maxim_byte_base(void* const crc, const u8 data)
+void slow_crc8_maxim_byte_base(u8* const crc, const u8 data)
 {
-	u8 crc8 = *UINT8_TYPE_DC(crc);
+	u8 crc8 = *crc;
 	CRC8_SLOW_BYTE_PROCEED(crc8, data);
-	*UINT8_TYPE_DC(crc) = crc8;
+	*crc = crc8;
 }
 
 #undef CRC8_SLOW_BYTE_PROCEED

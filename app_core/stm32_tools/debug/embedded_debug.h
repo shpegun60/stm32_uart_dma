@@ -35,8 +35,8 @@
  *
  *****************************************************************************/
 
-#ifndef DEBUG_H
-#define DEBUG_H
+#ifndef __EMBEDDED_DEBUG_H__
+#define __EMBEDDED_DEBUG_H__
 
 #include "stdint.h"
 #include "printf/printf.h"
@@ -96,4 +96,4 @@ void Debug_ResetStackUsage(void);
 
 
 /*! @} */
-#endif /* DEBUG_H */
+#endif /* __EMBEDDED_DEBUG_H__ */

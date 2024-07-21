@@ -8,10 +8,6 @@
 #include "PID.h"
 #include "math.h"
 
-PID::~PID() {
-	// TODO Auto-generated destructor stub
-}
-
 
 float PID::update(const float input, const float dt_s)
 {

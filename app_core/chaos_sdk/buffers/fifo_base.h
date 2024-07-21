@@ -43,11 +43,11 @@
 #define FIFO_CAPACITY(chield) ((chield)->base.cap)
 
 typedef struct fifo_base_ {
-	reg cap; 		/* buffer capacity power of 2 */
-	reg msk; 		/* (cap - 1) */
-	reg xor_msk; 	/* xor mask  (cap + msk)*/
-	reg tail;		/* tail pos */
-	reg head;		/* head pos */
+	reg cap; 				/* buffer capacity power of 2 */
+	reg msk; 				/* (cap - 1) */
+	reg xor_msk; 			/* xor mask  (cap + msk) */
+	volatile reg tail;		/* tail pos */
+	volatile reg head;		/* head pos */
 } fifo_base_t;
 
 // Determine whether x is a power of 2

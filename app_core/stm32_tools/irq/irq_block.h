@@ -1,7 +1,7 @@
 /*************************************************************************//**
  * @file
  * @brief       This file is part of the AFBR-S50 API.
- * @details
+ * @details     This file provides functionality to globally turn IRQs on/off.
  *
  * @copyright
  *
@@ -32,45 +32,25 @@
  * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
  * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
  *****************************************************************************/
 
-#include "main.h"
-#include <assert.h>
-#include "stm32_irq_block.h"
-
-/*! Global lock level counter value. */
-static volatile int g_irq_lock_ct;
-
+#ifndef IRQ_BLOCK_H
+#define IRQ_BLOCK_H
 
 /*!***************************************************************************
- * @brief   Enable IRQ Interrupts
- *
- * @details Enables IRQ interrupts by clearing the I-bit in the CPSR.
- *          Can only be executed in Privileged modes.
- *
- * @return  -
+ * @defgroup    IRQ IRQ: Global Interrupt Control
+ * @ingroup     driver
+ * @brief       Global IRQ Module
+ * @details     This module provides functionality to globally enable/disable
+ *              interrupts by turning the I-bit in the CPSR on/off.
+ * @addtogroup  IRQ
+ * @{
  *****************************************************************************/
-void IRQ_UNLOCK(void)
-{
-    assert(g_irq_lock_ct > 0);
-    if (--g_irq_lock_ct <= 0)
-    {
-        g_irq_lock_ct = 0;
-        __enable_irq();
-    }
-}
 
+void IRQ_UNLOCK(void);
 
-/*!***************************************************************************
- * @brief   Disable IRQ Interrupts
- *
- * @details Disables IRQ interrupts by setting the I-bit in the CPSR.
- *          Can only be executed in Privileged modes.
- *
- * @return  -
- *****************************************************************************/
-void IRQ_LOCK(void)
-{
-    __disable_irq();
-    ++g_irq_lock_ct;
-}
+void IRQ_LOCK(void);
+
+/*! @} */
+#endif /* IRQ_BLOCK_H */

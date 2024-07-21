@@ -8,13 +8,12 @@
 #ifndef RELAYCONTROLLER_H_
 #define RELAYCONTROLLER_H_
 
-#include "tools/timer/TimingManager.h"
+#include "timer/TimingManager.h"
 #include "ProtocolSender.h"
 #include "TPS1HTC30/Keytps1htc30Group.h"
 
 class RelayController
 {
-
 	RelayController();
 public:
 	~RelayController() = default;

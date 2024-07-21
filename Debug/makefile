@@ -9,15 +9,16 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
--include app_core/tools/uart/subdir.mk
--include app_core/tools/timer/subdir.mk
--include app_core/tools/math/subdir.mk
--include app_core/tools/irq/subdir.mk
--include app_core/tools/debug/printf/subdir.mk
--include app_core/tools/debug/subdir.mk
--include app_core/tools/adc/subdir.mk
--include app_core/stm32_printf/subdir.mk
+-include app_core/stm32_tools/uart/subdir.mk
+-include app_core/stm32_tools/timer/subdir.mk
+-include app_core/stm32_tools/stm32_printf/subdir.mk
+-include app_core/stm32_tools/irq/subdir.mk
+-include app_core/stm32_tools/debug/subdir.mk
+-include app_core/stm32_tools/adc/subdir.mk
+-include app_core/math/pid/subdir.mk
+-include app_core/math/moving_averrage/subdir.mk
 -include app_core/chaos_sdk/raw_parser/subdir.mk
+-include app_core/chaos_sdk/printf/subdir.mk
 -include app_core/chaos_sdk/preprocessor/subdir.mk
 -include app_core/chaos_sdk/my_ctype/runtime_cast/subdir.mk
 -include app_core/chaos_sdk/my_ctype/subdir.mk
@@ -29,6 +30,9 @@ RM := rm -rf
 -include app_core/chaos_sdk/byte_order/subdir.mk
 -include app_core/chaos_sdk/buffers/subdir.mk
 -include app_core/chaos_sdk/assertsEngine/subdir.mk
+-include app_core/chaos_pp/crc/subdir.mk
+-include app_core/chaos_pp/buffers/subdir.mk
+-include app_core/chaos_pp/KBus/subdir.mk
 -include app_core/TPS1HTC30/subdir.mk
 -include app_core/subdir.mk
 -include Drivers/STM32F1xx_HAL_Driver/Src/subdir.mk
@@ -106,8 +110,8 @@ all: main-build
 main-build: BluePill_generic_test.elf secondary-outputs
 
 # Tool invocations
-BluePill_generic_test.elf BluePill_generic_test.map: $(OBJS) $(USER_OBJS) C:\Users\admin\Documents\Work\STM32\TEST\BluePill_generic_test\STM32F103CBTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-g++ -o "BluePill_generic_test.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\admin\Documents\Work\STM32\TEST\BluePill_generic_test\STM32F103CBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BluePill_generic_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+BluePill_generic_test.elf BluePill_generic_test.map: $(OBJS) $(USER_OBJS) C:\Users\admin\Documents\Work\STM32\Target\BluePill_generic_test\STM32F103CBTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-g++ -o "BluePill_generic_test.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\admin\Documents\Work\STM32\Target\BluePill_generic_test\STM32F103CBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BluePill_generic_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

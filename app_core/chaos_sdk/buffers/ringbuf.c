@@ -73,7 +73,7 @@ reg ringbuf_get(ringbuf_t* const ring_buf, void* const buffer, const reg size)
 	const u8* const ring_ptr 			= ring_buf->buffer;
 	M_Assert_BreakSaveCheck(ring_ptr == NULL, M_EMPTY, return 0, "buffer is null");
 
-	reg tail_reg 				= ring_buf->base.tail;
+	const reg tail_reg 			= ring_buf->base.tail;
 	const reg head_reg 			= ring_buf->base.head;
 	const reg msk_reg			= ring_buf->base.msk;
 
@@ -96,11 +96,8 @@ reg ringbuf_get(ringbuf_t* const ring_buf, void* const buffer, const reg size)
 		memcpy(buffer, ring_ptr + tail_pos, size_constr);
 	}
 
-	// write data to memory ------------------------------------
-	tail_reg += size_constr;
-
 	// proceed signalls
-	ring_buf->base.tail 		= (tail_reg);
+	ring_buf->base.tail 		= (tail_reg + size_constr);
 	return size_constr;
 }
 
@@ -124,11 +121,8 @@ u8 ringbuf_getc(ringbuf_t* const ring_buf)
 	// do logic --------------------------------------------------
 	const u8 value = *(ring_ptr + tail_pos);
 
-	// write data to memory ------------------------------------
-	++tail_reg;
-
 	// proceed signalls
-	ring_buf->base.tail 		= (tail_reg);
+	ring_buf->base.tail 		= (tail_reg + 1);
 	return value;
 }
 
@@ -238,7 +232,7 @@ reg ringbuf_put(ringbuf_t* const ring_buf, const void *buffer, const reg size)
 	M_Assert_BreakSaveCheck(ring_ptr == NULL, M_EMPTY, return 0, "buffer is null");
 
 	const reg tail_reg 			= ring_buf->base.tail;
-	reg head_reg 				= ring_buf->base.head;
+	const reg head_reg 			= ring_buf->base.head;
 	const reg msk_reg			= ring_buf->base.msk;
 	const reg xor_msk_reg		= ring_buf->base.xor_msk;
 	const reg cap_reg			= ring_buf->base.cap;
@@ -263,11 +257,8 @@ reg ringbuf_put(ringbuf_t* const ring_buf, const void *buffer, const reg size)
 		memcpy(ring_ptr + head_pos, buffer, size_constr);
 	}
 
-	// write data to memory ------------------------------------------------
-	head_reg += size_constr;
-
 	// proceed signalls
-	ring_buf->base.head 	= (head_reg);
+	ring_buf->base.head 	= (head_reg + size_constr);
 	return size_constr;
 }
 
@@ -280,7 +271,7 @@ bool ringbuf_putc(ringbuf_t* const ring_buf, const u8 c)
 	u8* const ring_ptr 			= ring_buf->buffer;
 	M_Assert_BreakSaveCheck(ring_ptr == NULL, M_EMPTY, return false, "buffer is null");
 
-	reg head_reg 				= ring_buf->base.head;
+	const reg head_reg 			= ring_buf->base.head;
 	const reg tail_reg 			= ring_buf->base.tail;
 	const reg msk_reg			= ring_buf->base.msk;
 	const reg xor_msk_reg		= ring_buf->base.xor_msk;
@@ -292,10 +283,8 @@ bool ringbuf_putc(ringbuf_t* const ring_buf, const u8 c)
 
 	*(ring_ptr + head_pos) = c;
 
-	++head_reg;
-
 	// proceed signalls
-	ring_buf->base.head 	= (head_reg);
+	ring_buf->base.head 	= (head_reg + 1);
 
 	return true;
 }

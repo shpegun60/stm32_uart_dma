@@ -6,7 +6,7 @@
  */
 
 #include "Keytps1htc30Group.h"
-#include "tools/irq/stm32_irq_block.h"
+#include "irq/irq_block.h"
 
 Key_tps1htc30Group* const Key_tps1htc30Group::getInstance()
 {

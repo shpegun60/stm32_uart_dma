@@ -24,7 +24,14 @@ public:
 	};
 
 	error proceed(const uint32_t current_time, const T value);
-	void init(const T min, const T max, const uint32_t dt) { m_minimum = min; m_maximum = max; m_dt = dt; m_time_counter = 0; m_lastError = error::None; }
+	void init(const T min, const T max, const uint32_t dt) {
+		m_minimum = min;
+		m_maximum = max;
+		m_dt = dt;
+		m_time_counter = 0;
+		m_lastError = error::None;
+	}
+
 	void reset();
 private:
 	uint32_t m_time_counter = 0;

@@ -43,6 +43,9 @@ Core/Startup \
 Drivers/STM32F1xx_HAL_Driver/Src \
 app_core \
 app_core/TPS1HTC30 \
+app_core/chaos_pp/KBus \
+app_core/chaos_pp/buffers \
+app_core/chaos_pp/crc \
 app_core/chaos_sdk/assertsEngine \
 app_core/chaos_sdk/buffers \
 app_core/chaos_sdk/byte_order \
@@ -54,13 +57,14 @@ app_core/chaos_sdk/hash \
 app_core/chaos_sdk/my_ctype \
 app_core/chaos_sdk/my_ctype/runtime_cast \
 app_core/chaos_sdk/preprocessor \
+app_core/chaos_sdk/printf \
 app_core/chaos_sdk/raw_parser \
-app_core/stm32_printf \
-app_core/tools/adc \
-app_core/tools/debug \
-app_core/tools/debug/printf \
-app_core/tools/irq \
-app_core/tools/math \
-app_core/tools/timer \
-app_core/tools/uart \
+app_core/math/moving_averrage \
+app_core/math/pid \
+app_core/stm32_tools/adc \
+app_core/stm32_tools/debug \
+app_core/stm32_tools/irq \
+app_core/stm32_tools/stm32_printf \
+app_core/stm32_tools/timer \
+app_core/stm32_tools/uart \
 

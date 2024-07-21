@@ -24,30 +24,30 @@ app_core/app_core.o: ../app_core/app_core.cpp ../app_core/app_core.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h \
- C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/RelayController.h \
- C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/tools/timer/TimingManager.h \
- C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/ProtocolSender.h \
- C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/tools/uart/stm32_uart.h \
- C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/tools/uart/stm32_uart_config.h \
- C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/chaos_sdk/status.h \
- C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/tools/uart/stm32_uart_container.h \
- C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/chaos_sdk/buffers/pool_container.h \
- C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/chaos_sdk/buffers/fifo_base.h \
- C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/chaos_sdk/my_ctype/my_ctypes_def.h \
- C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/chaos_sdk/inline.h \
- C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/chaos_sdk/raw_parser/rawp_dynamic.h \
- C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/chaos_sdk/raw_parser/rawp_dynamic_stream.h \
- C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/chaos_sdk/raw_parser/rawp_dynamic_class.h \
- C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/chaos_sdk/buffers/ringbuf.h \
- C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/chaos_sdk/crc/crc_factory.h \
- C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/chaos_sdk/crc/crc_base.h \
- C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/chaos_sdk/callback_manager/callback_manager.h \
- C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/TPS1HTC30/Keytps1htc30Group.h \
- C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/stm32_meta.h \
- C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/tools/math/InRangeDetector.h \
- C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/tools/adc/Stm32ADCdma.h \
- C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/tools/math/FPMovingAverageArray.h \
- C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/tools/math/FPMovingAverageBase.h
+ C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/RelayController.h \
+ C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/stm32_tools/timer/TimingManager.h \
+ C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/ProtocolSender.h \
+ C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/stm32_tools/uart/stm32_uart.h \
+ C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/stm32_tools/uart/stm32_uart_config.h \
+ C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/chaos_sdk/status.h \
+ C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/stm32_tools/uart/stm32_uart_container.h \
+ C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/chaos_sdk/buffers/pool_container.h \
+ C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/chaos_sdk/buffers/fifo_base.h \
+ C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/chaos_sdk/my_ctype/my_ctypes_def.h \
+ C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/chaos_sdk/inline.h \
+ C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/chaos_sdk/raw_parser/rawp_dynamic.h \
+ C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/chaos_sdk/raw_parser/rawp_dynamic_stream.h \
+ C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/chaos_sdk/raw_parser/rawp_dynamic_class.h \
+ C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/chaos_sdk/buffers/ringbuf.h \
+ C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/chaos_sdk/crc/crc_factory.h \
+ C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/chaos_sdk/crc/crc_base.h \
+ C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/chaos_sdk/callback_manager/callback_manager.h \
+ C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/TPS1HTC30/Keytps1htc30Group.h \
+ C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/stm32_meta.h \
+ C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/math/in_range/InRangeDetector.h \
+ C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/stm32_tools/adc/Stm32ADCdma.h \
+ C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/math/moving_averrage/FPMovingAverageArray.h \
+ C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/math/moving_averrage/FPMovingAverageBase.h
 ../app_core/app_core.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:
@@ -75,27 +75,27 @@ app_core/app_core.o: ../app_core/app_core.cpp ../app_core/app_core.h \
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:
-C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/RelayController.h:
-C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/tools/timer/TimingManager.h:
-C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/ProtocolSender.h:
-C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/tools/uart/stm32_uart.h:
-C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/tools/uart/stm32_uart_config.h:
-C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/chaos_sdk/status.h:
-C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/tools/uart/stm32_uart_container.h:
-C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/chaos_sdk/buffers/pool_container.h:
-C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/chaos_sdk/buffers/fifo_base.h:
-C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/chaos_sdk/my_ctype/my_ctypes_def.h:
-C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/chaos_sdk/inline.h:
-C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/chaos_sdk/raw_parser/rawp_dynamic.h:
-C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/chaos_sdk/raw_parser/rawp_dynamic_stream.h:
-C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/chaos_sdk/raw_parser/rawp_dynamic_class.h:
-C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/chaos_sdk/buffers/ringbuf.h:
-C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/chaos_sdk/crc/crc_factory.h:
-C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/chaos_sdk/crc/crc_base.h:
-C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/chaos_sdk/callback_manager/callback_manager.h:
-C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/TPS1HTC30/Keytps1htc30Group.h:
-C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/stm32_meta.h:
-C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/tools/math/InRangeDetector.h:
-C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/tools/adc/Stm32ADCdma.h:
-C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/tools/math/FPMovingAverageArray.h:
-C:/Users/admin/Documents/Work/STM32/TEST/BluePill_generic_test/app_core/tools/math/FPMovingAverageBase.h:
+C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/RelayController.h:
+C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/stm32_tools/timer/TimingManager.h:
+C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/ProtocolSender.h:
+C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/stm32_tools/uart/stm32_uart.h:
+C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/stm32_tools/uart/stm32_uart_config.h:
+C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/chaos_sdk/status.h:
+C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/stm32_tools/uart/stm32_uart_container.h:
+C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/chaos_sdk/buffers/pool_container.h:
+C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/chaos_sdk/buffers/fifo_base.h:
+C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/chaos_sdk/my_ctype/my_ctypes_def.h:
+C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/chaos_sdk/inline.h:
+C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/chaos_sdk/raw_parser/rawp_dynamic.h:
+C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/chaos_sdk/raw_parser/rawp_dynamic_stream.h:
+C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/chaos_sdk/raw_parser/rawp_dynamic_class.h:
+C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/chaos_sdk/buffers/ringbuf.h:
+C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/chaos_sdk/crc/crc_factory.h:
+C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/chaos_sdk/crc/crc_base.h:
+C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/chaos_sdk/callback_manager/callback_manager.h:
+C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/TPS1HTC30/Keytps1htc30Group.h:
+C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/stm32_meta.h:
+C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/math/in_range/InRangeDetector.h:
+C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/stm32_tools/adc/Stm32ADCdma.h:
+C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/math/moving_averrage/FPMovingAverageArray.h:
+C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/math/moving_averrage/FPMovingAverageBase.h:

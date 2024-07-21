@@ -11,7 +11,7 @@
 #include "main.h"
 
 #ifdef HAL_ADC_MODULE_ENABLED
-#include "tools/math/FPMovingAverageArray.h"
+#include "moving_averrage/FPMovingAverageArray.h"
 
 class Stm32ADC_dma
 {
