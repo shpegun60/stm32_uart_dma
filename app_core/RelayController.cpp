@@ -23,7 +23,7 @@ void RelayController::init_all()
 	// init adc ---------------------------------------------------------
 	extern ADC_HandleTypeDef hadc1;
 
-	Stm32ADC_dma::Stm32ADC_init adc_init =  {
+	Stm32ADC_dma::Init adc_init =  {
 			.hadc = &hadc1,
 			.filter = 1.0/512.0
 	};

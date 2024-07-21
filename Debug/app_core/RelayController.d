@@ -47,7 +47,8 @@ app_core/RelayController.o: ../app_core/RelayController.cpp \
  C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/math/in_range/InRangeDetector.h \
  C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/stm32_tools/adc/Stm32ADCdma.h \
  C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/math/moving_averrage/FPMovingAverageArray.h \
- C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/math/moving_averrage/FPMovingAverageBase.h
+ C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/math/moving_averrage/FPMovingAverageBase.h \
+ C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/chaos_pp/my_cpp_types.h
 C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/RelayController.h:
 C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/stm32_tools/timer/TimingManager.h:
 C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/ProtocolSender.h:
@@ -98,3 +99,4 @@ C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/math/i
 C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/stm32_tools/adc/Stm32ADCdma.h:
 C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/math/moving_averrage/FPMovingAverageArray.h:
 C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/math/moving_averrage/FPMovingAverageBase.h:
+C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/chaos_pp/my_cpp_types.h:

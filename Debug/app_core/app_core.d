@@ -47,7 +47,8 @@ app_core/app_core.o: ../app_core/app_core.cpp ../app_core/app_core.h \
  C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/math/in_range/InRangeDetector.h \
  C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/stm32_tools/adc/Stm32ADCdma.h \
  C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/math/moving_averrage/FPMovingAverageArray.h \
- C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/math/moving_averrage/FPMovingAverageBase.h
+ C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/math/moving_averrage/FPMovingAverageBase.h \
+ C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/chaos_pp/my_cpp_types.h
 ../app_core/app_core.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:
@@ -99,3 +100,4 @@ C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/math/i
 C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/stm32_tools/adc/Stm32ADCdma.h:
 C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/math/moving_averrage/FPMovingAverageArray.h:
 C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/math/moving_averrage/FPMovingAverageBase.h:
+C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/chaos_pp/my_cpp_types.h:

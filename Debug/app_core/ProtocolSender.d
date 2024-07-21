@@ -46,6 +46,7 @@ app_core/ProtocolSender.o: ../app_core/ProtocolSender.cpp \
  C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/stm32_tools/adc/Stm32ADCdma.h \
  C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/math/moving_averrage/FPMovingAverageArray.h \
  C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/math/moving_averrage/FPMovingAverageBase.h \
+ C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/chaos_pp/my_cpp_types.h \
  C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/stm32_tools/timer/TimingManager.h \
  C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/chaos_sdk/assertsEngine/assert_engine.h \
  C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/chaos_sdk/assertsEngine/assert_engine_port.h \
@@ -98,6 +99,7 @@ C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/math/i
 C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/stm32_tools/adc/Stm32ADCdma.h:
 C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/math/moving_averrage/FPMovingAverageArray.h:
 C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/math/moving_averrage/FPMovingAverageBase.h:
+C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/chaos_pp/my_cpp_types.h:
 C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/stm32_tools/timer/TimingManager.h:
 C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/chaos_sdk/assertsEngine/assert_engine.h:
 C:/Users/admin/Documents/Work/STM32/Target/BluePill_generic_test/app_core/chaos_sdk/assertsEngine/assert_engine_port.h:

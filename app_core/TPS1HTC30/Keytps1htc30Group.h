@@ -70,7 +70,7 @@ public:
 
 	//initialization functions
 	static Key_tps1htc30Group* const getInstance();
-	inline void initAdc(const Stm32ADC_dma::Stm32ADC_init& settings) { m_adc.init(settings); }
+	inline void initAdc(const Stm32ADC_dma::Init& settings) { m_adc.init(settings); }
 	inline Stm32ADC_dma* const getAdc() { return &m_adc; }
 	bool initKey(const KeyInit& setting, const uint8_t group_id);
 	bool initGroup(const GroupInit& setting, const uint8_t group_id);
