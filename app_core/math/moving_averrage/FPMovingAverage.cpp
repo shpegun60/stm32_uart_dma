@@ -10,6 +10,6 @@
 
 uint32_t FP_MovingAverage::proceed(const uint32_t x)
 {
-	baseProceed(x, m_y, m_y_state);
+	FP_MovingAverageBase::proceed(x, m_y, m_y_state);
 	return m_y;
 }

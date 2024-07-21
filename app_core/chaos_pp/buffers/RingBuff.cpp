@@ -10,6 +10,7 @@
 #include <cstdlib>
 #include <cassert>
 
+#include "crc/CrcCalculator.h"
 
 RingBuff::~RingBuff()
 {
@@ -172,7 +173,7 @@ u8 RingBuff::peekc()
   * *********************************************************
   */
 
-reg RingBuff::put(void* const buffer, const reg size)
+reg RingBuff::put(const void* const buffer, const reg size)
 {
 	// move to registers------------------------------------------------------
 	u8* const ring_ptr 			= static_cast<u8*>(this->buffer);
@@ -212,7 +213,7 @@ bool RingBuff::putc(const u8 c)
 	// move to registers------------------------------------------------------
 	u8* const ring_ptr 			= static_cast<u8*>(this->buffer);
 	if(ring_ptr == nullptr || isFull()) {
-		return 0;
+		return false;
 	}
 
 	const reg head_reg 			= getHead();
@@ -226,4 +227,35 @@ bool RingBuff::putc(const u8 c)
 	return true;
 }
 
+/*
+  * *********************************************************
+  * CRC calculation
+  * *********************************************************
+  */
+void RingBuff::crc_from(CrcCalculator &crc, const RingBuff &from)
+{
+	// move to registers------------------------------------------
+	const u8* const ring_ptr 			= static_cast<u8*>(from.buffer);
+	if(ring_ptr == nullptr || from.isEmpty()) {
+		return;
+	}
 
+	const reg tail_reg 			= from.getTail();
+	const reg msk_reg			= from.getMask();
+
+	const reg n_elem 			= from.length();								// get n elements
+	const reg tail_pos 			= tail_reg & msk_reg;					// get tail position
+	const reg remaining_to_end 	= from.capacity() - tail_pos;				// get remaining from tail to end
+
+	// do logic --------------------------------------------------
+	if(n_elem > remaining_to_end) {
+		const reg remaining_n		= n_elem - remaining_to_end;
+		/* first get the data from fifo->out until the end of the buffer */
+		crc.array(ring_ptr + tail_pos, remaining_to_end);
+		/* then get the rest (if any) from the beginning of the buffer */
+		crc.array(ring_ptr, remaining_n);
+	} else {
+		/* get all the data */
+		crc.array(ring_ptr + tail_pos, n_elem);
+	}
+}

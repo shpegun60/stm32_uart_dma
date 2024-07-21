@@ -14,26 +14,22 @@ FP_MovingAverageArray::~FP_MovingAverageArray()
 	delete[] m_y;
 }
 
-void FP_MovingAverageArray::allocArrays(const uint8_t n)
+bool FP_MovingAverageArray::init(const u8 n, const f32 alpha, const u8 Q)
 {
-	m_y_states = new uint32_t[n];
-	m_y = new uint32_t[n];
+	if(!FP_MovingAverageBase::init(alpha, Q)) {
+		return false;
+	}
+
+	m_y_states = new u32[n];
+	m_y = new u32[n];
 	m_n = n;
+
+	return true;
 }
 
-void FP_MovingAverageArray::proceed(uint16_t* const values)
+void FP_MovingAverageArray::proceed(const u16* const values)
 {
-	uint8_t n = m_n;
-	uint16_t* x_ptr = values;
-	uint32_t* y_ptr = m_y;
-	uint32_t* y_state_ptr = m_y_states;
-
-	while(n) {
-		baseProceed(*x_ptr, *y_ptr, *y_state_ptr);
-
-		++x_ptr;
-		++y_ptr;
-		++y_state_ptr;
-		--n;
+	for(u8 i = 0; i != m_n; ++i) {
+		FP_MovingAverageBase::proceed(values[i], m_y[i], m_y_states[i]);
 	}
 }

@@ -10,7 +10,7 @@
 
 #ifdef HAL_ADC_MODULE_ENABLED
 
-Stm32ADC_dma* Stm32ADC_dma::instance = nullptr;
+std::vector<Stm32ADC_dma*> Stm32ADC_dma::m_objects;
 
 Stm32ADC_dma::~Stm32ADC_dma()
 {
@@ -18,29 +18,30 @@ Stm32ADC_dma::~Stm32ADC_dma()
 	delete[] adc_values;
 }
 
+void Stm32ADC_dma::init(const Init& settings)
+{
+	m_hadc = settings.hadc;
+	n_channels = settings.hadc->Init.NbrOfConversion;
+	adc_values = new uint16_t[n_channels];
+
+	// push class to vector
+	m_objects.push_back(this);
+	// init filter
+	ma.init(n_channels, settings.filter, 16);
+}
+
 bool Stm32ADC_dma::start()
 {
 	if(n_channels) {
-		HAL_ADC_Start_DMA(m_hadc, (uint32_t*)adc_values, n_channels);
+		HAL_ADC_Start_DMA(m_hadc, (u32*)adc_values, n_channels);
 		return true;
 	}
 
 	return false;
 }
 
-void Stm32ADC_dma::init(const Stm32ADC_init& settings)
-{
-	m_hadc = settings.hadc;
-	n_channels = settings.hadc->Init.NbrOfConversion;
-	adc_values = new uint16_t[n_channels];
 
-	Stm32ADC_dma::instance = this;
-
-	ma.init(settings.filter, 16);
-	ma.allocArrays(n_channels);
-}
-
-bool Stm32ADC_dma::proceed(const uint32_t current_time)
+bool Stm32ADC_dma::proceed(const u32 current_time)
 {
 	if(calculated) {
 		ma.proceed(adc_values);
@@ -56,11 +57,15 @@ bool Stm32ADC_dma::proceed(const uint32_t current_time)
 }
 
 
-
+/*
+ * *********************************************************************************
+ * IT
+ * *********************************************************************************
+ */
 
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
 {
-	Stm32ADC_dma* const root = Stm32ADC_dma::getObject(hadc);
+	Stm32ADC_dma* const root = Stm32ADC_dma::adcToClass(hadc);
 	if(root) {
 		root->calculateFinished();
 	}

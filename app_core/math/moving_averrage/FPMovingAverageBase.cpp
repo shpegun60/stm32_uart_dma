@@ -9,11 +9,11 @@
 #include <cmath>
 
 
-bool FP_MovingAverageBase::init(const float alpha, const uint8_t Q)
+bool FP_MovingAverageBase::init(const float alpha, const u8 Q)
 {
 	const int N = -std::log2(alpha);
 
-	if((Q + N) > 32 || N < 0) {
+	if(N < 0 || static_cast<u32>(Q + N) > sizeof(u32)) {
 		return false;
 	}
 
@@ -21,7 +21,7 @@ bool FP_MovingAverageBase::init(const float alpha, const uint8_t Q)
 	m_Q = Q;
 	m_diff_b = (m_Q - m_N);
 	m_alpha = alpha;
-	m_alpha_scaled = static_cast<uint32_t>(static_cast<float>(1 << Q) * alpha);
+	m_alpha_scaled = static_cast<u32>(static_cast<float>(1 << Q) * alpha);
 
 	return true;
 }

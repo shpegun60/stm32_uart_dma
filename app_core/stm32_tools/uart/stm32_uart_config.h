@@ -7,8 +7,14 @@
 
 #ifndef TOOLS_UART_STM32_UART_CONFIG_H_
 #define TOOLS_UART_STM32_UART_CONFIG_H_
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 #include "main.h"
+
+#if defined(HAL_DMA_MODULE_ENABLED) && (defined(HAL_UART_MODULE_ENABLED) || defined(HAL_USART_MODULE_ENABLED))
+
 #include "status.h"
 #include <stdbool.h>
 #include <stdint.h>
@@ -56,7 +62,7 @@ enum StatusUART
  * @param   size The size of the received data.
  * @return  -
  *****************************************************************************/
-typedef void (*uart_rx_callback_t)(uint8_t const * data, uint32_t const size, void* const captured);
+typedef void (*uart_rx_callback_t)(uint8_t* const data, uint32_t const size, void* const captured);
 
 /*!***************************************************************************
  * @brief   SCI physical layer transmit done callback function type.
@@ -111,5 +117,9 @@ typedef struct stm32_DMA_uart {
 	} Error;
 
 } stm32_DMA_uart_t;
+#endif /* defined(HAL_DMA_MODULE_ENABLED) && (defined(HAL_UART_MODULE_ENABLED) || defined(HAL_USART_MODULE_ENABLED)) */
 
+#ifdef __cplusplus
+} // extern "C"
+#endif
 #endif /* TOOLS_UART_STM32_UART_CONFIG_H_ */

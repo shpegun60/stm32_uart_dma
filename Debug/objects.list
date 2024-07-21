@@ -30,7 +30,7 @@
 "./app_core/app_core.o"
 "./app_core/TPS1HTC30/Key_tps1htc30.o"
 "./app_core/TPS1HTC30/Keytps1htc30Group.o"
-"./app_core/chaos_pp/KBus/RawParser.o"
+"./app_core/chaos_pp/KBus/RawParserDynamic.o"
 "./app_core/chaos_pp/buffers/PoolContainer.o"
 "./app_core/chaos_pp/buffers/RingBase.o"
 "./app_core/chaos_pp/buffers/RingBuff.o"

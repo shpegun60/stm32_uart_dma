@@ -12,11 +12,12 @@
 
 #ifdef HAL_ADC_MODULE_ENABLED
 #include "moving_averrage/FPMovingAverageArray.h"
+#include <vector>
 
 class Stm32ADC_dma
 {
 public:
-	struct Stm32ADC_init {
+	struct Init {
 		ADC_HandleTypeDef* hadc;
 		float filter;
 	};
@@ -24,35 +25,48 @@ public:
 public:
 	Stm32ADC_dma() = default;
 	~Stm32ADC_dma();
-	inline void calculateFinished() { calculated = true;}
 
+	// start, init, proceed functions ----------------------------------------
+	void init(const Init&);
 	bool start();
-	void init(const Stm32ADC_init&);
-	inline void setFilter(const float filter) {ma.setAlpha(filter);}
+	bool proceed(const u32 current_time);
 
-	inline uint32_t getAdc(int i) const {return ma.getOut(i);}
-	inline uint8_t getChannels() const { return n_channels; }
+	inline void setFilter(const float filter) { ma.setAlpha(filter); }
 
-	bool proceed(const uint32_t current_time);
-	static inline Stm32ADC_dma* const getObject(ADC_HandleTypeDef* const hadc) {
-		if(instance->m_hadc == hadc) {
-			return instance;
-		}
+	// getting results -----------------------------------------------
+	inline u32 getAdc(const u8 i) const {return ma.getOut(i);}
+	inline u8 getChannels() const { return n_channels; }
 
-		return nullptr;
-	}
+	// from interrupt must be call ------------------------------------------
+	inline void calculateFinished() { calculated = true; }
+	static inline Stm32ADC_dma* const adcToClass(ADC_HandleTypeDef* const hadc);
 private:
+	// adc instances
 	ADC_HandleTypeDef* m_hadc = nullptr;
-	uint8_t n_channels = 0;
+	u8 n_channels = 0;
 
-	uint16_t* adc_values = nullptr;
+	// adc values
+	u16* adc_values = nullptr;
 	volatile bool calculated = false;
+
+	// filter instance
 	FP_MovingAverageArray ma;
 
-
-	// object container
-	static Stm32ADC_dma* instance;
+	// objects container
+	static std::vector<Stm32ADC_dma*> m_objects;
 };
+
+
+
+inline Stm32ADC_dma* const Stm32ADC_dma::adcToClass(ADC_HandleTypeDef* const hadc)
+{
+	for(Stm32ADC_dma* const it : m_objects) {
+		if(it->m_hadc == hadc) {
+			return it;
+		}
+	}
+	return nullptr;
+}
 
 #endif /* HAL_ADC_MODULE_ENABLED */
 

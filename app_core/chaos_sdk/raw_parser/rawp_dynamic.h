@@ -48,7 +48,7 @@ void rawP_dynamic_proceed(RawParser_dynamic_t* const self);
  *
  */
 // fast shield functions (no copy)-----------------------------------------------------------------------------------------
-bool rawP_dynamic_startTransmittPacket(RawParser_dynamic_t* const self, reg len);
+bool rawP_dynamic_startTransmittPacket(RawParser_dynamic_t* const self, u16 len);
 ringbuf_t* const rawP_dynamic_finishTransmittPacket(RawParser_dynamic_t* const self);
 
 STATIC_FORCEINLINE bool rawP_dynamic_install_txbuf(RawParser_dynamic_t* const self, void* const buffer)

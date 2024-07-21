@@ -14,13 +14,19 @@ class CrcBase
 {
 public:
     explicit CrcBase(const u8 size);
-    CrcBase(const CrcBase& other); 	// Copy constructor
-    ~CrcBase(); 					// Destructor
+    CrcBase(const CrcBase& other); 			// Copy constructor
+    ~CrcBase(); 							// Destructor
 
-    bool operator==(const CrcBase& other) const; // Equality operator
+    // Equality operator
+    bool operator==(const CrcBase& other) const;
+    // operator[]
+    u8 at(const reg index);
+    void put(const reg index, const u8 b);
+    u8& operator[](const reg index);
+    const u8& operator[](const reg index) const;
 
-    inline void* const getCrc() const { return m_crc; }
-    inline u8 crcSize() const { return m_crc_size; }
+    inline void* const crc() const { return m_crc; }
+    inline u8 size() const { return m_crc_size; }
 
 protected:
     void* m_crc = nullptr; 	// Pointer to dynamically allocated memory

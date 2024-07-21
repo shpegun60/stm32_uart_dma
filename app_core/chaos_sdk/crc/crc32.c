@@ -10,9 +10,9 @@
 
 // base init implementation ----------------------------
 //typedef void (*crc_init_func)(void* const crc);
-void crc32b_init_base(void* const crc)
+void crc32b_init_base(u32* const crc)
 {
-	*UINT32_TYPE_DC(crc) = CRC32INIT;
+	*crc = CRC32INIT;
 }
 
 #ifdef _MY_CRC32_TABLE_CALC_ENA
@@ -77,19 +77,19 @@ u32 fast_crc32b_byte(const u32 crc, const u8 data) // must ~crc if last byte
 
 // base implementation ----------------------------
 //typedef void (*crc_array_func)(void* const crc, const u8* const data, const reg len);
-void fast_crc32b_array_base(void* const crc, const u8* data, reg len)
+void fast_crc32b_array_base(u32* const crc, const u8* data, reg len)
 {
-	u32 crc32 = *UINT32_TYPE_DC(crc);
+	u32 crc32 = *crc;
 	CRC32_FAST_ARRAY_PROCEED(crc32, data, len);
-	*UINT32_TYPE_DC(crc) = crc32;
+	*crc = crc32;
 }
 
 //typedef void (*crc_byte_func)(void* const crc, const u8 data);
-void fast_crc32b_byte_base(void* const crc, const u8 data)
+void fast_crc32b_byte_base(u32* const crc, const u8 data)
 {
-	u32 crc32 = *UINT32_TYPE_DC(crc);
+	u32 crc32 = *crc;
 	crc32 = CRC32_FAST_BYTE_PROCEED(crc32, data);
-	*UINT32_TYPE_DC(crc) = crc32;
+	*crc = crc32;
 }
 
 #undef CRC32_FAST_BYTE_PROCEED
@@ -131,19 +131,19 @@ u32 slow_crc32b_byte(u32 crc, const u8 data) // must ~crc if last byte
 
 // base implementation ----------------------------
 //typedef void (*crc_array_func)(void* const crc, const u8* const data, const reg len);
-void slow_crc32b_array_base(void* const crc, const u8* data, reg len)
+void slow_crc32b_array_base(u32* const crc, const u8* data, reg len)
 {
-	u32 crc32 = *UINT32_TYPE_DC(crc);
+	u32 crc32 = *crc;
 	CRC32_SLOW_ARRAY_PROCEED(crc32, data, len);
-	*UINT32_TYPE_DC(crc) = crc32;
+	*crc = crc32;
 }
 
 //typedef void (*crc_byte_func)(void* const crc, const u8 data);
-void slow_crc32b_byte_base(void* const crc, const u8 data)
+void slow_crc32b_byte_base(u32* const crc, const u8 data)
 {
-	u32 crc32 = *UINT32_TYPE_DC(crc);
+	u32 crc32 = *crc;
 	CRC32_SLOW_BYTE_PROCEED(crc32, data);
-	*UINT32_TYPE_DC(crc) = crc32;
+	*crc = crc32;
 }
 
 

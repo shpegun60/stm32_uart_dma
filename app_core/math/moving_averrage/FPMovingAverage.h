@@ -15,7 +15,7 @@ class FP_MovingAverage : public FP_MovingAverageBase
 {
 public:
 	FP_MovingAverage() = default;
-	~FP_MovingAverage() = default;
+	~FP_MovingAverage() override final = default;
 
 	uint32_t proceed(const uint32_t value);
 private:

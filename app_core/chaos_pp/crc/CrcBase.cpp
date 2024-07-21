@@ -39,3 +39,28 @@ bool CrcBase::operator==(const CrcBase& other) const
 
     return std::memcmp(m_crc, other.m_crc, m_crc_size) == 0; // Compare memory
 }
+
+// Operator[]
+u8 CrcBase::at(const reg index)
+{
+	if(index < m_crc_size) {
+		return static_cast<u8*>(m_crc)[index];
+	}
+	return 0;
+}
+
+void CrcBase::put(const reg index, const u8 b)
+{
+	if(index < m_crc_size) {
+		static_cast<u8*>(m_crc)[index] = b;
+	}
+}
+u8& CrcBase::operator[](const reg index)
+{
+	return static_cast<u8*>(m_crc)[index];
+}
+
+const u8& CrcBase::operator[](const reg index) const
+{
+    return static_cast<const u8*>(m_crc)[index];
+}

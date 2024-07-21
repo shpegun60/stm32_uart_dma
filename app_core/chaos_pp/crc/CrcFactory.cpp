@@ -44,7 +44,6 @@ CrcCalculator* const CrcFactory::createCRC(const CrcStrategy type)
 #else
 		return nullptr;
 #endif /* _MY_CRC8_ENA */
-
 		break;}
 
 	case CrcStrategy::CRC16: {

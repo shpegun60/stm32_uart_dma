@@ -10,9 +10,9 @@
 
 // base init implementation ----------------------------
 //typedef void (*crc_init_func)(void* const crc);
-void crc64jones_init_base(void* const crc)
+void crc64jones_init_base(u64* const crc)
 {
-	*UINT64_TYPE_DC(crc) = CRC64INIT;
+	*crc = CRC64INIT;
 }
 
 
@@ -77,19 +77,19 @@ u64 fast_crc64jones_byte(const u64 crc, const u8 data)
 
 // base implementation ----------------------------
 //typedef void (*crc_array_func)(void* const crc, const u8* const data, const reg len);
-void fast_crc64jones_array_base(void* const crc, const u8* data, reg len)
+void fast_crc64jones_array_base(u64* const crc, const u8* data, reg len)
 {
-	u64 crc64 = *UINT64_TYPE_DC(crc);
+	u64 crc64 = *crc;
 	CRC64_FAST_ARRAY_PROCEED(crc64, data, len);
-	*UINT64_TYPE_DC(crc) = crc64;
+	*crc = crc64;
 }
 
 //typedef void (*crc_byte_func)(void* const crc, const u8 data);
-void fast_crc64jones_byte_base(void* const crc, const u8 data)
+void fast_crc64jones_byte_base(u64* const crc, const u8 data)
 {
-	u64 crc64 = *UINT64_TYPE_DC(crc);
+	u64 crc64 = *crc;
 	crc64 = CRC64_FAST_BYTE_PROCEED(crc64, data);
-	*UINT64_TYPE_DC(crc) = crc64;
+	*crc = crc64;
 }
 
 
@@ -130,19 +130,19 @@ u64 slow_crc64jones_byte(u64 crc, const u8 data)
 
 // base implementation ----------------------------
 //typedef void (*crc_array_func)(void* const crc, const u8* const data, const reg len);
-void slow_crc64jones_array_base(void* const crc, const u8* data, reg len)
+void slow_crc64jones_array_base(u64* const crc, const u8* data, reg len)
 {
-	u64 crc64 = *UINT64_TYPE_DC(crc);
+	u64 crc64 = *crc;
 	CRC64_SLOW_ARRAY_PROCEED(crc64, data, len);
-	*UINT64_TYPE_DC(crc) = crc64;
+	*crc = crc64;
 }
 
 //typedef void (*crc_byte_func)(void* const crc, const u8 data);
-void slow_crc64jones_byte_base(void* const crc, const u8 data)
+void slow_crc64jones_byte_base(u64* const crc, const u8 data)
 {
-	u64 crc64 = *UINT64_TYPE_DC(crc);
+	u64 crc64 = *crc;
 	CRC64_SLOW_BYTE_PROCEED(crc64, data);
-	*UINT64_TYPE_DC(crc) = crc64;
+	*crc = crc64;
 }
 
 #undef CRC64_SLOW_BYTE_PROCEED

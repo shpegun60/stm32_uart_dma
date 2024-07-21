@@ -5,9 +5,10 @@
  *      Author: admin
  */
 #include "main.h"
+
+#if defined(HAL_DMA_MODULE_ENABLED) && (defined(HAL_UART_MODULE_ENABLED) || defined(HAL_USART_MODULE_ENABLED))
+
 #include "stm32_uart.h"
-
-
 
 // callbacks IT --------------------------------------------------------------------------------------------
 void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
@@ -33,3 +34,5 @@ void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart)
 		UART_ErrorCallback(uart_instance);
 	}
 }
+
+#endif /* defined(HAL_DMA_MODULE_ENABLED) && (defined(HAL_UART_MODULE_ENABLED) || defined(HAL_USART_MODULE_ENABLED)) */

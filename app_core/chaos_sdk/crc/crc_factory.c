@@ -35,9 +35,9 @@ static crc_strategy_t* const newCRC16(void)
 {
 	crc_strategy_t* const crc = malloc(sizeof(crc_strategy_t));
 	CRC_BASE_INIT(crc, sizeof(u16));
-    crc->crc_init = _MY_CRC16_INIT_BASE;
-    crc->crc_array = _MY_CRC16_ARRAY_BASE;
-    crc->crc_byte = _MY_CRC16_BYTE_BASE;
+    crc->crc_init = (crc_init_func)_MY_CRC16_INIT_BASE;
+    crc->crc_array = (crc_array_func)_MY_CRC16_ARRAY_BASE;
+    crc->crc_byte = (crc_byte_func)_MY_CRC16_BYTE_BASE;
     _MY_CRC16_INIT_BASE(crc->base.crc);
 	return crc;
 }
@@ -51,9 +51,9 @@ static crc_strategy_t* const newCRC32(void)
 {
 	crc_strategy_t* const crc = malloc(sizeof(crc_strategy_t));
 	CRC_BASE_INIT(crc, sizeof(u32));
-    crc->crc_init = _MY_CRC32_INIT_BASE;
-    crc->crc_array = _MY_CRC32_ARRAY_BASE;
-    crc->crc_byte = _MY_CRC32_BYTE_BASE;
+    crc->crc_init = (crc_init_func)_MY_CRC32_INIT_BASE;
+    crc->crc_array = (crc_array_func)_MY_CRC32_ARRAY_BASE;
+    crc->crc_byte = (crc_byte_func)_MY_CRC32_BYTE_BASE;
     _MY_CRC32_INIT_BASE(crc->base.crc);
 	return crc;
 }
@@ -69,9 +69,9 @@ static crc_strategy_t* const newCRC64(void)
 {
 	crc_strategy_t* const crc = malloc(sizeof(crc_strategy_t));
 	CRC_BASE_INIT(crc, sizeof(u64));
-    crc->crc_init = _MY_CRC64_INIT_BASE;
-    crc->crc_array = _MY_CRC64_ARRAY_BASE;
-    crc->crc_byte = _MY_CRC64_BYTE_BASE;
+    crc->crc_init = (crc_init_func)_MY_CRC64_INIT_BASE;
+    crc->crc_array = (crc_array_func)_MY_CRC64_ARRAY_BASE;
+    crc->crc_byte = (crc_byte_func)_MY_CRC64_BYTE_BASE;
     _MY_CRC8_INIT_BASE(crc->base.crc);
 	return crc;
 }

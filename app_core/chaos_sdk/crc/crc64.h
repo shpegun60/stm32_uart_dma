@@ -1,5 +1,9 @@
 #ifndef __CRC64_H__
 #define __CRC64_H__ 1
+#ifdef __cplusplus
+extern "C" {
+#endif /* __cplusplus */
+
 
 #include "my_crc_port.h"
 
@@ -68,7 +72,7 @@ int crc64_test(u8 *data, reg len, u64 *res);
 #define CRC64CHECK ((u64)0xe9c6d914c4b8d9caULL)
 #define CRC64FINAL(crc) /* ignored expression */
 
-void crc64jones_init_base(void* const crc);
+void crc64jones_init_base(u64* const crc);
 
 #ifdef _MY_CRC64_TABLE_CALC_ENA
 
@@ -77,8 +81,8 @@ u64 fast_crc64jones_array(const u8 * data, reg len);
 u64 fast_crc64jones_byte(const u64 crc, const u8 data);
 
 // base implementation ----------------------------
-void fast_crc64jones_array_base(void* const crc, const u8* data, reg len);
-void fast_crc64jones_byte_base(void* const crc, const u8 data);
+void fast_crc64jones_array_base(u64* const crc, const u8* data, reg len);
+void fast_crc64jones_byte_base(u64* const crc, const u8 data);
 
 #endif /* _MY_CRC64_TABLE_CALC_ENA */
 
@@ -89,8 +93,8 @@ u64 slow_crc64jones_array(const u8 * data, reg len);
 u64 slow_crc64jones_byte(u64 crc, const u8 data);
 
 // base implementation ----------------------------
-void slow_crc64jones_array_base(void* const crc, const u8* data, reg len);
-void slow_crc64jones_byte_base(void* const crc, const u8 data);
+void slow_crc64jones_array_base(u64* const crc, const u8* data, reg len);
+void slow_crc64jones_byte_base(u64* const crc, const u8 data);
 
 
 #endif /* _MY_CRC64_GENERIC_CALC_ENA */
@@ -117,5 +121,7 @@ void slow_crc64jones_byte_base(void* const crc, const u8 data);
 
 #endif /* _MY_CRC64_ENA */
 
-
+#ifdef __cplusplus
+}
+#endif /* __cplusplus */
 #endif /* __CRC64_H__ */

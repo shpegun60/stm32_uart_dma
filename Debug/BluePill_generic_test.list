@@ -37,17 +37,17 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  16 .debug_rnglists 00001106  00000000  00000000  00047868  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_macro  0002068f  00000000  00000000  0004896e  2**0
+ 17 .debug_macro  00020797  00000000  00000000  0004896e  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_line   00026c98  00000000  00000000  00068ffd  2**0
+ 18 .debug_line   00026c86  00000000  00000000  00069105  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_str    0009df77  00000000  00000000  0008fc95  2**0
+ 19 .debug_str    0009df64  00000000  00000000  0008fd8b  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .comment      00000043  00000000  00000000  0012dc0c  2**0
+ 20 .comment      00000043  00000000  00000000  0012dcef  2**0
                   CONTENTS, READONLY
- 21 .debug_frame  00003f8c  00000000  00000000  0012dc50  2**2
+ 21 .debug_frame  00003f8c  00000000  00000000  0012dd34  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 22 .debug_line_str 0000006f  00000000  00000000  00131bdc  2**0
+ 22 .debug_line_str 0000006f  00000000  00000000  00131cc0  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -7475,7 +7475,7 @@ static void pingWorker(ringbuf_t* const data, const u8 id, ProtocolSender* const
  800358c:	4620      	mov	r0, r4
  800358e:	f000 fdcb 	bl	8004128 <poolContainer_getWriteBuffer>
  8003592:	4607      	mov	r7, r0
-bool rawP_dynamic_startTransmittPacket(RawParser_dynamic_t* const self, reg len);
+bool rawP_dynamic_startTransmittPacket(RawParser_dynamic_t* const self, u16 len);
 ringbuf_t* const rawP_dynamic_finishTransmittPacket(RawParser_dynamic_t* const self);
 
 STATIC_FORCEINLINE bool rawP_dynamic_install_txbuf(RawParser_dynamic_t* const self, void* const buffer)
@@ -8295,18 +8295,18 @@ struct Stm32Pin_O
  8003ade:	f504 74a2 	add.w	r4, r4, #324	@ 0x144
  8003ae2:	45a1      	cmp	r9, r4
  8003ae4:	d1d0      	bne.n	8003a88 <_ZN18Key_tps1htc30Group11getInstanceEv+0x3c>
+	struct Init {
 		ADC_HandleTypeDef* hadc;
 		float filter;
 	};
 
 public:
-	Stm32ADC_dma() = default;
  8003ae6:	2300      	movs	r3, #0
  8003ae8:	f8c5 3288 	str.w	r3, [r5, #648]	@ 0x288
  8003aec:	f885 328c 	strb.w	r3, [r5, #652]	@ 0x28c
  8003af0:	f8c5 3290 	str.w	r3, [r5, #656]	@ 0x290
  8003af4:	f885 3294 	strb.w	r3, [r5, #660]	@ 0x294
-#include <cstdint>
+#include "my_cpp_types.h"
 
 class FP_MovingAverageBase
 {
@@ -8679,10 +8679,10 @@ bool Key_tps1htc30Group::start()
  8003d94:	fb03 b305 	mla	r3, r3, r5, fp
  8003d98:	4423      	add	r3, r4
  8003d9a:	f893 3060 	ldrb.w	r3, [r3, #96]	@ 0x60
-	void allocArrays(const uint8_t n);
-	void proceed(uint16_t* const values);
+	bool init(const u8 n, const f32 alpha, const u8 Q);
+	void proceed(const u16* const values);
 
-	inline uint32_t getOut(const uint8_t n) const
+	inline u32 getOut(const u8 n) const
 	{
 		if(n < m_n) {
  8003d9e:	f89b 22b0 	ldrb.w	r2, [fp, #688]	@ 0x2b0
@@ -9753,9 +9753,9 @@ bool CallbackManager_proceed(const CallbackManager_t* const self, const u8 id, v
 
 // base init implementation ----------------------------
 //typedef void (*crc_init_func)(void* const crc);
-void crc16_t10_dif_init_base(void* const crc)
+void crc16_t10_dif_init_base(u16* const crc)
 {
-	*UINT16_TYPE_DC(crc) = CRC16INIT;
+	*crc = CRC16INIT;
  800434a:	2300      	movs	r3, #0
  800434c:	8003      	strh	r3, [r0, #0]
 }
@@ -9765,9 +9765,9 @@ void crc16_t10_dif_init_base(void* const crc)
 
 // base implementation ----------------------------
 //typedef void (*crc_array_func)(void* const crc, const u8* const data, const reg len);
-void fast_crc16_t10_dif_array_base(void* const crc, const u8* data, reg len)
+void fast_crc16_t10_dif_array_base(u16* const crc, const u8* data, reg len)
 {
-	u16 crc16 = *UINT16_TYPE_DC(crc);
+	u16 crc16 = *crc;
  8004350:	8803      	ldrh	r3, [r0, #0]
 	CRC16_FAST_ARRAY_PROCEED(crc16, data, len);
  8004352:	b18a      	cbz	r2, 8004378 <fast_crc16_t10_dif_array_base+0x28>
@@ -9785,12 +9785,12 @@ void fast_crc16_t10_dif_array_base(void* const crc, const u8* data, reg len)
  800436c:	4053      	eors	r3, r2
  800436e:	458c      	cmp	ip, r1
  8004370:	d1f4      	bne.n	800435c <fast_crc16_t10_dif_array_base+0xc>
-	*UINT16_TYPE_DC(crc) = crc16;
+	*crc = crc16;
  8004372:	8003      	strh	r3, [r0, #0]
 }
  8004374:	bc10      	pop	{r4}
  8004376:	4770      	bx	lr
-	*UINT16_TYPE_DC(crc) = crc16;
+	*crc = crc16;
  8004378:	8003      	strh	r3, [r0, #0]
  800437a:	4770      	bx	lr
  800437c:	08007d98 	.word	0x08007d98
@@ -9798,16 +9798,16 @@ void fast_crc16_t10_dif_array_base(void* const crc, const u8* data, reg len)
 08004380 <fast_crc16_t10_dif_byte_base>:
 
 //typedef void (*crc_byte_func)(void* const crc, const u8 data);
-void fast_crc16_t10_dif_byte_base(void* const crc, const u8 data)
+void fast_crc16_t10_dif_byte_base(u16* const crc, const u8 data)
 {
-	u16 crc16 = *UINT16_TYPE_DC(crc);
+	u16 crc16 = *crc;
  8004380:	8802      	ldrh	r2, [r0, #0]
 	crc16 = CRC16_FAST_BYTE_PROCEED(crc16, data);
  8004382:	ea81 2112 	eor.w	r1, r1, r2, lsr #8
  8004386:	4b03      	ldr	r3, [pc, #12]	@ (8004394 <fast_crc16_t10_dif_byte_base+0x14>)
  8004388:	f833 3011 	ldrh.w	r3, [r3, r1, lsl #1]
  800438c:	ea83 2302 	eor.w	r3, r3, r2, lsl #8
-	*UINT16_TYPE_DC(crc) = crc16;
+	*crc = crc16;
  8004390:	8003      	strh	r3, [r0, #0]
 }
  8004392:	4770      	bx	lr
@@ -9817,9 +9817,9 @@ void fast_crc16_t10_dif_byte_base(void* const crc, const u8 data)
 
 // base init implementation ----------------------------
 //typedef void (*crc_init_func)(void* const crc);
-void crc32b_init_base(void* const crc)
+void crc32b_init_base(u32* const crc)
 {
-	*UINT32_TYPE_DC(crc) = CRC32INIT;
+	*crc = CRC32INIT;
  8004398:	f04f 33ff 	mov.w	r3, #4294967295
  800439c:	6003      	str	r3, [r0, #0]
 }
@@ -9830,10 +9830,10 @@ void crc32b_init_base(void* const crc)
 
 // base implementation ----------------------------
 //typedef void (*crc_array_func)(void* const crc, const u8* const data, const reg len);
-void fast_crc32b_array_base(void* const crc, const u8* data, reg len)
+void fast_crc32b_array_base(u32* const crc, const u8* data, reg len)
 {
  80043a0:	b430      	push	{r4, r5}
-	u32 crc32 = *UINT32_TYPE_DC(crc);
+	u32 crc32 = *crc;
  80043a2:	6804      	ldr	r4, [r0, #0]
 	CRC32_FAST_ARRAY_PROCEED(crc32, data, len);
  80043a4:	b15a      	cbz	r2, 80043be <fast_crc32b_array_base+0x1e>
@@ -9846,7 +9846,7 @@ void fast_crc32b_array_base(void* const crc, const u8* data, reg len)
  80043b6:	ea83 2414 	eor.w	r4, r3, r4, lsr #8
  80043ba:	428a      	cmp	r2, r1
  80043bc:	d1f5      	bne.n	80043aa <fast_crc32b_array_base+0xa>
-	*UINT32_TYPE_DC(crc) = crc32;
+	*crc = crc32;
  80043be:	6004      	str	r4, [r0, #0]
 }
  80043c0:	bc30      	pop	{r4, r5}
@@ -9856,9 +9856,9 @@ void fast_crc32b_array_base(void* const crc, const u8* data, reg len)
 080043c8 <fast_crc32b_byte_base>:
 
 //typedef void (*crc_byte_func)(void* const crc, const u8 data);
-void fast_crc32b_byte_base(void* const crc, const u8 data)
+void fast_crc32b_byte_base(u32* const crc, const u8 data)
 {
-	u32 crc32 = *UINT32_TYPE_DC(crc);
+	u32 crc32 = *crc;
  80043c8:	6802      	ldr	r2, [r0, #0]
 	crc32 = CRC32_FAST_BYTE_PROCEED(crc32, data);
  80043ca:	4051      	eors	r1, r2
@@ -9866,7 +9866,7 @@ void fast_crc32b_byte_base(void* const crc, const u8 data)
  80043ce:	4b03      	ldr	r3, [pc, #12]	@ (80043dc <fast_crc32b_byte_base+0x14>)
  80043d0:	f853 3021 	ldr.w	r3, [r3, r1, lsl #2]
  80043d4:	ea83 2312 	eor.w	r3, r3, r2, lsr #8
-	*UINT32_TYPE_DC(crc) = crc32;
+	*crc = crc32;
  80043d8:	6003      	str	r3, [r0, #0]
 }
  80043da:	4770      	bx	lr
@@ -9876,9 +9876,9 @@ void fast_crc32b_byte_base(void* const crc, const u8 data)
 
 // base init implementation ----------------------------
 //typedef void (*crc_init_func)(void* const crc);
-void crc64jones_init_base(void* const crc)
+void crc64jones_init_base(u64* const crc)
 {
-	*UINT64_TYPE_DC(crc) = CRC64INIT;
+	*crc = CRC64INIT;
  80043e0:	2200      	movs	r2, #0
  80043e2:	2300      	movs	r3, #0
  80043e4:	e9c0 2300 	strd	r2, r3, [r0]
@@ -9891,10 +9891,10 @@ void crc64jones_init_base(void* const crc)
 
 // base implementation ----------------------------
 //typedef void (*crc_array_func)(void* const crc, const u8* const data, const reg len);
-void fast_crc64jones_array_base(void* const crc, const u8* data, reg len)
+void fast_crc64jones_array_base(u64* const crc, const u8* data, reg len)
 {
  80043ec:	b570      	push	{r4, r5, r6, lr}
-	u64 crc64 = *UINT64_TYPE_DC(crc);
+	u64 crc64 = *crc;
  80043ee:	6803      	ldr	r3, [r0, #0]
  80043f0:	6844      	ldr	r4, [r0, #4]
 	CRC64_FAST_ARRAY_PROCEED(crc64, data, len);
@@ -9914,7 +9914,7 @@ void fast_crc64jones_array_base(void* const crc, const u8* data, reg len)
  8004416:	ea82 2414 	eor.w	r4, r2, r4, lsr #8
  800441a:	458e      	cmp	lr, r1
  800441c:	d1ed      	bne.n	80043fa <fast_crc64jones_array_base+0xe>
-	*UINT64_TYPE_DC(crc) = crc64;
+	*crc = crc64;
  800441e:	6003      	str	r3, [r0, #0]
  8004420:	6044      	str	r4, [r0, #4]
 }
@@ -9924,10 +9924,10 @@ void fast_crc64jones_array_base(void* const crc, const u8* data, reg len)
 08004428 <fast_crc64jones_byte_base>:
 
 //typedef void (*crc_byte_func)(void* const crc, const u8 data);
-void fast_crc64jones_byte_base(void* const crc, const u8 data)
+void fast_crc64jones_byte_base(u64* const crc, const u8 data)
 {
  8004428:	b410      	push	{r4}
-	u64 crc64 = *UINT64_TYPE_DC(crc);
+	u64 crc64 = *crc;
  800442a:	6803      	ldr	r3, [r0, #0]
  800442c:	6844      	ldr	r4, [r0, #4]
 	crc64 = CRC64_FAST_BYTE_PROCEED(crc64, data);
@@ -9941,7 +9941,7 @@ void fast_crc64jones_byte_base(void* const crc, const u8 data)
  8004442:	ea43 6304 	orr.w	r3, r3, r4, lsl #24
  8004446:	4059      	eors	r1, r3
  8004448:	ea82 2214 	eor.w	r2, r2, r4, lsr #8
-	*UINT64_TYPE_DC(crc) = crc64;
+	*crc = crc64;
  800444c:	6001      	str	r1, [r0, #0]
  800444e:	6042      	str	r2, [r0, #4]
 }
@@ -10141,13 +10141,13 @@ crc_strategy_t* const createCRC(const crc_type type)
 	CRC_BASE_INIT(crc, sizeof(u16));
  8004526:	2102      	movs	r1, #2
  8004528:	f7ff ffb6 	bl	8004498 <crc_base_init>
-    crc->crc_init = _MY_CRC16_INIT_BASE;
+    crc->crc_init = (crc_init_func)_MY_CRC16_INIT_BASE;
  800452c:	4b19      	ldr	r3, [pc, #100]	@ (8004594 <createCRC+0xa8>)
  800452e:	60a3      	str	r3, [r4, #8]
-    crc->crc_array = _MY_CRC16_ARRAY_BASE;
+    crc->crc_array = (crc_array_func)_MY_CRC16_ARRAY_BASE;
  8004530:	4b19      	ldr	r3, [pc, #100]	@ (8004598 <createCRC+0xac>)
  8004532:	60e3      	str	r3, [r4, #12]
-    crc->crc_byte = _MY_CRC16_BYTE_BASE;
+    crc->crc_byte = (crc_byte_func)_MY_CRC16_BYTE_BASE;
  8004534:	4b19      	ldr	r3, [pc, #100]	@ (800459c <createCRC+0xb0>)
  8004536:	6123      	str	r3, [r4, #16]
     _MY_CRC16_INIT_BASE(crc->base.crc);
@@ -10162,13 +10162,13 @@ crc_strategy_t* const createCRC(const crc_type type)
 	CRC_BASE_INIT(crc, sizeof(u32));
  8004548:	2104      	movs	r1, #4
  800454a:	f7ff ffa5 	bl	8004498 <crc_base_init>
-    crc->crc_init = _MY_CRC32_INIT_BASE;
+    crc->crc_init = (crc_init_func)_MY_CRC32_INIT_BASE;
  800454e:	4b14      	ldr	r3, [pc, #80]	@ (80045a0 <createCRC+0xb4>)
  8004550:	60a3      	str	r3, [r4, #8]
-    crc->crc_array = _MY_CRC32_ARRAY_BASE;
+    crc->crc_array = (crc_array_func)_MY_CRC32_ARRAY_BASE;
  8004552:	4b14      	ldr	r3, [pc, #80]	@ (80045a4 <createCRC+0xb8>)
  8004554:	60e3      	str	r3, [r4, #12]
-    crc->crc_byte = _MY_CRC32_BYTE_BASE;
+    crc->crc_byte = (crc_byte_func)_MY_CRC32_BYTE_BASE;
  8004556:	4b14      	ldr	r3, [pc, #80]	@ (80045a8 <createCRC+0xbc>)
  8004558:	6123      	str	r3, [r4, #16]
     _MY_CRC32_INIT_BASE(crc->base.crc);
@@ -10183,13 +10183,13 @@ crc_strategy_t* const createCRC(const crc_type type)
 	CRC_BASE_INIT(crc, sizeof(u64));
  800456a:	2108      	movs	r1, #8
  800456c:	f7ff ff94 	bl	8004498 <crc_base_init>
-    crc->crc_init = _MY_CRC64_INIT_BASE;
+    crc->crc_init = (crc_init_func)_MY_CRC64_INIT_BASE;
  8004570:	4b0e      	ldr	r3, [pc, #56]	@ (80045ac <createCRC+0xc0>)
  8004572:	60a3      	str	r3, [r4, #8]
-    crc->crc_array = _MY_CRC64_ARRAY_BASE;
+    crc->crc_array = (crc_array_func)_MY_CRC64_ARRAY_BASE;
  8004574:	4b0e      	ldr	r3, [pc, #56]	@ (80045b0 <createCRC+0xc4>)
  8004576:	60e3      	str	r3, [r4, #12]
-    crc->crc_byte = _MY_CRC64_BYTE_BASE;
+    crc->crc_byte = (crc_byte_func)_MY_CRC64_BYTE_BASE;
  8004578:	4b0e      	ldr	r3, [pc, #56]	@ (80045b4 <createCRC+0xc8>)
  800457a:	6123      	str	r3, [r4, #16]
     _MY_CRC8_INIT_BASE(crc->base.crc);
@@ -10706,7 +10706,7 @@ STATIC_FORCEINLINE void rawp_stream_addByte(ringbuf_t* const ring, const u8 c, c
 	if(c == SB) {
  8004844:	45a0      	cmp	r8, r4
  8004846:	d018      	beq.n	800487a <rawP_dynamic_startTransmittPacket+0xa0>
-		const u8 arr [2] = {c, c};
+		const u8 arr [2] = {SB, SB};
 		ringbuf_put(ring, arr, sizeof(arr));
 	} else {
 		ringbuf_putc(ring, c);
@@ -10734,7 +10734,7 @@ STATIC_FORCEINLINE void rawp_stream_addByte(ringbuf_t* const ring, const u8 c, c
 	return true;
  8004876:	2001      	movs	r0, #1
  8004878:	e016      	b.n	80048a8 <rawP_dynamic_startTransmittPacket+0xce>
-		const u8 arr [2] = {c, c};
+		const u8 arr [2] = {SB, SB};
  800487a:	f88d 4004 	strb.w	r4, [sp, #4]
  800487e:	f88d 4005 	strb.w	r4, [sp, #5]
 		ringbuf_put(ring, arr, sizeof(arr));
@@ -10743,7 +10743,7 @@ STATIC_FORCEINLINE void rawp_stream_addByte(ringbuf_t* const ring, const u8 c, c
  8004886:	4638      	mov	r0, r7
  8004888:	f7ff fcdf 	bl	800424a <ringbuf_put>
  800488c:	e7e0      	b.n	8004850 <rawP_dynamic_startTransmittPacket+0x76>
-		const u8 arr [2] = {c, c};
+		const u8 arr [2] = {SB, SB};
  800488e:	f88d 5004 	strb.w	r5, [sp, #4]
  8004892:	f88d 5005 	strb.w	r5, [sp, #5]
 		ringbuf_put(ring, arr, sizeof(arr));
@@ -10847,7 +10847,7 @@ ringbuf_t* const rawP_dynamic_finishTransmittPacket(RawParser_dynamic_t* const s
  8004914:	4628      	mov	r0, r5
  8004916:	b002      	add	sp, #8
  8004918:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
-		const u8 arr [2] = {c, c};
+		const u8 arr [2] = {SB, SB};
  800491c:	f88d 1004 	strb.w	r1, [sp, #4]
  8004920:	f88d 1005 	strb.w	r1, [sp, #5]
 		ringbuf_put(ring, arr, sizeof(arr));
@@ -10911,7 +10911,7 @@ void rawp_stream_add_u8(RawParser_dynamic_t* const self, u8 c)
 }
  800496c:	b002      	add	sp, #8
  800496e:	bd70      	pop	{r4, r5, r6, pc}
-		const u8 arr [2] = {c, c};
+		const u8 arr [2] = {SB, SB};
  8004970:	f88d 5004 	strb.w	r5, [sp, #4]
  8004974:	f88d 5005 	strb.w	r5, [sp, #5]
 		ringbuf_put(ring, arr, sizeof(arr));
@@ -10961,7 +10961,7 @@ RAW_P_STREAM_INST(u16)
  80049c8:	66a5      	str	r5, [r4, #104]	@ 0x68
  80049ca:	b002      	add	sp, #8
  80049cc:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
-		const u8 arr [2] = {c, c};
+		const u8 arr [2] = {SB, SB};
  80049d0:	f88d 1000 	strb.w	r1, [sp]
  80049d4:	f88d 1001 	strb.w	r1, [sp, #1]
 		ringbuf_put(ring, arr, sizeof(arr));
@@ -10970,7 +10970,7 @@ RAW_P_STREAM_INST(u16)
  80049dc:	4630      	mov	r0, r6
  80049de:	f7ff fc34 	bl	800424a <ringbuf_put>
  80049e2:	e7e9      	b.n	80049b8 <rawp_stream_add_u16+0x36>
-		const u8 arr [2] = {c, c};
+		const u8 arr [2] = {SB, SB};
  80049e4:	f88d 1000 	strb.w	r1, [sp]
  80049e8:	f88d 1001 	strb.w	r1, [sp, #1]
 		ringbuf_put(ring, arr, sizeof(arr));
@@ -11007,7 +11007,7 @@ RAW_P_STREAM_INST(f64)
  8004a28:	f10d 070f 	add.w	r7, sp, #15
  8004a2c:	f04f 0a02 	mov.w	sl, #2
  8004a30:	e00a      	b.n	8004a48 <rawp_stream_add_f64+0x50>
-		const u8 arr [2] = {c, c};
+		const u8 arr [2] = {SB, SB};
  8004a32:	f88d 1004 	strb.w	r1, [sp, #4]
  8004a36:	f88d 1005 	strb.w	r1, [sp, #5]
 		ringbuf_put(ring, arr, sizeof(arr));
@@ -11070,49 +11070,49 @@ FP_MovingAverageArray::~FP_MovingAverageArray()
 
 08004a98 <_ZN21FP_MovingAverageArray11allocArraysEh>:
 
-void FP_MovingAverageArray::allocArrays(const uint8_t n)
+bool FP_MovingAverageArray::init(const u8 n, const f32 alpha, const u8 Q)
 {
  8004a98:	b570      	push	{r4, r5, r6, lr}
  8004a9a:	4604      	mov	r4, r0
  8004a9c:	460d      	mov	r5, r1
-	m_y_states = new uint32_t[n];
+	if(!FP_MovingAverageBase::init(alpha, Q)) {
  8004a9e:	008e      	lsls	r6, r1, #2
  8004aa0:	4630      	mov	r0, r6
  8004aa2:	f000 fb04 	bl	80050ae <_Znaj>
  8004aa6:	6120      	str	r0, [r4, #16]
-	m_y = new uint32_t[n];
+		return false;
  8004aa8:	4630      	mov	r0, r6
  8004aaa:	f000 fb00 	bl	80050ae <_Znaj>
  8004aae:	6160      	str	r0, [r4, #20]
-	m_n = n;
+	}
  8004ab0:	7625      	strb	r5, [r4, #24]
-}
+
  8004ab2:	bd70      	pop	{r4, r5, r6, pc}
 
 08004ab4 <_ZN21FP_MovingAverageArray7proceedEPt>:
-
-void FP_MovingAverageArray::proceed(uint16_t* const values)
-{
+	m_y_states = new u32[n];
+	m_y = new u32[n];
+	m_n = n;
  8004ab4:	b530      	push	{r4, r5, lr}
-	uint8_t n = m_n;
- 8004ab6:	7e04      	ldrb	r4, [r0, #24]
-	uint16_t* x_ptr = values;
-	uint32_t* y_ptr = m_y;
- 8004ab8:	6943      	ldr	r3, [r0, #20]
-	uint32_t* y_state_ptr = m_y_states;
- 8004aba:	6902      	ldr	r2, [r0, #16]
 
-	while(n) {
+ 8004ab6:	7e04      	ldrb	r4, [r0, #24]
+	return true;
+}
+ 8004ab8:	6943      	ldr	r3, [r0, #20]
+
+ 8004aba:	6902      	ldr	r2, [r0, #16]
+void FP_MovingAverageArray::proceed(const u16* const values)
+{
  8004abc:	b1dc      	cbz	r4, 8004af6 <_ZN21FP_MovingAverageArray7proceedEPt+0x42>
  8004abe:	f1a1 0c02 	sub.w	ip, r1, #2
  8004ac2:	1f19      	subs	r1, r3, #4
  8004ac4:	eb02 0484 	add.w	r4, r2, r4, lsl #2
-		baseProceed(*x_ptr, *y_ptr, *y_state_ptr);
+	for(u8 i = 0; i != m_n; ++i) {
  8004ac8:	f83c 3f02 	ldrh.w	r3, [ip, #2]!
-	bool init(const float alpha, const uint8_t Q);
+	bool init(const float alpha, const u8 Q);
 	bool inline setAlpha(const float alpha) {return init(alpha, m_Q);}
 
-	void inline baseProceed(const uint32_t x, uint32_t& last, uint32_t& last_shifted)
+	inline void proceed(const u32 x, u32& last, u32& last_shifted)
 	{
 		const int32_t val = (x - last) * m_alpha_scaled;
  8004acc:	f851 5f04 	ldr.w	r5, [r1, #4]!
@@ -11129,13 +11129,9 @@ void FP_MovingAverageArray::proceed(uint16_t* const values)
  8004ae8:	f890 e005 	ldrb.w	lr, [r0, #5]
  8004aec:	fa23 f30e 	lsr.w	r3, r3, lr
  8004af0:	600b      	str	r3, [r1, #0]
-	while(n) {
+{
  8004af2:	42a2      	cmp	r2, r4
  8004af4:	d1e8      	bne.n	8004ac8 <_ZN21FP_MovingAverageArray7proceedEPt+0x14>
-		++x_ptr;
-		++y_ptr;
-		++y_state_ptr;
-		--n;
 	}
 }
  8004af6:	bd30      	pop	{r4, r5, pc}
@@ -11145,7 +11141,7 @@ void FP_MovingAverageArray::proceed(uint16_t* const values)
 #include <cmath>
 
 
-bool FP_MovingAverageBase::init(const float alpha, const uint8_t Q)
+bool FP_MovingAverageBase::init(const float alpha, const u8 Q)
 {
  8004af8:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
  8004afa:	4605      	mov	r5, r0
@@ -11163,7 +11159,7 @@ bool FP_MovingAverageBase::init(const float alpha, const uint8_t Q)
  8004b06:	f100 4000 	add.w	r0, r0, #2147483648	@ 0x80000000
  8004b0a:	f7fc faa7 	bl	800105c <__aeabi_f2iz>
 
-	if((Q + N) > 32 || N < 0) {
+	if(N < 0 || static_cast<u32>(Q + N) > sizeof(u32)) {
  8004b0e:	1823      	adds	r3, r4, r0
  8004b10:	2b20      	cmp	r3, #32
  8004b12:	dc14      	bgt.n	8004b3e <_ZN20FP_MovingAverageBase4initEfh+0x46>
@@ -11182,7 +11178,7 @@ bool FP_MovingAverageBase::init(const float alpha, const uint8_t Q)
  8004b20:	71ab      	strb	r3, [r5, #6]
 	m_alpha = alpha;
  8004b22:	60ae      	str	r6, [r5, #8]
-	m_alpha_scaled = static_cast<uint32_t>(static_cast<float>(1 << Q) * alpha);
+	m_alpha_scaled = static_cast<u32>(static_cast<float>(1 << Q) * alpha);
  8004b24:	2701      	movs	r7, #1
  8004b26:	fa07 f004 	lsl.w	r0, r7, r4
  8004b2a:	f7fc f867 	bl	8000bfc <__aeabi_i2f>
@@ -11205,60 +11201,60 @@ bool FP_MovingAverageBase::init(const float alpha, const uint8_t Q)
 	delete[] adc_values;
 }
 
-bool Stm32ADC_dma::start()
+void Stm32ADC_dma::init(const Init& settings)
 {
-	if(n_channels) {
+	m_hadc = settings.hadc;
  8004b46:	7902      	ldrb	r2, [r0, #4]
  8004b48:	b90a      	cbnz	r2, 8004b4e <_ZN12Stm32ADC_dma5startEv+0x8>
-		HAL_ADC_Start_DMA(m_hadc, (uint32_t*)adc_values, n_channels);
-		return true;
-	}
+	n_channels = settings.hadc->Init.NbrOfConversion;
+	adc_values = new uint16_t[n_channels];
 
-	return false;
+	// push class to vector
+	m_objects.push_back(this);
  8004b4a:	2000      	movs	r0, #0
-}
+	// init filter
  8004b4c:	4770      	bx	lr
 {
  8004b4e:	b508      	push	{r3, lr}
-		HAL_ADC_Start_DMA(m_hadc, (uint32_t*)adc_values, n_channels);
+	n_channels = settings.hadc->Init.NbrOfConversion;
  8004b50:	6881      	ldr	r1, [r0, #8]
  8004b52:	6800      	ldr	r0, [r0, #0]
  8004b54:	f7fc ffa6 	bl	8001aa4 <HAL_ADC_Start_DMA>
-		return true;
+	adc_values = new uint16_t[n_channels];
  8004b58:	2001      	movs	r0, #1
-}
+	// init filter
  8004b5a:	bd08      	pop	{r3, pc}
 
 08004b5c <_ZN12Stm32ADC_dma4initERKNS_13Stm32ADC_initE>:
+	ma.init(n_channels, settings.filter, 16);
+}
 
-void Stm32ADC_dma::init(const Stm32ADC_init& settings)
-{
  8004b5c:	b570      	push	{r4, r5, r6, lr}
  8004b5e:	4604      	mov	r4, r0
  8004b60:	460d      	mov	r5, r1
-	m_hadc = settings.hadc;
+bool Stm32ADC_dma::start()
  8004b62:	680b      	ldr	r3, [r1, #0]
  8004b64:	6003      	str	r3, [r0, #0]
-	n_channels = settings.hadc->Init.NbrOfConversion;
+{
  8004b66:	6918      	ldr	r0, [r3, #16]
  8004b68:	7120      	strb	r0, [r4, #4]
-	adc_values = new uint16_t[n_channels];
+	if(n_channels) {
  8004b6a:	b2c0      	uxtb	r0, r0
  8004b6c:	0040      	lsls	r0, r0, #1
  8004b6e:	f000 fa9e 	bl	80050ae <_Znaj>
  8004b72:	60a0      	str	r0, [r4, #8]
-
-	Stm32ADC_dma::instance = this;
+		HAL_ADC_Start_DMA(m_hadc, (u32*)adc_values, n_channels);
+		return true;
  8004b74:	4b06      	ldr	r3, [pc, #24]	@ (8004b90 <_ZN12Stm32ADC_dma4initERKNS_13Stm32ADC_initE+0x34>)
  8004b76:	601c      	str	r4, [r3, #0]
+	}
 
-	ma.init(settings.filter, 16);
  8004b78:	f104 0610 	add.w	r6, r4, #16
  8004b7c:	2210      	movs	r2, #16
  8004b7e:	6869      	ldr	r1, [r5, #4]
  8004b80:	4630      	mov	r0, r6
  8004b82:	f7ff ffb9 	bl	8004af8 <_ZN20FP_MovingAverageBase4initEfh>
-	ma.allocArrays(n_channels);
+	return false;
  8004b86:	7921      	ldrb	r1, [r4, #4]
  8004b88:	4630      	mov	r0, r6
  8004b8a:	f7ff ff85 	bl	8004a98 <_ZN21FP_MovingAverageArray11allocArraysEh>
@@ -11268,54 +11264,54 @@ void Stm32ADC_dma::init(const Stm32ADC_init& settings)
 
 08004b94 <_ZN12Stm32ADC_dma7proceedEm>:
 
-bool Stm32ADC_dma::proceed(const uint32_t current_time)
-{
+
+bool Stm32ADC_dma::proceed(const u32 current_time)
  8004b94:	b538      	push	{r3, r4, r5, lr}
-	if(calculated) {
+{
  8004b96:	7b03      	ldrb	r3, [r0, #12]
  8004b98:	f003 05ff 	and.w	r5, r3, #255	@ 0xff
  8004b9c:	b90b      	cbnz	r3, 8004ba2 <_ZN12Stm32ADC_dma7proceedEm+0xe>
+		calculated = false;
 
 		return true;
 	}
 
 	return false;
-}
  8004b9e:	4628      	mov	r0, r5
  8004ba0:	bd38      	pop	{r3, r4, r5, pc}
  8004ba2:	4604      	mov	r4, r0
-		ma.proceed(adc_values);
+	if(calculated) {
  8004ba4:	6881      	ldr	r1, [r0, #8]
  8004ba6:	3010      	adds	r0, #16
  8004ba8:	f7ff ff84 	bl	8004ab4 <_ZN21FP_MovingAverageArray7proceedEPt>
-		calculated = false;
+//		HAL_ADC_Start_DMA(m_hadc, (uint32_t*)adc_values, n_channels);
  8004bac:	2300      	movs	r3, #0
  8004bae:	7323      	strb	r3, [r4, #12]
-		return true;
+
  8004bb0:	e7f5      	b.n	8004b9e <_ZN12Stm32ADC_dma7proceedEm+0xa>
 	...
 
 08004bb4 <HAL_ADC_ConvCpltCallback>:
-	inline uint32_t getAdc(int i) const {return ma.getOut(i);}
-	inline uint8_t getChannels() const { return n_channels; }
 
-	bool proceed(const uint32_t current_time);
-	static inline Stm32ADC_dma* const getObject(ADC_HandleTypeDef* const hadc) {
-		if(instance->m_hadc == hadc) {
+	inline void setFilter(const float filter) { ma.setAlpha(filter); }
+
+	// getting results -----------------------------------------------
+	inline u32 getAdc(const u8 i) const {return ma.getOut(i);}
+	inline u8 getChannels() const { return n_channels; }
  8004bb4:	4b03      	ldr	r3, [pc, #12]	@ (8004bc4 <HAL_ADC_ConvCpltCallback+0x10>)
  8004bb6:	681b      	ldr	r3, [r3, #0]
  8004bb8:	681a      	ldr	r2, [r3, #0]
  8004bba:	4282      	cmp	r2, r0
-	inline void calculateFinished() { calculated = true;}
+	~Stm32ADC_dma();
  8004bbc:	bf04      	itt	eq
  8004bbe:	2201      	moveq	r2, #1
  8004bc0:	731a      	strbeq	r2, [r3, #12]
+ * IT
+ * *********************************************************************************
+ */
+
+void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
 {
-	Stm32ADC_dma* const root = Stm32ADC_dma::getObject(hadc);
-	if(root) {
-		root->calculateFinished();
-	}
-}
  8004bc2:	4770      	bx	lr
  8004bc4:	20000350 	.word	0x20000350
 
@@ -12184,51 +12180,51 @@ status_t pushContainerUartInstance(stm32_DMA_uart_t* const inst)
  8005038:	20000364 	.word	0x20000364
 
 0800503c <HAL_UART_TxCpltCallback>:
+#if defined(HAL_DMA_MODULE_ENABLED) && (defined(HAL_UART_MODULE_ENABLED) || defined(HAL_USART_MODULE_ENABLED))
 
-
+#include "stm32_uart.h"
 
 // callbacks IT --------------------------------------------------------------------------------------------
 void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
-{
  800503c:	b508      	push	{r3, lr}
-	stm32_DMA_uart_t* const uart_instance = getContainerUartInstance(huart);
+{
  800503e:	f7ff ffe9 	bl	8005014 <getContainerUartInstance>
-	if(uart_instance) {
+	stm32_DMA_uart_t* const uart_instance = getContainerUartInstance(huart);
  8005042:	b108      	cbz	r0, 8005048 <HAL_UART_TxCpltCallback+0xc>
-		UART_TXCallback(uart_instance);
+	if(uart_instance) {
  8005044:	f7ff fecb 	bl	8004dde <UART_TXCallback>
+		UART_TXCallback(uart_instance);
 	}
-}
  8005048:	bd08      	pop	{r3, pc}
 
 0800504a <HAL_UART_RxCpltCallback>:
+}
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
-{
  800504a:	b508      	push	{r3, lr}
-	stm32_DMA_uart_t* const uart_instance = getContainerUartInstance(huart);
+{
  800504c:	f7ff ffe2 	bl	8005014 <getContainerUartInstance>
-	if(uart_instance) {
+	stm32_DMA_uart_t* const uart_instance = getContainerUartInstance(huart);
  8005050:	b108      	cbz	r0, 8005056 <HAL_UART_RxCpltCallback+0xc>
-		UART_RXCallback(uart_instance);
+	if(uart_instance) {
  8005052:	f7ff ff2f 	bl	8004eb4 <UART_RXCallback>
+		UART_RXCallback(uart_instance);
 	}
-}
  8005056:	bd08      	pop	{r3, pc}
 
 08005058 <HAL_UART_ErrorCallback>:
+}
 
 void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart)
-{
  8005058:	b508      	push	{r3, lr}
-	stm32_DMA_uart_t* const uart_instance = getContainerUartInstance(huart);
+{
  800505a:	f7ff ffdb 	bl	8005014 <getContainerUartInstance>
-	if(uart_instance) {
+	stm32_DMA_uart_t* const uart_instance = getContainerUartInstance(huart);
  800505e:	b108      	cbz	r0, 8005064 <HAL_UART_ErrorCallback+0xc>
-		UART_ErrorCallback(uart_instance);
+	if(uart_instance) {
  8005060:	f7ff fed0 	bl	8004e04 <UART_ErrorCallback>
+		UART_ErrorCallback(uart_instance);
 	}
-}
  8005064:	bd08      	pop	{r3, pc}
 
 08005066 <_ZdlPvj>:

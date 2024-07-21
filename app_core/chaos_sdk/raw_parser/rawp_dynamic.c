@@ -268,7 +268,7 @@ void rawP_dynamic_proceed(RawParser_dynamic_t* const self)
  *
  */
 // fast shield functions (no copy)-----------------------------------------------------------------------------------------
-bool rawP_dynamic_startTransmittPacket(RawParser_dynamic_t* const self, reg len)
+bool rawP_dynamic_startTransmittPacket(RawParser_dynamic_t* const self, u16 len)
 {
 	_INT_SWITCH(M_Assert_Break((self == NULL), M_EMPTY, return false, "No valid input"));
 

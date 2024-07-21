@@ -1,5 +1,9 @@
 #ifndef __CRC8_DALLAS_MAXIM_H__
 #define __CRC8_DALLAS_MAXIM_H__ 1
+#ifdef __cplusplus
+extern "C" {
+#endif /* __cplusplus */
+
 
 #include "my_crc_port.h"
 
@@ -97,4 +101,7 @@ void slow_crc8_maxim_byte_base(u8* const crc, const u8 data);
 #endif /* _MY_CRC8_ENA*/
 
 //---------------------------------------------------------------------
+#ifdef __cplusplus
+}
+#endif /* __cplusplus */
 #endif /* __CRC8_DALLAS_MAXIM_H__ */
