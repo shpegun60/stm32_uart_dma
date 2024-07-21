@@ -1,5 +1,8 @@
 #ifndef __CRC_16_T10_DIF_H__
 #define __CRC_16_T10_DIF_H__ 1
+#ifdef __cplusplus
+extern "C" {
+#endif /* __cplusplus */
 
 #include "my_crc_port.h"
 
@@ -51,7 +54,7 @@ Lookup Table:
 #define CRC16FINAL(crc) /* ignored expression */
 
 
-void crc16_t10_dif_init_base(void* const crc);
+void crc16_t10_dif_init_base(u16* const crc);
 
 #ifdef _MY_CRC16_TABLE_CALC_ENA
 
@@ -60,8 +63,8 @@ u16 fast_crc16_t10_dif_array(u8 * data, unsigned int len);
 u16 fast_crc16_t10_dif_byte(const u16 crc, const u8 data);
 
 // base implementation ----------------------------
-void fast_crc16_t10_dif_array_base(void* const crc, const u8* data, reg len);
-void fast_crc16_t10_dif_byte_base(void* const crc, const u8 data);
+void fast_crc16_t10_dif_array_base(u16* const crc, const u8* data, reg len);
+void fast_crc16_t10_dif_byte_base(u16* const crc, const u8 data);
 
 #endif /* _MY_CRC16_TABLE_CALC_ENA */
 
@@ -72,8 +75,8 @@ u16 slow_crc16_t10_dif_array(u8 * data, unsigned int len);
 u16 slow_crc16_t10_dif_byte(u16 crc, const u8 data);
 
 // base implementation ----------------------------
-void slow_crc16_t10_dif_array_base(void* const crc, const u8* data, reg len);
-void slow_crc16_t10_dif_byte_base(void* const crc, const u8 data);
+void slow_crc16_t10_dif_array_base(u16* const crc, const u8* data, reg len);
+void slow_crc16_t10_dif_byte_base(u16* const crc, const u8 data);
 
 
 // fastest implementation of crc16-------------------------------------------------------------------------------------
@@ -101,4 +104,7 @@ void slow_crc16_t10_dif_byte_base(void* const crc, const u8 data);
 
 
 //---------------------------------------------------------------------
+#ifdef __cplusplus
+}
+#endif /* __cplusplus */
 #endif /* __CRC_16_T10_DIF_H__ */

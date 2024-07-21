@@ -1,0 +1,10 @@
+../app_core/chaos_sdk/crc/crc64.c:13:6:crc64jones_init_base	0	static
+../app_core/chaos_sdk/crc/crc64.c:66:5:fast_crc64jones_array	20	static
+../app_core/chaos_sdk/crc/crc64.c:73:5:fast_crc64jones_byte	8	static
+../app_core/chaos_sdk/crc/crc64.c:80:6:fast_crc64jones_array_base	20	static
+../app_core/chaos_sdk/crc/crc64.c:88:6:fast_crc64jones_byte_base	12	static
+../app_core/chaos_sdk/crc/crc64.c:118:5:slow_crc64jones_array	20	static
+../app_core/chaos_sdk/crc/crc64.c:125:5:slow_crc64jones_byte	16	static
+../app_core/chaos_sdk/crc/crc64.c:133:6:slow_crc64jones_array_base	24	static
+../app_core/chaos_sdk/crc/crc64.c:141:6:slow_crc64jones_byte_base	20	static
+../app_core/chaos_sdk/crc/crc64.c:163:5:crc64_test	80	static

@@ -1,0 +1,5 @@
+../app_core/chaos_sdk/hash/sha-256.c:31:20:consume_chunk	184	static
+../app_core/chaos_sdk/hash/sha-256.c:115:6:sha_256_init	0	static
+../app_core/chaos_sdk/hash/sha-256.c:135:6:sha_256_write	32	static
+../app_core/chaos_sdk/hash/sha-256.c:168:5:sha_256_close	24	static
+../app_core/chaos_sdk/hash/sha-256.c:216:6:calc_sha_256	128	static

@@ -1,0 +1,3 @@
+../app_core/chaos_sdk/crc/crc_base.c:11:6:crc_base_init	1
+../app_core/chaos_sdk/crc/crc_base.c:17:19:crc_base_duplicate	2
+../app_core/chaos_sdk/crc/crc_base.c:31:6:crc_compleate	2

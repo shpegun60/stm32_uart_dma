@@ -1,4 +1,0 @@
-../app_core/RelayController.cpp:17:6:void RelayController::init_all()	64	static
-../app_core/RelayController.cpp:11:1:RelayController::RelayController()	16	static
-../app_core/RelayController.cpp:63:24:static RelayController* const RelayController::get_instance()	8	static
-../app_core/RelayController.cpp:69:6:void RelayController::proceed()	8	static

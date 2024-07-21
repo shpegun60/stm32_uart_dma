@@ -1,0 +1,2 @@
+../app_core/chaos_pp/crc/CrcCalculator.cpp:11:1:CrcCalculator::CrcCalculator(u8, crc_init_f, crc_array_f, crc_byte_f)	1
+../app_core/chaos_pp/crc/CrcCalculator.cpp:21:1:CrcCalculator::CrcCalculator(const CrcCalculator&)	1

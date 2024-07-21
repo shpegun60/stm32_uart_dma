@@ -1,0 +1,10 @@
+../app_core/chaos_sdk/crc/crc8.c:14:6:crc8_maxim_init_base	0	static
+../app_core/chaos_sdk/crc/crc8.c:50:4:fast_crc8_maxim_array	8	static
+../app_core/chaos_sdk/crc/crc8.c:57:4:fast_crc8_maxim_byte	0	static
+../app_core/chaos_sdk/crc/crc8.c:65:6:fast_crc8_maxim_array_base	12	static
+../app_core/chaos_sdk/crc/crc8.c:73:6:fast_crc8_maxim_byte_base	0	static
+../app_core/chaos_sdk/crc/crc8.c:99:4:slow_crc8_maxim_array	16	static
+../app_core/chaos_sdk/crc/crc8.c:106:4:slow_crc8_maxim_byte	0	static
+../app_core/chaos_sdk/crc/crc8.c:115:6:slow_crc8_maxim_array_base	20	static
+../app_core/chaos_sdk/crc/crc8.c:123:6:slow_crc8_maxim_byte_base	8	static
+../app_core/chaos_sdk/crc/crc8.c:149:5:crc8_test	40	static

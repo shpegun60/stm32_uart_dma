@@ -1,4 +1,0 @@
-../app_core/tools/math/FPMovingAverageArray.cpp:10:1:FP_MovingAverageArray::~FP_MovingAverageArray()	8	static
-../app_core/tools/math/FPMovingAverageArray.cpp:10:1:virtual FP_MovingAverageArray::~FP_MovingAverageArray()	8	static
-../app_core/tools/math/FPMovingAverageArray.cpp:17:6:void FP_MovingAverageArray::allocArrays(uint8_t)	16	static
-../app_core/tools/math/FPMovingAverageArray.cpp:24:6:void FP_MovingAverageArray::proceed(uint16_t*)	12	static

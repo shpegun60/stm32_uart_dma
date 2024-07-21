@@ -1,1 +1,1 @@
-../app_core/app_core.cpp:13:6:void app_main()	1
+../app_core/app_core.cpp:10:6:void app_core()	1

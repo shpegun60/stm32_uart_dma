@@ -12,9 +12,9 @@
 
 // base init implementation ----------------------------
 //typedef void (*crc_init_func)(void* const crc);
-void crc16_t10_dif_init_base(void* const crc)
+void crc16_t10_dif_init_base(u16* const crc)
 {
-	*UINT16_TYPE_DC(crc) = CRC16INIT;
+	*crc = CRC16INIT;
 }
 
 
@@ -64,19 +64,19 @@ u16 fast_crc16_t10_dif_byte(const u16 crc, const u8 data)
 
 // base implementation ----------------------------
 //typedef void (*crc_array_func)(void* const crc, const u8* const data, const reg len);
-void fast_crc16_t10_dif_array_base(void* const crc, const u8* data, reg len)
+void fast_crc16_t10_dif_array_base(u16* const crc, const u8* data, reg len)
 {
-	u16 crc16 = *UINT16_TYPE_DC(crc);
+	u16 crc16 = *crc;
 	CRC16_FAST_ARRAY_PROCEED(crc16, data, len);
-	*UINT16_TYPE_DC(crc) = crc16;
+	*crc = crc16;
 }
 
 //typedef void (*crc_byte_func)(void* const crc, const u8 data);
-void fast_crc16_t10_dif_byte_base(void* const crc, const u8 data)
+void fast_crc16_t10_dif_byte_base(u16* const crc, const u8 data)
 {
-	u16 crc16 = *UINT16_TYPE_DC(crc);
+	u16 crc16 = *crc;
 	crc16 = CRC16_FAST_BYTE_PROCEED(crc16, data);
-	*UINT16_TYPE_DC(crc) = crc16;
+	*crc = crc16;
 }
 
 
@@ -117,19 +117,19 @@ u16 slow_crc16_t10_dif_byte(u16 crc, const u8 data)
 
 // base implementation ----------------------------
 //typedef void (*crc_array_func)(void* const crc, const u8* const data, const reg len);
-void slow_crc16_t10_dif_array_base(void* const crc, const u8* data, reg len)
+void slow_crc16_t10_dif_array_base(u16* const crc, const u8* data, reg len)
 {
-	u16 crc16 = *UINT16_TYPE_DC(crc);
+	u16 crc16 = *crc;
 	CRC16_SLOW_ARRAY_PROCEED(crc16, data, len);
-	*UINT16_TYPE_DC(crc) = crc16;
+	*crc = crc16;
 }
 
 //typedef void (*crc_byte_func)(void* const crc, const u8 data);
-void slow_crc16_t10_dif_byte_base(void* const crc, const u8 data)
+void slow_crc16_t10_dif_byte_base(u16* const crc, const u8 data)
 {
-	u16 crc16 = *UINT16_TYPE_DC(crc);
+	u16 crc16 = *crc;
 	CRC16_SLOW_BYTE_PROCEED(crc16, data);
-	*UINT16_TYPE_DC(crc) = crc16;
+	*crc = crc16;
 }
 
 

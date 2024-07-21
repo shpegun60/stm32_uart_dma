@@ -1,5 +1,9 @@
 #ifndef __CRC8_DALLAS_MAXIM_H__
 #define __CRC8_DALLAS_MAXIM_H__ 1
+#ifdef __cplusplus
+extern "C" {
+#endif /* __cplusplus */
+
 
 #include "my_crc_port.h"
 
@@ -49,7 +53,7 @@ Lookup Table:
 #define CRC8CHECK ((u8)0xF7U)
 #define CRC8FINAL(crc) /* ignored expression */
 
-void crc8_maxim_init_base(void* const crc);
+void crc8_maxim_init_base(u8* const crc);
 
 #ifdef _MY_CRC8_TABLE_CALC_ENA
 
@@ -58,8 +62,8 @@ u8 fast_crc8_maxim_array(u8 * data, unsigned int len);
 u8 fast_crc8_maxim_byte(const u8 crc, const u8 data);
 
 // base implementation ----------------------------
-void fast_crc8_maxim_array_base(void* const crc, const u8* data, reg len);
-void fast_crc8_maxim_byte_base(void* const crc, const u8 data);
+void fast_crc8_maxim_array_base(u8* const crc, const u8* data, reg len);
+void fast_crc8_maxim_byte_base(u8* const crc, const u8 data);
 
 #endif /* _MY_CRC8_TABLE_CALC_ENA */
 
@@ -71,8 +75,8 @@ u8 slow_crc8_maxim_array(u8 * data, unsigned int len);
 u8 slow_crc8_maxim_byte(u8 crc, const u8 data);
 
 // base implementation ----------------------------
-void slow_crc8_maxim_array_base(void* const crc, const u8* data, reg len);
-void slow_crc8_maxim_byte_base(void* const crc, const u8 data);
+void slow_crc8_maxim_array_base(u8* const crc, const u8* data, reg len);
+void slow_crc8_maxim_byte_base(u8* const crc, const u8 data);
 
 #endif /* _MY_CRC8_GENERIC_CALC_ENA */
 
@@ -97,4 +101,7 @@ void slow_crc8_maxim_byte_base(void* const crc, const u8 data);
 #endif /* _MY_CRC8_ENA*/
 
 //---------------------------------------------------------------------
+#ifdef __cplusplus
+}
+#endif /* __cplusplus */
 #endif /* __CRC8_DALLAS_MAXIM_H__ */

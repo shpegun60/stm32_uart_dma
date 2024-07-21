@@ -1,5 +1,9 @@
 #ifndef __CRC_32_B_H__
 #define __CRC_32_B_H__ 1
+#ifdef __cplusplus
+extern "C" {
+#endif /* __cplusplus */
+
 
 #include "my_crc_port.h"
 
@@ -66,7 +70,7 @@ Lookup Table:
 #define CRC32CHECK ((u32)0xCBF43926UL)
 #define CRC32FINAL(crc) (crc) = (~crc)
 
-void crc32b_init_base(void* const crc);
+void crc32b_init_base(u32* const crc);
 
 #ifdef _MY_CRC32_TABLE_CALC_ENA
 
@@ -75,8 +79,8 @@ u32 fast_crc32b_array(const u8 * data, reg len);
 u32 fast_crc32b_byte(const u32 crc, const u8 data);
 
 // base implementation ----------------------------
-void fast_crc32b_array_base(void* const crc, const u8* data, reg len);
-void fast_crc32b_byte_base(void* const crc, const u8 data);
+void fast_crc32b_array_base(u32* const crc, const u8* data, reg len);
+void fast_crc32b_byte_base(u32* const crc, const u8 data);
 
 #endif /* _MY_CRC32_TABLE_CALC_ENA */
 
@@ -91,8 +95,8 @@ u32 slow_crc32b_byte(u32 crc, const u8 data);               //must ~crc if last 
 
 
 // base implementation ----------------------------
-void slow_crc32b_array_base(void* const crc, const u8* data, reg len);
-void slow_crc32b_byte_base(void* const crc, const u8 data);
+void slow_crc32b_array_base(u32* const crc, const u8* data, reg len);
+void slow_crc32b_byte_base(u32* const crc, const u8 data);
 
 #endif /*_MY_CRC32_GENERIC_CALC_ENA */
 
@@ -120,4 +124,7 @@ void slow_crc32b_byte_base(void* const crc, const u8 data);
 
 
 //---------------------------------------------------------------------
+#ifdef __cplusplus
+}
+#endif /* __cplusplus */
 #endif /* __CRC_32_B_H__ */

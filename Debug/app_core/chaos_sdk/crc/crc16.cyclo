@@ -1,0 +1,10 @@
+../app_core/chaos_sdk/crc/crc16.c:15:6:crc16_t10_dif_init_base	1
+../app_core/chaos_sdk/crc/crc16.c:53:5:fast_crc16_t10_dif_array	3
+../app_core/chaos_sdk/crc/crc16.c:60:5:fast_crc16_t10_dif_byte	1
+../app_core/chaos_sdk/crc/crc16.c:67:6:fast_crc16_t10_dif_array_base	3
+../app_core/chaos_sdk/crc/crc16.c:75:6:fast_crc16_t10_dif_byte_base	1
+../app_core/chaos_sdk/crc/crc16.c:105:5:slow_crc16_t10_dif_array	5
+../app_core/chaos_sdk/crc/crc16.c:112:5:slow_crc16_t10_dif_byte	3
+../app_core/chaos_sdk/crc/crc16.c:120:6:slow_crc16_t10_dif_array_base	5
+../app_core/chaos_sdk/crc/crc16.c:128:6:slow_crc16_t10_dif_byte_base	3
+../app_core/chaos_sdk/crc/crc16.c:145:5:crc16_test	4

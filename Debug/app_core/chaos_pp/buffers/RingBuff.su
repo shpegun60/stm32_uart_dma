@@ -1,0 +1,11 @@
+../app_core/chaos_pp/buffers/RingBuff.cpp:15:1:RingBuff::~RingBuff()	8	static
+../app_core/chaos_pp/buffers/RingBuff.cpp:15:1:virtual RingBuff::~RingBuff()	8	static
+../app_core/chaos_pp/buffers/RingBuff.cpp:24:6:bool RingBuff::init(void*, reg)	24	static
+../app_core/chaos_pp/buffers/RingBuff.cpp:41:6:bool RingBuff::installBuffer(void*)	0	static
+../app_core/chaos_pp/buffers/RingBuff.cpp:60:5:reg RingBuff::get(void*, reg)	40	static
+../app_core/chaos_pp/buffers/RingBuff.cpp:93:4:u8 RingBuff::getc()	0	static
+../app_core/chaos_pp/buffers/RingBuff.cpp:120:5:reg RingBuff::peek(void*, reg)	32	static
+../app_core/chaos_pp/buffers/RingBuff.cpp:151:4:u8 RingBuff::peekc()	0	static
+../app_core/chaos_pp/buffers/RingBuff.cpp:176:5:reg RingBuff::put(const void*, reg)	40	static
+../app_core/chaos_pp/buffers/RingBuff.cpp:211:6:bool RingBuff::putc(u8)	8	static
+../app_core/chaos_pp/buffers/RingBuff.cpp:235:6:static void RingBuff::crc_from(CrcCalculator&, const RingBuff&)	16	static

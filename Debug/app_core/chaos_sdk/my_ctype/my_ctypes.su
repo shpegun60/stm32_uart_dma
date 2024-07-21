@@ -1,0 +1,5 @@
+../app_core/chaos_sdk/my_ctype/my_ctypes.c:35:6:cTypeMemcpy	8	static
+../app_core/chaos_sdk/my_ctype/my_ctypes.c:41:6:cTypeRevcpy	8	static
+../app_core/chaos_sdk/my_ctype/my_ctypes.c:48:6:cTypePointerInit	8	static
+../app_core/chaos_sdk/my_ctype/my_ctypes.c:56:5:cTypeStrnCmp	12	static
+../app_core/chaos_sdk/my_ctype/my_ctypes.c:74:5:cTypeStrnRevCmp	8	static

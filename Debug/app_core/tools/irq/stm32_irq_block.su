@@ -1,2 +1,0 @@
-../app_core/tools/irq/stm32_irq_block.c:53:6:IRQ_UNLOCK	8	static,ignoring_inline_asm
-../app_core/tools/irq/stm32_irq_block.c:72:6:IRQ_LOCK	0	static,ignoring_inline_asm

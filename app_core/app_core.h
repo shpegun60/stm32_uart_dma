@@ -1,7 +1,7 @@
 /*
  * app_core.h
  *
- *  Created on: Jun 30, 2024
+ *  Created on: Jul 17, 2024
  *      Author: admin
  */
 
@@ -10,13 +10,13 @@
 
 #ifdef __cplusplus
 extern "C" {
-#endif
+#endif /* __cplusplus */
 
-void app_main(void);
+void app_core();
 
 #ifdef __cplusplus
 }
-#endif
+#endif /* __cplusplus */
 
 
 #endif /* APP_CORE_H_ */

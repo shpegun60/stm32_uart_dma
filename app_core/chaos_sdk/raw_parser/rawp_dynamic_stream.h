@@ -19,7 +19,7 @@ extern "C" {
 STATIC_FORCEINLINE void rawp_stream_addByte(ringbuf_t* const ring, const u8 c, const u8 SB)
 {
 	if(c == SB) {
-		const u8 arr [2] = {c, c};
+		const u8 arr [2] = {SB, SB};
 		ringbuf_put(ring, arr, sizeof(arr));
 	} else {
 		ringbuf_putc(ring, c);
@@ -37,6 +37,7 @@ void rawp_stream_add_i32(RawParser_dynamic_t* const self, const i32 c);
 void rawp_stream_add_i64(RawParser_dynamic_t* const self, const i64 c);
 void rawp_stream_add_f32(RawParser_dynamic_t* const self, const f32 c);
 void rawp_stream_add_f64(RawParser_dynamic_t* const self, const f64 c);
+
 
 #ifdef __cplusplus
 }

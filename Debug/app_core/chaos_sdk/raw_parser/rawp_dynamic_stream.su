@@ -1,0 +1,9 @@
+../app_core/chaos_sdk/raw_parser/rawp_dynamic_stream.c:14:6:rawp_stream_add_u8	24	static
+../app_core/chaos_sdk/raw_parser/rawp_dynamic_stream.c:53:1:rawp_stream_add_u16	32	static
+../app_core/chaos_sdk/raw_parser/rawp_dynamic_stream.c:54:1:rawp_stream_add_u32	40	static
+../app_core/chaos_sdk/raw_parser/rawp_dynamic_stream.c:55:1:rawp_stream_add_u64	48	static
+../app_core/chaos_sdk/raw_parser/rawp_dynamic_stream.c:56:1:rawp_stream_add_i16	32	static
+../app_core/chaos_sdk/raw_parser/rawp_dynamic_stream.c:57:1:rawp_stream_add_i32	40	static
+../app_core/chaos_sdk/raw_parser/rawp_dynamic_stream.c:58:1:rawp_stream_add_i64	48	static
+../app_core/chaos_sdk/raw_parser/rawp_dynamic_stream.c:59:1:rawp_stream_add_f32	40	static
+../app_core/chaos_sdk/raw_parser/rawp_dynamic_stream.c:60:1:rawp_stream_add_f64	48	static

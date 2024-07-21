@@ -1,0 +1,5 @@
+../app_core/chaos_sdk/callback_manager/callback_manager.c:22:6:CallbackManager_init	3
+../app_core/chaos_sdk/callback_manager/callback_manager.c:10:26:CallbackManager_new	3
+../app_core/chaos_sdk/callback_manager/callback_manager.c:35:6:CallbackManager_delete	3
+../app_core/chaos_sdk/callback_manager/callback_manager.c:44:6:CallbackManager_subscribe	1
+../app_core/chaos_sdk/callback_manager/callback_manager.c:53:6:CallbackManager_proceed	3

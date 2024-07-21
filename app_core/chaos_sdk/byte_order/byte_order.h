@@ -6,7 +6,7 @@
 #include "preprocessor/preprocessor_concatenation.h"
 
 #ifndef BYTE_ORDER_TEST_DISABLE
-//#	define BYTE_ORDER_TEST_DISABLE
+#	define BYTE_ORDER_TEST_DISABLE
 #endif /* BYTE_ORDER_TEST_DISABLE */
 
 

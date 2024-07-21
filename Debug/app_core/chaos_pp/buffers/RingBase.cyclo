@@ -1,0 +1,4 @@
+../app_core/chaos_pp/buffers/RingBase.h:18:10:RingBase::~RingBase()	1
+../app_core/chaos_pp/buffers/RingBase.h:18:10:virtual RingBase::~RingBase()	1
+../app_core/chaos_pp/buffers/RingBase.cpp:17:6:bool RingBase::init(reg)	3
+../app_core/chaos_pp/buffers/RingBase.cpp:11:1:RingBase::RingBase(reg)	1

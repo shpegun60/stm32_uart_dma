@@ -1,5 +1,0 @@
-../app_core/tools/adc/Stm32ADCdma.cpp:21:6:bool Stm32ADC_dma::start()	2
-../app_core/tools/adc/Stm32ADCdma.cpp:31:6:void Stm32ADC_dma::init(const Stm32ADC_init&)	1
-../app_core/tools/adc/Stm32ADCdma.cpp:43:6:bool Stm32ADC_dma::proceed(uint32_t)	2
-../app_core/tools/adc/Stm32ADCdma.cpp:61:6:void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef*)	2
-../app_core/tools/adc/Stm32ADCdma.cpp:15:1:Stm32ADC_dma::~Stm32ADC_dma()	2

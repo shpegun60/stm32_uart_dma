@@ -1,0 +1,14 @@
+../app_core/stm32_tools/uart/stm32_uart.c:112:6:UART_delete	2
+../app_core/stm32_tools/uart/stm32_uart.c:127:10:UART_GetBaudRate	1
+../app_core/stm32_tools/uart/stm32_uart.c:175:10:UART_SendBuffer_callback	4
+../app_core/stm32_tools/uart/stm32_uart.c:204:10:UART_SendBuffer	4
+../app_core/stm32_tools/uart/stm32_uart.c:231:10:UART_SetTxcallback	2
+../app_core/stm32_tools/uart/stm32_uart.c:265:6:UART_SetErrorCallback	1
+../app_core/stm32_tools/uart/stm32_uart.c:323:6:UART_TXCallback	2
+../app_core/stm32_tools/uart/stm32_uart.c:336:6:UART_ErrorCallback	12
+../app_core/stm32_tools/uart/stm32_uart.c:290:6:UART_RXCallback	5
+../app_core/stm32_tools/uart/stm32_uart.c:244:6:UART_SetRxCallback	2
+../app_core/stm32_tools/uart/stm32_uart.c:56:10:UART_Init	7
+../app_core/stm32_tools/uart/stm32_uart.c:97:25:UART_new	3
+../app_core/stm32_tools/uart/stm32_uart.c:132:10:UART_SetBaudRate	2
+../app_core/stm32_tools/uart/stm32_uart.c:277:6:USER_UART_IRQHandler	2
