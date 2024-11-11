@@ -1,11 +1,11 @@
-../app_core/bc_power.cpp:86:6:static void BC_Power::uart_tx_callback(status_t, PoolContainer*)	2
+../app_core/bc_power.cpp:87:6:static void BC_Power::uart_tx_callback(status_t, PoolContainer*)	2
 C:\ST\STM32CubeIDE_1.15.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\arm-none-eabi\include\c++\12.3.1\bits\std_function.h:267:7:), _Functor>::_M_manager(std::_Any_data&, const std::_Any_data&, std::_Manager_operation) [with _Res = void; _Functor = BC_Power::BC_Power()::<lambda(RingBuff&, u8)>; _ArgTypes = {RingBuff&, unsigned char}]	4
 C:/Users/admin/Documents/Work/STM32/Target/BC_Power_PWM/app_core/chaos_pp/buffers/PoolContainer.h:21:2:virtual PoolContainer::~PoolContainer()	5
 C:\ST\STM32CubeIDE_1.15.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\arm-none-eabi\include\c++\12.3.1\bits\std_function.h:288:7:) [with _Res = void; _Functor = BC_Power::BC_Power()::<lambda(RingBuff&, u8)>; _ArgTypes = {RingBuff&, unsigned char}]	2
-../app_core/bc_power.cpp:93:6:static void BC_Power::uart_rx_callback(u8*, u32, RawParserDynamic*)	1
+../app_core/bc_power.cpp:94:6:static void BC_Power::uart_rx_callback(u8*, u32, RawParserDynamic*)	1
 C:/Users/admin/Documents/Work/STM32/Target/BC_Power_PWM/app_core/chaos_pp/buffers/PoolContainer.h:21:2:PoolContainer::~PoolContainer()	5
-../app_core/bc_power.cpp:66:18:void __tcf_0()	5
-../app_core/bc_power.cpp:70:6:void BC_Power::loop()	3
-../app_core/bc_power.cpp:100:6:void BC_Power::init_hw()	1
+../app_core/bc_power.cpp:67:18:void __tcf_0()	5
+../app_core/bc_power.cpp:71:6:void BC_Power::loop()	3
+../app_core/bc_power.cpp:101:6:void BC_Power::init_hw()	1
 ../app_core/bc_power.cpp:13:1:BC_Power::BC_Power()	2
-../app_core/bc_power.cpp:64:11:static BC_Power& BC_Power::instance()	2
+../app_core/bc_power.cpp:65:11:static BC_Power& BC_Power::instance()	2

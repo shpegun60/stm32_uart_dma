@@ -36,23 +36,24 @@ BC_Power::BC_Power()
 
 	m_parser.init(rawp_init);
 	m_parser.subscribe(0x01, [&](RingBuff& data, const u8 id) {
-		u8 b;
 		u8 c;
 		//u8 d = data.get<u8>();
-		data >> b >> c;
+		//data >> b >> c;
 //		m_parser >> b >> c;
 
+		//data.put<u8>(12345);
+
 		if(!m_txPool.isFull()) {
-			txPoolElem* const elem = static_cast<txPoolElem*>(m_txPool.getWriteBuffer());
-			m_parser.writeTo(elem->data);
+//			txPoolElem* const elem = static_cast<txPoolElem*>(m_txPool.getWriteBuffer());
+//			m_parser.writeTo(elem->data);
 
 			m_parser.newPack(10);
 			m_parser.addTx(id);
 			//m_parser << id;
 			RingBuff& tx_data = m_parser.endPack();
 
-			elem->size = tx_data.getHead();
-			m_txPool.nextWritePos();
+//			elem->size = tx_data.getHead();
+//			m_txPool.nextWritePos();
 		}
 	});
 
